@@ -1,0 +1,1920 @@
+1
+00:00:00,560 --> 00:00:03,259
+so I was interested to find out how the
+
+2
+00:00:03,259 --> 00:00:06,240
+sha-256 hash function worked so I
+
+3
+00:00:06,240 --> 00:00:09,389
+created this little script that animates
+
+4
+00:00:09,389 --> 00:00:12,780
+the hashing of data so that I could see
+
+5
+00:00:12,780 --> 00:00:15,870
+how it works so this script here is just
+
+6
+00:00:15,870 --> 00:00:19,470
+hashing the string ABC yes hashing away
+
+7
+00:00:19,470 --> 00:00:22,320
+in the background so what I want to do
+
+8
+00:00:22,320 --> 00:00:26,430
+in this video is give a step by step
+
+9
+00:00:26,430 --> 00:00:30,210
+explanation of how the sha-256 hash
+
+10
+00:00:30,210 --> 00:00:32,820
+function works and I'm gonna start with
+
+11
+00:00:32,820 --> 00:00:36,210
+the basics and then build upon them so
+
+12
+00:00:36,210 --> 00:00:39,390
+that we end up making our way to this
+
+13
+00:00:39,390 --> 00:00:42,930
+overall hash function mechanism and then
+
+14
+00:00:42,930 --> 00:00:46,289
+we'll understand how sha-256 works so
+
+15
+00:00:46,289 --> 00:00:48,120
+bear with me I'll just gonna start with
+
+16
+00:00:48,120 --> 00:00:50,550
+the basic basics and the first of all
+
+17
+00:00:50,550 --> 00:00:51,660
+what does the hash function well the
+
+18
+00:00:51,660 --> 00:00:53,160
+hash function just takes in some data
+
+19
+00:00:53,160 --> 00:00:56,430
+and it gives you like a unique shorter
+
+20
+00:00:56,430 --> 00:00:59,609
+summary or fingerprint of that data it's
+
+21
+00:00:59,609 --> 00:01:00,989
+all it does it's or scrambles it and
+
+22
+00:01:00,989 --> 00:01:04,019
+gives you a shorter digest for that data
+
+23
+00:01:04,019 --> 00:01:06,299
+so if I make a tiny change to that data
+
+24
+00:01:06,299 --> 00:01:08,040
+you get two completely different results
+
+25
+00:01:08,040 --> 00:01:10,229
+so I have a piece of data in the world
+
+26
+00:01:10,229 --> 00:01:15,720
+has its own unique hash digest so you
+
+27
+00:01:15,720 --> 00:01:16,650
+can do this for Strings
+
+28
+00:01:16,650 --> 00:01:19,439
+or you can do this with files so I've
+
+29
+00:01:19,439 --> 00:01:22,979
+got this file here saying well I'm
+
+30
+00:01:22,979 --> 00:01:25,200
+saying hello there so save that and if I
+
+31
+00:01:25,200 --> 00:01:28,009
+take the char 256 some of that file
+
+32
+00:01:28,009 --> 00:01:32,720
+there it is if I make a small edit edit
+
+33
+00:01:32,720 --> 00:01:36,390
+correctly let's do it again I've got a
+
+34
+00:01:36,390 --> 00:01:39,090
+completely different result which is
+
+35
+00:01:39,090 --> 00:01:41,009
+cool so this allows me to check when a
+
+36
+00:01:41,009 --> 00:01:46,079
+file has changed but the way well that's
+
+37
+00:01:46,079 --> 00:01:48,180
+I use hash functions we're in Bitcoin
+
+38
+00:01:48,180 --> 00:01:50,549
+and the fact that and you can hash
+
+39
+00:01:50,549 --> 00:01:52,380
+something some data and I make a tiny
+
+40
+00:01:52,380 --> 00:01:54,600
+adjustment and it produces some wildly
+
+41
+00:01:54,600 --> 00:01:56,850
+different results makes up a part of
+
+42
+00:01:56,850 --> 00:01:59,430
+mining what's important to note as well
+
+43
+00:01:59,430 --> 00:02:01,049
+is that you can't control really what
+
+44
+00:02:01,049 --> 00:02:02,460
+comes out to this hash function it
+
+45
+00:02:02,460 --> 00:02:03,780
+scrambles data in a way that you can't
+
+46
+00:02:03,780 --> 00:02:04,860
+really predict what the result is gonna
+
+47
+00:02:04,860 --> 00:02:06,450
+be all you can do is hash it and see
+
+48
+00:02:06,450 --> 00:02:09,330
+what it is so if I wanted this to start
+
+49
+00:02:09,330 --> 00:02:10,220
+with
+
+50
+00:02:10,220 --> 00:02:13,580
+you know Tenet's um I can't do that
+
+51
+00:02:13,580 --> 00:02:15,050
+all I have to do is just keep trying
+
+52
+00:02:15,050 --> 00:02:17,210
+different pizza pieces of data and
+
+53
+00:02:17,210 --> 00:02:18,650
+hopefully I'll find one that starts with
+
+54
+00:02:18,650 --> 00:02:20,990
+ten A's so this is how a mining
+
+55
+00:02:20,990 --> 00:02:21,740
+basically works
+
+56
+00:02:21,740 --> 00:02:25,250
+so what miner will do if you've ever
+
+57
+00:02:25,250 --> 00:02:29,180
+been interested in Bitcoin is they want
+
+58
+00:02:29,180 --> 00:02:31,130
+to add blocks of transactions onto the
+
+59
+00:02:31,130 --> 00:02:32,960
+blockchain but they need to work to be
+
+60
+00:02:32,960 --> 00:02:35,750
+able to do this so what they do they'll
+
+61
+00:02:35,750 --> 00:02:37,550
+start by getting some transactions from
+
+62
+00:02:37,550 --> 00:02:38,810
+the memory pool which is like a waiting
+
+63
+00:02:38,810 --> 00:02:40,490
+area of the latest transactions on the
+
+64
+00:02:40,490 --> 00:02:43,280
+network the orcish bring these together
+
+65
+00:02:43,280 --> 00:02:45,620
+into a site into a block and for that
+
+66
+00:02:45,620 --> 00:02:47,480
+block they'll construct a block header
+
+67
+00:02:47,480 --> 00:02:49,730
+which basically summarizes all the data
+
+68
+00:02:49,730 --> 00:02:52,010
+inside the block and it's this block
+
+69
+00:02:52,010 --> 00:02:55,550
+header let's rehash so this is the data
+
+70
+00:02:55,550 --> 00:02:56,870
+that we're gonna put into the hash
+
+71
+00:02:56,870 --> 00:02:58,700
+function but there's no bit of space
+
+72
+00:02:58,700 --> 00:03:01,550
+here for the nonce which is short for a
+
+73
+00:03:01,550 --> 00:03:03,980
+number used once and so what I'm gonna
+
+74
+00:03:03,980 --> 00:03:08,150
+do we're going to increment that along
+
+75
+00:03:08,150 --> 00:03:10,160
+with the rest the block header and
+
+76
+00:03:10,160 --> 00:03:12,760
+continue hashing it over and over again
+
+77
+00:03:12,760 --> 00:03:14,989
+because the goal is we want to get a
+
+78
+00:03:14,989 --> 00:03:17,150
+hash result the starts with a certain
+
+79
+00:03:17,150 --> 00:03:19,459
+number of zeros always below a certain
+
+80
+00:03:19,459 --> 00:03:23,570
+value basically so if I take that back
+
+81
+00:03:23,570 --> 00:03:25,280
+header and keep changing this non-spell
+
+82
+00:03:25,280 --> 00:03:27,380
+you as you can see here again lots of
+
+83
+00:03:27,380 --> 00:03:29,930
+different hash results so this is a
+
+84
+00:03:29,930 --> 00:03:32,150
+miner basically trying to mine a block
+
+85
+00:03:32,150 --> 00:03:34,850
+and what they'll do they'll be doing
+
+86
+00:03:34,850 --> 00:03:36,860
+this as fast as possible to try and get
+
+87
+00:03:36,860 --> 00:03:40,250
+one hash digest or result that is starts
+
+88
+00:03:40,250 --> 00:03:42,800
+with the number of zeros that was in the
+
+89
+00:03:42,800 --> 00:03:46,580
+target this lofty take quite a while for
+
+90
+00:03:46,580 --> 00:03:48,709
+to finish this is running very slowly
+
+91
+00:03:48,709 --> 00:03:51,980
+but luckily this is a block there's been
+
+92
+00:03:51,980 --> 00:03:53,840
+mined before so I know what the the
+
+93
+00:03:53,840 --> 00:03:56,900
+nonce value is that works and so if I
+
+94
+00:03:56,900 --> 00:03:58,370
+could run it again but start the nonce a
+
+95
+00:03:58,370 --> 00:04:00,739
+bit higher up and you'll see that this
+
+96
+00:04:00,739 --> 00:04:03,590
+nonce value here purely randomly
+
+97
+00:04:03,590 --> 00:04:06,080
+produces a hash digest that starts with
+
+98
+00:04:06,080 --> 00:04:07,940
+this many zeros which is below the
+
+99
+00:04:07,940 --> 00:04:11,060
+target and so this block has been mined
+
+100
+00:04:11,060 --> 00:04:13,380
+and can be added on to the blockchain
+
+101
+00:04:13,380 --> 00:04:17,220
+the miners you know you can't force this
+
+102
+00:04:17,220 --> 00:04:19,380
+to happen all you can do is just take
+
+103
+00:04:19,380 --> 00:04:22,380
+that block header for your block and how
+
+104
+00:04:22,380 --> 00:04:23,010
+fast
+
+105
+00:04:23,010 --> 00:04:25,110
+Hacha as fast as possible to try and
+
+106
+00:04:25,110 --> 00:04:27,510
+find a nonce and that's lucky enough to
+
+107
+00:04:27,510 --> 00:04:29,460
+give you a result that's below the
+
+108
+00:04:29,460 --> 00:04:31,950
+target so this creates like a
+
+109
+00:04:31,950 --> 00:04:35,640
+network-wide competition that no one can
+
+110
+00:04:35,640 --> 00:04:38,670
+force or take control of and it protects
+
+111
+00:04:38,670 --> 00:04:40,110
+the transactions they're already in the
+
+112
+00:04:40,110 --> 00:04:43,890
+blockchain but us on the side my care
+
+113
+00:04:43,890 --> 00:04:46,260
+about today is how this hash function
+
+114
+00:04:46,260 --> 00:04:50,850
+works how do I get from my name Greg or
+
+115
+00:04:50,850 --> 00:04:57,360
+the string ABC ABC how do I end up with
+
+116
+00:04:57,360 --> 00:04:59,280
+this result from ABC and that's going to
+
+117
+00:04:59,280 --> 00:05:01,860
+show you now so sorry for the lengthy
+
+118
+00:05:01,860 --> 00:05:03,750
+introduction but hopefully was
+
+119
+00:05:03,750 --> 00:05:06,630
+interesting first of all I'll start with
+
+120
+00:05:06,630 --> 00:05:09,420
+the real basics of some operations that
+
+121
+00:05:09,420 --> 00:05:12,960
+char 256 users so the first one is
+
+122
+00:05:12,960 --> 00:05:16,470
+called a shift right so char 256 works
+
+123
+00:05:16,470 --> 00:05:19,230
+on bits ones and zeros all data can we
+
+124
+00:05:19,230 --> 00:05:22,530
+move represented in bits and it operates
+
+125
+00:05:22,530 --> 00:05:26,400
+on chunks of 32 bits which we refer to
+
+126
+00:05:26,400 --> 00:05:30,210
+as a word started a word they just say
+
+127
+00:05:30,210 --> 00:05:33,630
+two bits so a shift right it shifts the
+
+128
+00:05:33,630 --> 00:05:36,360
+bits over a number of positions so
+
+129
+00:05:36,360 --> 00:05:38,960
+that's a 32 right a 32 bit shift here
+
+130
+00:05:38,960 --> 00:05:42,840
+but you just shift shift shift bits to
+
+131
+00:05:42,840 --> 00:05:47,070
+the right next of all we have a right
+
+132
+00:05:47,070 --> 00:05:49,950
+rotation or rotation right which is very
+
+133
+00:05:49,950 --> 00:05:52,500
+similar to a right shift but instead of
+
+134
+00:05:52,500 --> 00:05:53,880
+a shift in the bits off and then never
+
+135
+00:05:53,880 --> 00:05:55,620
+come back again it moves them over onto
+
+136
+00:05:55,620 --> 00:05:57,450
+the left-hand side to create this
+
+137
+00:05:57,450 --> 00:06:00,480
+rotational bitwise operation or a
+
+138
+00:06:00,480 --> 00:06:01,650
+circular
+
+139
+00:06:01,650 --> 00:06:04,100
+right shift
+
+140
+00:06:04,910 --> 00:06:07,910
+next we have this operation called
+
+141
+00:06:07,910 --> 00:06:16,620
+exclusive-or which basically it produces
+
+142
+00:06:16,620 --> 00:06:19,110
+a one if one of the two bits you've been
+
+143
+00:06:19,110 --> 00:06:23,220
+put into it ro ro 1 is a 1 there's only
+
+144
+00:06:23,220 --> 00:06:26,160
+one one let me just show you 2 lot 0 so
+
+145
+00:06:26,160 --> 00:06:28,530
+there that's our 1 then both of these
+
+146
+00:06:28,530 --> 00:06:31,140
+over 1 so he only wants one one
+
+147
+00:06:31,140 --> 00:06:34,260
+exclusive or so that's a zero but again
+
+148
+00:06:34,260 --> 00:06:39,750
+just one one yeah one so what this means
+
+149
+00:06:39,750 --> 00:06:43,110
+is that for multiple bits you can sort
+
+150
+00:06:43,110 --> 00:06:45,330
+of merge them together to get a fair
+
+151
+00:06:45,330 --> 00:06:46,650
+representation or balanced
+
+152
+00:06:46,650 --> 00:06:48,330
+representation of all the bits that
+
+153
+00:06:48,330 --> 00:06:52,230
+you're putting in so here for example
+
+154
+00:06:52,230 --> 00:06:57,080
+and I'm doing multiple XOR operations on
+
+155
+00:06:57,080 --> 00:07:00,030
+three bits so the first two zero and
+
+156
+00:07:00,030 --> 00:07:02,250
+zero that's a zero cuz only expects one
+
+157
+00:07:02,250 --> 00:07:06,210
+to be 1 and then 0 and 1 is a 1 so we
+
+158
+00:07:06,210 --> 00:07:09,030
+end up with a one like so so may be
+
+159
+00:07:09,030 --> 00:07:10,860
+easier if I just show you we have an
+
+160
+00:07:10,860 --> 00:07:14,640
+animation so this is X or in different
+
+161
+00:07:14,640 --> 00:07:17,190
+combinations of bits and showing you the
+
+162
+00:07:17,190 --> 00:07:20,400
+result so like I said it gives you a
+
+163
+00:07:20,400 --> 00:07:22,650
+balanced represent balanced
+
+164
+00:07:22,650 --> 00:07:27,080
+representation of three input input bits
+
+165
+00:07:27,080 --> 00:07:29,730
+for any 3 given bits half a time you
+
+166
+00:07:29,730 --> 00:07:30,870
+only get one half the time you're gonna
+
+167
+00:07:30,870 --> 00:07:34,610
+get at 0 I hope that makes some sense
+
+168
+00:07:34,610 --> 00:07:37,740
+lastly we have one called well just
+
+169
+00:07:37,740 --> 00:07:39,630
+normal addition so insert integer
+
+170
+00:07:39,630 --> 00:07:44,550
+integer addition so this these are just
+
+171
+00:07:44,550 --> 00:07:46,530
+numbers represented in binary we add
+
+172
+00:07:46,530 --> 00:07:48,930
+them together and ask just addition so
+
+173
+00:07:48,930 --> 00:07:50,940
+it's like adding you know any two normal
+
+174
+00:07:50,940 --> 00:07:52,650
+integers together but we're representing
+
+175
+00:07:52,650 --> 00:07:55,670
+it in binary one thing to note though is
+
+176
+00:07:55,670 --> 00:07:59,400
+after adding doing it addition we take
+
+177
+00:07:59,400 --> 00:08:03,360
+it modulus to 232 so basically that sort
+
+178
+00:08:03,360 --> 00:08:05,520
+constrains the result to be in within a
+
+179
+00:08:05,520 --> 00:08:06,420
+32-bit word
+
+180
+00:08:06,420 --> 00:08:09,120
+so if we add multiple words together and
+
+181
+00:08:09,120 --> 00:08:11,700
+the result is greater than 32 bits this
+
+182
+00:08:11,700 --> 00:08:15,220
+mod 2 2 3 2 keeps it within
+
+183
+00:08:15,220 --> 00:08:19,360
+to emit range so these are the building
+
+184
+00:08:19,360 --> 00:08:22,900
+blocks of the sha-256 hash function if
+
+185
+00:08:22,900 --> 00:08:25,480
+you understand these then the rest isn't
+
+186
+00:08:25,480 --> 00:08:32,890
+so hard now using those rotational
+
+187
+00:08:32,890 --> 00:08:34,299
+functions we can combine them together
+
+188
+00:08:34,299 --> 00:08:36,490
+to create these sort of compound
+
+189
+00:08:36,490 --> 00:08:38,799
+movements of bits so this one here is
+
+190
+00:08:38,799 --> 00:08:42,760
+called a lowercase Sigma Sigma 0 all it
+
+191
+00:08:42,760 --> 00:08:46,840
+does it does these rotations 7 18 and 3
+
+192
+00:08:46,840 --> 00:08:49,900
+to this single word and then axles them
+
+193
+00:08:49,900 --> 00:08:53,140
+together to get this result here so 1 +
+
+194
+00:08:53,140 --> 00:08:58,050
+1 is 1 then 1 + 1 is 0 0 so I'm like so
+
+195
+00:08:58,050 --> 00:09:00,880
+and it's called Sigma not for any
+
+196
+00:09:00,880 --> 00:09:01,990
+particular reason just because you
+
+197
+00:09:01,990 --> 00:09:03,340
+wanted to give a name to these compound
+
+198
+00:09:03,340 --> 00:09:07,180
+movements or operations on bits yah I
+
+199
+00:09:07,180 --> 00:09:09,970
+also have one called Sigma one lowercase
+
+200
+00:09:09,970 --> 00:09:12,790
+Sigma one exactly the same just
+
+201
+00:09:12,790 --> 00:09:14,440
+different number of rotations and a
+
+202
+00:09:14,440 --> 00:09:19,240
+different number of shifts third one is
+
+203
+00:09:19,240 --> 00:09:23,410
+uppercase Sigma 0 again different number
+
+204
+00:09:23,410 --> 00:09:26,820
+rotations and they XOR them together
+
+205
+00:09:27,540 --> 00:09:31,300
+like that and then we have the fourth
+
+206
+00:09:31,300 --> 00:09:34,720
+and final rotational compound movement
+
+207
+00:09:34,720 --> 00:09:37,930
+upper case Sigma 1 and there's you know
+
+208
+00:09:37,930 --> 00:09:40,720
+6 and 11 and 25 rotations there next
+
+209
+00:09:40,720 --> 00:09:43,450
+wasn't together so they're all very
+
+210
+00:09:43,450 --> 00:09:44,680
+similar Theory difference is the
+
+211
+00:09:44,680 --> 00:09:46,690
+lowercase Sigma functions use make use
+
+212
+00:09:46,690 --> 00:09:48,640
+of this shift right so some bits are
+
+213
+00:09:48,640 --> 00:09:50,560
+lost off the end here whereas the upper
+
+214
+00:09:50,560 --> 00:09:52,330
+case Sigma just do full there's full
+
+215
+00:09:52,330 --> 00:09:57,930
+rotations three times on the input word
+
+216
+00:09:57,930 --> 00:10:00,390
+lastly we have two more functions that
+
+217
+00:10:00,390 --> 00:10:03,210
+don't use rotations we have one called
+
+218
+00:10:03,210 --> 00:10:05,520
+choice which uses the first input to
+
+219
+00:10:05,520 --> 00:10:07,290
+determine whether to take the input from
+
+220
+00:10:07,290 --> 00:10:11,339
+the second or third word so if it's a 1
+
+221
+00:10:11,339 --> 00:10:13,890
+it takes the Y and if it's a 0
+
+222
+00:10:13,890 --> 00:10:17,180
+it takes the Zed so here one takes the
+
+223
+00:10:17,180 --> 00:10:22,170
+101 takes the one in last year o 0 takes
+
+224
+00:10:22,170 --> 00:10:25,529
+the Zed and that's there so it uses the
+
+225
+00:10:25,529 --> 00:10:28,529
+X word it takes three inputs to choose
+
+226
+00:10:28,529 --> 00:10:31,940
+the bit of the second or third word
+
+227
+00:10:31,940 --> 00:10:35,029
+that's what's called choice anyway
+
+228
+00:10:35,029 --> 00:10:38,070
+lastly we have majority easier to
+
+229
+00:10:38,070 --> 00:10:40,020
+explain it just the result is the
+
+230
+00:10:40,020 --> 00:10:42,270
+majority of three bits so majority here
+
+231
+00:10:42,270 --> 00:10:45,300
+is one sauce one majority he here is
+
+232
+00:10:45,300 --> 00:10:48,510
+zero zero so these are the six functions
+
+233
+00:10:48,510 --> 00:10:53,190
+that are used throughout the sha-256
+
+234
+00:10:53,190 --> 00:10:58,740
+hash function right one last thing
+
+235
+00:10:58,740 --> 00:10:59,940
+before I actually get to the hash
+
+236
+00:10:59,940 --> 00:11:01,620
+function I just need to show you some
+
+237
+00:11:01,620 --> 00:11:06,420
+constants that char 256 users so these
+
+238
+00:11:06,420 --> 00:11:08,220
+constants are ultimately just some
+
+239
+00:11:08,220 --> 00:11:12,089
+random looking bits to help mix up the
+
+240
+00:11:12,089 --> 00:11:13,800
+message that we put into the hash
+
+241
+00:11:13,800 --> 00:11:17,160
+function so where do these come from if
+
+242
+00:11:17,160 --> 00:11:24,750
+we look here oops it's taken the cube
+
+243
+00:11:24,750 --> 00:11:28,940
+root of the first 64 prime numbers so
+
+244
+00:11:28,940 --> 00:11:31,860
+this is the cube root of 13 well
+
+245
+00:11:31,860 --> 00:11:33,600
+actually this is a cube root cube root
+
+246
+00:11:33,600 --> 00:11:37,080
+of 19 gets you this result here but the
+
+247
+00:11:37,080 --> 00:11:39,930
+cube root of a prime number or square
+
+248
+00:11:39,930 --> 00:11:41,490
+root of a prime number gives you an
+
+249
+00:11:41,490 --> 00:11:45,750
+irrational result so this fraction is
+
+250
+00:11:45,750 --> 00:11:47,790
+irrational it'll go on forever and it's
+
+251
+00:11:47,790 --> 00:11:49,890
+pretty pretty random looking so it makes
+
+252
+00:11:49,890 --> 00:11:51,779
+you a good source for a constant because
+
+253
+00:11:51,779 --> 00:11:54,149
+you know if we chose the constant
+
+254
+00:11:54,149 --> 00:11:55,740
+specifically they could have we could
+
+255
+00:11:55,740 --> 00:11:57,899
+have designed char 256 with the backdoor
+
+256
+00:11:57,899 --> 00:11:59,700
+that by using this or publicly known
+
+257
+00:11:59,700 --> 00:12:03,209
+random looking bits the cube roots and
+
+258
+00:12:03,209 --> 00:12:05,600
+prime numbers we get these
+
+259
+00:12:05,600 --> 00:12:07,339
+nice-lookin constants the fairly random
+
+260
+00:12:07,339 --> 00:12:08,630
+looking to help us to mix up our
+
+261
+00:12:08,630 --> 00:12:14,240
+messages so this is done for the first
+
+262
+00:12:14,240 --> 00:12:17,480
+64 prime numbers and that gives us 64
+
+263
+00:12:17,480 --> 00:12:18,949
+constants that we're going to work with
+
+264
+00:12:18,949 --> 00:12:21,110
+you in the hash function all these
+
+265
+00:12:21,110 --> 00:12:24,649
+random bits here so now we can finally
+
+266
+00:12:24,649 --> 00:12:31,069
+get into the sha-256 hash algorithm so
+
+267
+00:12:31,069 --> 00:12:34,519
+one going to here and go into hash the
+
+268
+00:12:34,519 --> 00:12:36,230
+string ABC and I'm gonna step through
+
+269
+00:12:36,230 --> 00:12:42,350
+each part of the hash function alright
+
+270
+00:12:42,350 --> 00:12:44,149
+first of all so we've got ABC that's a
+
+271
+00:12:44,149 --> 00:12:46,430
+string as you might have you might have
+
+272
+00:12:46,430 --> 00:12:48,829
+as you might have noticed the hash
+
+273
+00:12:48,829 --> 00:12:50,389
+function works on individual bits the
+
+274
+00:12:50,389 --> 00:12:52,490
+ones and zeroes of data and so all data
+
+275
+00:12:52,490 --> 00:12:55,370
+can be represented in ones and zeros so
+
+276
+00:12:55,370 --> 00:12:57,800
+this string here a B and C each of these
+
+277
+00:12:57,800 --> 00:12:59,569
+letters has their own sort correspondent
+
+278
+00:12:59,569 --> 00:13:05,380
+number in the ASC III table ASCII table
+
+279
+00:13:05,380 --> 00:13:10,130
+so a is 97 beam is C 99 and then we can
+
+280
+00:13:10,130 --> 00:13:12,529
+convert these numbers then into their
+
+281
+00:13:12,529 --> 00:13:14,689
+binding we have binary representation so
+
+282
+00:13:14,689 --> 00:13:16,399
+this is what ABC looks like in binary
+
+283
+00:13:16,399 --> 00:13:18,740
+and this is what we're gonna put into
+
+284
+00:13:18,740 --> 00:13:19,480
+the hash function
+
+285
+00:13:19,480 --> 00:13:22,970
+so before we start hashing it we first
+
+286
+00:13:22,970 --> 00:13:24,889
+of all need to Pat it out because the
+
+287
+00:13:24,889 --> 00:13:27,949
+hash function likes to hash data in
+
+288
+00:13:27,949 --> 00:13:32,209
+chunks of 512 bits at a time so this is
+
+289
+00:13:32,209 --> 00:13:34,339
+only 24 bits of data so we need to
+
+290
+00:13:34,339 --> 00:13:36,110
+paddle out with zeros basically to get
+
+291
+00:13:36,110 --> 00:13:39,439
+it up to 512 bits but before we do that
+
+292
+00:13:39,439 --> 00:13:43,220
+but before the zeros we put a 1 after
+
+293
+00:13:43,220 --> 00:13:45,139
+the message sort of like as a separator
+
+294
+00:13:45,139 --> 00:13:47,449
+between the message and the zeros then
+
+295
+00:13:47,449 --> 00:13:49,490
+we add in the zeros but as you notice
+
+296
+00:13:49,490 --> 00:13:51,829
+here this is a little bit short of 512
+
+297
+00:13:51,829 --> 00:13:54,610
+because we're leaving 64 bits at the end
+
+298
+00:13:54,610 --> 00:14:00,170
+space because in those last 64 bits we
+
+299
+00:14:00,170 --> 00:14:03,079
+encode the length of the message so the
+
+300
+00:14:03,079 --> 00:14:06,410
+message here is 24 bits and this is how
+
+301
+00:14:06,410 --> 00:14:08,930
+you represent 24 in binary so the last
+
+302
+00:14:08,930 --> 00:14:12,829
+64 bits here however much it was is
+
+303
+00:14:12,829 --> 00:14:15,260
+reserved for the length of the message
+
+304
+00:14:15,260 --> 00:14:17,059
+or the size of the message inside the
+
+305
+00:14:17,059 --> 00:14:17,760
+padding
+
+306
+00:14:17,760 --> 00:14:19,950
+there we are we've padded our message up
+
+307
+00:14:19,950 --> 00:14:22,620
+to 512 bits which is what posh function
+
+308
+00:14:22,620 --> 00:14:27,870
+wants to hash if our message was
+
+309
+00:14:27,870 --> 00:14:30,360
+slightly larger than 512 it would've
+
+310
+00:14:30,360 --> 00:14:31,980
+been padded up to the next nearest
+
+311
+00:14:31,980 --> 00:14:34,080
+multiple of 512 bits which we would have
+
+312
+00:14:34,080 --> 00:14:37,710
+been 1,024 bits poorest Cosby is a
+
+313
+00:14:37,710 --> 00:14:41,040
+multiple of 512 so once we padded it we
+
+314
+00:14:41,040 --> 00:14:44,180
+then split it up into 500 512 bit blocks
+
+315
+00:14:44,180 --> 00:14:47,400
+so because this is already 512 bits we
+
+316
+00:14:47,400 --> 00:14:49,410
+just have one message block but if it
+
+317
+00:14:49,410 --> 00:14:51,960
+was bigger we might have you know 2 3 4
+
+318
+00:14:51,960 --> 00:14:58,010
+message blocks from the original message
+
+319
+00:14:58,190 --> 00:15:01,200
+so this message block is what we're
+
+320
+00:15:01,200 --> 00:15:02,580
+gonna put into the hash function
+
+321
+00:15:02,580 --> 00:15:04,200
+we've just prepared our message to be
+
+322
+00:15:04,200 --> 00:15:07,530
+hashed so the first we need to do is we
+
+323
+00:15:07,530 --> 00:15:10,650
+need to create a message schedule from
+
+324
+00:15:10,650 --> 00:15:14,220
+each message block so this is the
+
+325
+00:15:14,220 --> 00:15:16,800
+message block and the message schedule
+
+326
+00:15:16,800 --> 00:15:18,690
+is basically taking that and splitting
+
+327
+00:15:18,690 --> 00:15:23,490
+up into 32-bit words so we just use the
+
+328
+00:15:23,490 --> 00:15:27,050
+data in the block to construct the first
+
+329
+00:15:27,050 --> 00:15:30,750
+16 words of the message schedule however
+
+330
+00:15:30,750 --> 00:15:32,760
+this message schedule actually needs to
+
+331
+00:15:32,760 --> 00:15:36,060
+be 64 words long so we need to extend it
+
+332
+00:15:36,060 --> 00:15:38,700
+or expand it another 48 words up to 60
+
+333
+00:15:38,700 --> 00:15:42,450
+up to 64 so the way we do that is we use
+
+334
+00:15:42,450 --> 00:15:44,610
+some words already in the mess schedule
+
+335
+00:15:44,610 --> 00:15:47,700
+to create the next words in the schedule
+
+336
+00:15:47,700 --> 00:15:52,070
+so this sixteenth word here it uses the
+
+337
+00:15:52,070 --> 00:15:57,270
+- 16th word in a schedule along with the
+
+338
+00:15:57,270 --> 00:16:00,240
+minus 15 minus seventh and then minus
+
+339
+00:16:00,240 --> 00:16:08,520
+two weird but on the this word we do a
+
+340
+00:16:08,520 --> 00:16:10,980
+lowercase Sigma zero rotation to it and
+
+341
+00:16:10,980 --> 00:16:14,040
+on this word we do it our case Sigma one
+
+342
+00:16:14,040 --> 00:16:15,900
+rotation as you can see these are just
+
+343
+00:16:15,900 --> 00:16:19,410
+zero again because the rotation is just
+
+344
+00:16:19,410 --> 00:16:21,120
+rotating a load of zeroes and XOR in
+
+345
+00:16:21,120 --> 00:16:22,290
+them together which gives you always get
+
+346
+00:16:22,290 --> 00:16:25,320
+to 0 and so it's quite boring and that's
+
+347
+00:16:25,320 --> 00:16:27,050
+why this
+
+348
+00:16:27,050 --> 00:16:29,730
+new word in the master schedule is
+
+349
+00:16:29,730 --> 00:16:31,070
+exactly the same as this because that
+
+350
+00:16:31,070 --> 00:16:33,870
+added to that to that to that gives you
+
+351
+00:16:33,870 --> 00:16:37,110
+this so it's pretty boring but as you
+
+352
+00:16:37,110 --> 00:16:39,600
+move down the meta schedule you'll see
+
+353
+00:16:39,600 --> 00:16:42,390
+that we're expanding it and again lots
+
+354
+00:16:42,390 --> 00:16:46,470
+of new bits being extended into the
+
+355
+00:16:46,470 --> 00:16:49,650
+schedule so these rotational functions
+
+356
+00:16:49,650 --> 00:16:53,340
+here use the existing existing data in
+
+357
+00:16:53,340 --> 00:16:55,110
+the message block and sort of to fuse
+
+358
+00:16:55,110 --> 00:16:57,570
+them and expand the message schedule
+
+359
+00:16:57,570 --> 00:17:01,860
+with lots of new bits so there we are
+
+360
+00:17:01,860 --> 00:17:04,260
+that's the last word in the message
+
+361
+00:17:04,260 --> 00:17:06,780
+schedule just to show you how that works
+
+362
+00:17:06,780 --> 00:17:10,230
+a bit more visually so it's an animation
+
+363
+00:17:10,230 --> 00:17:12,930
+like I said it takes existing words and
+
+364
+00:17:12,930 --> 00:17:14,250
+then rotates them and then add them
+
+365
+00:17:14,250 --> 00:17:15,810
+together to create the new words in the
+
+366
+00:17:15,810 --> 00:17:18,170
+schedule
+
+367
+00:17:23,130 --> 00:17:25,160
+there we are and that's very creative
+
+368
+00:17:25,160 --> 00:17:29,120
+the 63 or 64 'the word in the schedule
+
+369
+00:17:29,120 --> 00:17:31,260
+there we are know you've prepared her
+
+370
+00:17:31,260 --> 00:17:32,820
+Metis schedule extended the message
+
+371
+00:17:32,820 --> 00:17:34,320
+block this is what we're going to feed
+
+372
+00:17:34,320 --> 00:17:38,190
+into the main hash function along with
+
+373
+00:17:38,190 --> 00:17:39,870
+those constants I mentioned mentioned
+
+374
+00:17:39,870 --> 00:17:45,030
+earlier so like I said this is now we
+
+375
+00:17:45,030 --> 00:17:46,410
+move into the compression part of the
+
+376
+00:17:46,410 --> 00:17:47,790
+hash function and this is the real heart
+
+377
+00:17:47,790 --> 00:17:50,010
+of the hash function this is where all
+
+378
+00:17:50,010 --> 00:17:53,190
+the bits get we all squish together and
+
+379
+00:17:53,190 --> 00:17:55,650
+overnight on top of each other to create
+
+380
+00:17:55,650 --> 00:17:59,250
+the final metal message digest but first
+
+381
+00:17:59,250 --> 00:18:01,140
+of all we need to initialize the hash
+
+382
+00:18:01,140 --> 00:18:03,600
+values in this compression function so
+
+383
+00:18:03,600 --> 00:18:04,230
+these are called
+
+384
+00:18:04,230 --> 00:18:06,480
+state registers or working variables and
+
+385
+00:18:06,480 --> 00:18:09,870
+there's eight slots the data to go into
+
+386
+00:18:09,870 --> 00:18:12,660
+for the words to fall into and these are
+
+387
+00:18:12,660 --> 00:18:14,880
+initialized similar to the constants
+
+388
+00:18:14,880 --> 00:18:16,980
+using the square root this time of prime
+
+389
+00:18:16,980 --> 00:18:19,590
+numbers so that'll give you a nice
+
+390
+00:18:19,590 --> 00:18:22,050
+little a rational fraction part here or
+
+391
+00:18:22,050 --> 00:18:24,180
+some random bits to initialize the hash
+
+392
+00:18:24,180 --> 00:18:27,870
+with take the fractional part multiply
+
+393
+00:18:27,870 --> 00:18:31,230
+it by two 232 because I'll give you 32
+
+394
+00:18:31,230 --> 00:18:33,750
+bits with the data and this is the
+
+395
+00:18:33,750 --> 00:18:36,410
+result of that in an integer integer for
+
+396
+00:18:36,410 --> 00:18:38,880
+convert that to binary and there we have
+
+397
+00:18:38,880 --> 00:18:41,220
+our initial hash values so every single
+
+398
+00:18:41,220 --> 00:18:43,470
+piece of data that your hash will start
+
+399
+00:18:43,470 --> 00:18:45,390
+out looking like this and then we'll use
+
+400
+00:18:45,390 --> 00:18:51,360
+the message schedule to modify it so now
+
+401
+00:18:51,360 --> 00:18:53,160
+we're going to go into the compression
+
+402
+00:18:53,160 --> 00:18:54,180
+function we're gonna take that message
+
+403
+00:18:54,180 --> 00:18:55,890
+schedule from our first message block
+
+404
+00:18:55,890 --> 00:18:59,250
+and we're gonna compress it into these
+
+405
+00:18:59,250 --> 00:19:03,030
+stage registers so we take the first
+
+406
+00:19:03,030 --> 00:19:04,320
+word so we're gonna do this for every
+
+407
+00:19:04,320 --> 00:19:05,820
+single word in the message schedule this
+
+408
+00:19:05,820 --> 00:19:07,410
+is the first word and this is the first
+
+409
+00:19:07,410 --> 00:19:12,960
+word in the constants so before we
+
+410
+00:19:12,960 --> 00:19:14,940
+modify any of this we first of all need
+
+411
+00:19:14,940 --> 00:19:19,410
+to create two temporary words look at
+
+412
+00:19:19,410 --> 00:19:21,800
+the complex bar break it don't know
+
+413
+00:19:21,800 --> 00:19:23,690
+so let me just show you an animation
+
+414
+00:19:23,690 --> 00:19:29,490
+this is the first temporary wood what
+
+415
+00:19:29,490 --> 00:19:31,530
+you do you take the choice of these
+
+416
+00:19:31,530 --> 00:19:36,000
+three EF and G that gives you this then
+
+417
+00:19:36,000 --> 00:19:38,460
+you take a uppercase Sigma one rotation
+
+418
+00:19:38,460 --> 00:19:44,460
+of e like that then you just take H and
+
+419
+00:19:44,460 --> 00:19:46,380
+then add all these three together along
+
+420
+00:19:46,380 --> 00:19:48,570
+with the word in the message schedule or
+
+421
+00:19:48,570 --> 00:19:49,710
+the current word in the master schedule
+
+422
+00:19:49,710 --> 00:19:51,780
+and the current constant and that gives
+
+423
+00:19:51,780 --> 00:19:57,060
+you this temporary word here that's the
+
+424
+00:19:57,060 --> 00:19:59,400
+first one and then the second temporary
+
+425
+00:19:59,400 --> 00:20:02,190
+word is a bit simpler but also quite
+
+426
+00:20:02,190 --> 00:20:08,070
+similar it takes the majority over the
+
+427
+00:20:08,070 --> 00:20:10,370
+first three a B and C let's give you
+
+428
+00:20:10,370 --> 00:20:13,860
+that and then you do a application Sigma
+
+429
+00:20:13,860 --> 00:20:20,130
+0 rotation of the first word in the
+
+430
+00:20:20,130 --> 00:20:22,080
+state registers and then you others
+
+431
+00:20:22,080 --> 00:20:25,050
+together and you have t2 so we're gonna
+
+432
+00:20:25,050 --> 00:20:27,000
+use these in the moment to update the
+
+433
+00:20:27,000 --> 00:20:33,060
+data in this in these hash values right
+
+434
+00:20:33,060 --> 00:20:35,490
+so now we're gonna get into the cool
+
+435
+00:20:35,490 --> 00:20:37,920
+part so I'm gonna do one round of
+
+436
+00:20:37,920 --> 00:20:40,560
+compression so first of all we move all
+
+437
+00:20:40,560 --> 00:20:42,120
+the words in the state registers down
+
+438
+00:20:42,120 --> 00:20:44,190
+one start leaving a space here inside a
+
+439
+00:20:44,190 --> 00:20:46,760
+and we lose the last one
+
+440
+00:20:46,760 --> 00:20:51,090
+into a we put t1 plus t2 and that gives
+
+441
+00:20:51,090 --> 00:20:56,010
+you that and then into e we add t1 so
+
+442
+00:20:56,010 --> 00:21:00,210
+move everything down put a new word into
+
+443
+00:21:00,210 --> 00:21:04,350
+a and update e and so this process
+
+444
+00:21:04,350 --> 00:21:06,360
+repeats for every single word in the
+
+445
+00:21:06,360 --> 00:21:09,570
+message schedule so we have 63 words six
+
+446
+00:21:09,570 --> 00:21:11,250
+three constants so we went through each
+
+447
+00:21:11,250 --> 00:21:15,510
+of those and do the compression for
+
+448
+00:21:15,510 --> 00:21:18,380
+every single word in our master schedule
+
+449
+00:21:18,380 --> 00:21:22,520
+so I'll keep doing this and this is
+
+450
+00:21:22,520 --> 00:21:27,800
+carries on for every word
+
+451
+00:21:32,239 --> 00:21:39,419
+nearly there and then we get to the
+
+452
+00:21:39,419 --> 00:21:42,989
+final word update the stage registers
+
+453
+00:21:42,989 --> 00:21:45,059
+one more time and there we have you've
+
+454
+00:21:45,059 --> 00:21:48,449
+just compressed every single word in a
+
+455
+00:21:48,449 --> 00:21:49,559
+master schedule into these state
+
+456
+00:21:49,559 --> 00:21:52,079
+registers the last part then of this
+
+457
+00:21:52,079 --> 00:21:54,149
+compression for this message block is to
+
+458
+00:21:54,149 --> 00:21:56,759
+take the initial hash values you started
+
+459
+00:21:56,759 --> 00:22:01,529
+with and add on the end result of the
+
+460
+00:22:01,529 --> 00:22:04,829
+compression so there we are there we
+
+461
+00:22:04,829 --> 00:22:07,979
+have the hash values for the first
+
+462
+00:22:07,979 --> 00:22:10,979
+message block so this process would
+
+463
+00:22:10,979 --> 00:22:13,199
+repeat for every single message block so
+
+464
+00:22:13,199 --> 00:22:14,399
+for the next message block we were
+
+465
+00:22:14,399 --> 00:22:15,989
+quitting at the master schedule and then
+
+466
+00:22:15,989 --> 00:22:18,149
+read to a compression using these values
+
+467
+00:22:18,149 --> 00:22:21,479
+as the initial hash values and this
+
+468
+00:22:21,479 --> 00:22:23,369
+happens over and over again for every
+
+469
+00:22:23,369 --> 00:22:25,529
+single message block so every message
+
+470
+00:22:25,529 --> 00:22:28,499
+block is compressed onto the existing
+
+471
+00:22:28,499 --> 00:22:31,139
+hash values and once you've done that
+
+472
+00:22:31,139 --> 00:22:33,299
+for every single message block then
+
+473
+00:22:33,299 --> 00:22:35,399
+you'll have some final values left in
+
+474
+00:22:35,399 --> 00:22:38,339
+the state registers or some pine and
+
+475
+00:22:38,339 --> 00:22:40,889
+final hash value and then the final hash
+
+476
+00:22:40,889 --> 00:22:42,779
+then is if we convert each of these
+
+477
+00:22:42,779 --> 00:22:45,239
+words into hexadecimal and then
+
+478
+00:22:45,239 --> 00:22:48,599
+concatenate them together we end up with
+
+479
+00:22:48,599 --> 00:22:53,309
+the final message digest and that is our
+
+480
+00:22:53,309 --> 00:22:57,589
+how sha-256 works
+
