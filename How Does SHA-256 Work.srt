@@ -1,186 +1,42 @@
-1
-00:00:00,560 --> 00:00:03,259
-so I was interested to find out how the
+00:00:00,560 --> 00:00:12,780
+所以我对了解sha-256的哈希函数是如何工作的感到很感兴趣，所以我创建了这个小脚本，它可以动态的显示数据的哈希过程，这样我就可以看到它是如何工作的。
 
-2
-00:00:03,259 --> 00:00:06,240
-sha-256 hash function worked so I
+00:00:12,780 --> 00:00:19,470
+这个脚本只是在后台对字符串ABC进行哈希处理。
 
-3
-00:00:06,240 --> 00:00:09,389
-created this little script that animates
+00:00:19,470 --> 00:00:46,289 
+我想在这个视频中逐步解释sha-256哈希函数是如何工作的，我会从基本知识开始，然后在这个基础之上慢慢拓展，以便我们最终能够理解整个哈希函数机制，然后我们就能理解sha-256是如何工作的。
 
-4
-00:00:09,389 --> 00:00:12,780
-the hashing of data so that I could see
+00:00:46,289  --> 00:00:50,550
+请耐心等待，我会从基本知识开始解释。
 
-5
-00:00:12,780 --> 00:00:15,870
-how it works so this script here is just
+00:00:50,550 --> 00:01:04,019
+首先，哈希函数是什么？哈希函数接收一些数据，并为你提供一个唯一的，更短的那些数据的摘要或指纹，这就是它的全部功能，或者说它把数据打乱，然后为你提供一个更短的摘要。
 
-6
-00:00:15,870 --> 00:00:19,470
-hashing the string ABC yes hashing away
+00:01:04,019 --> 00:01:15,720
+所以，如果我对数据进行微小的修改，你会得到两个完全不同的结果，所以世界上的每一个数据都有自己独一无二的哈希摘要。
 
-7
-00:00:19,470 --> 00:00:22,320
-in the background so what I want to do
+00:01:15,720 --> 00:01:19,439
 
-8
-00:00:22,320 --> 00:00:26,430
-in this video is give a step by step
+你可以对字符串进行这样的操作，也可以对文件进行这样的操作。
 
-9
-00:00:26,430 --> 00:00:30,210
-explanation of how the sha-256 hash
+00:01:19,439 --> 00:01:32,720
+我这里有一个文件，写入"hello there"，我保存它，然后获取这个文件的sha-256摘要。
 
-10
-00:00:30,210 --> 00:00:32,820
-function works and I'm gonna start with
+00:01:32,720 --> 00:01:46,079
+如果我对文件稍作修改，再来一次，我得到了一个完全不同的结果，这很酷。所以这使我可以检查一个文件何时发生了改变。
 
-11
-00:00:32,820 --> 00:00:36,210
-the basics and then build upon them so
+00:01:46,079 --> 00:01:59,430
+而比特币中使用的哈希函数，就是利用了这样的特性，你可以对一些数据进行哈希处理，然后进行微小的调整，它会产生一些极其不同的结果，这就是挖矿的一部分。
+but the way well that's I use hash functions we're in Bitcoin and the fact that and you can hash something some data and I make a tiny adjustment and it produces some wildly different results makes up a part of mining 
 
-12
-00:00:36,210 --> 00:00:39,390
-that we end up making our way to this
+00:01:59,430 --> 00:02:02,460
+同时，需要注意的是，你无法真正控制这个哈希函数的结果，
+what's important to note as well is that you can't control really what comes out to this hash function 
 
-13
-00:00:39,390 --> 00:00:42,930
-overall hash function mechanism and then
-
-14
-00:00:42,930 --> 00:00:46,289
-we'll understand how sha-256 works so
-
-15
-00:00:46,289 --> 00:00:48,120
-bear with me I'll just gonna start with
-
-16
-00:00:48,120 --> 00:00:50,550
-the basic basics and the first of all
-
-17
-00:00:50,550 --> 00:00:51,660
-what does the hash function well the
-
-18
-00:00:51,660 --> 00:00:53,160
-hash function just takes in some data
-
-19
-00:00:53,160 --> 00:00:56,430
-and it gives you like a unique shorter
-
-20
-00:00:56,430 --> 00:00:59,609
-summary or fingerprint of that data it's
-
-21
-00:00:59,609 --> 00:01:00,989
-all it does it's or scrambles it and
-
-22
-00:01:00,989 --> 00:01:04,019
-gives you a shorter digest for that data
-
-23
-00:01:04,019 --> 00:01:06,299
-so if I make a tiny change to that data
-
-24
-00:01:06,299 --> 00:01:08,040
-you get two completely different results
-
-25
-00:01:08,040 --> 00:01:10,229
-so I have a piece of data in the world
-
-26
-00:01:10,229 --> 00:01:15,720
-has its own unique hash digest so you
-
-27
-00:01:15,720 --> 00:01:16,650
-can do this for Strings
-
-28
-00:01:16,650 --> 00:01:19,439
-or you can do this with files so I've
-
-29
-00:01:19,439 --> 00:01:22,979
-got this file here saying well I'm
-
-30
-00:01:22,979 --> 00:01:25,200
-saying hello there so save that and if I
-
-31
-00:01:25,200 --> 00:01:28,009
-take the char 256 some of that file
-
-32
-00:01:28,009 --> 00:01:32,720
-there it is if I make a small edit edit
-
-33
-00:01:32,720 --> 00:01:36,390
-correctly let's do it again I've got a
-
-34
-00:01:36,390 --> 00:01:39,090
-completely different result which is
-
-35
-00:01:39,090 --> 00:01:41,009
-cool so this allows me to check when a
-
-36
-00:01:41,009 --> 00:01:46,079
-file has changed but the way well that's
-
-37
-00:01:46,079 --> 00:01:48,180
-I use hash functions we're in Bitcoin
-
-38
-00:01:48,180 --> 00:01:50,549
-and the fact that and you can hash
-
-39
-00:01:50,549 --> 00:01:52,380
-something some data and I make a tiny
-
-40
-00:01:52,380 --> 00:01:54,600
-adjustment and it produces some wildly
-
-41
-00:01:54,600 --> 00:01:56,850
-different results makes up a part of
-
-42
-00:01:56,850 --> 00:01:59,430
-mining what's important to note as well
-
-43
-00:01:59,430 --> 00:02:01,049
-is that you can't control really what
-
-44
-00:02:01,049 --> 00:02:02,460
-comes out to this hash function it
-
-45
 00:02:02,460 --> 00:02:03,780
-scrambles data in a way that you can't
 
-46
-00:02:03,780 --> 00:02:04,860
-really predict what the result is gonna
+it scrambles data in a way that you can't really predict what the result is gonna
 
 47
 00:02:04,860 --> 00:02:06,450
