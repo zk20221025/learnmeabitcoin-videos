@@ -148,46 +148,32 @@ blockchain but they need to work to be
 这个过程运行得非常慢，
 
 00:03:48,709 --> 00:03:51,980
-but luckily this is a block there's been
+但幸运的是，这个区块之前已经被挖掘过了，
 
-92
 00:03:51,980 --> 00:03:53,840
-mined before so I know what the the
 
-93
+所以我知道有效的nonce值是多少。
+
 00:03:53,840 --> 00:03:56,900
-nonce value is that works and so if I
+如果我再运行一次，
 
-94
 00:03:56,900 --> 00:03:58,370
-could run it again but start the nonce a
+但是从一个更高的nonce值开始，
 
-95
 00:03:58,370 --> 00:04:00,739
-bit higher up and you'll see that this
+你会看到，
 
-96
-00:04:00,739 --> 00:04:03,590
-nonce value here purely randomly
+00:04:00,739 --> 00:04:06,080
+这个nonce值完全随机地产生了一个以特定数量的零开头的哈希摘要，
 
-97
-00:04:03,590 --> 00:04:06,080
-produces a hash digest that starts with
-
-98
 00:04:06,080 --> 00:04:07,940
-this many zeros which is below the
+这个值低于目标值。
 
-99
-00:04:07,940 --> 00:04:11,060
-target and so this block has been mined
+00:04:07,940 --> 00:04:13,380
+因此，这个区块已经被挖掘出来，可以被添加到区块链上。
 
-100
-00:04:11,060 --> 00:04:13,380
-and can be added on to the blockchain
-
-101
-00:04:13,380 --> 00:04:17,220
+00:04:13,380 --> 00:04:19,380
+矿工不能强制这个过程发生，
 the miners you know you can't force this
 
 102
@@ -195,123 +181,84 @@ the miners you know you can't force this
 to happen all you can do is just take
 
 103
-00:04:19,380 --> 00:04:22,380
-that block header for your block and how
+00:04:19,380 --> 00:04:25,110
+他们能做的只是尽可能快地对区块头进行哈希，
 
-104
-00:04:22,380 --> 00:04:23,010
-fast
-
-105
 00:04:23,010 --> 00:04:25,110
 Hacha as fast as possible to try and
 
 106
 00:04:25,110 --> 00:04:27,510
+试图找到一个足够幸运的随机数，让
 find a nonce and that's lucky enough to
 
 107
 00:04:27,510 --> 00:04:29,460
-give you a result that's below the
-
+让你得到的结果低于目标值。
 108
-00:04:29,460 --> 00:04:31,950
-target so this creates like a
+00:04:29,460 --> 00:04:38,670
+这在网络中创造了一个无人能强制或控制的竞争，
 
-109
-00:04:31,950 --> 00:04:35,640
-network-wide competition that no one can
-
-110
-00:04:35,640 --> 00:04:38,670
-force or take control of and it protects
-
-111
 00:04:38,670 --> 00:04:40,110
+保护了已经在区块链中的交易。
 the transactions they're already in the
 
 112
-00:04:40,110 --> 00:04:43,890
-blockchain but us on the side my care
+00:04:40,110 --> 00:04:46,260
+但今天我们关心的是这个哈希函数是如何工作的，
+but us on the side my care
 
 113
 00:04:43,890 --> 00:04:46,260
 about today is how this hash function
 
 114
-00:04:46,260 --> 00:04:50,850
-works how do I get from my name Greg or
+00:04:46,260 --> 00:04:59,280
+如何从我的名字Greg或字符串ABC得到这个结果，
 
-115
-00:04:50,850 --> 00:04:57,360
-the string ABC ABC how do I end up with
-
-116
 00:04:57,360 --> 00:04:59,280
-this result from ABC and that's going to
-
+现在将向你展示。
 117
 00:04:59,280 --> 00:05:01,860
+我对于冗长的介绍感到抱歉。
 show you now so sorry for the lengthy
 
 118
 00:05:01,860 --> 00:05:03,750
-introduction but hopefully was
-
+但是希望这个过程会很有趣。
 119
-00:05:03,750 --> 00:05:06,630
-interesting first of all I'll start with
+00:05:03,750 --> 00:05:09,420
+首先，我将从SHA-256使用的一些基本操作开始，
 
-120
-00:05:06,630 --> 00:05:09,420
-the real basics of some operations that
-
-121
 00:05:09,420 --> 00:05:12,960
-char 256 users so the first one is
+第一个操作叫做右移。
 
 122
 00:05:12,960 --> 00:05:16,470
-called a shift right so char 256 works
+SHA-256在位（1和0）上进行操作，
 
 123
 00:05:16,470 --> 00:05:19,230
-on bits ones and zeros all data can we
+所有的数据都可以用位表示，
 
-124
-00:05:19,230 --> 00:05:22,530
-move represented in bits and it operates
-
-125
 00:05:22,530 --> 00:05:26,400
-on chunks of 32 bits which we refer to
+它在32位的块上操作，
 
-126
 00:05:26,400 --> 00:05:30,210
-as a word started a word they just say
+我们称之为二进制位。
 
-127
 00:05:30,210 --> 00:05:33,630
-two bits so a shift right it shifts the
+右移操作就是将位移动到一个位置，
 
-128
-00:05:33,630 --> 00:05:36,360
-bits over a number of positions so
-
-129
 00:05:36,360 --> 00:05:38,960
-that's a 32 right a 32 bit shift here
+这是一个32位的右移，
 
-130
 00:05:38,960 --> 00:05:42,840
-but you just shift shift shift bits to
+你只是将位向右移动。
 
-131
-00:05:42,840 --> 00:05:47,070
-the right next of all we have a right
+00:05:42,840 --> 00:05:49,950
+接下来我们有一个右旋转。
 
-132
-00:05:47,070 --> 00:05:49,950
 rotation or rotation right which is very
 
 133
