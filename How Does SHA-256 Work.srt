@@ -409,157 +409,105 @@ just one one yeah one so what this means
 所以结果限制了在32位字内。
 
 00:08:06,420 --> 00:08:09,120
+如果我们把多个单词加在一起，结果大于32位，
 so if we add multiple words together and
 
 181
 00:08:09,120 --> 00:08:11,700
+
 the result is greater than 32 bits this
 
 182
 00:08:11,700 --> 00:08:15,220
+那么这个模2^32就能保证它在32位范围内。
 mod 2 2 3 2 keeps it within
 
 183
-00:08:15,220 --> 00:08:19,360
-to emit range so these are the building
+00:08:15,220 --> 00:08:22,900
+这些就是sha-256哈希函数的构建模块。
 
-184
-00:08:19,360 --> 00:08:22,900
-blocks of the sha-256 hash function if
-
-185
 00:08:22,900 --> 00:08:25,480
-you understand these then the rest isn't
+如果你理解了这些，那么剩下的就不难了。
 
-186
 00:08:25,480 --> 00:08:32,890
-so hard now using those rotational
+现在，使用这些旋转函数，
 
-187
 00:08:32,890 --> 00:08:34,299
-functions we can combine them together
+我们可以把它们组合在一起，
 
-188
 00:08:34,299 --> 00:08:36,490
-to create these sort of compound
+创建这种复合的位移动作。
 
-189
 00:08:36,490 --> 00:08:38,799
-movements of bits so this one here is
 
-190
 00:08:38,799 --> 00:08:42,760
-called a lowercase Sigma Sigma 0 all it
+这个叫做小写的Sigma 0，
 
-191
 00:08:42,760 --> 00:08:46,840
-does it does these rotations 7 18 and 3
+它只是对这个单词进行7次、18次和3次的旋转，
 
-192
 00:08:46,840 --> 00:08:49,900
-to this single word and then axles them
 
-193
 00:08:49,900 --> 00:08:53,140
-together to get this result here so 1 +
+然后把它们加在一起得到这个结果。
 
-194
 00:08:53,140 --> 00:08:58,050
-1 is 1 then 1 + 1 is 0 0 so I'm like so
+所以1+1是1，然后1+1是0，再然后0+1是1，等等。它
 
-195
 00:08:58,050 --> 00:09:00,880
-and it's called Sigma not for any
+它被称为Sigma，没有什么特别的原因，
 
-196
-00:09:00,880 --> 00:09:01,990
-particular reason just because you
+00:09:00,880 --> 00:09:07,180
+只是因为我们想给这些复合的操作或位移动作起个名字。
 
-197
-00:09:01,990 --> 00:09:03,340
-wanted to give a name to these compound
-
-198
-00:09:03,340 --> 00:09:07,180
-movements or operations on bits yah I
-
-199
 00:09:07,180 --> 00:09:09,970
-also have one called Sigma one lowercase
+我们还有一个叫做小写的Sigma 1
 
-200
 00:09:09,970 --> 00:09:12,790
-Sigma one exactly the same just
+完全一样，
 
-201
 00:09:12,790 --> 00:09:14,440
-different number of rotations and a
+只是旋转次数不同，
 
-202
 00:09:14,440 --> 00:09:19,240
-different number of shifts third one is
+移位的次数也不同。
 
-203
 00:09:19,240 --> 00:09:23,410
-uppercase Sigma 0 again different number
+第三个是大写的Sigma 0，旋转次数不同，
 
-204
 00:09:23,410 --> 00:09:26,820
-rotations and they XOR them together
+然后把它们异或在一起。
 
-205
 00:09:27,540 --> 00:09:31,300
-like that and then we have the fourth
+然后我们有第四个，
 
-206
 00:09:31,300 --> 00:09:34,720
-and final rotational compound movement
+也是最后一个旋转复合运动，
 
-207
 00:09:34,720 --> 00:09:37,930
-upper case Sigma 1 and there's you know
+大写的Sigma 1，
 
-208
 00:09:37,930 --> 00:09:40,720
-6 and 11 and 25 rotations there next
+这里有6次、11次和25次的旋转，
 
-209
 00:09:40,720 --> 00:09:43,450
-wasn't together so they're all very
+然后把它们异或在一起。所以它们都非常相似，
 
-210
 00:09:43,450 --> 00:09:44,680
-similar Theory difference is the
+唯一的区别是小写的Sigma函数使用了右移，
 
-211
-00:09:44,680 --> 00:09:46,690
-lowercase Sigma functions use make use
-
-212
-00:09:46,690 --> 00:09:48,640
-of this shift right so some bits are
-
-213
 00:09:48,640 --> 00:09:50,560
-lost off the end here whereas the upper
+所以一些位在这里丢失了，
 
-214
-00:09:50,560 --> 00:09:52,330
-case Sigma just do full there's full
+00:09:50,560 --> 00:09:57,930
+而大写的Sigma只做完整的旋转3次在输入单词上。
 
-215
-00:09:52,330 --> 00:09:57,930
-rotations three times on the input word
-
-216
 00:09:57,930 --> 00:10:00,390
-lastly we have two more functions that
+最后，我们还有两个不使用旋转的函数。
 
-217
 00:10:00,390 --> 00:10:03,210
-don't use rotations we have one called
+有一个叫做选择的函数，
 
-218
 00:10:03,210 --> 00:10:05,520
 choice which uses the first input to
 
