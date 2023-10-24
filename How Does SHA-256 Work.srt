@@ -55,193 +55,98 @@
 
 00:01:48,180 --> 00:01:56,850
 你可以对一些数据进行哈希处理，然后进行微小的调整，它会产生一些极其不同的结果，这就是挖矿的一部分。
-but the way well that's I use hash functions we're in Bitcoin and the fact that and you can hash something some data and I make a tiny adjustment and it produces some wildly different results makes up a part of mining 
 
 00:01:56,850 --> 00:02:02,460
 同时，需要注意的是，你无法真正控制这个哈希函数的结果，
-what's important to note as well is that you can't control really what comes out to this hash function 
 
 00:02:02,460 --> 00:02:03,780
+它以一种你无法真正预测结果的方式混淆数据，
 
-it scrambles data in a way that you can't really predict what the result is gonna
-
-47
 00:02:04,860 --> 00:02:06,450
-be all you can do is hash it and see
+你能做的就是哈希它并查看结果。
 
-48
 00:02:06,450 --> 00:02:09,330
-what it is so if I wanted this to start
+如果我想要它以10个“A”开始，
 
-49
-00:02:09,330 --> 00:02:10,220
-with
+00:02:09,330 --> 00:02:13,580
+我无法做到，
 
-50
-00:02:10,220 --> 00:02:13,580
-you know Tenet's um I can't do that
+00:02:13,580 --> 00:02:17,210
+我所能做的就是不断尝试不同的数据片段，
 
-51
-00:02:13,580 --> 00:02:15,050
-all I have to do is just keep trying
-
-52
-00:02:15,050 --> 00:02:17,210
-different pizza pieces of data and
-
-53
 00:02:17,210 --> 00:02:18,650
-hopefully I'll find one that starts with
+希望我能找到一个结果是以十个“A”开头的。
 
-54
-00:02:18,650 --> 00:02:20,990
-ten A's so this is how a mining
+00:02:18,650 --> 00:02:21,740
+这就是挖矿的基本原理。
 
-55
-00:02:20,990 --> 00:02:21,740
-basically works
-
-56
 00:02:21,740 --> 00:02:25,250
-so what miner will do if you've ever
+如果你对比特币感兴趣，
 
-57
-00:02:25,250 --> 00:02:29,180
-been interested in Bitcoin is they want
+00:02:25,250 --> 00:02:31,130
+你可能会想知道矿工们是如何在区块链上添加交易块的。
 
-58
-00:02:29,180 --> 00:02:31,130
-to add blocks of transactions onto the
-
-59
 00:02:31,130 --> 00:02:32,960
+他们首先需要做一些工作才能做到这一点。
 blockchain but they need to work to be
 
-60
-00:02:32,960 --> 00:02:35,750
-able to do this so what they do they'll
+00:02:32,960 --> 00:02:37,550
+他们会先从内存池中获取一些交易，
 
-61
-00:02:35,750 --> 00:02:37,550
-start by getting some transactions from
+00:02:37,550 --> 00:02:40,490
+这个内存池就像一个等候区，存放着最新的交易。
 
-62
-00:02:37,550 --> 00:02:38,810
-the memory pool which is like a waiting
+00:02:40,490 --> 00:02:45,620
+矿工们会将这些交易汇集到一起，形成一个区块。
 
-63
-00:02:38,810 --> 00:02:40,490
-area of the latest transactions on the
-
-64
-00:02:40,490 --> 00:02:43,280
-network the orcish bring these together
-
-65
-00:02:43,280 --> 00:02:45,620
-into a site into a block and for that
-
-66
 00:02:45,620 --> 00:02:47,480
-block they'll construct a block header
+对于这个区块，他们会构造一个区块头，
 
-67
 00:02:47,480 --> 00:02:49,730
-which basically summarizes all the data
+它基本上总结了区块内的所有数据。
 
-68
 00:02:49,730 --> 00:02:52,010
-inside the block and it's this block
+我们会对这个区块头进行哈希处理，
 
-69
-00:02:52,010 --> 00:02:55,550
-header let's rehash so this is the data
+00:02:52,010 --> 00:02:56,870
+这就是我们要输入到哈希函数中的数据。
 
-70
-00:02:55,550 --> 00:02:56,870
-that we're gonna put into the hash
-
-71
 00:02:56,870 --> 00:02:58,700
-function but there's no bit of space
+但这里还有一点空间用于存放nonce，
 
-72
-00:02:58,700 --> 00:03:01,550
-here for the nonce which is short for a
+00:02:58,700 --> 00:03:03,980
+它是只使用一次的数字。
 
-73
-00:03:01,550 --> 00:03:03,980
-number used once and so what I'm gonna
+00:03:03,980 --> 00:03:12,760
+所以我会逐一增加这个nonce，连同区块头一起，然后不断地对它进行哈希处理。
 
-74
-00:03:03,980 --> 00:03:08,150
-do we're going to increment that along
+00:03:12,760 --> 00:03:17,150
+因为我们的目标是得到一个以特定数量的零开头的哈希结果，
 
-75
-00:03:08,150 --> 00:03:10,160
-with the rest the block header and
-
-76
-00:03:10,160 --> 00:03:12,760
-continue hashing it over and over again
-
-77
-00:03:12,760 --> 00:03:14,989
-because the goal is we want to get a
-
-78
-00:03:14,989 --> 00:03:17,150
-hash result the starts with a certain
-
-79
 00:03:17,150 --> 00:03:19,459
-number of zeros always below a certain
+并且总是低于某个特定的值。
 
-80
-00:03:19,459 --> 00:03:23,570
-value basically so if I take that back
+00:03:19,459 --> 00:03:25,280
+如果我使用n这个区块头不断改变这个nonce，
 
-81
-00:03:23,570 --> 00:03:25,280
-header and keep changing this non-spell
+00:03:25,280 --> 00:03:29,930
+你可以看到我们得到了很多不同的哈希结果。
 
-82
-00:03:25,280 --> 00:03:27,380
-you as you can see here again lots of
-
-83
-00:03:27,380 --> 00:03:29,930
-different hash results so this is a
-
-84
 00:03:29,930 --> 00:03:32,150
-miner basically trying to mine a block
+所以这就是矿工试图挖掘一个区块的过程。
 
-85
 00:03:32,150 --> 00:03:34,850
-and what they'll do they'll be doing
+他们会做什么呢？他们会尽可能快地进行这个过程，
 
-86
-00:03:34,850 --> 00:03:36,860
-this as fast as possible to try and get
+00:03:34,850 --> 00:03:42,800
+试图得到一个以特定数量的零开头的哈希摘要或结果。
 
-87
-00:03:36,860 --> 00:03:40,250
-one hash digest or result that is starts
-
-88
-00:03:40,250 --> 00:03:42,800
-with the number of zeros that was in the
-
-89
 00:03:42,800 --> 00:03:46,580
-target this lofty take quite a while for
+这个目标可能需要花费相当长的时间才能实现。
 
-90
 00:03:46,580 --> 00:03:48,709
-to finish this is running very slowly
+这个过程运行得非常慢，
 
-91
 00:03:48,709 --> 00:03:51,980
 but luckily this is a block there's been
 
