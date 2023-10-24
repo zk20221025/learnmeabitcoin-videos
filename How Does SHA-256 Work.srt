@@ -263,18 +263,22 @@ rotation or rotation right which is very
 
 133
 00:05:49,950 --> 00:05:52,500
+这个操作与右移操作非常相似，
 similar to a right shift but instead of
 
 134
-00:05:52,500 --> 00:05:53,880
+00:05:52,500 --> 00:05:55,620
+但它并不是像普通的右移那样丢弃移出的位，
 a shift in the bits off and then never
 
 135
 00:05:53,880 --> 00:05:55,620
+
 come back again it moves them over onto
 
 136
 00:05:55,620 --> 00:05:57,450
+而是将它们移动到左边以创建这种旋转的位操作，
 the left-hand side to create this
 
 137
@@ -282,174 +286,128 @@ the left-hand side to create this
 rotational bitwise operation or a
 
 138
-00:06:00,480 --> 00:06:01,650
-circular
+00:06:00,480 --> 00:06:04,100
+因此被称为循环右移。
 
-139
-00:06:01,650 --> 00:06:04,100
-right shift
-
-140
 00:06:04,910 --> 00:06:07,910
+接下来我们使用这个叫做异或的操作
 next we have this operation called
 
 141
-00:06:07,910 --> 00:06:16,620
-exclusive-or which basically it produces
+00:06:07,910 --> 00:06:19,110
+如果你输入的二进制位中是0和1，
 
-142
-00:06:16,620 --> 00:06:19,110
-a one if one of the two bits you've been
-
-143
 00:06:19,110 --> 00:06:23,220
+那么结果就是1。
 put into it ro ro 1 is a 1 there's only
 
 144
 00:06:23,220 --> 00:06:26,160
+让我给你展示一下，
 one one let me just show you 2 lot 0 so
 
 145
 00:06:26,160 --> 00:06:28,530
+如果两个位都是0，那么结果就是0，
 there that's our 1 then both of these
 
 146
-00:06:28,530 --> 00:06:31,140
-over 1 so he only wants one one
+00:06:28,530 --> 00:06:34,260
+如果两个位都是1，那么结果是0，
+so he only wants one one
 
 147
 00:06:31,140 --> 00:06:34,260
-exclusive or so that's a zero but again
+exclusive or so that's a zero 
+but again
 
 148
 00:06:34,260 --> 00:06:39,750
+如果输入1和0，那么结果就是1。
 just one one yeah one so what this means
 
 149
-00:06:39,750 --> 00:06:43,110
-is that for multiple bits you can sort
+00:06:39,750 --> 00:06:45,330
+这意味着，这可以用来合并多个位，
 
-150
-00:06:43,110 --> 00:06:45,330
-of merge them together to get a fair
+00:06:45,330 --> 00:06:48,330
+以得到一个公平或平衡的所有位的表示。
 
-151
-00:06:45,330 --> 00:06:46,650
-representation or balanced
-
-152
-00:06:46,650 --> 00:06:48,330
-representation of all the bits that
-
-153
 00:06:48,330 --> 00:06:52,230
-you're putting in so here for example
+例如，
 
-154
 00:06:52,230 --> 00:06:57,080
-and I'm doing multiple XOR operations on
+我在这里对三个位进行了多次异或操作。
 
 155
 00:06:57,080 --> 00:07:00,030
-three bits so the first two zero and
+前两个是零，结果是零，
 
-156
 00:07:00,030 --> 00:07:02,250
-zero that's a zero cuz only expects one
+因为其中一个是1，
 
-157
 00:07:02,250 --> 00:07:06,210
-to be 1 and then 0 and 1 is a 1 so we
+然后0和1的结果是1，
 
-158
 00:07:06,210 --> 00:07:09,030
-end up with a one like so so may be
+所以我们得到的结果是1。
 
-159
 00:07:09,030 --> 00:07:10,860
-easier if I just show you we have an
+也许我直接给你展示会更容易理解。
 
-160
 00:07:10,860 --> 00:07:14,640
-animation so this is X or in different
+这是一个关于异或在不同位组合中的动画展示，
 
-161
 00:07:14,640 --> 00:07:17,190
-combinations of bits and showing you the
+并展示了结果。
 
-162
 00:07:17,190 --> 00:07:20,400
-result so like I said it gives you a
+正如我所说，它给你一个平衡的三个输入位的表示。对于
 
-163
 00:07:20,400 --> 00:07:22,650
-balanced represent balanced
 
-164
 00:07:22,650 --> 00:07:27,080
-representation of three input input bits
 
-165
 00:07:27,080 --> 00:07:29,730
-for any 3 given bits half a time you
+一半的时间你会得到1，
 
-166
 00:07:29,730 --> 00:07:30,870
-only get one half the time you're gonna
-
-167
+一半的时间你会得到0，
 00:07:30,870 --> 00:07:34,610
-get at 0 I hope that makes some sense
+我希望这能让你有所理解。
 
-168
 00:07:34,610 --> 00:07:37,740
-lastly we have one called well just
+最后，我们有一个叫做普通加法的操作，
 
-169
 00:07:37,740 --> 00:07:39,630
-normal addition so insert integer
+也就是整数加法。
 
-170
 00:07:39,630 --> 00:07:44,550
-integer addition so this these are just
+这只是以二进制表示的数，
 
-171
 00:07:44,550 --> 00:07:46,530
-numbers represented in binary we add
 
-172
 00:07:46,530 --> 00:07:48,930
-them together and ask just addition so
+将它们加在一起，这就是加法，
 
-173
 00:07:48,930 --> 00:07:50,940
-it's like adding you know any two normal
+就像任何两个数相加，
 
-174
 00:07:50,940 --> 00:07:52,650
-integers together but we're representing
+但用二进制表示。
 
-175
 00:07:52,650 --> 00:07:55,670
-it in binary one thing to note though is
+需要注意的是，
 
-176
 00:07:55,670 --> 00:07:59,400
-after adding doing it addition we take
+进行加法运算后，
 
-177
 00:07:59,400 --> 00:08:03,360
-it modulus to 232 so basically that sort
+我们将结果取模2**32，
 
-178
-00:08:03,360 --> 00:08:05,520
-constrains the result to be in within a
+00:08:03,360 --> 00:08:06,420
+所以结果限制了在32位字内。
 
-179
-00:08:05,520 --> 00:08:06,420
-32-bit word
-
-180
 00:08:06,420 --> 00:08:09,120
 so if we add multiple words together and
 
