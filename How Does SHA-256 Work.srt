@@ -38,13 +38,12 @@
 所以世界上的每一个数据都有自己独一无二的哈希摘要。
 
 00:01:15,720 --> 00:01:19,439
-
 你可以对字符串进行这样的操作，也可以对文件进行这样的操作。
 
 00:01:19,439 --> 00:01:28,009
 我这里有一个文件，写入"hello there"，我保存它，然后获取这个文件的sha-256摘要。
 
-00:01:32,720 --> 00:01:39,090 
+00:01:28,009 --> 00:01:39,090 
 如果我对文件稍作修改，再来一次，我得到了一个完全不同的结果，这很酷。
 
 00:01:39,090 --> 00:01:41,009
@@ -59,7 +58,7 @@
 00:01:56,850 --> 00:02:02,460
 同时，需要注意的是，你无法真正控制这个哈希函数的结果，
 
-00:02:02,460 --> 00:02:03,780
+00:02:02,460 --> 00:02:04,860
 它以一种你无法真正预测结果的方式混淆数据，
 
 00:02:04,860 --> 00:02:06,450
@@ -151,7 +150,6 @@ blockchain but they need to work to be
 但幸运的是，这个区块之前已经被挖掘过了，
 
 00:03:51,980 --> 00:03:53,840
-
 所以我知道有效的nonce值是多少。
 
 00:03:53,840 --> 00:03:56,900
@@ -174,71 +172,47 @@ blockchain but they need to work to be
 
 00:04:13,380 --> 00:04:19,380
 矿工不能强制这个过程发生，
-the miners you know you can't force this
 
-102
-00:04:17,220 --> 00:04:19,380
-to happen all you can do is just take
-
-103
 00:04:19,380 --> 00:04:25,110
 他们能做的只是尽可能快地对区块头进行哈希，
 
-00:04:23,010 --> 00:04:25,110
-Hacha as fast as possible to try and
-
-106
 00:04:25,110 --> 00:04:27,510
 试图找到一个足够幸运的随机数，让
-find a nonce and that's lucky enough to
 
-107
 00:04:27,510 --> 00:04:29,460
 让你得到的结果低于目标值。
-108
+
 00:04:29,460 --> 00:04:38,670
 这在网络中创造了一个无人能强制或控制的竞争，
 
 00:04:38,670 --> 00:04:40,110
 保护了已经在区块链中的交易。
-the transactions they're already in the
 
-112
 00:04:40,110 --> 00:04:46,260
 但今天我们关心的是这个哈希函数是如何工作的，
-but us on the side my care
 
-113
-00:04:43,890 --> 00:04:46,260
-about today is how this hash function
-
-114
 00:04:46,260 --> 00:04:59,280
 如何从我的名字Greg或字符串ABC得到这个结果，
 
 00:04:57,360 --> 00:04:59,280
 现在将向你展示。
-117
+
 00:04:59,280 --> 00:05:01,860
 我对于冗长的介绍感到抱歉。
-show you now so sorry for the lengthy
 
-118
 00:05:01,860 --> 00:05:03,750
 但是希望这个过程会很有趣。
-119
+
 00:05:03,750 --> 00:05:09,420
 首先，我将从SHA-256使用的一些基本操作开始，
 
 00:05:09,420 --> 00:05:12,960
 第一个操作叫做右移。
 
-122
 00:05:12,960 --> 00:05:16,470
 SHA-256在位（1和0）上进行操作，
 
-123
-00:05:16,470 --> 00:05:19,230
+00:05:16,470 --> 00:05:22,530
 所有的数据都可以用位表示，
 
 00:05:22,530 --> 00:05:26,400
@@ -247,7 +221,7 @@ SHA-256在位（1和0）上进行操作，
 00:05:26,400 --> 00:05:30,210
 我们称之为二进制位。
 
-00:05:30,210 --> 00:05:33,630
+00:05:30,210 --> 00:05:36,360
 右移操作就是将位移动到一个位置，
 
 00:05:36,360 --> 00:05:38,960
@@ -259,74 +233,39 @@ SHA-256在位（1和0）上进行操作，
 00:05:42,840 --> 00:05:49,950
 接下来我们有一个右旋转。
 
-rotation or rotation right which is very
-
-133
 00:05:49,950 --> 00:05:52,500
 这个操作与右移操作非常相似，
-similar to a right shift but instead of
 
-134
 00:05:52,500 --> 00:05:55,620
 但它并不是像普通的右移那样丢弃移出的位，
-a shift in the bits off and then never
 
-135
-00:05:53,880 --> 00:05:55,620
-
-come back again it moves them over onto
-
-136
-00:05:55,620 --> 00:05:57,450
+00:05:55,620 --> 00:06:00,480
 而是将它们移动到左边以创建这种旋转的位操作，
-the left-hand side to create this
 
-137
-00:05:57,450 --> 00:06:00,480
-rotational bitwise operation or a
-
-138
-00:06:00,480 --> 00:06:04,100
+00:06:00,480 --> 00:06:04,910
 因此被称为循环右移。
 
 00:06:04,910 --> 00:06:07,910
 接下来我们使用这个叫做异或的操作
-next we have this operation called
 
-141
 00:06:07,910 --> 00:06:19,110
 如果你输入的二进制位中是0和1，
 
 00:06:19,110 --> 00:06:23,220
 那么结果就是1。
-put into it ro ro 1 is a 1 there's only
 
-144
 00:06:23,220 --> 00:06:26,160
 让我给你展示一下，
-one one let me just show you 2 lot 0 so
 
-145
 00:06:26,160 --> 00:06:28,530
 如果两个位都是0，那么结果就是0，
-there that's our 1 then both of these
 
-146
 00:06:28,530 --> 00:06:34,260
 如果两个位都是1，那么结果是0，
-so he only wants one one
 
-147
-00:06:31,140 --> 00:06:34,260
-exclusive or so that's a zero 
-but again
-
-148
 00:06:34,260 --> 00:06:39,750
 如果输入1和0，那么结果就是1。
-just one one yeah one so what this means
 
-149
 00:06:39,750 --> 00:06:45,330
 这意味着，这可以用来合并多个位，
 
@@ -339,7 +278,6 @@ just one one yeah one so what this means
 00:06:52,230 --> 00:06:57,080
 我在这里对三个位进行了多次异或操作。
 
-155
 00:06:57,080 --> 00:07:00,030
 前两个是零，结果是零，
 
@@ -361,18 +299,15 @@ just one one yeah one so what this means
 00:07:14,640 --> 00:07:17,190
 并展示了结果。
 
-00:07:17,190 --> 00:07:20,400
-正如我所说，它给你一个平衡的三个输入位的表示。对于
-
-00:07:20,400 --> 00:07:22,650
-
-00:07:22,650 --> 00:07:27,080
+00:07:17,190 --> 00:07:27,080
+正如我所说，它给你一个平衡的三个输入位的表示。
 
 00:07:27,080 --> 00:07:29,730
 一半的时间你会得到1，
 
 00:07:29,730 --> 00:07:30,870
 一半的时间你会得到0，
+
 00:07:30,870 --> 00:07:34,610
 我希望这能让你有所理解。
 
@@ -408,21 +343,12 @@ just one one yeah one so what this means
 00:08:03,360 --> 00:08:06,420
 所以结果限制了在32位字内。
 
-00:08:06,420 --> 00:08:09,120
+00:08:06,420 --> 00:08:11,700
 如果我们把多个单词加在一起，结果大于32位，
-so if we add multiple words together and
 
-181
-00:08:09,120 --> 00:08:11,700
-
-the result is greater than 32 bits this
-
-182
 00:08:11,700 --> 00:08:15,220
 那么这个模2^32就能保证它在32位范围内。
-mod 2 2 3 2 keeps it within
 
-183
 00:08:15,220 --> 00:08:22,900
 这些就是sha-256哈希函数的构建模块。
 
@@ -435,24 +361,20 @@ mod 2 2 3 2 keeps it within
 00:08:32,890 --> 00:08:34,299
 我们可以把它们组合在一起，
 
-00:08:34,299 --> 00:08:36,490
+00:08:34,299 --> 00:08:38,799
 创建这种复合的位移动作。
-
-00:08:36,490 --> 00:08:38,799
 
 00:08:38,799 --> 00:08:42,760
 这个叫做小写的Sigma 0，
 
-00:08:42,760 --> 00:08:46,840
+00:08:42,760 --> 00:08:49,900
 它只是对这个单词进行7次、18次和3次的旋转，
-
-00:08:46,840 --> 00:08:49,900
 
 00:08:49,900 --> 00:08:53,140
 然后把它们加在一起得到这个结果。
 
 00:08:53,140 --> 00:08:58,050
-所以1+1是1，然后1+1是0，再然后0+1是1，等等。它
+所以1+1是1，然后1+1是0，再然后0+1是1，等等。
 
 00:08:58,050 --> 00:09:00,880
 它被称为Sigma，没有什么特别的原因，
@@ -475,7 +397,7 @@ mod 2 2 3 2 keeps it within
 00:09:19,240 --> 00:09:23,410
 第三个是大写的Sigma 0，旋转次数不同，
 
-00:09:23,410 --> 00:09:26,820
+00:09:23,410 --> 00:09:27,540
 然后把它们异或在一起。
 
 00:09:27,540 --> 00:09:31,300
@@ -493,7 +415,7 @@ mod 2 2 3 2 keeps it within
 00:09:40,720 --> 00:09:43,450
 然后把它们异或在一起。所以它们都非常相似，
 
-00:09:43,450 --> 00:09:44,680
+00:09:43,450 --> 00:09:48,640
 唯一的区别是小写的Sigma函数使用了右移，
 
 00:09:48,640 --> 00:09:50,560
@@ -510,17 +432,7 @@ mod 2 2 3 2 keeps it within
 
 00:10:03,210 --> 00:10:11,339
 它使用第一个输入来决定是否从第二个或第三个单词中获取输入。
-choice which uses the first input to
 
-219
-00:10:05,520 --> 00:10:07,290
-determine whether to take the input from
-
-220
-00:10:07,290 --> 00:10:11,339
-the second or third word so if it's a 1
-
-221
 00:10:11,339 --> 00:10:13,890
 所以如果是1，它就选择Y，如果是0，它就选择Z。
 
@@ -539,8 +451,8 @@ the second or third word so if it's a 1
 00:10:31,940 --> 00:10:35,029
 这就是选择函数。
 
-00:10:35,029 --> 00:10:38,070
-最后，我们有一个叫做多数的函数，更容易解释，
+00:10:35,029 --> 00:10:40,020
+最后，我们有一个叫做多数的函数可以更容易解释它，
 
 00:10:40,020 --> 00:10:42,270
 结果就是三个位的多数。
@@ -593,7 +505,7 @@ the second or third word so if it's a 1
 00:11:51,779 --> 00:11:54,149
 你知道，如果我们选择了具体的常数，
 
-00:11:54,149 --> 00:11:55,740
+00:11:54,149 --> 00:11:57,899
 我们可能会设计出包含后门的256字符。
 
 00:11:57,899 --> 00:12:05,600
@@ -603,7 +515,7 @@ the second or third word so if it's a 1
 我们得到了这些看起来很好的常数，
 
 00:12:07,339 --> 00:12:08,630
-它们看起来相当随机，有助于我们混淆信息。这、
+它们看起来相当随机，有助于我们混淆信息。
 
 00:12:08,630 --> 00:12:14,240
 这是对前64个质数进行的，
@@ -612,7 +524,7 @@ the second or third word so if it's a 1
 这给我们提供了64个我们将要使用的常数。
 
 00:12:18,949 --> 00:12:21,110
-在哈希函数中，所有这些随机位都在这里。现在
+在哈希函数中，所有这些随机位都在这里。
 
 00:12:21,110 --> 00:12:31,069
 现在我们终于可以进入SHA-256哈希算法了。
@@ -624,7 +536,7 @@ the second or third word so if it's a 1
 并逐步讲解哈希函数的每个部分。
 
 00:12:42,350 --> 00:12:44,149
-首先，我们有ABC这个字符串，你
+首先，我们有ABC这个字符串，
 
 00:12:44,149 --> 00:12:50,389
 你可能已经注意到，哈希函数在单个位上工作，
@@ -633,7 +545,7 @@ the second or third word so if it's a 1
 数据的1和0。
 
 00:12:52,490 --> 00:12:55,370
-所有数据都可以用1和0表示。所以
+所有数据都可以用1和0表示。
 
 00:12:55,370 --> 00:12:57,800
 所以这里的字符串A、B和C，
@@ -678,7 +590,7 @@ A是97，B是98，C是99，
 作为信息和零之间的分隔符。
 
 00:13:47,449 --> 00:13:49,490
-我们添加了零，但是
+我们添加了零，
 
 00:13:49,490 --> 00:13:51,829
 但是你会注意到这里略小于512，
@@ -694,22 +606,16 @@ A是97，B是98，C是99，
 
 00:14:06,410 --> 00:14:08,930
 这就是用二进制表示24的方式。
-you represent 24 in binary so the last
 
-302
 00:14:08,930 --> 00:14:12,829
 因此，最后64位无论长度多少，
-64 bits here however much it was is
 
-303
 00:14:12,829 --> 00:14:17,760
 都是为消息的长度或消息的大小保留的。
 
 00:14:17,760 --> 00:14:19,950
 我们已经将我们的消息填充到512位，
-there we are we've padded our message up
 
-307
 00:14:19,950 --> 00:14:22,620
 这是哈希函数想要的哈希。
 
@@ -721,29 +627,19 @@ there we are we've padded our message up
 
 00:14:34,080 --> 00:14:37,710
 将有1024位。
-been 1,024 bits poorest Cosby is a
 
-313
 00:14:37,710 --> 00:14:41,040
 因为它是512的倍数，所以一旦填充它，因为这已经是512位，
-multiple of 512 so once we padded it we
 
-314
 00:14:41,040 --> 00:14:44,180
 我们就将它分割成512位的块。
-then split it up into 500 512 bit blocks
 
-315
 00:14:44,180 --> 00:14:47,400
 因为这已经是512位，
-so because this is already 512 bits we
 
-316
 00:14:47,400 --> 00:14:49,410
 只有一个消息块，
-just have one message block but if it
 
-317
 00:14:49,410 --> 00:14:58,190
 但是如果它更大，我们可能会从原始消息知道2、3、4个消息块。
 
@@ -753,25 +649,21 @@ just have one message block but if it
 00:15:02,580 --> 00:15:04,200
 我们已经准备好了要被哈希的消息。
 
-00:15:04,200 --> 00:15:07,530
+00:15:04,200 --> 00:15:10,650
 首先，我们需要从每个消息块创建一个消息计划。
 
-00:15:10,650 --> 00:15:14,220
+00:15:10,650 --> 00:15:16,800
 这就是消息块和消息计划，
 
 00:15:16,800 --> 00:15:18,690
-基本上就是把它分割成32位。
-is basically taking that and splitting
+基本上就是把它分割成32个词。
 
-327
 00:15:18,690 --> 00:15:30,750
 我们只需使用块中的数据来构造的前16个词。
 
 00:15:30,750 --> 00:15:32,760
 然而，这个消息计划实际上需要是64个词长，
-this message schedule actually needs to
 
-331
 00:15:32,760 --> 00:15:38,700
 所以我们需要扩展或扩大它另外48个词，达到64个词。
 
@@ -779,583 +671,332 @@ this message schedule actually needs to
 我们做这个的方式是使用已经在消息计划中的一些词来创建计划中的下一个词。
 
 00:15:52,070 --> 00:15:57,270
-所以这里的第16个词，它使用了调度中的第16个词，
-- 16th word in a schedule along with the
+所以这里的第16个词，它使用了计划中的第16个词，
 
-338
 00:15:57,270 --> 00:16:00,240
 以及第15个、第7个，然后减去两个词。
-minus 15 minus seventh and then minus
 
-339
 00:16:00,240 --> 00:16:08,520
 但在这个词上，
-two weird but on the this word we do a
 
-340
 00:16:08,520 --> 00:16:10,980
 我们对它进行了一个小写的Sigma零旋转，
-lowercase Sigma zero rotation to it and
 
-341
 00:16:10,980 --> 00:16:14,040
 而在这个词上，我们对它进行了一个大写的Sigma一旋转。
-on this word we do it our case Sigma one
 
-342
 00:16:14,040 --> 00:16:15,900
 你可以看到，这些又变成了零，
-rotation as you can see these are just
 
-343
 00:16:15,900 --> 00:16:19,410
 因为旋转只是旋转一堆零，
-zero again because the rotation is just
 
-344
 00:16:19,410 --> 00:16:21,120
 并将它们异或在一起，
-rotating a load of zeroes and XOR in
 
-345
 00:16:21,120 --> 00:16:22,290
 总是得到零。
-them together which gives you always get
 
-346
 00:16:22,290 --> 00:16:25,320
 所以这很无聊，
-to 0 and so it's quite boring and that's
 
-347
 00:16:25,320 --> 00:16:31,070
 这就是为什么这个在消息计划中的新词和这个词完全一样，
 
 00:16:31,070 --> 00:16:33,870
-因为这个加上那个再加上那个再加上那个就得到了这个。所以
-added to that to that to that gives you
+因为这个加上那个再加上那个再加上那个就得到了这个。
 
-351
 00:16:33,870 --> 00:16:37,110
 这很无聊，
-this so it's pretty boring but as you
 
-352
 00:16:37,110 --> 00:16:39,600
-但是当你向下移动消息调度时，
-move down the meta schedule you'll see
+但是当你向下移动消息计划时，
 
-353
 00:16:39,600 --> 00:16:42,390
 你会看到我们正在扩展它，
-that we're expanding it and again lots
 
-354
 00:16:42,390 --> 00:16:46,470
 并且再次将很多新的位扩展到计划中。
-of new bits being extended into the
 
-355
-00:16:46,470 --> 00:16:49,650
-schedule so these rotational functions
+00:16:46,470 --> 00:16:57,570
+所以这些旋转函数使用消息块中的现有数据进行融合并扩展消息计划，
 
-356
-00:16:49,650 --> 00:16:53,340
-here use the existing existing data in
-
-357
-00:16:53,340 --> 00:16:55,110
-the message block and sort of to fuse
-
-358
-00:16:55,110 --> 00:16:57,570
-them and expand the message schedule
-
-359
 00:16:57,570 --> 00:17:01,860
-with lots of new bits so there we are
+以此生成大量新的位。
 
-360
 00:17:01,860 --> 00:17:04,260
-that's the last word in the message
+这就是消息计划中的最后一个词，
 
-361
 00:17:04,260 --> 00:17:06,780
-schedule just to show you how that works
+以便更直观地展示其工作方式。
 
-362
 00:17:06,780 --> 00:17:10,230
-a bit more visually so it's an animation
+这是一个动画，
 
-363
 00:17:10,230 --> 00:17:12,930
-like I said it takes existing words and
+如我所说，它取现有的词，
 
-364
-00:17:12,930 --> 00:17:14,250
-then rotates them and then add them
+00:17:12,930 --> 00:17:23,130
+然后旋转它们，然后将它们加在一起以在计划中创建新的词。
 
-365
-00:17:14,250 --> 00:17:15,810
-together to create the new words in the
-
-366
-00:17:15,810 --> 00:17:18,170
-schedule
-
-367
 00:17:23,130 --> 00:17:25,160
-there we are and that's very creative
+这是非常有创意的。
 
-368
 00:17:25,160 --> 00:17:29,120
-the 63 or 64 'the word in the schedule
+在计划中的第63或64个词。
 
-369
 00:17:29,120 --> 00:17:31,260
-there we are know you've prepared her
+我们现在知道你已经准备好了，
 
-370
 00:17:31,260 --> 00:17:32,820
-Metis schedule extended the message
+扩展了消息块的Metis计划，
 
-371
-00:17:32,820 --> 00:17:34,320
-block this is what we're going to feed
+00:17:32,820 --> 00:17:38,190
+这就是我们将要在主哈希函数中使用的，
 
-372
-00:17:34,320 --> 00:17:38,190
-into the main hash function along with
-
-373
 00:17:38,190 --> 00:17:39,870
-those constants I mentioned mentioned
+以及我之前提到的常数。
 
-374
 00:17:39,870 --> 00:17:45,030
-earlier so like I said this is now we
+正如我所说，
 
-375
 00:17:45,030 --> 00:17:46,410
-move into the compression part of the
+现在我们进入哈希函数的压缩部分，
 
-376
-00:17:46,410 --> 00:17:47,790
-hash function and this is the real heart
+00:17:46,410 --> 00:17:50,010
+这是哈希函数的真正核心，
 
-377
-00:17:47,790 --> 00:17:50,010
-of the hash function this is where all
+00:17:50,010 --> 00:17:59,250
+所有的比特都会被压缩在一起并堆叠在一起以创建最终的消息摘要。
 
-378
-00:17:50,010 --> 00:17:53,190
-the bits get we all squish together and
+00:17:59,250 --> 00:18:03,600
+但首先，我们需要初始化这个压缩函数中的哈希值。
 
-379
-00:17:53,190 --> 00:17:55,650
-overnight on top of each other to create
+00:18:03,600 --> 00:18:06,480
+这些被称为状态寄存器或工作变量，
 
-380
-00:17:55,650 --> 00:17:59,250
-the final metal message digest but first
-
-381
-00:17:59,250 --> 00:18:01,140
-of all we need to initialize the hash
-
-382
-00:18:01,140 --> 00:18:03,600
-values in this compression function so
-
-383
-00:18:03,600 --> 00:18:04,230
-these are called
-
-384
-00:18:04,230 --> 00:18:06,480
-state registers or working variables and
-
-385
 00:18:06,480 --> 00:18:09,870
-there's eight slots the data to go into
+有8个插槽用于存放数据。
 
-386
-00:18:09,870 --> 00:18:12,660
-for the words to fall into and these are
-
-387
-00:18:12,660 --> 00:18:14,880
-initialized similar to the constants
+00:18:09,870 --> 00:18:14,880
+这些寄存器的初始化方式类似于常数，
 
 388
 00:18:14,880 --> 00:18:16,980
-using the square root this time of prime
+使用质数的平方根，
 
-389
-00:18:16,980 --> 00:18:19,590
-numbers so that'll give you a nice
+00:18:16,980 --> 00:18:22,050
+这将给你一个好的小的有理分数部分，
 
-390
-00:18:19,590 --> 00:18:22,050
-little a rational fraction part here or
-
-391
 00:18:22,050 --> 00:18:24,180
-some random bits to initialize the hash
+或者一些随机位来初始化哈希。
 
-392
 00:18:24,180 --> 00:18:27,870
-with take the fractional part multiply
+取它的小数部分，
 
-393
 00:18:27,870 --> 00:18:31,230
-it by two 232 because I'll give you 32
+乘以2的32次方。
 
-394
 00:18:31,230 --> 00:18:33,750
-bits with the data and this is the
+这样我们就可以得到32位的数据。
 
-395
 00:18:33,750 --> 00:18:36,410
-result of that in an integer integer for
+这就是我们在整数形式下的结果，
 
-396
 00:18:36,410 --> 00:18:38,880
-convert that to binary and there we have
+用于将其转化为二进制后，我们就得到了初始的哈希值。
 
-397
 00:18:38,880 --> 00:18:41,220
-our initial hash values so every single
+我们就得到了初始的哈希值。
 
-398
 00:18:41,220 --> 00:18:43,470
-piece of data that your hash will start
+所以你的哈希值会像这个样子开始，
 
-399
-00:18:43,470 --> 00:18:45,390
-out looking like this and then we'll use
+00:18:43,470 --> 00:18:51,360
+然后我们会使用消息计划来修改它。现在
 
-400
-00:18:45,390 --> 00:18:51,360
-the message schedule to modify it so now
-
-401
 00:18:51,360 --> 00:18:53,160
-we're going to go into the compression
+现在我们要进入压缩函数，
 
-402
-00:18:53,160 --> 00:18:54,180
-function we're gonna take that message
+00:18:53,160 --> 00:18:55,890
+我们将从第一个消息块中取出消息计划，
 
-403
-00:18:54,180 --> 00:18:55,890
-schedule from our first message block
-
-404
 00:18:55,890 --> 00:18:59,250
-and we're gonna compress it into these
+然后将其压缩到这些阶段寄存器中。
 
-405
 00:18:59,250 --> 00:19:03,030
-stage registers so we take the first
+取出第一个词，
 
-406
-00:19:03,030 --> 00:19:04,320
-word so we're gonna do this for every
+00:19:03,030 --> 00:19:05,820
+对于消息计划中的每一个词我们都会这样做。这
 
-407
-00:19:04,320 --> 00:19:05,820
-single word in the message schedule this
-
-408
 00:19:05,820 --> 00:19:07,410
-is the first word and this is the first
+这是第一个词，
 
-409
 00:19:07,410 --> 00:19:12,960
-word in the constants so before we
+这是常量中的第一个词。
 
-410
-00:19:12,960 --> 00:19:14,940
-modify any of this we first of all need
+00:19:12,960 --> 00:19:19,410
+在我们修改任何东西之前，我们首先需要创建两个临时词。
 
-411
-00:19:14,940 --> 00:19:19,410
-to create two temporary words look at
-
-412
 00:19:19,410 --> 00:19:21,800
-the complex bar break it don't know
+看一下复杂的条形图，如果不太清楚。
 
-413
 00:19:21,800 --> 00:19:23,690
-so let me just show you an animation
+让我来给你看一个动画。
 
-414
 00:19:23,690 --> 00:19:29,490
-this is the first temporary wood what
+这是第一个临时词，
 
-415
 00:19:29,490 --> 00:19:31,530
-you do you take the choice of these
+你选择EF和G这三个，
 
-416
 00:19:31,530 --> 00:19:36,000
-three EF and G that gives you this then
+得到这个结果。
 
-417
 00:19:36,000 --> 00:19:38,460
-you take a uppercase Sigma one rotation
+然后你对E进行大写的Sigma旋转，
 
-418
 00:19:38,460 --> 00:19:44,460
-of e like that then you just take H and
+然后你取H，
 
-419
 00:19:44,460 --> 00:19:46,380
-then add all these three together along
+然后将这三个加在一起，
 
-420
-00:19:46,380 --> 00:19:48,570
-with the word in the message schedule or
+00:19:46,380 --> 00:19:49,710
+再加上消息计划中的词，
 
-421
-00:19:48,570 --> 00:19:49,710
-the current word in the master schedule
-
-422
 00:19:49,710 --> 00:19:51,780
-and the current constant and that gives
+以及当前的常量，
 
-423
 00:19:51,780 --> 00:19:57,060
-you this temporary word here that's the
+这就给出了这个临时词。
 
-424
 00:19:57,060 --> 00:19:59,400
-first one and then the second temporary
+这是第一个，
 
-425
 00:19:59,400 --> 00:20:02,190
-word is a bit simpler but also quite
+然后第二个临时词稍微简单一些，但也相当相似，
 
-426
-00:20:02,190 --> 00:20:08,070
-similar it takes the majority over the
+00:20:02,190 --> 00:20:10,370
+它取前三个a，b，c中的大部分
 
-427
-00:20:08,070 --> 00:20:10,370
-first three a B and C let's give you
+00:20:10,370 --> 00:20:22,080
+然后对状态寄存器中的第一个词进行Sigma 0旋转，
 
-428
-00:20:10,370 --> 00:20:13,860
-that and then you do a application Sigma
-
-429
-00:20:13,860 --> 00:20:20,130
-0 rotation of the first word in the
-
-430
-00:20:20,130 --> 00:20:22,080
-state registers and then you others
-
-431
 00:20:22,080 --> 00:20:25,050
-together and you have t2 so we're gonna
+然后把它们加在一起就得到了t2。
 
-432
-00:20:25,050 --> 00:20:27,000
-use these in the moment to update the
+00:20:25,050 --> 00:20:33,060
+我们将在稍后使用这些来更新这些哈希值中的数据。
 
-433
-00:20:27,000 --> 00:20:33,060
-data in this in these hash values right
-
-434
 00:20:33,060 --> 00:20:35,490
-so now we're gonna get into the cool
+现在我们将进入有趣的部分。
 
-435
 00:20:35,490 --> 00:20:37,920
-part so I'm gonna do one round of
+我将进行一轮压缩，
 
-436
-00:20:37,920 --> 00:20:40,560
-compression so first of all we move all
+00:20:37,920 --> 00:20:42,120
+我们将所有的词在状态寄存器中向下移动一位，
 
-437
-00:20:40,560 --> 00:20:42,120
-the words in the state registers down
-
-438
 00:20:42,120 --> 00:20:44,190
-one start leaving a space here inside a
+然后在a位置上空出一个空位，
 
-439
 00:20:44,190 --> 00:20:46,760
-and we lose the last one
+丢掉最后一个词。
 
-440
 00:20:46,760 --> 00:20:51,090
-into a we put t1 plus t2 and that gives
+在a位置加上t1和t2，
 
-441
 00:20:51,090 --> 00:20:56,010
-you that and then into e we add t1 so
+在e位置我们加上t1。
 
-442
 00:20:56,010 --> 00:21:00,210
-move everything down put a new word into
+所以，我们向下移动每一个词，把一个新词放入a位置，
 
-443
 00:21:00,210 --> 00:21:04,350
-a and update e and so this process
+并更新e位置。
 
-444
 00:21:04,350 --> 00:21:06,360
-repeats for every single word in the
+这个过程对于消息计划中的每一个词都会重复，
 
-445
 00:21:06,360 --> 00:21:09,570
-message schedule so we have 63 words six
+所以我们有63个词，63个常量，我们将对每个词进行压缩。
 
-446
-00:21:09,570 --> 00:21:11,250
-three constants so we went through each
+00:21:09,570 --> 00:21:18,380
+我们将对消息计划中的每个词进行压缩。
 
-447
-00:21:11,250 --> 00:21:15,510
-of those and do the compression for
-
-448
-00:21:15,510 --> 00:21:18,380
-every single word in our master schedule
-
-449
 00:21:18,380 --> 00:21:22,520
-so I'll keep doing this and this is
+这个过程将继续进行，
 
-450
-00:21:22,520 --> 00:21:27,800
-carries on for every word
+00:21:22,520 --> 00:21:32,239
+直到每一个词都被压缩。
 
-451
 00:21:32,239 --> 00:21:39,419
-nearly there and then we get to the
+然后我们得到最后一个词，
 
-452
 00:21:39,419 --> 00:21:42,989
-final word update the stage registers
+再次更新状态寄存器，
 
-453
-00:21:42,989 --> 00:21:45,059
-one more time and there we have you've
+00:21:42,989 --> 00:21:49,559
+我们已经将主计划中的每一个单词都压缩到了这些状态寄存器中。
 
-454
-00:21:45,059 --> 00:21:48,449
-just compressed every single word in a
-
-455
-00:21:48,449 --> 00:21:49,559
-master schedule into these state
-
-456
 00:21:49,559 --> 00:21:52,079
-registers the last part then of this
+最后一部分，
 
-457
 00:21:52,079 --> 00:21:54,149
-compression for this message block is to
+这是压缩的最后一个部分，
 
-458
 00:21:54,149 --> 00:21:56,759
-take the initial hash values you started
+该消息块将采用开始时的初始哈希值，
 
-459
 00:21:56,759 --> 00:22:01,529
-with and add on the end result of the
+然后加上压缩的结果。
 
-460
-00:22:01,529 --> 00:22:04,829
-compression so there we are there we
+00:22:01,529 --> 00:22:07,979
+这样我们就得到了第一个消息块的哈希值。
 
-461
-00:22:04,829 --> 00:22:07,979
-have the hash values for the first
+00:22:07,979 --> 00:22:13,199
+这个过程将会对每一个消息块重复。
 
-462
-00:22:07,979 --> 00:22:10,979
-message block so this process would
-
-463
-00:22:10,979 --> 00:22:13,199
-repeat for every single message block so
-
-464
 00:22:13,199 --> 00:22:14,399
-for the next message block we were
+对于下一个消息块，
 
-465
 00:22:14,399 --> 00:22:15,989
-quitting at the master schedule and then
+我们将使用这些值作为初始哈希值，
 
-466
 00:22:15,989 --> 00:22:18,149
-read to a compression using these values
+然后进行消息计划，
 
-467
 00:22:18,149 --> 00:22:21,479
-as the initial hash values and this
+然后进行压缩。
 
-468
 00:22:21,479 --> 00:22:23,369
-happens over and over again for every
+这个过程将会对每一个消息块重复，
 
-469
-00:22:23,369 --> 00:22:25,529
-single message block so every message
+00:22:23,369 --> 00:22:28,499
+每一个消息块都会被压缩到现有的哈希值上。
 
-470
-00:22:25,529 --> 00:22:28,499
-block is compressed onto the existing
+00:22:28,499 --> 00:22:33,299
+一旦对每一个消息块都执行了这个操作，
 
-471
-00:22:28,499 --> 00:22:31,139
-hash values and once you've done that
-
-472
-00:22:31,139 --> 00:22:33,299
-for every single message block then
-
-473
 00:22:33,299 --> 00:22:35,399
-you'll have some final values left in
+就会在状态寄存器中剩下一些最终值，
 
-474
 00:22:35,399 --> 00:22:38,339
-the state registers or some pine and
+这些就是最终的哈希值。
 
-475
-00:22:38,339 --> 00:22:40,889
-final hash value and then the final hash
+00:22:38,339 --> 00:22:45,239
+最终的哈希值就是我们把每一个词转换成十六进制，
 
-476
-00:22:40,889 --> 00:22:42,779
-then is if we convert each of these
-
-477
-00:22:42,779 --> 00:22:45,239
-words into hexadecimal and then
-
-478
 00:22:45,239 --> 00:22:48,599
-concatenate them together we end up with
+然后把它们连接在一起，
 
-479
 00:22:48,599 --> 00:22:53,309
-the final message digest and that is our
+我们就得到了最终的消息摘要。
 
-480
 00:22:53,309 --> 00:22:57,589
-how sha-256 works
+这就是SHA-256的工作原理。
+
+
 
