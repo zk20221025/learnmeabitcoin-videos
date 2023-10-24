@@ -508,7 +508,8 @@ mod 2 2 3 2 keeps it within
 00:10:00,390 --> 00:10:03,210
 有一个叫做选择的函数，
 
-00:10:03,210 --> 00:10:05,520
+00:10:03,210 --> 00:10:11,339
+它使用第一个输入来决定是否从第二个或第三个单词中获取输入。
 choice which uses the first input to
 
 219
@@ -521,325 +522,176 @@ the second or third word so if it's a 1
 
 221
 00:10:11,339 --> 00:10:13,890
-it takes the Y and if it's a 0
+所以如果是1，它就选择Y，如果是0，它就选择Z。
 
-222
-00:10:13,890 --> 00:10:17,180
-it takes the Zed so here one takes the
+00:10:13,890 --> 00:10:22,170
+所以这里101选择了0，0选择了Z，
 
-223
-00:10:17,180 --> 00:10:22,170
-101 takes the one in last year o 0 takes
-
-224
 00:10:22,170 --> 00:10:25,529
-the Zed and that's there so it uses the
+它使用X单词，
 
-225
 00:10:25,529 --> 00:10:28,529
-X word it takes three inputs to choose
+接受三个输入，
 
-226
 00:10:28,529 --> 00:10:31,940
-the bit of the second or third word
+来选择第二或第三个单词的位。
 
-227
 00:10:31,940 --> 00:10:35,029
-that's what's called choice anyway
+这就是选择函数。
 
-228
 00:10:35,029 --> 00:10:38,070
-lastly we have majority easier to
+最后，我们有一个叫做多数的函数，更容易解释，
 
-229
-00:10:38,070 --> 00:10:40,020
-explain it just the result is the
-
-230
 00:10:40,020 --> 00:10:42,270
-majority of three bits so majority here
+结果就是三个位的多数。
 
-231
 00:10:42,270 --> 00:10:45,300
-is one sauce one majority he here is
+所以这里是0，
 
-232
-00:10:45,300 --> 00:10:48,510
-zero zero so these are the six functions
+00:10:45,300 --> 00:10:53,190
+这就是在sha-256哈希函数中使用的六个函数。
 
-233
-00:10:48,510 --> 00:10:53,190
-that are used throughout the sha-256
+00:10:53,190 --> 00:10:59,940
+在我实际介绍哈希函数之前，
 
-234
-00:10:53,190 --> 00:10:58,740
-hash function right one last thing
+00:10:59,940 --> 00:11:06,420
+我需要给你们展示一些sha-256使用的常数。
 
-235
-00:10:58,740 --> 00:10:59,940
-before I actually get to the hash
-
-236
-00:10:59,940 --> 00:11:01,620
-function I just need to show you some
-
-237
-00:11:01,620 --> 00:11:06,420
-constants that char 256 users so these
-
-238
 00:11:06,420 --> 00:11:08,220
-constants are ultimately just some
+这些常数最终只是一些看起来随机的位，
 
-239
-00:11:08,220 --> 00:11:12,089
-random looking bits to help mix up the
+00:11:08,220 --> 00:11:13,800
+用来混合我们放入哈希函数的消息。
 
-240
-00:11:12,089 --> 00:11:13,800
-message that we put into the hash
-
-241
 00:11:13,800 --> 00:11:17,160
-function so where do these come from if
+那么这些常数从哪里来的呢？
 
-242
-00:11:17,160 --> 00:11:24,750
-we look here oops it's taken the cube
+00:11:17,160 --> 00:11:28,940
+看这里，它取了前64个质数的立方根。所以
 
-243
-00:11:24,750 --> 00:11:28,940
-root of the first 64 prime numbers so
-
-244
 00:11:28,940 --> 00:11:31,860
-this is the cube root of 13 well
+所以这是13的立方根，
 
-245
-00:11:31,860 --> 00:11:33,600
-actually this is a cube root cube root
+00:11:31,860 --> 00:11:37,080
+实际上结果是是19的立方根。
 
-246
-00:11:33,600 --> 00:11:37,080
-of 19 gets you this result here but the
+00:11:37,080 --> 00:11:41,490
+但是质数的立方根或平方根会给你一个无理数的结果，
 
-247
-00:11:37,080 --> 00:11:39,930
-cube root of a prime number or square
-
-248
-00:11:39,930 --> 00:11:41,490
-root of a prime number gives you an
-
-249
 00:11:41,490 --> 00:11:45,750
-irrational result so this fraction is
+所以这个分数是无理数。
 
-250
 00:11:45,750 --> 00:11:47,790
-irrational it'll go on forever and it's
+这个过程将会持续下去，
 
-251
 00:11:47,790 --> 00:11:49,890
-pretty pretty random looking so it makes
+看起来相当随机，
 
-252
 00:11:49,890 --> 00:11:51,779
-you a good source for a constant because
+因此它是一个很好的常数来源。
 
-253
 00:11:51,779 --> 00:11:54,149
-you know if we chose the constant
+你知道，如果我们选择了具体的常数，
 
-254
 00:11:54,149 --> 00:11:55,740
-specifically they could have we could
+我们可能会设计出包含后门的256字符。
 
-255
-00:11:55,740 --> 00:11:57,899
-have designed char 256 with the backdoor
+00:11:57,899 --> 00:12:05,600
+但通过使用这些公开已知的随机位，立方根和质数，
 
-256
-00:11:57,899 --> 00:11:59,700
-that by using this or publicly known
-
-257
-00:11:59,700 --> 00:12:03,209
-random looking bits the cube roots and
-
-258
-00:12:03,209 --> 00:12:05,600
-prime numbers we get these
-
-259
 00:12:05,600 --> 00:12:07,339
-nice-lookin constants the fairly random
+我们得到了这些看起来很好的常数，
 
-260
 00:12:07,339 --> 00:12:08,630
-looking to help us to mix up our
+它们看起来相当随机，有助于我们混淆信息。这、
 
-261
 00:12:08,630 --> 00:12:14,240
-messages so this is done for the first
+这是对前64个质数进行的，
 
-262
-00:12:14,240 --> 00:12:17,480
-64 prime numbers and that gives us 64
+00:12:14,240 --> 00:12:18,949
+这给我们提供了64个我们将要使用的常数。
 
-263
-00:12:17,480 --> 00:12:18,949
-constants that we're going to work with
-
-264
 00:12:18,949 --> 00:12:21,110
-you in the hash function all these
+在哈希函数中，所有这些随机位都在这里。现在
 
-265
-00:12:21,110 --> 00:12:24,649
-random bits here so now we can finally
+00:12:21,110 --> 00:12:31,069
+现在我们终于可以进入SHA-256哈希算法了。
 
-266
-00:12:24,649 --> 00:12:31,069
-get into the sha-256 hash algorithm so
-
-267
 00:12:31,069 --> 00:12:34,519
-one going to here and go into hash the
+我将在这里哈希字符串ABC，
 
-268
-00:12:34,519 --> 00:12:36,230
-string ABC and I'm gonna step through
+00:12:34,519 --> 00:12:42,350
+并逐步讲解哈希函数的每个部分。
 
-269
-00:12:36,230 --> 00:12:42,350
-each part of the hash function alright
-
-270
 00:12:42,350 --> 00:12:44,149
-first of all so we've got ABC that's a
+首先，我们有ABC这个字符串，你
 
-271
-00:12:44,149 --> 00:12:46,430
-string as you might have you might have
+00:12:44,149 --> 00:12:50,389
+你可能已经注意到，哈希函数在单个位上工作，
 
-272
-00:12:46,430 --> 00:12:48,829
-as you might have noticed the hash
-
-273
-00:12:48,829 --> 00:12:50,389
-function works on individual bits the
-
-274
 00:12:50,389 --> 00:12:52,490
-ones and zeroes of data and so all data
+数据的1和0。
 
-275
 00:12:52,490 --> 00:12:55,370
-can be represented in ones and zeros so
+所有数据都可以用1和0表示。所以
 
-276
 00:12:55,370 --> 00:12:57,800
-this string here a B and C each of these
+所以这里的字符串A、B和C，
 
-277
-00:12:57,800 --> 00:12:59,569
-letters has their own sort correspondent
+00:12:57,800 --> 00:13:05,380
+每个字母都有自己在ASCII表中对应的数字。
 
-278
-00:12:59,569 --> 00:13:05,380
-number in the ASC III table ASCII table
-
-279
 00:13:05,380 --> 00:13:10,130
-so a is 97 beam is C 99 and then we can
+A是97，B是98，C是99，
 
-280
-00:13:10,130 --> 00:13:12,529
-convert these numbers then into their
+00:13:10,130 --> 00:13:14,689
+然后我们可以将这些数字转换为二进制表示。
 
-281
-00:13:12,529 --> 00:13:14,689
-binding we have binary representation so
-
-282
 00:13:14,689 --> 00:13:16,399
-this is what ABC looks like in binary
+所以这就是ABC在二进制中的样子，
 
-283
-00:13:16,399 --> 00:13:18,740
-and this is what we're gonna put into
+00:13:16,399 --> 00:13:19,480
+这就是我们要放入哈希函数的内容。
 
-284
-00:13:18,740 --> 00:13:19,480
-the hash function
-
-285
 00:13:19,480 --> 00:13:22,970
-so before we start hashing it we first
+在我们开始对其哈希之前，
 
-286
 00:13:22,970 --> 00:13:24,889
-of all need to Pat it out because the
+我们首先需要对它进行填充，
 
-287
-00:13:24,889 --> 00:13:27,949
-hash function likes to hash data in
+00:13:24,889 --> 00:13:32,209
+因为哈希函数喜欢一次处理512位的数据。
 
-288
-00:13:27,949 --> 00:13:32,209
-chunks of 512 bits at a time so this is
-
-289
 00:13:32,209 --> 00:13:34,339
-only 24 bits of data so we need to
+这只有24位的数据，
 
-290
 00:13:34,339 --> 00:13:36,110
-paddle out with zeros basically to get
+所以我们需要用零填充它，使其达到512位。
 
-291
 00:13:36,110 --> 00:13:39,439
-it up to 512 bits but before we do that
+但在我们这样做之前，
 
-292
 00:13:39,439 --> 00:13:43,220
-but before the zeros we put a 1 after
+我们在0后面放一个1，
 
-293
-00:13:43,220 --> 00:13:45,139
-the message sort of like as a separator
-
-294
 00:13:45,139 --> 00:13:47,449
-between the message and the zeros then
+作为信息和零之间的分隔符。
 
-295
 00:13:47,449 --> 00:13:49,490
-we add in the zeros but as you notice
+我们添加了零，但是
 
-296
 00:13:49,490 --> 00:13:51,829
-here this is a little bit short of 512
+但是你会注意到这里略小于512，
 
-297
 00:13:51,829 --> 00:13:54,610
-because we're leaving 64 bits at the end
+因为我们在末尾留下了64位，
 
-298
-00:13:54,610 --> 00:14:00,170
-space because in those last 64 bits we
+00:13:54,610 --> 00:14:03,079
+因为在最后64位中我们对消息长度进行编码。
 
-299
-00:14:00,170 --> 00:14:03,079
-encode the length of the message so the
-
-300
 00:14:03,079 --> 00:14:06,410
-message here is 24 bits and this is how
+这里的消息是24位，
 
-301
 00:14:06,410 --> 00:14:08,930
 you represent 24 in binary so the last
 
