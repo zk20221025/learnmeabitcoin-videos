@@ -114,22 +114,16 @@
 
 00:02:15,629 --> 00:02:17,250
 你会创建一批带有锁的比特币。
-will create a batch of bitcoins with the
 
-52
 00:02:17,250 --> 00:02:19,160
 只有这个人可以解锁，
-lock that only this person can unlock
 
-53
 00:02:19,160 --> 00:02:25,709
 这是因为在比特币中，
 
 00:02:25,709 --> 00:02:28,620
 每个人都有自己的私钥和公钥，
-their own private key and public key and
 
-56
 00:02:28,620 --> 00:02:33,180
 这就像每个人都有自己的密码和账号一样。
 
@@ -138,48 +132,34 @@ their own private key and public key and
 
 00:02:37,980 --> 00:02:41,010
 他们会给你他们的公钥，
-bitcoins they will give you their public
 
-61
 00:02:41,010 --> 00:02:43,799
 你将创建一个交易，
-key you will create a transaction and
 
-62
 00:02:43,799 --> 00:02:46,769
 并锁定一些你拥有的比特币，
-lock some bitcoins that you own create a
 
-63
 00:02:46,769 --> 00:02:48,930
 创建一批新的比特币，
-new batch of bitcoins and inside the
 
-64
 00:02:48,930 --> 00:02:53,599
 然后在这批比特币的锁上放置他们的公钥。
 
 00:02:53,599 --> 00:02:56,519
-这就是为什么这个人拥有这批比特币的原因，因为
-so that is why this person owns this
+这就是为什么这个人拥有这批比特币的原因，
 
-67
 00:02:56,519 --> 00:03:02,280
 因为这批比特币的锁上包含了他们的公钥，
 
 00:03:02,280 --> 00:03:07,230
 这是他们的唯一账号。
-unique account number so what that means
 
-70
 00:03:07,230 --> 00:03:14,280
 如果他们想要花费这批比特币或者发送给其他人，
 
 00:03:14,280 --> 00:03:17,130
 他们将使用他们的私钥，
-will use their private key which is like
 
-73
 00:03:17,130 --> 00:03:21,959
 就像他们的账号的密码一样，来解锁它。
 
@@ -188,9 +168,7 @@ will use their private key which is like
 
 00:03:26,430 --> 00:03:30,299
 这就像一个一次性密码。
-is like a one-time password they are
 
-78
 00:03:30,299 --> 00:03:36,389
 任何人看到这个签名和这个公钥，
 
@@ -211,70 +189,40 @@ is like a one-time password they are
 
 00:04:05,790 --> 00:04:07,860
 可以观看那个视频。
-come from and how they work watch that
 
-93
 00:04:07,860 --> 00:04:10,550
 在常规交易中，
-video but in a typical transaction
 
-94
 00:04:10,550 --> 00:04:13,260
 比特币被锁定到一个公钥，
-bitcoins get locked locked to a public
 
-95
 00:04:13,260 --> 00:04:14,970
 然后当你想要解锁它们时，
-key and then when you want to unlock
 
-96
 00:04:14,970 --> 00:04:18,029
 你提供一个签名来解锁它们，
-them you provide a signature to unlock
 
-97
 00:04:18,029 --> 00:04:20,430
 以证明你是这个公钥的所有者，
-them to show that you are the owner of
 
-98
-00:04:20,430 --> 00:04:22,770
+00:04:20,430 --> 00:04:25,920
 因为你拥有从这个公钥创建的私钥。
-that public key because you have the
 
-99
-00:04:22,770 --> 00:04:25,920
-private key that was made from anyway so
-
-100
 00:04:25,920 --> 00:04:26,430
 任何人都可以查看签名，
 
 00:04:27,510 --> 00:04:30,150
 与公钥进行对比，看到它们匹配，
-compared to the public key and see that
 
-103
 00:04:30,150 --> 00:04:32,820
 如果它们匹配，
-they match and therefore if they match
 
-104
-00:04:32,820 --> 00:04:34,980
+00:04:32,820 --> 00:04:37,890
 然后这些比特币可以被解锁并在新的交易中使用，
-then these bitcoins can be unlocked and
 
-105
-00:04:34,980 --> 00:04:37,890
-spent in a new transaction and they can
-
-106
 00:04:37,890 --> 00:04:39,560
 它们可以被发送给其他人。
-be sent on to someone else and so
 
-107
 00:04:39,560 --> 00:04:45,240
 显然，这批比特币将包含别人的公钥，
 
@@ -283,313 +231,176 @@ be sent on to someone else and so
 
 00:04:52,770 --> 00:04:55,050
 所以在这个视频中，就像我说的，
-video like I said I'm not going to cover
 
-112
 00:04:55,050 --> 00:04:57,600
 我不会涉及交易和这些密钥是如何工作的。
-how transactions and these Keys work I'm
 
-113
-00:04:57,600 --> 00:05:02,880
-我只会关注锁定代码和解锁代码。
+00:04:57,600 --> 00:05:05,640
+我只会关注锁定代码和解锁代码是如何交互的。
 
-00:05:02,880 --> 00:05:05,640
-他们是如何交互的，
-here how do they interact so there's a
-
-116
 00:05:05,640 --> 00:05:07,950
 这里有一个锁定机制，我们会在基础知识中介绍，
-locking mechanism so that'll be covered
 
-117
 00:05:07,950 --> 00:05:12,870
 你会发现这只是一个小型的编程语言坐在这些锁里，
 
 00:05:12,870 --> 00:05:19,080
-同样的事情再次出现在解锁代码里。实际
+同样的事情再次出现在解锁代码里。
 
 00:05:19,080 --> 00:05:23,580
-here there are actually quite a few
+实际上有很多不同的，
 
-122
-00:05:23,580 --> 00:05:26,100
-different because it's a programming
+00:05:23,580 --> 00:05:27,570
+因为这是一个位于这些锁内的编程语言，
 
-123
-00:05:26,100 --> 00:05:27,570
-programming language sitting inside
-
-124
 00:05:27,570 --> 00:05:28,740
-these locks you can create different
+你可以创建不同类型的锁。
 
-125
-00:05:28,740 --> 00:05:32,580
-types of locks so I'll cover each how
+00:05:28,740 --> 00:05:34,950
+我会介绍每种最常见的锁的工作原理，
 
-126
-00:05:32,580 --> 00:05:34,950
-each of those are the most common locks
-
-127
 00:05:34,950 --> 00:05:38,010
-work so you have what's called Paita pub
+这是P2PK，
 
-128
 00:05:38,010 --> 00:05:39,870
-key which is the most simplest kind of
+这是最常见、最简单的锁定比特币的方式，
 
-129
 00:05:39,870 --> 00:05:41,510
-locking important about your bitcoins
+对于锁定比特币很重要，
 
-130
 00:05:41,510 --> 00:05:44,130
-then you have pay to pub key hash which
+还有P2PKH，
 
-131
 00:05:44,130 --> 00:05:45,600
-is very similar but a little bit more
+这非常相似，但稍微复杂一些，
 
-132
 00:05:45,600 --> 00:05:46,740
-complex and it's actually the most
+这是现在最常见的比特币锁定。
 
-133
-00:05:46,740 --> 00:05:49,740
-common common lock put on bitcoins these
+00:05:49,740 --> 00:05:55,980
+然后是P2MS，和P2SH，
 
-134
-00:05:49,740 --> 00:05:52,430
-days then you have Peyton multi-sig and
+00:05:55,980 --> 00:06:00,630
+这些是你可以放在比特币批次上的最常见类型的锁。
 
-135
-00:05:52,430 --> 00:05:55,980
-paid to script hash and these the most
-
-136
-00:05:55,980 --> 00:05:57,360
-common types of locks you can put on
-
-137
-00:05:57,360 --> 00:06:00,630
-batches of bitcoins finally I'll finish
-
-138
 00:06:00,630 --> 00:06:03,810
-up with some code and some examples to
+最后我会用一些代码和例子来结束，
 
-139
 00:06:03,810 --> 00:06:06,000
-show you the actual script running and
+向你展示实际的脚本运行，
 
-140
-00:06:06,000 --> 00:06:06,780
-just show you how to show you how simple
+00:06:06,000 --> 00:06:08,270
+向你展示它是多么简单。
 
-141
-00:06:06,780 --> 00:06:08,270
-it is really
-
-142
 00:06:08,270 --> 00:06:10,090
-but by the end of this presentation
+但在这个演示结束时，
 
-143
-00:06:10,090 --> 00:06:13,250
-hopefully at least you'll be familiar
+00:06:10,090 --> 00:06:16,430
+希望你你会熟悉所有这些不同的术语，
 
-144
-00:06:13,250 --> 00:06:14,720
-with all these different teams that
-
-145
-00:06:14,720 --> 00:06:16,430
-you've probably bumped into if you've
-
-146
 00:06:16,430 --> 00:06:18,500
-been researching about Bitcoin at all
+如果你在研究比特币，
 
-147
 00:06:18,500 --> 00:06:19,700
-they probably seen a few of these terms
+你可能已经碰到了其中一些术语。
 
-148
-00:06:19,700 --> 00:06:23,480
-lying around but ultimately if you
+00:06:19,700 --> 00:06:33,620
+但最终，如果你理解了基础的脚本是一种迷你编程语言，
 
-149
-00:06:23,480 --> 00:06:24,920
-understand the basics at their stall
-
-150
-00:06:24,920 --> 00:06:26,300
-script which is a mini programming
-
-151
-00:06:26,300 --> 00:06:29,690
-language then you pretty much go good
-
-152
-00:06:29,690 --> 00:06:33,620
-understanding of how these locks work so
-
-153
 00:06:33,620 --> 00:06:36,250
-any questions so far
+所以，到目前为止有任何问题吗？
 
-154
 00:06:36,610 --> 00:06:40,190
-okay great so first of all the basics
+首先是基础知识，
 
-155
 00:06:40,190 --> 00:06:44,170
-how do these two parts of the lock
+这两部分的锁是如何互动的呢？
 
-156
 00:06:44,170 --> 00:06:47,870
-interact with each other well up until
+到现在为止，
 
-157
-00:06:47,870 --> 00:06:49,850
-now I've used this little locking symbol
+00:06:47,870 --> 00:06:56,660
+我一直使用这个小锁符号来说明放在比特币批次上的锁。
 
-158
-00:06:49,850 --> 00:06:53,450
-to illustrate the the lock that gets put
+00:06:56,660 --> 00:07:01,580
+这只是一些包含一个叫做脚本的迷你编程语言的代码。
 
-159
-00:06:53,450 --> 00:06:56,660
-on top of batches of bitcoins but what
+00:07:01,580 --> 00:07:09,350
+我们称这个锁住一批比特币的代码为锁定脚本。
 
-160
-00:06:56,660 --> 00:06:59,020
-it really is it's just some code
+00:07:09,350 --> 00:07:15,410
+这个锁定脚本被放在这个第一笔交易的输出上，
 
-161
-00:06:59,020 --> 00:07:01,580
-containing a mini programming language
-
-162
-00:07:01,580 --> 00:07:04,910
-called script so what we call this this
-
-163
-00:07:04,910 --> 00:07:07,970
-lower part of the code that locks up a
-
-164
-00:07:07,970 --> 00:07:09,350
-batch of bitcoins we call that the
-
-165
-00:07:09,350 --> 00:07:11,840
-locking script so that gets put onto
-
-166
-00:07:11,840 --> 00:07:15,410
-this output in this first transaction
-
-167
 00:07:15,410 --> 00:07:18,230
-here when these bitcoins are created or
+当这些比特币被创建或者输出被创建的时候。
 
-168
-00:07:18,230 --> 00:07:20,630
-when the output is created then later on
+00:07:20,630 --> 00:07:24,530
+然后在你想要解锁这批比特币并从中创建新的批次时，
 
-169
-00:07:20,630 --> 00:07:22,460
-when you want to come to unlock this
+00:07:24,530 --> 00:07:30,230
+你需要提供一些额外的代码来匹配这个锁定脚本，
 
-170
-00:07:22,460 --> 00:07:24,530
-batch of bitcoins and create a new batch
-
-171
-00:07:24,530 --> 00:07:27,050
-from it you'll need to provide some
-
-172
-00:07:27,050 --> 00:07:30,230
-extra some more code to match up with
-
-173
 00:07:30,230 --> 00:07:32,600
-this locking script and this is called
+这就叫做解锁脚本。
 
-174
 00:07:32,600 --> 00:07:38,840
 the unlocking script so what happens
 
 175
-00:07:38,840 --> 00:07:44,210
-sorry so this is often called the script
+00:07:38,840 --> 00:07:47,420
+这个锁定部分通常被称为脚本公钥，
 
-176
-00:07:44,210 --> 00:07:47,420
-pub key the lock in part because it
-
-177
 00:07:47,420 --> 00:07:49,220
+因为它通常包含一个公钥，
 usually contains a public key and it's
 
 178
 00:07:49,220 --> 00:07:52,220
+并且显然是一个脚本。
 obviously a script and this unlocking
 
 179
 00:07:52,220 --> 00:07:53,900
+这个解锁脚本有时被称为脚本签名，
 script is sometimes referred to as a
 
 180
 00:07:53,900 --> 00:07:55,490
+因为它也是一个脚本，
 script sink because again is a script
 
 181
 00:07:55,490 --> 00:07:59,360
+并且通常包含一个签名。
 and it usually contains a signature but
 
 182
 00:07:59,360 --> 00:08:01,490
+但是在这个视频中，
 for the purposes of this video I'm going
 
 183
-00:08:01,490 --> 00:08:02,870
-to stick to blocking script and the
+00:08:01,490 --> 00:08:03,890
+我会坚持称它们锁定脚本和解锁脚本，
 
-184
-00:08:02,870 --> 00:08:03,890
-locking script because think they're
-
-185
 00:08:03,890 --> 00:08:07,280
+因为我认为它们更具描述性，
 more descriptive and not all scripts pub
 
 186
 00:08:07,280 --> 00:08:09,560
+而且并不是所有的脚本公钥都需要包含一个公钥，
 keys can have to contain a public key
 
 187
 00:08:09,560 --> 00:08:11,450
+也不是所有的解锁脚本都需要包含一个签名。
 and not all unlocking scripts have to
 
 188
-00:08:11,450 --> 00:08:14,420
-contain a signature so I prefer the more
+00:08:11,450 --> 00:08:18,020
+我更喜欢更通用和多功能的使用锁定脚本和解锁脚本这两个术语
 
-189
-00:08:14,420 --> 00:08:17,240
-general and versatile terms of locking
-
-190
-00:08:17,240 --> 00:08:18,020
-script and
-
-191
 00:08:18,020 --> 00:08:22,310
 and luck in script so that's the basics
 
