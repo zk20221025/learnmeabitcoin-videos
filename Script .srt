@@ -340,77 +340,51 @@
 00:07:24,530 --> 00:07:30,230
 你需要提供一些额外的代码来匹配这个锁定脚本，
 
-00:07:30,230 --> 00:07:32,600
+00:07:30,230 --> 00:07:38,840
 这就叫做解锁脚本。
 
-00:07:32,600 --> 00:07:38,840
-the unlocking script so what happens
-
-175
 00:07:38,840 --> 00:07:47,420
 这个锁定部分通常被称为脚本公钥，
 
 00:07:47,420 --> 00:07:49,220
 因为它通常包含一个公钥，
-usually contains a public key and it's
 
-178
 00:07:49,220 --> 00:07:52,220
 并且显然是一个脚本。
-obviously a script and this unlocking
 
-179
 00:07:52,220 --> 00:07:53,900
 这个解锁脚本有时被称为脚本签名，
-script is sometimes referred to as a
 
-180
 00:07:53,900 --> 00:07:55,490
 因为它也是一个脚本，
-script sink because again is a script
 
-181
 00:07:55,490 --> 00:07:59,360
 并且通常包含一个签名。
-and it usually contains a signature but
 
-182
 00:07:59,360 --> 00:08:01,490
 但是在这个视频中，
-for the purposes of this video I'm going
 
-183
 00:08:01,490 --> 00:08:03,890
 我会坚持称它们锁定脚本和解锁脚本，
 
 00:08:03,890 --> 00:08:07,280
 因为我认为它们更具描述性，
-more descriptive and not all scripts pub
 
-186
 00:08:07,280 --> 00:08:09,560
 而且并不是所有的脚本公钥都需要包含一个公钥，
-keys can have to contain a public key
 
-187
 00:08:09,560 --> 00:08:11,450
 也不是所有的解锁脚本都需要包含一个签名。
-and not all unlocking scripts have to
 
-188
 00:08:11,450 --> 00:08:18,020
 我更喜欢更通用和多功能的使用锁定脚本和解锁脚本这两个术语。
 
 00:08:18,020 --> 00:08:22,310
 这就是这些脚本的基础知识。
-and luck in script so that's the basics
 
-192
 00:08:22,310 --> 00:08:26,060
 那么它是如何交互的呢？
-of this script but how'd it interact
 
-193
 00:08:26,060 --> 00:08:34,969
 我们在这个小型编程语言中可以使用的是这些叫做操作码的东西，
 
@@ -422,43 +396,34 @@ of this script but how'd it interact
 
 00:08:46,130 --> 00:08:48,800
 我们称它为CHECKSIG。
-lock it's one called checks IgG so we'll
 
-204
 00:08:48,800 --> 00:08:50,510
 我们将其放入锁定脚本中。
-just put that into the login script and
 
-205
-00:08:50,510 --> 00:08:57,589
-现在我们有了一个完整的脚本，包括锁定部分和解锁部分。
+00:08:50,510 --> 00:08:54,709
+现在我们有了一个完整的脚本，
+
+00:08:54,709 --> 00:08:57,589
+包括锁定部分和解锁部分。
 
 00:08:57,589 --> 00:09:04,880
 这个特定的函数将会检查一个签名与公钥是否匹配。
 
 00:09:04,880 --> 00:09:10,640
-你可能能猜到这种脚本将如何运行和验证。
+你可能猜到了这种脚本将如何运行和验证。
 
 00:09:10,640 --> 00:09:13,399
 就像我说的，每个脚本只包含一些数据，
-like I said every script just contains
 
-213
 00:09:13,399 --> 00:09:16,550
 比如这里的公钥和签名，
-some data like this public key here and
 
-214
 00:09:16,550 --> 00:09:19,130
 以及一些操作符或操作码，
-this signature and some operators or op
 
-215
 00:09:19,130 --> 00:09:21,709
 这就是脚本的全部内容，
-codes and that's all script is just some
 
-216
 00:09:21,709 --> 00:09:28,490
 只有一些数据和一些被称为操作码的函数。
 
@@ -467,14 +432,10 @@ codes and that's all script is just some
 
 00:09:33,140 --> 00:09:36,050
 或者说任何一个节点中时，
-particular node or any node they will
 
-221
 00:09:36,050 --> 00:09:38,959
 他们会接收这个完整的脚本。
-take this entire script so they'll take
 
-222
 00:09:38,959 --> 00:09:43,820
 他们会接收最初放在输出上的锁定脚本，
 
@@ -483,34 +444,22 @@ take this entire script so they'll take
 
 00:09:50,649 --> 00:09:53,450
 如果验证通过，
-and if it validates then this
 
-228
 00:09:53,450 --> 00:09:55,640
 那么这个交易就是有效的，
-transaction is valid and it can be added
 
-229
 00:09:55,640 --> 00:09:57,470
 可以添加到区块链中，或者说他们会接受它，
-to the blockchain or basically they will
 
-230
 00:09:57,470 --> 00:09:59,720
 并将其转发给其他节点
-accept it and they will relay it to
 
-231
 00:09:59,720 --> 00:10:02,480
 甚至是矿工，
-other nodes who and onto miners who
 
-232
 00:10:02,480 --> 00:10:03,950
 他们有可能将其挖掘到区块链上。
-might be able to mine it onto the
 
-233
 00:10:03,950 --> 00:10:11,450
 如果你创建了一个更复杂的交易，
 
@@ -519,9 +468,7 @@ might be able to mine it onto the
 
 00:10:16,279 --> 00:10:18,920
 每一个都会有自己的锁定脚本，
-each have their own locking script on
 
-238
 00:10:18,920 --> 00:10:26,029
 所以你需要为每一个提供解锁脚本，
 
@@ -533,60 +480,37 @@ each have their own locking script on
 
 00:10:32,690 --> 00:10:39,740
 这就是脚本的基础，
-network so that's the basics of what
 
-245
 00:10:39,740 --> 00:10:41,180
 它只是一些数据和一些函数。
-script looks like it's just some data
 
-246
 00:10:41,180 --> 00:10:45,829
 这是如何运行的呢？
-and some functions now how does this
 
-247
 00:10:45,829 --> 00:10:47,779
 就像我说的那样，
-thing get run like I said you could
 
-248
 00:10:47,779 --> 00:10:49,579
 你可能会猜到它是如何运行，
-probably guess how it gets run but I'll
 
-249
 00:10:49,579 --> 00:10:53,959
 我将介绍节点如何运行整个脚本的步骤。
 
 00:10:53,959 --> 00:10:58,819
-我有个小问题， the unlocking
+我有个小问题，
 
-252
 00:10:58,819 --> 00:11:03,110
 解锁脚本是交易的一部分，
-script is part of the transaction yeah
 
-253
 00:11:03,110 --> 00:11:05,930
 而我们所说的锁定脚本，
-yeah and the locking script which were
 
-254
-00:11:05,930 --> 00:11:08,329
+00:11:05,930 --> 00:11:12,290
 实际上就是数字签名。
-just referring to as the digital
 
-255
-00:11:08,329 --> 00:11:12,290
-signature actually the digital signature
-
-256
 00:11:12,290 --> 00:11:13,610
 你提到的解锁脚本，
-which you are referring to as the
 
-257
 00:11:13,610 --> 00:11:20,180
 实际上是由花费比特币的人创建的。
 
@@ -595,37 +519,25 @@ which you are referring to as the
 
 00:11:23,329 --> 00:11:25,569
 在第一个交易中，
-so yeah in the first transaction and
 
-261
 00:11:25,569 --> 00:11:29,810
 某人会设置这个锁定代码。
-someone will put on this locking code so
 
-262
 00:11:29,810 --> 00:11:31,279
-这个人就会进行这笔交易
-that this person would have made this
+这个人就会进行这笔交易，
 
-263
 00:11:31,279 --> 00:11:33,079
 并将解锁代码放在这里
-transaction and put this locking code on
 
-264
 00:11:33,079 --> 00:11:37,970
-当这个人来解锁它时，
+当他来解锁它时，
 
 00:11:37,970 --> 00:11:41,660
 他们只需要引用这批比特币，
-reference this batch of bitcoins and put
 
-267
 00:11:41,660 --> 00:11:43,490
 并将解锁代码输入到这个交易中。
-the unlocking code into this transaction
 
-268
 00:11:43,490 --> 00:11:57,759
 整个脚本实际上是分布在两个不同的交易中。
 
@@ -634,37 +546,25 @@ the unlocking code into this transaction
 
 00:12:04,610 --> 00:12:08,480
 这有点复杂，
-script put on top of it so yes big
 
-273
 00:12:08,480 --> 00:12:13,610
 因为锁定部分和解锁部分实际上是在两个不同的交易中。
 
 00:12:13,610 --> 00:12:15,410
 所以如果你看这一笔交易，
-so if you look at one transaction you
 
-277
 00:12:15,410 --> 00:12:17,380
 实际上不会有一整个脚本来一起运行，
-won't actually have the to a full script
 
-278
 00:12:17,380 --> 00:12:21,829
 它可能稍后在运行，
-to run together it might come to do
 
-279
 00:12:21,829 --> 00:12:24,579
 据我所知，解锁脚本，
-later on the unlocking script which is
 
-280
 00:12:24,579 --> 00:12:28,370
 就是那个红色的波浪，
-that wave red wave which it will be part
 
-281
 00:12:28,370 --> 00:12:32,430
 它将是黄色交易的一部分，
 
@@ -676,14 +576,10 @@ that wave red wave which it will be part
 
 00:12:48,060 --> 00:12:54,060
 对于每个输入，
-have outputs for each of the inputs we
 
-287
 00:12:54,060 --> 00:12:58,110
 我们实际上并没有看到或输入这个锁定代码，
-don't actually see or put in this unlock
 
-288
 00:12:58,110 --> 00:13:03,200
 我们所做的就是为我们选择的每个输入应用或输入一个锁定代码。
 
@@ -692,85 +588,55 @@ don't actually see or put in this unlock
 
 00:13:08,760 --> 00:13:12,570
 实际上不会看到它们。
-actually see them then in the second
 
-293
 00:13:12,570 --> 00:13:13,830
 然后在交易的第二部分，我们创建输出时，
-half of the transaction where we create
 
-294
 00:13:13,830 --> 00:13:21,390
 我们将在这里放一些新的锁定代码，
 
 00:13:21,390 --> 00:13:23,430
 无论我们想要什么样的锁。
-want to whatever kind of locks we do so
 
-297
 00:13:23,430 --> 00:13:26,010
 输入有解锁代码，
-inputs have unlocking code on them and
 
-298
 00:13:26,010 --> 00:13:29,790
 输出有锁定代码。
-outputs have locking code on them I
 
-299
 00:13:29,790 --> 00:13:33,390
 我想当我在最后展示交易数据时，
 
 00:13:33,390 --> 00:13:34,320
 你可能会更能理解。
-data and you might be able to see it
 
-302
 00:13:34,320 --> 00:13:35,700
 这有点令人困惑，
-yourself I think yes this is a bit
 
-303
 00:13:35,700 --> 00:13:36,990
 因为我把这个锁定代码放在这里，
-confusing because I've sort of put this
 
-304
 00:13:36,990 --> 00:13:39,120
-但在这个交易中，你
-locking code here but in this
+但在这个交易中，
 
-305
 00:13:39,120 --> 00:13:40,350
 你实际上不会看到锁定代码，
-transaction you wouldn't actually see
 
-306
 00:13:40,350 --> 00:13:42,470
 我们只知道它在那里，
-the locking code we just know it's there
 
-307
 00:13:42,470 --> 00:13:45,029
 所以我们只是在这里引用它，
-so we just reference it in this on there
 
-308
 00:13:45,029 --> 00:13:50,070
 我现在继续运行这个完整脚本的内容。
-yep okay I'll carry on now to running
 
-309
 00:13:50,070 --> 00:13:55,350
 当一个节点接收到一个交易时，
-this full script so when a node received
 
-310
 00:13:55,350 --> 00:13:56,880
 他们会有解锁代码，
-a transaction they will have the
 
-311
 00:13:56,880 --> 00:14:01,050
 并且他们有对之前有锁定代码的输出的引用，
 
@@ -782,255 +648,150 @@ a transaction they will have the
 
 00:14:13,470 --> 00:14:16,890
 他们会把这个解锁代码，
-spent well what they do they will take
 
-319
-00:14:16,890 --> 00:14:21,170
+00:14:16,890 --> 00:14:25,079
 它是在这个二级交易中提供的，
-this unlocking code that was provided in
 
-320
-00:14:21,170 --> 00:14:25,079
-this secondary transaction and they will
-
-321
 00:14:25,079 --> 00:14:28,230
-put it at the start before the locking
+将其放在锁定代码的前面，
 
-322
 00:14:28,230 --> 00:14:31,649
-code like so
+像这样，
 
-323
-00:14:31,649 --> 00:14:33,910
-then what they'll do they'll run this
+00:14:31,649 --> 00:14:37,149
+然后他们将从左到右运行这个脚本。
 
-324
-00:14:33,910 --> 00:14:37,149
-script from left to right and the way
+00:14:37,149 --> 00:14:43,180
+他们运行这个代码的方式是使用一个叫做栈的数据结构，
 
-325
-00:14:37,149 --> 00:14:40,390
-they run this is the run this code using
-
-326
-00:14:40,390 --> 00:14:43,180
-a data structure called a stack and if
-
-327
 00:14:43,180 --> 00:14:43,930
-you've done any kind of programming
+如果你之前做过任何编程，
 
-328
 00:14:43,930 --> 00:14:46,390
-before a stack is just a simple data
+栈就是一个简单的数据结构，
 
-329
 00:14:46,390 --> 00:14:49,029
-structure it's a lot like an array or it
+它很像一个数组，
 
-330
-00:14:49,029 --> 00:14:51,160
-isn't array then we just push and pop
+00:14:49,029 --> 00:14:57,730
+我们只是在栈顶或数组的末尾推入和弹出元素
 
-331
-00:14:51,160 --> 00:14:54,130
-elements off the top of the stack or the
-
-332
-00:14:54,130 --> 00:14:57,730
-end of the at the end of the array so we
-
-333
 00:14:57,730 --> 00:14:59,170
-have this script a bunch of data and
+我们有这个脚本，一堆数据和函数，
 
-334
 00:14:59,170 --> 00:15:02,399
-functions and it all operates on top of
+它们都在栈顶上运行。
 
-335
-00:15:02,399 --> 00:15:06,820
-stack so we'll run this script now from
+00:15:02,399 --> 00:15:09,040
+所以我们现在会用这个栈从左到右运行这个脚本。
 
-336
-00:15:06,820 --> 00:15:09,040
-left right using this stack so the first
-
-337
 00:15:09,040 --> 00:15:10,660
-thing is first as we go from left to
+首先，当我们从左到右进行时，
 
-338
 00:15:10,660 --> 00:15:13,510
-right we've encountered some data this
+我们遇到了一些数据，签名，
 
-339
-00:15:13,510 --> 00:15:16,240
-signature and any data you encounter
+00:15:13,510 --> 00:15:18,640
+你在脚本中遇到的任何数据都会被推入栈顶，
 
-340
-00:15:16,240 --> 00:15:18,640
-inside the script just gets pushed on to
+00:15:18,640 --> 00:15:23,589
+所以这个签名再次被推入了栈顶。
 
-341
-00:15:18,640 --> 00:15:20,529
-the top of the stack so this signature
-
-342
-00:15:20,529 --> 00:15:23,589
-gets pushed onto the stack again here
-
-343
 00:15:23,589 --> 00:15:25,690
-we've run into a public key that's just
+我们遇到了一个公钥，
 
-344
 00:15:25,690 --> 00:15:27,490
-some more data and that will also get
+这只是更多的数据，
 
-345
 00:15:27,490 --> 00:15:30,910
-pushed on top of the stack lastly we've
+它也会被推入栈顶。
 
-346
 00:15:30,910 --> 00:15:34,269
-run into an opcode and up codes operate
+最后，我们遇到了一个操作码，
 
-347
 00:15:34,269 --> 00:15:35,860
-a little bit differently to data
+操作码与数据的操作方式有些不同。
 
-348
 00:15:35,860 --> 00:15:38,140
-so whereas data just gets pushed on top
+数据只是被推入栈顶，
 
-349
 00:15:38,140 --> 00:15:41,890
-of the stack an opcode what it can do it
+而操作码可以做什么呢？
 
-350
 00:15:41,890 --> 00:15:46,209
-will generally pop one or more items off
+它会从栈顶弹出一个或多个项目，
 
-351
 00:15:46,209 --> 00:15:48,370
-the top of the stack do something with
+对它们执行某些操作后，
 
-352
-00:15:48,370 --> 00:15:50,949
-them and then it can optionally push
+00:15:48,370 --> 00:15:52,810
+它可以选择性地在堆栈顶部推回项目，
 
-353
-00:15:50,949 --> 00:15:52,810
-items back on top of the stack after
-
-354
 00:15:52,810 --> 00:15:54,790
-doing something with those items is
+在处理这些项目之后，
 
-355
 00:15:54,790 --> 00:15:58,660
-pushed off popped off so with this check
+我们会使用CHECKSIG，
 
-356
-00:15:58,660 --> 00:16:01,810
-cygwin what it will do it will pop two
+00:15:58,660 --> 00:16:03,910
+它会从堆栈顶部弹出两个项目。
 
-357
-00:16:01,810 --> 00:16:03,910
-items off the top of the stack so there
-
-358
 00:16:03,910 --> 00:16:06,310
-we are it's popping off the public key
+这里，它弹出了公钥和签名，
 
-359
 00:16:06,310 --> 00:16:08,410
-in the signature then it'll do something
+然后它会对这两个项目做一些处理。
 
-360
-00:16:08,410 --> 00:16:09,970
-with them and what the check stick does
+00:16:08,410 --> 00:16:12,160
+CHECKSIG会检查这个签名是否匹配这个公钥，
 
-361
-00:16:09,970 --> 00:16:12,160
-it will check that this signature
+00:16:12,160 --> 00:16:19,600 
+或者这个签名是否是这个特定公钥的有效签名。
 
-362
-00:16:12,160 --> 00:16:17,050
-matches the public key or this signature
-
-363
-00:16:17,050 --> 00:16:19,600
-is a valid signature for this particular
-
-364
 00:16:19,600 --> 00:16:21,610
-public key again if you understand how
+如果你想了解这个过程，你就可以去看看关于密钥和地址的视频。
 
-365
 00:16:21,610 --> 00:16:22,959
-that works just watch the keys in the
+你就可以去看看关于密钥和地址的视频。
 
-366
 00:16:22,959 --> 00:16:25,180
-dresses video but for the sake of this
+但是这个例子，
 
-367
-00:16:25,180 --> 00:16:27,640
-example let's just assume that this
+00:16:25,180 --> 00:16:30,790
+让我们假设这个签名是这个公钥的有效签名。
 
-368
-00:16:27,640 --> 00:16:30,790
-signature is a valid signature for this
-
-369
 00:16:30,790 --> 00:16:34,779
-public key so after the check the check
+在CHECKSIG操作完成后
 
-370
 00:16:34,779 --> 00:16:37,959
-c opcode has done that if that is valid
+如果这个签名是有效的，
 
-371
-00:16:37,959 --> 00:16:39,769
-it'll push
+00:16:37,959 --> 00:16:42,290
+它会把1推到堆栈的顶部。
 
-372
-00:16:39,769 --> 00:16:42,290
-one onto the top of the stack or the
-
-373
 00:16:42,290 --> 00:16:44,269
-number one onto the top of the stack and
+或将数字1推到堆栈的顶部。
 
-374
 00:16:44,269 --> 00:16:46,249
-there we have this script has been
+这个脚本就被完全执行了。
 
-375
 00:16:46,249 --> 00:16:53,089
-completely but so what makes a script
+那么什么使这个脚本是有效的呢，
 
-376
 00:16:53,089 --> 00:16:55,639
-valid or a batch of bitcoins expendable
+或者说一批比特币可以被花费吗？
 
-377
 00:16:55,639 --> 00:16:58,730
-well if after running the entire script
+如果在运行整个脚本后，
 
-378
 00:16:58,730 --> 00:17:02,540
-a one is left on top of the stack then
+堆栈顶部留下了一个1，
 
-379
 00:17:02,540 --> 00:17:05,209
-that means that that script is valid and
+那么这就意味着这个脚本是有效的，
 
-380
 00:17:05,209 --> 00:17:08,209
+这批比特币可以被花费。
 the batch of bitcoins can be spent if
 
 381
