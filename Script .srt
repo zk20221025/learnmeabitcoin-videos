@@ -522,74 +522,59 @@ might be able to mine it onto the
 each have their own locking script on
 
 238
-00:10:18,920 --> 00:10:21,350
+00:10:18,920 --> 00:10:26,029
 所以你需要为每一个提供解锁脚本，
-top of them so you need to unlock each
 
-239
-00:10:21,350 --> 00:10:24,320
-每一个必须都是有效的，
-of those by providing an unlocking
+00:10:26,029 --> 00:10:30,410
+每一个解锁脚本也必须对整个交易有效，
 
-240
-00:10:24,320 --> 00:10:26,029
-script for each one and each one of
-
-241
-00:10:26,029 --> 00:10:28,730
-整个交易才能被网络上的节点接受。
-those would also have to be valid for
-
-242
-00:10:28,730 --> 00:10:30,410
-the entire transaction
-
-243
 00:10:30,410 --> 00:10:32,690
-to be valid and accepted by nodes on the
+整个交易才能被网络上的节点接受。
 
-244
 00:10:32,690 --> 00:10:39,740
+这就是脚本的基础，
 network so that's the basics of what
 
 245
 00:10:39,740 --> 00:10:41,180
+它只是一些数据和一些函数。
 script looks like it's just some data
 
 246
 00:10:41,180 --> 00:10:45,829
+这是如何运行的呢？
 and some functions now how does this
 
 247
 00:10:45,829 --> 00:10:47,779
+就像我说的那样，
 thing get run like I said you could
 
 248
 00:10:47,779 --> 00:10:49,579
+你可能会猜到它是如何运行，
 probably guess how it gets run but I'll
 
 249
-00:10:49,579 --> 00:10:51,110
-just cover through the steps now of how
+00:10:49,579 --> 00:10:53,959
+我将介绍节点如何运行整个脚本的步骤。
 
-250
-00:10:51,110 --> 00:10:53,959
-the entire script gets run by a node
-
-251
 00:10:53,959 --> 00:10:58,819
-just a quick question the unlocking
+我有个小问题， the unlocking
 
 252
 00:10:58,819 --> 00:11:03,110
+解锁脚本是交易的一部分，
 script is part of the transaction yeah
 
 253
 00:11:03,110 --> 00:11:05,930
+而我们所说的锁定脚本，
 yeah and the locking script which were
 
 254
 00:11:05,930 --> 00:11:08,329
+实际上就是数字签名。
 just referring to as the digital
 
 255
@@ -598,34 +583,34 @@ signature actually the digital signature
 
 256
 00:11:12,290 --> 00:11:13,610
+你提到的解锁脚本，
 which you are referring to as the
 
 257
-00:11:13,610 --> 00:11:17,149
-unlocking script is created by a person
+00:11:13,610 --> 00:11:20,180
+实际上是由花费比特币的人创建的。
 
-258
-00:11:17,149 --> 00:11:20,180
-who's spending the coins okay yes okay
-
-259
 00:11:20,180 --> 00:11:23,329
-yes thanks so ask me okay
+谢谢你的回答，
 
-260
 00:11:23,329 --> 00:11:25,569
+在第一个交易中，
 so yeah in the first transaction and
 
 261
 00:11:25,569 --> 00:11:29,810
+某人会设置这个锁定代码。
 someone will put on this locking code so
 
 262
 00:11:29,810 --> 00:11:31,279
+这个人就会进行这笔交易
+当这个人来解锁它时，他们只需要引用这批比特币，
 that this person would have made this
 
 263
 00:11:31,279 --> 00:11:33,079
+并将解锁代码放在这里
 transaction and put this locking code on
 
 264
