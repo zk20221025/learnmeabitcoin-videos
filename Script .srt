@@ -605,7 +605,6 @@ someone will put on this locking code so
 262
 00:11:29,810 --> 00:11:31,279
 这个人就会进行这笔交易
-当这个人来解锁它时，他们只需要引用这批比特币，
 that this person would have made this
 
 263
@@ -614,227 +613,180 @@ that this person would have made this
 transaction and put this locking code on
 
 264
-00:11:33,079 --> 00:11:35,449
-here okay and then this person when they
+00:11:33,079 --> 00:11:37,970
+当这个人来解锁它时，
 
-265
-00:11:35,449 --> 00:11:37,970
-come to unlock it they will just
-
-266
 00:11:37,970 --> 00:11:41,660
+他们只需要引用这批比特币，
 reference this batch of bitcoins and put
 
 267
 00:11:41,660 --> 00:11:43,490
+并将解锁代码输入到这个交易中。
 the unlocking code into this transaction
 
 268
-00:11:43,490 --> 00:11:45,769
-here so the entire script is actually
+00:11:43,490 --> 00:11:57,759
+整个脚本实际上是分布在两个不同的交易中。
 
-269
-00:11:45,769 --> 00:11:49,779
-split across two different transactions
+00:11:57,759 --> 00:12:04,610
+这个新的锁定脚本会被放在这个交易的顶部。
 
-270
-00:11:57,759 --> 00:12:01,819
-oh this one yes yeah yeah so this one
-
-271
-00:12:01,819 --> 00:12:04,610
-will have the acid on his new locking
-
-272
 00:12:04,610 --> 00:12:08,480
+这有点复杂，
 script put on top of it so yes big
 
 273
-00:12:08,480 --> 00:12:10,639
-complex because you know the locking
+00:12:08,480 --> 00:12:13,610
+因为锁定部分和解锁部分实际上是在两个不同的交易中。
 
-274
-00:12:10,639 --> 00:12:11,839
-part and the unlocking parts are
-
-275
-00:12:11,839 --> 00:12:13,610
-actually into two different transactions
-
-276
 00:12:13,610 --> 00:12:15,410
+所以如果你看这一笔交易，
 so if you look at one transaction you
 
 277
 00:12:15,410 --> 00:12:17,380
+实际上不会有一整个脚本来一起运行，
 won't actually have the to a full script
 
 278
 00:12:17,380 --> 00:12:21,829
+它可能稍后在运行，
 to run together it might come to do
 
 279
 00:12:21,829 --> 00:12:24,579
+据我所知，解锁脚本，
 later on the unlocking script which is
 
 280
 00:12:24,579 --> 00:12:28,370
+就是那个红色的波浪，
 that wave red wave which it will be part
 
 281
-00:12:28,370 --> 00:12:30,439
-of the yellow transaction as far as I
+00:12:28,370 --> 00:12:32,430
+它将是黄色交易的一部分，
 
-282
-00:12:30,439 --> 00:12:32,430
-understand
-
-283
 00:12:32,430 --> 00:12:40,279
-I don't know the in this particular
+在这个特定的交易中
 
-284
-00:12:40,279 --> 00:12:45,750
-transaction here we have in the
+00:12:40,279 --> 00:12:48,060
+在交易数据中有输入和输出，
 
-285
-00:12:45,750 --> 00:12:48,060
-transaction data we have inputs and we
-
-286
 00:12:48,060 --> 00:12:54,060
+对于每个输入，
 have outputs for each of the inputs we
 
 287
 00:12:54,060 --> 00:12:58,110
+我们实际上并没有看到或输入这个锁定代码，
 don't actually see or put in this unlock
 
 288
-00:12:58,110 --> 00:12:59,880
-this locking code all we do is we apply
+00:12:58,110 --> 00:13:03,200
+我们所做的就是为我们选择的每个输入应用或输入一个锁定代码。
 
-289
-00:12:59,880 --> 00:13:03,200
-or put in a locking code for each of the
+00:13:03,200 --> 00:13:08,760
+即使我已经把锁定代码放在这里，
 
-290
-00:13:03,200 --> 00:13:06,930
-inputs we have selected so even though
-
-291
-00:13:06,930 --> 00:13:08,760
-I've put the locking code here we won't
-
-292
 00:13:08,760 --> 00:13:12,570
+实际上不会看到它们。
 actually see them then in the second
 
 293
 00:13:12,570 --> 00:13:13,830
+然后在交易的第二部分，我们创建输出时，
 half of the transaction where we create
 
 294
-00:13:13,830 --> 00:13:18,180
-the outputs we we would put some new
+00:13:13,830 --> 00:13:21,390
+我们将在这里放一些新的锁定代码，
 
-295
-00:13:18,180 --> 00:13:21,390
-locking code on there and however we
-
-296
 00:13:21,390 --> 00:13:23,430
+无论我们想要什么样的锁。
 want to whatever kind of locks we do so
 
 297
 00:13:23,430 --> 00:13:26,010
+输入有解锁代码，
 inputs have unlocking code on them and
 
 298
 00:13:26,010 --> 00:13:29,790
+输出有锁定代码。
 outputs have locking code on them I
 
 299
-00:13:29,790 --> 00:13:32,040
-think it might make more sense towards
+00:13:29,790 --> 00:13:33,390
+我想当我在最后展示交易数据时，
 
-300
-00:13:32,040 --> 00:13:33,390
-the end when I show you the transaction
-
-301
 00:13:33,390 --> 00:13:34,320
+你可能会更能理解。
 data and you might be able to see it
 
 302
 00:13:34,320 --> 00:13:35,700
+这有点令人困惑，
 yourself I think yes this is a bit
 
 303
 00:13:35,700 --> 00:13:36,990
+因为我把这个锁定代码放在这里，
 confusing because I've sort of put this
 
 304
 00:13:36,990 --> 00:13:39,120
+但在这个交易中，你
 locking code here but in this
 
 305
 00:13:39,120 --> 00:13:40,350
+你实际上不会看到锁定代码，
 transaction you wouldn't actually see
 
 306
 00:13:40,350 --> 00:13:42,470
+我们只知道它在那里，
 the locking code we just know it's there
 
 307
 00:13:42,470 --> 00:13:45,029
+所以我们只是在这里引用它，
 so we just reference it in this on there
 
 308
 00:13:45,029 --> 00:13:50,070
+我现在继续运行这个完整脚本的内容。
 yep okay I'll carry on now to running
 
 309
 00:13:50,070 --> 00:13:55,350
+当一个节点接收到一个交易时，
 this full script so when a node received
 
 310
 00:13:55,350 --> 00:13:56,880
+他们会有解锁代码，
 a transaction they will have the
 
 311
-00:13:56,880 --> 00:13:58,709
-unlocking code and they'll have the
+00:13:56,880 --> 00:14:01,050
+并且他们有对之前有锁定代码的输出的引用，
 
-312
-00:13:58,709 --> 00:14:01,050
-reference to the previous output that
+00:14:01,050 --> 00:14:06,140
+它们将获取整个内容并一起运行，
 
-313
-00:14:01,050 --> 00:14:03,330
-has a locking code on it and they will
+00:14:06,140 --> 00:14:13,470
+节点如何运行这两部分脚本来确保这批比特币可以被解锁和花费呢?
 
-314
-00:14:03,330 --> 00:14:06,140
-take the whole thing and run it together
-
-315
-00:14:06,140 --> 00:14:10,230
-so how does a node run these two parts
-
-316
-00:14:10,230 --> 00:14:11,670
-of the script to make sure that this
-
-317
-00:14:11,670 --> 00:14:13,470
-batch of bitcoins can be unlocked and
-
-318
 00:14:13,470 --> 00:14:16,890
+他们会把这个解锁代码，
 spent well what they do they will take
 
 319
 00:14:16,890 --> 00:14:21,170
+它是在这个二级交易中提供的，
 this unlocking code that was provided in
 
 320
