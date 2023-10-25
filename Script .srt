@@ -1,0 +1,5534 @@
+00:00:00,030 --> 00:00:02,820
+这个视频是关于脚本的，
+
+00:00:02,820 --> 00:00:09,240
+脚本就像是在比特币中用来锁定你的比特币的迷你编程语言。
+
+00:00:09,240 --> 00:00:15,000
+当你要给别人发送比特币时，
+
+00:00:15,000 --> 00:00:19,920
+你实际上在这些比特币上面加了一个小型的编程语言来锁定它们。
+
+00:00:19,920 --> 00:00:21,990
+然后当他们要解锁它们时，
+
+00:00:21,990 --> 00:00:24,420
+他们需要提供一些更多的代码，
+
+00:00:24,420 --> 00:00:26,849
+当它与原始的锁定代码一起运行时，
+
+00:00:30,080 --> 00:00:32,640
+它将开始工作，这些比特币就可以被花费了。
+
+00:00:32,640 --> 00:00:38,969
+这就是脚本。
+
+00:00:38,969 --> 00:00:43,860
+让我们从上次的演示中继续，
+
+00:00:43,860 --> 00:00:46,829
+假设这是一批比特币，
+
+00:00:46,829 --> 00:00:53,780
+世界上存在的每一批比特币都有一个锁。
+
+00:00:53,780 --> 00:00:56,430
+当你想要进行交易时，
+
+00:00:56,430 --> 00:01:00,090
+你会解锁那批比特币，
+
+00:01:00,090 --> 00:01:02,340
+从中创建一批新的比特币，
+
+00:01:02,340 --> 00:01:04,589
+并在上面放一个新的锁，
+
+00:01:04,589 --> 00:01:07,860
+这就是一个简单的交易，
+
+00:01:07,860 --> 00:01:09,900
+就是取出一批比特币，
+
+00:01:09,900 --> 00:01:11,880
+解锁它们，创建新的批次并锁定它们。
+
+00:01:11,880 --> 00:01:15,119
+当你要进行新的交易时，
+
+00:01:15,119 --> 00:01:18,330
+你就再次做同样的事情，
+
+00:01:18,330 --> 00:01:20,640
+你只是解锁一个现有的批次，
+
+00:01:20,640 --> 00:01:22,799
+创建一个新的批次，
+
+00:01:22,799 --> 00:01:25,140
+并在上面放一个新的锁，
+
+00:01:25,140 --> 00:01:27,990
+这就是比特币交易系统的工作原理。
+
+00:01:27,990 --> 00:01:31,170
+这是一个简化的一系列交易，
+
+00:01:31,170 --> 00:01:35,369
+如果你想了解更多关于交易如何进行的信息，
+
+00:01:35,369 --> 00:01:38,610
+请观看我之前做的关于交易的视频。
+
+00:01:38,610 --> 00:01:45,689
+但这只涵盖了比特币批次的基本移动。
+
+00:01:45,689 --> 00:01:51,810
+所以这意味着，当你想要给别人发送比特币时，
+
+00:01:51,810 --> 00:01:55,560
+你需要取出一批你可以解锁的比特币。
+
+00:01:55,560 --> 00:02:00,000
+比如说这是你，这是一批只有你可以解锁的比特币
+
+00:02:00,000 --> 00:02:02,219
+我过一会儿会解释这是如何工作的，
+
+00:02:02,219 --> 00:02:04,649
+但现在请相信我，
+
+00:02:04,649 --> 00:02:05,939
+你是唯一可以解锁这批比特币的人。
+
+00:02:05,939 --> 00:02:08,459
+这就是你要做的，
+
+00:02:08,459 --> 00:02:10,190
+你想要给某人发送一些比特币。
+
+00:02:10,190 --> 00:02:15,629
+这个方法的工作原理是，
+
+00:02:15,629 --> 00:02:17,250
+你会创建一批带有锁的比特币。
+will create a batch of bitcoins with the
+
+52
+00:02:17,250 --> 00:02:19,160
+lock that only this person can unlock
+
+53
+00:02:19,160 --> 00:02:22,650
+and you do that because all the way that
+
+54
+00:02:22,650 --> 00:02:25,709
+works is that everyone in Bitcoin has
+
+55
+00:02:25,709 --> 00:02:28,620
+their own private key and public key and
+
+56
+00:02:28,620 --> 00:02:30,569
+this is very much like having your own
+
+57
+00:02:30,569 --> 00:02:33,180
+password and account number so what
+
+58
+00:02:33,180 --> 00:02:34,590
+happens is when you want to send this
+
+59
+00:02:34,590 --> 00:02:37,980
+person about your bitcoins or your some
+
+60
+00:02:37,980 --> 00:02:41,010
+bitcoins they will give you their public
+
+61
+00:02:41,010 --> 00:02:43,799
+key you will create a transaction and
+
+62
+00:02:43,799 --> 00:02:46,769
+lock some bitcoins that you own create a
+
+63
+00:02:46,769 --> 00:02:48,930
+new batch of bitcoins and inside the
+
+64
+00:02:48,930 --> 00:02:50,639
+lock you put on top of this batch of
+
+65
+00:02:50,639 --> 00:02:53,599
+bitcoins you will put their public key
+
+66
+00:02:53,599 --> 00:02:56,519
+so that is why this person owns this
+
+67
+00:02:56,519 --> 00:03:00,150
+batch of bitcoins because the lock on it
+
+68
+00:03:00,150 --> 00:03:02,280
+contains the public key which is their
+
+69
+00:03:02,280 --> 00:03:07,230
+unique account number so what that means
+
+70
+00:03:07,230 --> 00:03:11,669
+is if they want to spend this batch of
+
+71
+00:03:11,669 --> 00:03:14,280
+bitcoins or send down someone else they
+
+72
+00:03:14,280 --> 00:03:17,130
+will use their private key which is like
+
+73
+00:03:17,130 --> 00:03:19,200
+the air their password for their account
+
+74
+00:03:19,200 --> 00:03:21,959
+number to unlock it and the way they do
+
+75
+00:03:21,959 --> 00:03:24,630
+that is they will create what's called a
+
+76
+00:03:24,630 --> 00:03:26,430
+signature from their private key which
+
+77
+00:03:26,430 --> 00:03:30,299
+is like a one-time password they are
+
+78
+00:03:30,299 --> 00:03:33,450
+signature and if anyone looks at this
+
+79
+00:03:33,450 --> 00:03:36,389
+signature and this public key they will
+
+80
+00:03:36,389 --> 00:03:40,380
+be able to say okay this signature could
+
+81
+00:03:40,380 --> 00:03:42,810
+only have been created by the person who
+
+82
+00:03:42,810 --> 00:03:44,940
+has the private key that this public key
+
+83
+00:03:44,940 --> 00:03:47,760
+was made from so no one else can create
+
+84
+00:03:47,760 --> 00:03:49,919
+this signature that will match the
+
+85
+00:03:49,919 --> 00:03:51,889
+public key in this specific way I
+
+86
+00:03:51,889 --> 00:03:55,049
+covered how this works in the video on
+
+87
+00:03:55,049 --> 00:03:57,630
+keys and addresses but
+
+88
+00:03:57,630 --> 00:04:00,960
+in this video I'm just gonna be covering
+
+89
+00:04:00,960 --> 00:04:02,940
+the locking mechanism so if you
+
+90
+00:04:02,940 --> 00:04:04,110
+interested in how these signatures
+
+91
+00:04:04,110 --> 00:04:05,790
+private keys and public keys where they
+
+92
+00:04:05,790 --> 00:04:07,860
+come from and how they work watch that
+
+93
+00:04:07,860 --> 00:04:10,550
+video but in a typical transaction
+
+94
+00:04:10,550 --> 00:04:13,260
+bitcoins get locked locked to a public
+
+95
+00:04:13,260 --> 00:04:14,970
+key and then when you want to unlock
+
+96
+00:04:14,970 --> 00:04:18,029
+them you provide a signature to unlock
+
+97
+00:04:18,029 --> 00:04:20,430
+them to show that you are the owner of
+
+98
+00:04:20,430 --> 00:04:22,770
+that public key because you have the
+
+99
+00:04:22,770 --> 00:04:25,920
+private key that was made from anyway so
+
+100
+00:04:25,920 --> 00:04:26,430
+there we are
+
+101
+00:04:26,430 --> 00:04:27,510
+anyone can look at the signature
+
+102
+00:04:27,510 --> 00:04:30,150
+compared to the public key and see that
+
+103
+00:04:30,150 --> 00:04:32,820
+they match and therefore if they match
+
+104
+00:04:32,820 --> 00:04:34,980
+then these bitcoins can be unlocked and
+
+105
+00:04:34,980 --> 00:04:37,890
+spent in a new transaction and they can
+
+106
+00:04:37,890 --> 00:04:39,560
+be sent on to someone else and so
+
+107
+00:04:39,560 --> 00:04:42,480
+obviously this batch of bitcoins will
+
+108
+00:04:42,480 --> 00:04:45,240
+contain someone else's public key and
+
+109
+00:04:45,240 --> 00:04:49,110
+that's how transactions work using these
+
+110
+00:04:49,110 --> 00:04:52,770
+public keys and signatures so in this
+
+111
+00:04:52,770 --> 00:04:55,050
+video like I said I'm not going to cover
+
+112
+00:04:55,050 --> 00:04:57,600
+how transactions and these Keys work I'm
+
+113
+00:04:57,600 --> 00:05:00,300
+just going to be looking at these this
+
+114
+00:05:00,300 --> 00:05:02,880
+locking code and this unlocking code
+
+115
+00:05:02,880 --> 00:05:05,640
+here how do they interact so there's a
+
+116
+00:05:05,640 --> 00:05:07,950
+locking mechanism so that'll be covered
+
+117
+00:05:07,950 --> 00:05:10,680
+in the basics we'll find this just a
+
+118
+00:05:10,680 --> 00:05:12,870
+little mini programming language sitting
+
+119
+00:05:12,870 --> 00:05:15,300
+inside these locks and the same thing
+
+120
+00:05:15,300 --> 00:05:19,080
+again sitting inside the unlocking code
+
+121
+00:05:19,080 --> 00:05:23,580
+here there are actually quite a few
+
+122
+00:05:23,580 --> 00:05:26,100
+different because it's a programming
+
+123
+00:05:26,100 --> 00:05:27,570
+programming language sitting inside
+
+124
+00:05:27,570 --> 00:05:28,740
+these locks you can create different
+
+125
+00:05:28,740 --> 00:05:32,580
+types of locks so I'll cover each how
+
+126
+00:05:32,580 --> 00:05:34,950
+each of those are the most common locks
+
+127
+00:05:34,950 --> 00:05:38,010
+work so you have what's called Paita pub
+
+128
+00:05:38,010 --> 00:05:39,870
+key which is the most simplest kind of
+
+129
+00:05:39,870 --> 00:05:41,510
+locking important about your bitcoins
+
+130
+00:05:41,510 --> 00:05:44,130
+then you have pay to pub key hash which
+
+131
+00:05:44,130 --> 00:05:45,600
+is very similar but a little bit more
+
+132
+00:05:45,600 --> 00:05:46,740
+complex and it's actually the most
+
+133
+00:05:46,740 --> 00:05:49,740
+common common lock put on bitcoins these
+
+134
+00:05:49,740 --> 00:05:52,430
+days then you have Peyton multi-sig and
+
+135
+00:05:52,430 --> 00:05:55,980
+paid to script hash and these the most
+
+136
+00:05:55,980 --> 00:05:57,360
+common types of locks you can put on
+
+137
+00:05:57,360 --> 00:06:00,630
+batches of bitcoins finally I'll finish
+
+138
+00:06:00,630 --> 00:06:03,810
+up with some code and some examples to
+
+139
+00:06:03,810 --> 00:06:06,000
+show you the actual script running and
+
+140
+00:06:06,000 --> 00:06:06,780
+just show you how to show you how simple
+
+141
+00:06:06,780 --> 00:06:08,270
+it is really
+
+142
+00:06:08,270 --> 00:06:10,090
+but by the end of this presentation
+
+143
+00:06:10,090 --> 00:06:13,250
+hopefully at least you'll be familiar
+
+144
+00:06:13,250 --> 00:06:14,720
+with all these different teams that
+
+145
+00:06:14,720 --> 00:06:16,430
+you've probably bumped into if you've
+
+146
+00:06:16,430 --> 00:06:18,500
+been researching about Bitcoin at all
+
+147
+00:06:18,500 --> 00:06:19,700
+they probably seen a few of these terms
+
+148
+00:06:19,700 --> 00:06:23,480
+lying around but ultimately if you
+
+149
+00:06:23,480 --> 00:06:24,920
+understand the basics at their stall
+
+150
+00:06:24,920 --> 00:06:26,300
+script which is a mini programming
+
+151
+00:06:26,300 --> 00:06:29,690
+language then you pretty much go good
+
+152
+00:06:29,690 --> 00:06:33,620
+understanding of how these locks work so
+
+153
+00:06:33,620 --> 00:06:36,250
+any questions so far
+
+154
+00:06:36,610 --> 00:06:40,190
+okay great so first of all the basics
+
+155
+00:06:40,190 --> 00:06:44,170
+how do these two parts of the lock
+
+156
+00:06:44,170 --> 00:06:47,870
+interact with each other well up until
+
+157
+00:06:47,870 --> 00:06:49,850
+now I've used this little locking symbol
+
+158
+00:06:49,850 --> 00:06:53,450
+to illustrate the the lock that gets put
+
+159
+00:06:53,450 --> 00:06:56,660
+on top of batches of bitcoins but what
+
+160
+00:06:56,660 --> 00:06:59,020
+it really is it's just some code
+
+161
+00:06:59,020 --> 00:07:01,580
+containing a mini programming language
+
+162
+00:07:01,580 --> 00:07:04,910
+called script so what we call this this
+
+163
+00:07:04,910 --> 00:07:07,970
+lower part of the code that locks up a
+
+164
+00:07:07,970 --> 00:07:09,350
+batch of bitcoins we call that the
+
+165
+00:07:09,350 --> 00:07:11,840
+locking script so that gets put onto
+
+166
+00:07:11,840 --> 00:07:15,410
+this output in this first transaction
+
+167
+00:07:15,410 --> 00:07:18,230
+here when these bitcoins are created or
+
+168
+00:07:18,230 --> 00:07:20,630
+when the output is created then later on
+
+169
+00:07:20,630 --> 00:07:22,460
+when you want to come to unlock this
+
+170
+00:07:22,460 --> 00:07:24,530
+batch of bitcoins and create a new batch
+
+171
+00:07:24,530 --> 00:07:27,050
+from it you'll need to provide some
+
+172
+00:07:27,050 --> 00:07:30,230
+extra some more code to match up with
+
+173
+00:07:30,230 --> 00:07:32,600
+this locking script and this is called
+
+174
+00:07:32,600 --> 00:07:38,840
+the unlocking script so what happens
+
+175
+00:07:38,840 --> 00:07:44,210
+sorry so this is often called the script
+
+176
+00:07:44,210 --> 00:07:47,420
+pub key the lock in part because it
+
+177
+00:07:47,420 --> 00:07:49,220
+usually contains a public key and it's
+
+178
+00:07:49,220 --> 00:07:52,220
+obviously a script and this unlocking
+
+179
+00:07:52,220 --> 00:07:53,900
+script is sometimes referred to as a
+
+180
+00:07:53,900 --> 00:07:55,490
+script sink because again is a script
+
+181
+00:07:55,490 --> 00:07:59,360
+and it usually contains a signature but
+
+182
+00:07:59,360 --> 00:08:01,490
+for the purposes of this video I'm going
+
+183
+00:08:01,490 --> 00:08:02,870
+to stick to blocking script and the
+
+184
+00:08:02,870 --> 00:08:03,890
+locking script because think they're
+
+185
+00:08:03,890 --> 00:08:07,280
+more descriptive and not all scripts pub
+
+186
+00:08:07,280 --> 00:08:09,560
+keys can have to contain a public key
+
+187
+00:08:09,560 --> 00:08:11,450
+and not all unlocking scripts have to
+
+188
+00:08:11,450 --> 00:08:14,420
+contain a signature so I prefer the more
+
+189
+00:08:14,420 --> 00:08:17,240
+general and versatile terms of locking
+
+190
+00:08:17,240 --> 00:08:18,020
+script and
+
+191
+00:08:18,020 --> 00:08:22,310
+and luck in script so that's the basics
+
+192
+00:08:22,310 --> 00:08:26,060
+of this script but how'd it interact
+
+193
+00:08:26,060 --> 00:08:28,699
+well what we can use in this little mini
+
+194
+00:08:28,699 --> 00:08:30,139
+programming language or you've put in
+
+195
+00:08:30,139 --> 00:08:31,759
+there so far it's just this little bit
+
+196
+00:08:31,759 --> 00:08:33,260
+these little bits of data a public key
+
+197
+00:08:33,260 --> 00:08:34,969
+and a signature we need them to interact
+
+198
+00:08:34,969 --> 00:08:37,039
+somehow it's what we can use are these
+
+199
+00:08:37,039 --> 00:08:38,958
+things called operators which are like
+
+200
+00:08:38,958 --> 00:08:41,029
+little mini functions built into the
+
+201
+00:08:41,029 --> 00:08:44,420
+language of script so when they that
+
+202
+00:08:44,420 --> 00:08:46,130
+will be good for this particular kind of
+
+203
+00:08:46,130 --> 00:08:48,800
+lock it's one called checks IgG so we'll
+
+204
+00:08:48,800 --> 00:08:50,510
+just put that into the login script and
+
+205
+00:08:50,510 --> 00:08:54,709
+here we have a full script the locking
+
+206
+00:08:54,709 --> 00:08:57,589
+part and the unlocking part and as you
+
+207
+00:08:57,589 --> 00:08:59,779
+can probably guess this particular
+
+208
+00:08:59,779 --> 00:09:03,230
+function will check a signature against
+
+209
+00:09:03,230 --> 00:09:04,880
+a public key to make sure they match so
+
+210
+00:09:04,880 --> 00:09:06,339
+you can probably guess how this kind of
+
+211
+00:09:06,339 --> 00:09:10,640
+script is gonna be run and validated so
+
+212
+00:09:10,640 --> 00:09:13,399
+like I said every script just contains
+
+213
+00:09:13,399 --> 00:09:16,550
+some data like this public key here and
+
+214
+00:09:16,550 --> 00:09:19,130
+this signature and some operators or op
+
+215
+00:09:19,130 --> 00:09:21,709
+codes and that's all script is just some
+
+216
+00:09:21,709 --> 00:09:23,959
+data and some functions called up called
+
+217
+00:09:23,959 --> 00:09:28,490
+up codes or operators so when you come
+
+218
+00:09:28,490 --> 00:09:31,700
+to insert this transaction into the into
+
+219
+00:09:31,700 --> 00:09:33,140
+the Bitcoin network into a into a
+
+220
+00:09:33,140 --> 00:09:36,050
+particular node or any node they will
+
+221
+00:09:36,050 --> 00:09:38,959
+take this entire script so they'll take
+
+222
+00:09:38,959 --> 00:09:40,910
+the original locking script that was
+
+223
+00:09:40,910 --> 00:09:43,820
+placed on top of the output and then
+
+224
+00:09:43,820 --> 00:09:45,740
+they will take the unlocking script that
+
+225
+00:09:45,740 --> 00:09:48,350
+you've provided and run the whole script
+
+226
+00:09:48,350 --> 00:09:50,649
+together to make sure that it validates
+
+227
+00:09:50,649 --> 00:09:53,450
+and if it validates then this
+
+228
+00:09:53,450 --> 00:09:55,640
+transaction is valid and it can be added
+
+229
+00:09:55,640 --> 00:09:57,470
+to the blockchain or basically they will
+
+230
+00:09:57,470 --> 00:09:59,720
+accept it and they will relay it to
+
+231
+00:09:59,720 --> 00:10:02,480
+other nodes who and onto miners who
+
+232
+00:10:02,480 --> 00:10:03,950
+might be able to mine it onto the
+
+233
+00:10:03,950 --> 00:10:08,450
+blockchain similarly if you created a
+
+234
+00:10:08,450 --> 00:10:11,450
+more complex transaction so you were
+
+235
+00:10:11,450 --> 00:10:13,670
+selecting lots of different outputs as
+
+236
+00:10:13,670 --> 00:10:16,279
+inputs for this transaction they would
+
+237
+00:10:16,279 --> 00:10:18,920
+each have their own locking script on
+
+238
+00:10:18,920 --> 00:10:21,350
+top of them so you need to unlock each
+
+239
+00:10:21,350 --> 00:10:24,320
+of those by providing an unlocking
+
+240
+00:10:24,320 --> 00:10:26,029
+script for each one and each one of
+
+241
+00:10:26,029 --> 00:10:28,730
+those would also have to be valid for
+
+242
+00:10:28,730 --> 00:10:30,410
+the entire transaction
+
+243
+00:10:30,410 --> 00:10:32,690
+to be valid and accepted by nodes on the
+
+244
+00:10:32,690 --> 00:10:39,740
+network so that's the basics of what
+
+245
+00:10:39,740 --> 00:10:41,180
+script looks like it's just some data
+
+246
+00:10:41,180 --> 00:10:45,829
+and some functions now how does this
+
+247
+00:10:45,829 --> 00:10:47,779
+thing get run like I said you could
+
+248
+00:10:47,779 --> 00:10:49,579
+probably guess how it gets run but I'll
+
+249
+00:10:49,579 --> 00:10:51,110
+just cover through the steps now of how
+
+250
+00:10:51,110 --> 00:10:53,959
+the entire script gets run by a node
+
+251
+00:10:53,959 --> 00:10:58,819
+just a quick question the unlocking
+
+252
+00:10:58,819 --> 00:11:03,110
+script is part of the transaction yeah
+
+253
+00:11:03,110 --> 00:11:05,930
+yeah and the locking script which were
+
+254
+00:11:05,930 --> 00:11:08,329
+just referring to as the digital
+
+255
+00:11:08,329 --> 00:11:12,290
+signature actually the digital signature
+
+256
+00:11:12,290 --> 00:11:13,610
+which you are referring to as the
+
+257
+00:11:13,610 --> 00:11:17,149
+unlocking script is created by a person
+
+258
+00:11:17,149 --> 00:11:20,180
+who's spending the coins okay yes okay
+
+259
+00:11:20,180 --> 00:11:23,329
+yes thanks so ask me okay
+
+260
+00:11:23,329 --> 00:11:25,569
+so yeah in the first transaction and
+
+261
+00:11:25,569 --> 00:11:29,810
+someone will put on this locking code so
+
+262
+00:11:29,810 --> 00:11:31,279
+that this person would have made this
+
+263
+00:11:31,279 --> 00:11:33,079
+transaction and put this locking code on
+
+264
+00:11:33,079 --> 00:11:35,449
+here okay and then this person when they
+
+265
+00:11:35,449 --> 00:11:37,970
+come to unlock it they will just
+
+266
+00:11:37,970 --> 00:11:41,660
+reference this batch of bitcoins and put
+
+267
+00:11:41,660 --> 00:11:43,490
+the unlocking code into this transaction
+
+268
+00:11:43,490 --> 00:11:45,769
+here so the entire script is actually
+
+269
+00:11:45,769 --> 00:11:49,779
+split across two different transactions
+
+270
+00:11:57,759 --> 00:12:01,819
+oh this one yes yeah yeah so this one
+
+271
+00:12:01,819 --> 00:12:04,610
+will have the acid on his new locking
+
+272
+00:12:04,610 --> 00:12:08,480
+script put on top of it so yes big
+
+273
+00:12:08,480 --> 00:12:10,639
+complex because you know the locking
+
+274
+00:12:10,639 --> 00:12:11,839
+part and the unlocking parts are
+
+275
+00:12:11,839 --> 00:12:13,610
+actually into two different transactions
+
+276
+00:12:13,610 --> 00:12:15,410
+so if you look at one transaction you
+
+277
+00:12:15,410 --> 00:12:17,380
+won't actually have the to a full script
+
+278
+00:12:17,380 --> 00:12:21,829
+to run together it might come to do
+
+279
+00:12:21,829 --> 00:12:24,579
+later on the unlocking script which is
+
+280
+00:12:24,579 --> 00:12:28,370
+that wave red wave which it will be part
+
+281
+00:12:28,370 --> 00:12:30,439
+of the yellow transaction as far as I
+
+282
+00:12:30,439 --> 00:12:32,430
+understand
+
+283
+00:12:32,430 --> 00:12:40,279
+I don't know the in this particular
+
+284
+00:12:40,279 --> 00:12:45,750
+transaction here we have in the
+
+285
+00:12:45,750 --> 00:12:48,060
+transaction data we have inputs and we
+
+286
+00:12:48,060 --> 00:12:54,060
+have outputs for each of the inputs we
+
+287
+00:12:54,060 --> 00:12:58,110
+don't actually see or put in this unlock
+
+288
+00:12:58,110 --> 00:12:59,880
+this locking code all we do is we apply
+
+289
+00:12:59,880 --> 00:13:03,200
+or put in a locking code for each of the
+
+290
+00:13:03,200 --> 00:13:06,930
+inputs we have selected so even though
+
+291
+00:13:06,930 --> 00:13:08,760
+I've put the locking code here we won't
+
+292
+00:13:08,760 --> 00:13:12,570
+actually see them then in the second
+
+293
+00:13:12,570 --> 00:13:13,830
+half of the transaction where we create
+
+294
+00:13:13,830 --> 00:13:18,180
+the outputs we we would put some new
+
+295
+00:13:18,180 --> 00:13:21,390
+locking code on there and however we
+
+296
+00:13:21,390 --> 00:13:23,430
+want to whatever kind of locks we do so
+
+297
+00:13:23,430 --> 00:13:26,010
+inputs have unlocking code on them and
+
+298
+00:13:26,010 --> 00:13:29,790
+outputs have locking code on them I
+
+299
+00:13:29,790 --> 00:13:32,040
+think it might make more sense towards
+
+300
+00:13:32,040 --> 00:13:33,390
+the end when I show you the transaction
+
+301
+00:13:33,390 --> 00:13:34,320
+data and you might be able to see it
+
+302
+00:13:34,320 --> 00:13:35,700
+yourself I think yes this is a bit
+
+303
+00:13:35,700 --> 00:13:36,990
+confusing because I've sort of put this
+
+304
+00:13:36,990 --> 00:13:39,120
+locking code here but in this
+
+305
+00:13:39,120 --> 00:13:40,350
+transaction you wouldn't actually see
+
+306
+00:13:40,350 --> 00:13:42,470
+the locking code we just know it's there
+
+307
+00:13:42,470 --> 00:13:45,029
+so we just reference it in this on there
+
+308
+00:13:45,029 --> 00:13:50,070
+yep okay I'll carry on now to running
+
+309
+00:13:50,070 --> 00:13:55,350
+this full script so when a node received
+
+310
+00:13:55,350 --> 00:13:56,880
+a transaction they will have the
+
+311
+00:13:56,880 --> 00:13:58,709
+unlocking code and they'll have the
+
+312
+00:13:58,709 --> 00:14:01,050
+reference to the previous output that
+
+313
+00:14:01,050 --> 00:14:03,330
+has a locking code on it and they will
+
+314
+00:14:03,330 --> 00:14:06,140
+take the whole thing and run it together
+
+315
+00:14:06,140 --> 00:14:10,230
+so how does a node run these two parts
+
+316
+00:14:10,230 --> 00:14:11,670
+of the script to make sure that this
+
+317
+00:14:11,670 --> 00:14:13,470
+batch of bitcoins can be unlocked and
+
+318
+00:14:13,470 --> 00:14:16,890
+spent well what they do they will take
+
+319
+00:14:16,890 --> 00:14:21,170
+this unlocking code that was provided in
+
+320
+00:14:21,170 --> 00:14:25,079
+this secondary transaction and they will
+
+321
+00:14:25,079 --> 00:14:28,230
+put it at the start before the locking
+
+322
+00:14:28,230 --> 00:14:31,649
+code like so
+
+323
+00:14:31,649 --> 00:14:33,910
+then what they'll do they'll run this
+
+324
+00:14:33,910 --> 00:14:37,149
+script from left to right and the way
+
+325
+00:14:37,149 --> 00:14:40,390
+they run this is the run this code using
+
+326
+00:14:40,390 --> 00:14:43,180
+a data structure called a stack and if
+
+327
+00:14:43,180 --> 00:14:43,930
+you've done any kind of programming
+
+328
+00:14:43,930 --> 00:14:46,390
+before a stack is just a simple data
+
+329
+00:14:46,390 --> 00:14:49,029
+structure it's a lot like an array or it
+
+330
+00:14:49,029 --> 00:14:51,160
+isn't array then we just push and pop
+
+331
+00:14:51,160 --> 00:14:54,130
+elements off the top of the stack or the
+
+332
+00:14:54,130 --> 00:14:57,730
+end of the at the end of the array so we
+
+333
+00:14:57,730 --> 00:14:59,170
+have this script a bunch of data and
+
+334
+00:14:59,170 --> 00:15:02,399
+functions and it all operates on top of
+
+335
+00:15:02,399 --> 00:15:06,820
+stack so we'll run this script now from
+
+336
+00:15:06,820 --> 00:15:09,040
+left right using this stack so the first
+
+337
+00:15:09,040 --> 00:15:10,660
+thing is first as we go from left to
+
+338
+00:15:10,660 --> 00:15:13,510
+right we've encountered some data this
+
+339
+00:15:13,510 --> 00:15:16,240
+signature and any data you encounter
+
+340
+00:15:16,240 --> 00:15:18,640
+inside the script just gets pushed on to
+
+341
+00:15:18,640 --> 00:15:20,529
+the top of the stack so this signature
+
+342
+00:15:20,529 --> 00:15:23,589
+gets pushed onto the stack again here
+
+343
+00:15:23,589 --> 00:15:25,690
+we've run into a public key that's just
+
+344
+00:15:25,690 --> 00:15:27,490
+some more data and that will also get
+
+345
+00:15:27,490 --> 00:15:30,910
+pushed on top of the stack lastly we've
+
+346
+00:15:30,910 --> 00:15:34,269
+run into an opcode and up codes operate
+
+347
+00:15:34,269 --> 00:15:35,860
+a little bit differently to data
+
+348
+00:15:35,860 --> 00:15:38,140
+so whereas data just gets pushed on top
+
+349
+00:15:38,140 --> 00:15:41,890
+of the stack an opcode what it can do it
+
+350
+00:15:41,890 --> 00:15:46,209
+will generally pop one or more items off
+
+351
+00:15:46,209 --> 00:15:48,370
+the top of the stack do something with
+
+352
+00:15:48,370 --> 00:15:50,949
+them and then it can optionally push
+
+353
+00:15:50,949 --> 00:15:52,810
+items back on top of the stack after
+
+354
+00:15:52,810 --> 00:15:54,790
+doing something with those items is
+
+355
+00:15:54,790 --> 00:15:58,660
+pushed off popped off so with this check
+
+356
+00:15:58,660 --> 00:16:01,810
+cygwin what it will do it will pop two
+
+357
+00:16:01,810 --> 00:16:03,910
+items off the top of the stack so there
+
+358
+00:16:03,910 --> 00:16:06,310
+we are it's popping off the public key
+
+359
+00:16:06,310 --> 00:16:08,410
+in the signature then it'll do something
+
+360
+00:16:08,410 --> 00:16:09,970
+with them and what the check stick does
+
+361
+00:16:09,970 --> 00:16:12,160
+it will check that this signature
+
+362
+00:16:12,160 --> 00:16:17,050
+matches the public key or this signature
+
+363
+00:16:17,050 --> 00:16:19,600
+is a valid signature for this particular
+
+364
+00:16:19,600 --> 00:16:21,610
+public key again if you understand how
+
+365
+00:16:21,610 --> 00:16:22,959
+that works just watch the keys in the
+
+366
+00:16:22,959 --> 00:16:25,180
+dresses video but for the sake of this
+
+367
+00:16:25,180 --> 00:16:27,640
+example let's just assume that this
+
+368
+00:16:27,640 --> 00:16:30,790
+signature is a valid signature for this
+
+369
+00:16:30,790 --> 00:16:34,779
+public key so after the check the check
+
+370
+00:16:34,779 --> 00:16:37,959
+c opcode has done that if that is valid
+
+371
+00:16:37,959 --> 00:16:39,769
+it'll push
+
+372
+00:16:39,769 --> 00:16:42,290
+one onto the top of the stack or the
+
+373
+00:16:42,290 --> 00:16:44,269
+number one onto the top of the stack and
+
+374
+00:16:44,269 --> 00:16:46,249
+there we have this script has been
+
+375
+00:16:46,249 --> 00:16:53,089
+completely but so what makes a script
+
+376
+00:16:53,089 --> 00:16:55,639
+valid or a batch of bitcoins expendable
+
+377
+00:16:55,639 --> 00:16:58,730
+well if after running the entire script
+
+378
+00:16:58,730 --> 00:17:02,540
+a one is left on top of the stack then
+
+379
+00:17:02,540 --> 00:17:05,209
+that means that that script is valid and
+
+380
+00:17:05,209 --> 00:17:08,209
+the batch of bitcoins can be spent if
+
+381
+00:17:08,209 --> 00:17:12,260
+the stack is empty after the script has
+
+382
+00:17:12,260 --> 00:17:15,619
+been run then it's invalid or similarly
+
+383
+00:17:15,619 --> 00:17:20,179
+if the zero is left on top of the stack
+
+384
+00:17:20,179 --> 00:17:21,679
+after the entire script has been run
+
+385
+00:17:21,679 --> 00:17:25,849
+then again the script is invalid so in
+
+386
+00:17:25,849 --> 00:17:28,580
+this last example if this check sig
+
+387
+00:17:28,580 --> 00:17:30,020
+didn't work out right
+
+388
+00:17:30,020 --> 00:17:33,020
+I think you'd either push a zero or push
+
+389
+00:17:33,020 --> 00:17:34,340
+nothing on top of the stack probably a
+
+390
+00:17:34,340 --> 00:17:36,740
+zero and the stack would've been invalid
+
+391
+00:17:36,740 --> 00:17:38,720
+but in this example the signature
+
+392
+00:17:38,720 --> 00:17:41,090
+matches the public key you know the
+
+393
+00:17:41,090 --> 00:17:42,649
+check stick operator performs all that
+
+394
+00:17:42,649 --> 00:17:45,380
+and if it's correct it'll push a one
+
+395
+00:17:45,380 --> 00:17:49,010
+onto the top of the stack like so and
+
+396
+00:17:49,010 --> 00:17:49,730
+there we are
+
+397
+00:17:49,730 --> 00:17:51,380
+if a one is left on top of the stack def
+
+398
+00:17:51,380 --> 00:17:53,480
+after the script has been run this batch
+
+399
+00:17:53,480 --> 00:17:57,559
+of bitcoins can be spent does that make
+
+400
+00:17:57,559 --> 00:17:59,230
+sense
+
+401
+00:17:59,230 --> 00:18:04,029
+yes okay so let me just move all this
+
+402
+00:18:04,029 --> 00:18:08,409
+back then we have why just did there was
+
+403
+00:18:08,409 --> 00:18:10,899
+an example of what's called p2 pup key
+
+404
+00:18:10,899 --> 00:18:14,320
+it's very simple the locking code on top
+
+405
+00:18:14,320 --> 00:18:15,909
+of a batch of bitcoins just contain
+
+406
+00:18:15,909 --> 00:18:18,250
+contains someone else's public key on
+
+407
+00:18:18,250 --> 00:18:21,159
+the check sig operator and then when
+
+408
+00:18:21,159 --> 00:18:23,620
+that person wants to unlock them all
+
+409
+00:18:23,620 --> 00:18:25,299
+they have to do or unlock this batch of
+
+410
+00:18:25,299 --> 00:18:27,309
+bitcoins all I have to do is to provide
+
+411
+00:18:27,309 --> 00:18:29,559
+a valid signature from the private key
+
+412
+00:18:29,559 --> 00:18:32,620
+that this public key was made from now
+
+413
+00:18:32,620 --> 00:18:37,570
+this is the probably simplest way of
+
+414
+00:18:37,570 --> 00:18:40,809
+locking up batches of bitcoins and it
+
+415
+00:18:40,809 --> 00:18:44,049
+was used a lot by miners for the coin
+
+416
+00:18:44,049 --> 00:18:46,360
+based transactions inside blocks but
+
+417
+00:18:46,360 --> 00:18:49,299
+generally today we use a bit of a
+
+418
+00:18:49,299 --> 00:18:52,539
+variant on this type of locking
+
+419
+00:18:52,539 --> 00:18:54,070
+mechanism so this is the one of the
+
+420
+00:18:54,070 --> 00:18:57,730
+simplest ones but we use something a lot
+
+421
+00:18:57,730 --> 00:18:59,769
+bit different now so this is called
+
+422
+00:18:59,769 --> 00:19:06,100
+Paita pub key or p2 PK for short just to
+
+423
+00:19:06,100 --> 00:19:09,789
+note these P 2 P K and Peter pop key
+
+424
+00:19:09,789 --> 00:19:12,250
+these names apply to the patterns of
+
+425
+00:19:12,250 --> 00:19:13,960
+locking scripts that you apply to
+
+426
+00:19:13,960 --> 00:19:15,909
+batches of bitcoins so if you see a
+
+427
+00:19:15,909 --> 00:19:18,370
+batch of bitcoins that has a public key
+
+428
+00:19:18,370 --> 00:19:19,960
+and that checks a cooperator and nothing
+
+429
+00:19:19,960 --> 00:19:24,360
+else and that pattern is a page up key
+
+430
+00:19:24,360 --> 00:19:29,350
+script and this one is one of a set of
+
+431
+00:19:29,350 --> 00:19:30,940
+standard scripts that are most commonly
+
+432
+00:19:30,940 --> 00:19:33,190
+used in Bitcoin so I'm going to cover
+
+433
+00:19:33,190 --> 00:19:37,230
+five altogether this is the simplest one
+
+434
+00:19:37,230 --> 00:19:42,490
+called Paita pub key next up we have one
+
+435
+00:19:42,490 --> 00:19:44,830
+called Paita pub key hash which is very
+
+436
+00:19:44,830 --> 00:19:46,659
+similar to this but only slightly
+
+437
+00:19:46,659 --> 00:19:48,870
+different and explain why in a moment
+
+438
+00:19:48,870 --> 00:19:52,929
+so if you remember from the video on
+
+439
+00:19:52,929 --> 00:19:55,570
+keys and addresses even though we create
+
+440
+00:19:55,570 --> 00:19:57,279
+a private key and public key this is all
+
+441
+00:19:57,279 --> 00:19:58,480
+we really need to send and receive
+
+442
+00:19:58,480 --> 00:20:01,659
+bitcoins in Bitcoin what we normally do
+
+443
+00:20:01,659 --> 00:20:03,519
+with the public key is we hash it first
+
+444
+00:20:03,519 --> 00:20:06,340
+I mentioned this was because of security
+
+445
+00:20:06,340 --> 00:20:09,220
+I think it's mostly because of the start
+
+446
+00:20:09,220 --> 00:20:12,519
+this was a simple way to reduce the size
+
+447
+00:20:12,519 --> 00:20:15,879
+of the public key so that's when we give
+
+448
+00:20:15,879 --> 00:20:17,379
+this to other people we can give them a
+
+449
+00:20:17,379 --> 00:20:19,479
+much smaller vision of our public key
+
+450
+00:20:19,479 --> 00:20:21,909
+but it's still a unique vision of our
+
+451
+00:20:21,909 --> 00:20:25,919
+public key so what we would do
+
+452
+00:20:25,919 --> 00:20:27,789
+whence we've created our keys in the
+
+453
+00:20:27,789 --> 00:20:30,489
+dress is we will hash our public key
+
+454
+00:20:30,489 --> 00:20:33,070
+which produces its size we'll give that
+
+455
+00:20:33,070 --> 00:20:36,009
+some else and then they'll put that into
+
+456
+00:20:36,009 --> 00:20:38,499
+the locking code instead of our original
+
+457
+00:20:38,499 --> 00:20:42,209
+public key so the way this particular
+
+458
+00:20:42,209 --> 00:20:44,709
+locking script works using this hashed
+
+459
+00:20:44,709 --> 00:20:47,129
+version of our public key instead of the
+
+460
+00:20:47,129 --> 00:20:49,690
+standard you know original public key is
+
+461
+00:20:49,690 --> 00:20:53,169
+we put a locking script like this around
+
+462
+00:20:53,169 --> 00:20:56,049
+it so it's a little bit similar we still
+
+463
+00:20:56,049 --> 00:20:58,299
+have this check sync function but now
+
+464
+00:20:58,299 --> 00:20:59,649
+instead of having the public key and
+
+465
+00:20:59,649 --> 00:21:01,179
+just the check sig we have hash the
+
+466
+00:21:01,179 --> 00:21:03,309
+public key and these extra operators
+
+467
+00:21:03,309 --> 00:21:08,820
+here and we'll see why in a moment so
+
+468
+00:21:08,820 --> 00:21:13,089
+this is the paid up key hash pattern or
+
+469
+00:21:13,089 --> 00:21:14,739
+the pattern for a paid-up key hash
+
+470
+00:21:14,739 --> 00:21:17,639
+locking script so when you come to
+
+471
+00:21:17,639 --> 00:21:20,019
+unlock this particular locking script
+
+472
+00:21:20,019 --> 00:21:22,629
+what we need to do like before all we
+
+473
+00:21:22,629 --> 00:21:27,909
+need is a signature from for from the
+
+474
+00:21:27,909 --> 00:21:29,409
+private key that this public key is made
+
+475
+00:21:29,409 --> 00:21:32,679
+from and then also in addition to that
+
+476
+00:21:32,679 --> 00:21:34,599
+we all need to provide the original
+
+477
+00:21:34,599 --> 00:21:38,739
+public key so when we come to run this
+
+478
+00:21:38,739 --> 00:21:40,779
+or when a node comes to run this script
+
+479
+00:21:40,779 --> 00:21:43,059
+to make sure it's valid they do the same
+
+480
+00:21:43,059 --> 00:21:44,349
+again make sure the unlocking script
+
+481
+00:21:44,349 --> 00:21:45,999
+goes to the start and then run it from
+
+482
+00:21:45,999 --> 00:21:48,129
+left to right so what they'll do they'll
+
+483
+00:21:48,129 --> 00:21:50,679
+take their stack they'll obviously data
+
+484
+00:21:50,679 --> 00:21:52,419
+gets pushed onto the stack the signature
+
+485
+00:21:52,419 --> 00:21:55,690
+goes on top top then the public key let
+
+486
+00:21:55,690 --> 00:21:59,049
+me hit this dupe up code and it does
+
+487
+00:21:59,049 --> 00:22:01,869
+what you expect it would it pops the top
+
+488
+00:22:01,869 --> 00:22:04,419
+element of the stack duplicates it and
+
+489
+00:22:04,419 --> 00:22:08,799
+then pushes the duplicate of that top
+
+490
+00:22:08,799 --> 00:22:11,950
+element back onto the stack like so and
+
+491
+00:22:11,950 --> 00:22:13,240
+that's the dupe
+
+492
+00:22:13,240 --> 00:22:16,570
+done next up we have the hash 160
+
+493
+00:22:16,570 --> 00:22:19,300
+that'll pop the top element off hash it
+
+494
+00:22:19,300 --> 00:22:20,920
+and then push it back on top of the
+
+495
+00:22:20,920 --> 00:22:25,300
+start then we went into the hashed
+
+496
+00:22:25,300 --> 00:22:27,040
+public key that was a in the original
+
+497
+00:22:27,040 --> 00:22:28,920
+locking script that gets pushed on top
+
+498
+00:22:28,920 --> 00:22:31,180
+then we went into the equal verify
+
+499
+00:22:31,180 --> 00:22:34,240
+opcode this one pops two elements off
+
+500
+00:22:34,240 --> 00:22:35,050
+the top of the stack
+
+501
+00:22:35,050 --> 00:22:37,510
+checks are they equal and if they are
+
+502
+00:22:37,510 --> 00:22:39,970
+equal it won't push anything back onto
+
+503
+00:22:39,970 --> 00:22:42,550
+the stack so whereas the equal up code
+
+504
+00:22:42,550 --> 00:22:44,410
+would push the number one on top equal
+
+505
+00:22:44,410 --> 00:22:46,510
+verify checks the equal and if they are
+
+506
+00:22:46,510 --> 00:22:48,370
+doesn't push anything on top of the
+
+507
+00:22:48,370 --> 00:22:51,280
+stack and then you went into the
+
+508
+00:22:51,280 --> 00:22:54,040
+familiar checks a cop code and that will
+
+509
+00:22:54,040 --> 00:22:56,770
+pop to its off check that the signature
+
+510
+00:22:56,770 --> 00:22:58,870
+matches the public key and if it does
+
+511
+00:22:58,870 --> 00:23:00,640
+you're pushing one on to the top of the
+
+512
+00:23:00,640 --> 00:23:05,800
+stack so the only difference really with
+
+513
+00:23:05,800 --> 00:23:08,620
+this pay to pub key hash versus the
+
+514
+00:23:08,620 --> 00:23:10,810
+original or simpler pay to pub key is
+
+515
+00:23:10,810 --> 00:23:14,610
+that you need to that you to put it will
+
+516
+00:23:14,610 --> 00:23:18,630
+check that the public you've provided
+
+517
+00:23:18,630 --> 00:23:23,140
+matches against the hash of the public
+
+518
+00:23:23,140 --> 00:23:25,480
+key that was originally provided and if
+
+519
+00:23:25,480 --> 00:23:31,350
+it does it will just check the signature
+
+520
+00:23:31,350 --> 00:23:34,390
+against the public key like it did
+
+521
+00:23:34,390 --> 00:23:37,060
+imagine either Peter pop key does that
+
+522
+00:23:37,060 --> 00:23:39,240
+make sense
+
+523
+00:23:39,660 --> 00:23:43,930
+are you aware if we can come up with our
+
+524
+00:23:43,930 --> 00:23:48,810
+own like you know you have paid to
+
+525
+00:23:48,810 --> 00:23:52,570
+publicly paid to public key hash let's
+
+526
+00:23:52,570 --> 00:23:54,880
+say I want to do a play to public key
+
+527
+00:23:54,880 --> 00:23:57,850
+hash of hash is that something that
+
+528
+00:23:57,850 --> 00:24:06,460
+users can actually do yes yes yes yes I
+
+529
+00:24:06,460 --> 00:24:08,440
+know and I'll explain why in a moment
+
+530
+00:24:08,440 --> 00:24:12,040
+but good question okay oh yeah I'll come
+
+531
+00:24:12,040 --> 00:24:14,950
+to that I'm for now I'll just continue
+
+532
+00:24:14,950 --> 00:24:16,690
+covering these standard scripts as long
+
+533
+00:24:16,690 --> 00:24:18,490
+as that makes sense and this pay to pop
+
+534
+00:24:18,490 --> 00:24:20,410
+key hash it's just the same as pay to
+
+535
+00:24:20,410 --> 00:24:23,630
+pokey but it just checks that the public
+
+536
+00:24:23,630 --> 00:24:25,460
+public-key you provide in the Enochian
+
+537
+00:24:25,460 --> 00:24:27,800
+scrip hashes matches the hash that was
+
+538
+00:24:27,800 --> 00:24:29,420
+providing a large gap first and then
+
+539
+00:24:29,420 --> 00:24:32,300
+just check the singer's normal so this
+
+540
+00:24:32,300 --> 00:24:33,740
+is what so I I gone
+
+541
+00:24:33,740 --> 00:24:36,530
+yeah people pika is for the public keys
+
+542
+00:24:36,530 --> 00:24:38,810
+but we do PK H is for the Bitcoin
+
+543
+00:24:38,810 --> 00:24:40,430
+addresses yes yes exactly
+
+544
+00:24:40,430 --> 00:24:43,310
+so this is the most common locking
+
+545
+00:24:43,310 --> 00:24:46,250
+script you'll find on bitcoins these
+
+546
+00:24:46,250 --> 00:24:55,610
+days for convenience instead of when you
+
+547
+00:24:55,610 --> 00:24:57,530
+want to receive bitcoins instead of you
+
+548
+00:24:57,530 --> 00:24:59,390
+know creating this hash and then
+
+549
+00:24:59,390 --> 00:25:02,120
+surrounding it with all the opcodes you
+
+550
+00:25:02,120 --> 00:25:03,860
+want to use around it so basically
+
+551
+00:25:03,860 --> 00:25:05,570
+construct this entire lock-in script and
+
+552
+00:25:05,570 --> 00:25:06,790
+then giving it to someone else
+
+553
+00:25:06,790 --> 00:25:09,290
+we have a lot more convenient way of
+
+554
+00:25:09,290 --> 00:25:11,480
+doing that in Bitcoin so what we do is
+
+555
+00:25:11,480 --> 00:25:14,120
+we create an address which is basically
+
+556
+00:25:14,120 --> 00:25:22,270
+a the hash 160 of the public key
+
+557
+00:25:22,270 --> 00:25:24,530
+converted into a more user-friendly
+
+558
+00:25:24,530 --> 00:25:28,100
+format it has a checksum and uses more
+
+559
+00:25:28,100 --> 00:25:29,810
+user-friendly characters so it's harder
+
+560
+00:25:29,810 --> 00:25:32,630
+to make make mistakes with and then this
+
+561
+00:25:32,630 --> 00:25:35,720
+address will be prepended with a one at
+
+562
+00:25:35,720 --> 00:25:38,830
+the front so that means if you give an
+
+563
+00:25:38,830 --> 00:25:41,240
+address to someone else where the one at
+
+564
+00:25:41,240 --> 00:25:43,850
+the start they will be able to decode it
+
+565
+00:25:43,850 --> 00:25:46,490
+to get the original hash of the public
+
+566
+00:25:46,490 --> 00:25:48,860
+key and because they see that there's a
+
+567
+00:25:48,860 --> 00:25:51,860
+one at the front they'll go okay this
+
+568
+00:25:51,860 --> 00:25:53,960
+person wants to pay to pub key hash so
+
+569
+00:25:53,960 --> 00:25:57,440
+they will decode it and form this
+
+570
+00:25:57,440 --> 00:25:59,929
+locking script with the
+
+571
+00:25:59,929 --> 00:26:02,450
+hache 160 the public key placed inside
+
+572
+00:26:02,450 --> 00:26:05,090
+it so this address here is just a
+
+573
+00:26:05,090 --> 00:26:07,580
+convenient way of telling people how you
+
+574
+00:26:07,580 --> 00:26:10,119
+want your bitcoins to be locked up
+
+575
+00:26:10,119 --> 00:26:15,080
+so Peter PK does not have a address
+
+576
+00:26:15,080 --> 00:26:17,059
+format so if you want bitcoins to be
+
+577
+00:26:17,059 --> 00:26:18,580
+locked up in this format you have to
+
+578
+00:26:18,580 --> 00:26:21,259
+send them the entire locking script and
+
+579
+00:26:21,259 --> 00:26:23,200
+the after the person will have to
+
+580
+00:26:23,200 --> 00:26:26,330
+construct the transaction manually to
+
+581
+00:26:26,330 --> 00:26:29,659
+put this locking script inside but the
+
+582
+00:26:29,659 --> 00:26:31,850
+Pater pub key hash the more common
+
+583
+00:26:31,850 --> 00:26:34,369
+format has this address so whenever you
+
+584
+00:26:34,369 --> 00:26:36,289
+send someone an address all you're
+
+585
+00:26:36,289 --> 00:26:39,230
+sending them is the hash of your public
+
+586
+00:26:39,230 --> 00:26:42,080
+key and telling them to lock it up in a
+
+587
+00:26:42,080 --> 00:26:48,830
+certain way thirdly I'm gonna do five
+
+588
+00:26:48,830 --> 00:26:50,480
+just a third one so these are just pay
+
+589
+00:26:50,480 --> 00:26:54,019
+into a single person's public key you
+
+590
+00:26:54,019 --> 00:26:56,840
+have what's called pay to multi-sig so
+
+591
+00:26:56,840 --> 00:26:58,850
+what you can do in Bitcoin instead of
+
+592
+00:26:58,850 --> 00:27:00,470
+just lock in a batch of bitcoins up to
+
+593
+00:27:00,470 --> 00:27:02,690
+one person's public key see there are
+
+594
+00:27:02,690 --> 00:27:04,490
+three of you in a company or inside a
+
+595
+00:27:04,490 --> 00:27:06,789
+business and you want to receive
+
+596
+00:27:06,789 --> 00:27:09,830
+bitcoins together or you can do you can
+
+597
+00:27:09,830 --> 00:27:12,379
+all put your public keys into a locking
+
+598
+00:27:12,379 --> 00:27:17,869
+script and then what you'll do your put
+
+599
+00:27:17,869 --> 00:27:20,389
+in number after it which is n the number
+
+600
+00:27:20,389 --> 00:27:22,669
+of public keys inside the locking script
+
+601
+00:27:22,669 --> 00:27:26,210
+and then another number called M which
+
+602
+00:27:26,210 --> 00:27:29,269
+is the number of signatures that needs
+
+603
+00:27:29,269 --> 00:27:32,389
+to be provided for this locking script
+
+604
+00:27:32,389 --> 00:27:34,850
+to be unlocked or this but so I
+
+605
+00:27:34,850 --> 00:27:38,600
+Bitcoin assign to be unlocked and then
+
+606
+00:27:38,600 --> 00:27:40,429
+at the end of it then you'll use the
+
+607
+00:27:40,429 --> 00:27:44,139
+check multi-sig function so this is a
+
+608
+00:27:44,139 --> 00:27:47,899
+Peter multi-sig locking script so like I
+
+609
+00:27:47,899 --> 00:27:50,740
+said the M here just indicates how many
+
+610
+00:27:50,740 --> 00:27:53,960
+signatures are going to be needed for
+
+611
+00:27:53,960 --> 00:27:57,940
+this lock in scope to be unlocked
+
+612
+00:27:57,940 --> 00:28:01,809
+so when it comes to so say you give this
+
+613
+00:28:01,809 --> 00:28:03,429
+locking script to someone else they put
+
+614
+00:28:03,429 --> 00:28:05,139
+a batch of bitcoins with this locking
+
+615
+00:28:05,139 --> 00:28:08,470
+script on it so when these three people
+
+616
+00:28:08,470 --> 00:28:10,870
+here want to come to unlock this batch
+
+617
+00:28:10,870 --> 00:28:12,070
+of bitcoins are send them on to someone
+
+618
+00:28:12,070 --> 00:28:15,309
+else or we all need is two signatures
+
+619
+00:28:15,309 --> 00:28:20,110
+from any two of these people they also
+
+620
+00:28:20,110 --> 00:28:22,419
+need to be in the correct order so if
+
+621
+00:28:22,419 --> 00:28:24,549
+these public keys were put into the
+
+622
+00:28:24,549 --> 00:28:26,980
+locking code in a specific order these
+
+623
+00:28:26,980 --> 00:28:28,450
+signatures will be need to be in the
+
+624
+00:28:28,450 --> 00:28:30,309
+correct order also which you will see
+
+625
+00:28:30,309 --> 00:28:31,889
+why in a moment
+
+626
+00:28:31,889 --> 00:28:34,929
+so that is a typical Paton multi-sig and
+
+627
+00:28:34,929 --> 00:28:37,539
+I'll run it in a moment just a quick
+
+628
+00:28:37,539 --> 00:28:40,990
+note there's a little bug in this check
+
+629
+00:28:40,990 --> 00:28:46,200
+multi-sig function or the way it works
+
+630
+00:28:46,200 --> 00:28:49,870
+and this was just a boat from the start
+
+631
+00:28:49,870 --> 00:28:51,250
+of Bitcoin that we just need to account
+
+632
+00:28:51,250 --> 00:28:54,100
+for now basically what happens is the M
+
+633
+00:28:54,100 --> 00:28:56,950
+at the start here has an off by one
+
+634
+00:28:56,950 --> 00:29:00,960
+error so what happens is it will consume
+
+635
+00:29:00,960 --> 00:29:04,750
+one more item from the stack then we've
+
+636
+00:29:04,750 --> 00:29:07,779
+indicated here so to get around that for
+
+637
+00:29:07,779 --> 00:29:09,669
+every pay to multi-sig we just need to
+
+638
+00:29:09,669 --> 00:29:13,980
+put a dummy or zero opcode at the start
+
+639
+00:29:13,980 --> 00:29:16,629
+so this is the bug that need to account
+
+640
+00:29:16,629 --> 00:29:19,590
+for let me use the check multi-sig
+
+641
+00:29:19,590 --> 00:29:24,120
+script so anyway let's run this script
+
+642
+00:29:24,120 --> 00:29:26,110
+how does it get run how does it get
+
+643
+00:29:26,110 --> 00:29:29,289
+checked and put the locking code at the
+
+644
+00:29:29,289 --> 00:29:32,500
+start then go from left to right numbers
+
+645
+00:29:32,500 --> 00:29:34,059
+they just get pushed onto the stack
+
+646
+00:29:34,059 --> 00:29:36,519
+just like data like so so the zeros on
+
+647
+00:29:36,519 --> 00:29:38,620
+the stack there then we push on the
+
+648
+00:29:38,620 --> 00:29:40,960
+signatures because their data then we
+
+649
+00:29:40,960 --> 00:29:42,220
+have the two again number just gets
+
+650
+00:29:42,220 --> 00:29:43,840
+pushed numbers just get pushed on top of
+
+651
+00:29:43,840 --> 00:29:46,929
+the stack then each of these public keys
+
+652
+00:29:46,929 --> 00:29:48,789
+again they're just data can push on top
+
+653
+00:29:48,789 --> 00:29:52,330
+the stack and then the three finally we
+
+654
+00:29:52,330 --> 00:29:54,639
+come to the check mark multi-sig opcode
+
+655
+00:29:54,639 --> 00:29:56,980
+what this does first of all it'll pop
+
+656
+00:29:56,980 --> 00:29:58,899
+the top element off see that's a three
+
+657
+00:29:58,899 --> 00:30:01,629
+when it sees us a three it means it will
+
+658
+00:30:01,629 --> 00:30:02,950
+pop the next three elements off the top
+
+659
+00:30:02,950 --> 00:30:05,259
+the stack then you'll pop the next
+
+660
+00:30:05,259 --> 00:30:07,029
+element off which is a two and when it
+
+661
+00:30:07,029 --> 00:30:08,889
+sees that it'll pop the next 2 ms off
+
+662
+00:30:08,889 --> 00:30:09,960
+the stack
+
+663
+00:30:09,960 --> 00:30:13,250
+but like I mentioned earlier this M here
+
+664
+00:30:13,250 --> 00:30:16,110
+hasn't off by one error so it will
+
+665
+00:30:16,110 --> 00:30:19,440
+consume three instead of two but this is
+
+666
+00:30:19,440 --> 00:30:21,390
+just a little bug in Bitcoin attack you
+
+667
+00:30:21,390 --> 00:30:24,960
+can pretend it's not there anyway so now
+
+668
+00:30:24,960 --> 00:30:27,510
+it has to come to check the signatures
+
+669
+00:30:27,510 --> 00:30:29,309
+against the public keys that's why
+
+670
+00:30:29,309 --> 00:30:30,870
+you'll do it we'll start with the first
+
+671
+00:30:30,870 --> 00:30:32,970
+signature it's got at the bottom of the
+
+672
+00:30:32,970 --> 00:30:35,070
+stack and then check it against the
+
+673
+00:30:35,070 --> 00:30:37,230
+first public key there's got to check
+
+674
+00:30:37,230 --> 00:30:40,140
+there's and check their matches so let's
+
+675
+00:30:40,140 --> 00:30:41,700
+say this to it and doesn't match but
+
+676
+00:30:41,700 --> 00:30:42,390
+that's fine
+
+677
+00:30:42,390 --> 00:30:44,309
+if that doesn't match it I'll move on to
+
+678
+00:30:44,309 --> 00:30:45,600
+the next public key to see if that
+
+679
+00:30:45,600 --> 00:30:48,210
+matches and this one does much so let's
+
+680
+00:30:48,210 --> 00:30:49,620
+put a little one here to see the lab
+
+681
+00:30:49,620 --> 00:30:54,059
+matter that hasn't matched the reason I
+
+682
+00:30:54,059 --> 00:30:56,130
+said to put these signatures into the
+
+683
+00:30:56,130 --> 00:30:59,669
+correct order is because after the check
+
+684
+00:30:59,669 --> 00:31:02,490
+multi-sig function has checked a
+
+685
+00:31:02,490 --> 00:31:05,490
+signature against public keys it won't
+
+686
+00:31:05,490 --> 00:31:08,460
+check those public keys again so when
+
+687
+00:31:08,460 --> 00:31:10,740
+you come to match the second signature
+
+688
+00:31:10,740 --> 00:31:13,470
+against the public keys instead of going
+
+689
+00:31:13,470 --> 00:31:14,820
+from the start and match them against
+
+690
+00:31:14,820 --> 00:31:16,770
+each of the individual public keys it
+
+691
+00:31:16,770 --> 00:31:18,240
+will start from where it left off or the
+
+692
+00:31:18,240 --> 00:31:22,200
+last match so again you'll check the
+
+693
+00:31:22,200 --> 00:31:23,610
+signature against this public key here
+
+694
+00:31:23,610 --> 00:31:25,980
+if that matches the near we are we have
+
+695
+00:31:25,980 --> 00:31:28,980
+got too much in signatures and therefore
+
+696
+00:31:28,980 --> 00:31:32,279
+because we asked for asked for - after
+
+697
+00:31:32,279 --> 00:31:36,380
+three signatures for this lock in script
+
+698
+00:31:36,380 --> 00:31:39,799
+this script is Viator check multi-sig is
+
+699
+00:31:39,799 --> 00:31:43,409
+happy with this so it'll push a one on
+
+700
+00:31:43,409 --> 00:31:45,990
+top of the stack obviously if there's
+
+701
+00:31:45,990 --> 00:31:49,140
+only 0 or 1 matches signatures for these
+
+702
+00:31:49,140 --> 00:31:51,840
+public keys they were pushes you on top
+
+703
+00:31:51,840 --> 00:31:53,250
+but because we've got enough matching
+
+704
+00:31:53,250 --> 00:31:55,620
+signatures it pushes a one on top of the
+
+705
+00:31:55,620 --> 00:32:03,539
+stack as that make sense ok so there we
+
+706
+00:32:03,539 --> 00:32:03,750
+are
+
+707
+00:32:03,750 --> 00:32:06,480
+8a multi-sig obviously now you know how
+
+708
+00:32:06,480 --> 00:32:10,380
+these scripts work is quite simple
+
+709
+00:32:10,380 --> 00:32:13,290
+before we move on to the fourth one
+
+710
+00:32:13,290 --> 00:32:15,730
+there's a little bit of a problem but
+
+711
+00:32:15,730 --> 00:32:19,380
+it's all Peter multi-sig setup because
+
+712
+00:32:19,380 --> 00:32:22,120
+say there are three of us or more of us
+
+713
+00:32:22,120 --> 00:32:24,760
+in a company and we just want to accept
+
+714
+00:32:24,760 --> 00:32:29,140
+bitcoins to a multi-sig lock-in script
+
+715
+00:32:29,140 --> 00:32:31,180
+will obviously have to construct this
+
+716
+00:32:31,180 --> 00:32:33,450
+lock-in script and give to someone else
+
+717
+00:32:33,450 --> 00:32:36,880
+and they'll have to construct a
+
+718
+00:32:36,880 --> 00:32:39,070
+transaction and put the entire script we
+
+719
+00:32:39,070 --> 00:32:42,390
+have given them into the locking code
+
+720
+00:32:42,390 --> 00:32:45,630
+for the bitcoins they are sending us
+
+721
+00:32:45,630 --> 00:32:49,090
+like so so they construct this entire
+
+722
+00:32:49,090 --> 00:32:51,490
+track transaction and they all have to
+
+723
+00:32:51,490 --> 00:32:53,380
+put the locking code that we want onto
+
+724
+00:32:53,380 --> 00:32:57,460
+this batch of bitcoins problem with this
+
+725
+00:32:57,460 --> 00:33:00,720
+check multi-sig is that they can get
+
+726
+00:33:00,720 --> 00:33:03,580
+these particular locking scripts can get
+
+727
+00:33:03,580 --> 00:33:06,040
+become quite big so this two or three
+
+728
+00:33:06,040 --> 00:33:08,350
+multi-sig locking script is a hundred
+
+729
+00:33:08,350 --> 00:33:13,000
+and five bytes but with every public key
+
+730
+00:33:13,000 --> 00:33:16,180
+that we add in to the pater multi-sig it
+
+731
+00:33:16,180 --> 00:33:18,010
+gets bigger and bigger and bigger
+
+732
+00:33:18,010 --> 00:33:21,370
+because every public key takes up 33
+
+733
+00:33:21,370 --> 00:33:23,910
+bytes of space inside transaction data
+
+734
+00:33:23,910 --> 00:33:27,070
+so if we were to give this you know a
+
+735
+00:33:27,070 --> 00:33:30,910
+very big locking script a very big paid
+
+736
+00:33:30,910 --> 00:33:32,470
+to multi-sig locking script to someone
+
+737
+00:33:32,470 --> 00:33:35,020
+to lock up our bitcoins they're probably
+
+738
+00:33:35,020 --> 00:33:37,150
+not gonna be very happy because this is
+
+739
+00:33:37,150 --> 00:33:39,400
+going to take up a lot of data inside
+
+740
+00:33:39,400 --> 00:33:41,530
+their transaction and they're gonna have
+
+741
+00:33:41,530 --> 00:33:44,940
+to pay for that data in transaction fees
+
+742
+00:33:44,940 --> 00:33:48,370
+so you know especially when you consider
+
+743
+00:33:48,370 --> 00:33:51,280
+that pay to public is 35 bytes paid to
+
+744
+00:33:51,280 --> 00:33:54,130
+public key hash 25 bytes and typically
+
+745
+00:33:54,130 --> 00:33:57,190
+the smallest peter multi-sig locking
+
+746
+00:33:57,190 --> 00:34:00,040
+script is gonna be 105 bytes it's not
+
+747
+00:34:00,040 --> 00:34:05,470
+too exciting for this person to want to
+
+748
+00:34:05,470 --> 00:34:07,540
+send bitcoins to anything other than
+
+749
+00:34:07,540 --> 00:34:09,550
+Peter pop key or pay to pokey hash
+
+750
+00:34:09,550 --> 00:34:14,199
+scripts so what can we do to sort of
+
+751
+00:34:14,199 --> 00:34:17,020
+avoid this problem of this person having
+
+752
+00:34:17,020 --> 00:34:20,839
+to pay for these large locking scripts
+
+753
+00:34:20,839 --> 00:34:24,679
+you know through creating transactions
+
+754
+00:34:24,679 --> 00:34:27,619
+that contain more trent data than they
+
+755
+00:34:27,619 --> 00:34:33,379
+would like so that's where peter script
+
+756
+00:34:33,379 --> 00:34:34,099
+ash comes in
+
+757
+00:34:34,099 --> 00:34:36,559
+it's basically there to make these more
+
+758
+00:34:36,559 --> 00:34:41,899
+complex scripts shorter and easier for
+
+759
+00:34:41,899 --> 00:34:45,460
+someone else to creat transactions with
+
+760
+00:34:45,460 --> 00:34:48,018
+so this is called peter script hash and
+
+761
+00:34:48,018 --> 00:34:50,268
+i'll explain how this works now so let's
+
+762
+00:34:50,268 --> 00:34:53,599
+say we want to receive bitcoins to a
+
+763
+00:34:53,599 --> 00:34:57,710
+peter multi-sig locking script what
+
+764
+00:34:57,710 --> 00:34:59,479
+we'll do instead of given them is in
+
+765
+00:34:59,479 --> 00:35:03,109
+this entire locking script your first of
+
+766
+00:35:03,109 --> 00:35:04,880
+all just hash it together
+
+767
+00:35:04,880 --> 00:35:06,289
+the unique hash of this particular
+
+768
+00:35:06,289 --> 00:35:08,119
+script and this is called the script
+
+769
+00:35:08,119 --> 00:35:13,130
+hash so what we can do then you can just
+
+770
+00:35:13,130 --> 00:35:14,479
+give this script hash to someone else
+
+771
+00:35:14,479 --> 00:35:17,479
+and then they can put this into the
+
+772
+00:35:17,479 --> 00:35:20,960
+locking script wrap it with a sick of a
+
+773
+00:35:20,960 --> 00:35:25,789
+set of opcodes and so there we have he
+
+774
+00:35:25,789 --> 00:35:29,269
+paid to script hash lock so it's
+
+775
+00:35:29,269 --> 00:35:30,890
+obviously a lot smaller so instead of
+
+776
+00:35:30,890 --> 00:35:33,259
+giving this person the entire original
+
+777
+00:35:33,259 --> 00:35:35,299
+locking script we just give them a hash
+
+778
+00:35:35,299 --> 00:35:37,249
+of it then which shrinks it shrinks it
+
+779
+00:35:37,249 --> 00:35:39,529
+down a lot they just have to apply to
+
+780
+00:35:39,529 --> 00:35:41,539
+opcodes around it and then we have a
+
+781
+00:35:41,539 --> 00:35:45,589
+page of script hash locking script and
+
+782
+00:35:45,589 --> 00:35:47,690
+this is much shorter so whereas the
+
+783
+00:35:47,690 --> 00:35:50,269
+original 105 bytes a page of script hash
+
+784
+00:35:50,269 --> 00:35:53,150
+is similar to a peter pub key hash about
+
+785
+00:35:53,150 --> 00:35:55,969
+23 bytes which makes them happy because
+
+786
+00:35:55,969 --> 00:35:58,039
+they don't have to construct these huge
+
+787
+00:35:58,039 --> 00:36:01,279
+transactions and pay for the fees from
+
+788
+00:36:01,279 --> 00:36:06,079
+these large locking scripts so that
+
+789
+00:36:06,079 --> 00:36:09,380
+works but then how do we unlock or
+
+790
+00:36:09,380 --> 00:36:11,779
+redeem this batch of bitcoins for this
+
+791
+00:36:11,779 --> 00:36:14,479
+painter script hash code on it lock and
+
+792
+00:36:14,479 --> 00:36:17,539
+script on it well what we do if it's a
+
+793
+00:36:17,539 --> 00:36:19,950
+peter multi-sig
+
+794
+00:36:19,950 --> 00:36:21,930
+same as before you just need to provide
+
+795
+00:36:21,930 --> 00:36:25,860
+two signatures but then in addition to
+
+796
+00:36:25,860 --> 00:36:28,020
+that we also have to provide the
+
+797
+00:36:28,020 --> 00:36:31,920
+original locking script though this hash
+
+798
+00:36:31,920 --> 00:36:34,460
+of the locking script was created from
+
+799
+00:36:34,460 --> 00:36:36,750
+but instead of putting the individual op
+
+800
+00:36:36,750 --> 00:36:38,610
+codes we just squeeze it all together
+
+801
+00:36:38,610 --> 00:36:41,580
+into a single piece of data or serialize
+
+802
+00:36:41,580 --> 00:36:44,340
+it to a single piece of data so all the
+
+803
+00:36:44,340 --> 00:36:46,140
+op codes are in there but instead of
+
+804
+00:36:46,140 --> 00:36:47,940
+them peered individual op codes it's
+
+805
+00:36:47,940 --> 00:36:54,050
+just a bunch of data right so let's run
+
+806
+00:36:54,050 --> 00:36:59,060
+this locking code and a knockin code
+
+807
+00:36:59,060 --> 00:37:02,010
+right so once again you put the locking
+
+808
+00:37:02,010 --> 00:37:06,180
+code at the start but the thing is with
+
+809
+00:37:06,180 --> 00:37:08,430
+a pager script hash and even though it
+
+810
+00:37:08,430 --> 00:37:11,000
+gets executed in roughly the same way
+
+811
+00:37:11,000 --> 00:37:14,300
+this particular format of locking code
+
+812
+00:37:14,300 --> 00:37:17,430
+is like it's a special form and it will
+
+813
+00:37:17,430 --> 00:37:19,830
+be executed slightly differently and
+
+814
+00:37:19,830 --> 00:37:23,940
+I'll show you how that works now so it
+
+815
+00:37:23,940 --> 00:37:26,130
+starts off as normal using the stack we
+
+816
+00:37:26,130 --> 00:37:28,710
+put the locking code at the start and we
+
+817
+00:37:28,710 --> 00:37:30,960
+all just push the signatures onto the
+
+818
+00:37:30,960 --> 00:37:35,340
+stack then we run into this see realized
+
+819
+00:37:35,340 --> 00:37:38,910
+lock in script also call the redeem
+
+820
+00:37:38,910 --> 00:37:41,250
+script and because it's just data just
+
+821
+00:37:41,250 --> 00:37:43,020
+shove together that just goes on top of
+
+822
+00:37:43,020 --> 00:37:44,960
+the stack as well and that is the
+
+823
+00:37:44,960 --> 00:37:49,350
+unlocking code part done because it's a
+
+824
+00:37:49,350 --> 00:37:51,000
+pager script hash this is where the
+
+825
+00:37:51,000 --> 00:37:53,490
+difference comes in it will make a copy
+
+826
+00:37:53,490 --> 00:37:57,420
+of the stack after the unlocking code or
+
+827
+00:37:57,420 --> 00:38:00,210
+a knockin script has been run so it
+
+828
+00:38:00,210 --> 00:38:03,150
+takes a copy of it now it will run the
+
+829
+00:38:03,150 --> 00:38:07,110
+original locking script with the stack
+
+830
+00:38:07,110 --> 00:38:10,440
+we've got from the unlocking script so
+
+831
+00:38:10,440 --> 00:38:14,040
+first of all it there's a hash 160 of
+
+832
+00:38:14,040 --> 00:38:16,440
+the top element on the stack so it will
+
+833
+00:38:16,440 --> 00:38:19,450
+hash this piece of data the
+
+834
+00:38:19,450 --> 00:38:22,750
+see realized lock-in script the original
+
+835
+00:38:22,750 --> 00:38:24,849
+one and they were hash it put it back on
+
+836
+00:38:24,849 --> 00:38:27,609
+top then the hash from the locking
+
+837
+00:38:27,609 --> 00:38:29,260
+script again put on top of the stack as
+
+838
+00:38:29,260 --> 00:38:33,880
+well and then they're equal opcode will
+
+839
+00:38:33,880 --> 00:38:36,250
+pop two elements off check that they
+
+840
+00:38:36,250 --> 00:38:38,440
+equal and if they are it'll put a one on
+
+841
+00:38:38,440 --> 00:38:41,109
+top of the stack and so this stack no
+
+842
+00:38:41,109 --> 00:38:43,299
+this script part the unlocking script
+
+843
+00:38:43,299 --> 00:38:44,650
+and the locking script has been
+
+844
+00:38:44,650 --> 00:38:47,799
+completely run and we are left with a 1
+
+845
+00:38:47,799 --> 00:38:49,900
+on top of the stack so this first part
+
+846
+00:38:49,900 --> 00:38:57,400
+checks that the locking script the
+
+847
+00:38:57,400 --> 00:38:58,950
+serialized locking script we've provided
+
+848
+00:38:58,950 --> 00:39:01,780
+matches the one that was originally
+
+849
+00:39:01,780 --> 00:39:05,460
+hashed and put into the locking script
+
+850
+00:39:05,460 --> 00:39:09,119
+so that part is done
+
+851
+00:39:10,080 --> 00:39:12,720
+then after it's been run because it's a
+
+852
+00:39:12,720 --> 00:39:16,320
+descriptive it brings the copy back and
+
+853
+00:39:16,320 --> 00:39:18,630
+uses that as the stack so the first part
+
+854
+00:39:18,630 --> 00:39:22,220
+checks that the the hash match is the
+
+855
+00:39:22,220 --> 00:39:25,980
+Redeem script that we provided and in
+
+856
+00:39:25,980 --> 00:39:27,210
+the second part of the page a script
+
+857
+00:39:27,210 --> 00:39:30,300
+hash it will pop the top element off
+
+858
+00:39:30,300 --> 00:39:32,220
+which is the regime script it will
+
+859
+00:39:32,220 --> 00:39:35,970
+deserialize it and then run the stack
+
+860
+00:39:35,970 --> 00:39:39,680
+again so like before in PT multi-sig
+
+861
+00:39:39,680 --> 00:39:42,210
+this is a number two gets pushed on top
+
+862
+00:39:42,210 --> 00:39:44,790
+then all the public keys then the three
+
+863
+00:39:44,790 --> 00:39:47,040
+then we went into chat multi C again
+
+864
+00:39:47,040 --> 00:39:49,310
+you'll do the exact same as last time
+
+865
+00:39:49,310 --> 00:39:51,900
+pop all the ailments off check the
+
+866
+00:39:51,900 --> 00:39:53,310
+signatures against public keys make sure
+
+867
+00:39:53,310 --> 00:39:54,660
+it's got enough and if that's correct
+
+868
+00:39:54,660 --> 00:39:56,790
+it'll push someone back onto the stack
+
+869
+00:39:56,790 --> 00:40:03,860
+and that is that done do you follow that
+
+870
+00:40:03,860 --> 00:40:07,670
+okay okay so this page of script hash
+
+871
+00:40:07,670 --> 00:40:10,440
+it's the only one that gets run a little
+
+872
+00:40:10,440 --> 00:40:13,890
+differently to these typical scripts and
+
+873
+00:40:13,890 --> 00:40:15,630
+it's only and it was added into Bitcoin
+
+874
+00:40:15,630 --> 00:40:21,840
+later on as a way to be able to create
+
+875
+00:40:21,840 --> 00:40:26,250
+simple complex scripts basically then
+
+876
+00:40:26,250 --> 00:40:28,410
+have other that have other people only
+
+877
+00:40:28,410 --> 00:40:32,400
+have to put a simple format of locking
+
+878
+00:40:32,400 --> 00:40:34,200
+script on top of bitcoins to make it
+
+879
+00:40:34,200 --> 00:40:37,530
+easier for them these peter script
+
+880
+00:40:37,530 --> 00:40:39,090
+hashes also have their own address
+
+881
+00:40:39,090 --> 00:40:42,510
+similar to the peter pub key hash so the
+
+882
+00:40:42,510 --> 00:40:44,430
+way you get a way you form an address
+
+883
+00:40:44,430 --> 00:40:46,140
+for a
+
+884
+00:40:46,140 --> 00:40:49,619
+pay to script hash locking script is you
+
+885
+00:40:49,619 --> 00:40:55,650
+will hash the script that you the
+
+886
+00:40:55,650 --> 00:40:57,539
+locking script they or basically how you
+
+887
+00:40:57,539 --> 00:40:58,829
+want this matchup it going to be locked
+
+888
+00:40:58,829 --> 00:41:00,869
+up like before great a hash remit and
+
+889
+00:41:00,869 --> 00:41:03,779
+then from this hash you will encode it
+
+890
+00:41:03,779 --> 00:41:07,799
+into a pretty format of an address and
+
+891
+00:41:07,799 --> 00:41:09,390
+you can go back and forth between these
+
+892
+00:41:09,390 --> 00:41:12,869
+two and whereas in a pay to pop key hash
+
+893
+00:41:12,869 --> 00:41:18,150
+you have the hash they create well in
+
+894
+00:41:18,150 --> 00:41:19,739
+this page script - you couldn't address
+
+895
+00:41:19,739 --> 00:41:22,470
+and the hash is inside there and you put
+
+896
+00:41:22,470 --> 00:41:24,690
+a three at the start so when you give
+
+897
+00:41:24,690 --> 00:41:26,880
+this three to someone else they'll be
+
+898
+00:41:26,880 --> 00:41:29,160
+able to decode it get the hash and then
+
+899
+00:41:29,160 --> 00:41:32,190
+form this particular format of locking
+
+900
+00:41:32,190 --> 00:41:35,339
+script so a one address I need any
+
+901
+00:41:35,339 --> 00:41:37,380
+address begins with the one corresponds
+
+902
+00:41:37,380 --> 00:41:39,059
+to this particular type of lock in
+
+903
+00:41:39,059 --> 00:41:43,049
+script and any address you find the
+
+904
+00:41:43,049 --> 00:41:45,859
+start with a three correspond to this
+
+905
+00:41:45,859 --> 00:41:49,079
+kind of locking script so it's typically
+
+906
+00:41:49,079 --> 00:41:51,539
+going to be you know a paid to multi-sig
+
+907
+00:41:51,539 --> 00:41:55,319
+or more recently pay into a segregated
+
+908
+00:41:55,319 --> 00:41:57,720
+witness type transaction which I'm not
+
+909
+00:41:57,720 --> 00:42:00,299
+going to cover here but segregated
+
+910
+00:42:00,299 --> 00:42:03,660
+witness has used this format for locking
+
+911
+00:42:03,660 --> 00:42:08,579
+up their coins so that's page script
+
+912
+00:42:08,579 --> 00:42:10,829
+hash then that's the most complex part
+
+913
+00:42:10,829 --> 00:42:12,839
+of this whole presentation so if that
+
+914
+00:42:12,839 --> 00:42:14,220
+made sense then everything else gonna be
+
+915
+00:42:14,220 --> 00:42:14,549
+easy
+
+916
+00:42:14,549 --> 00:42:17,190
+um but this is just like a special form
+
+917
+00:42:17,190 --> 00:42:19,170
+that gets asked executed slightly
+
+918
+00:42:19,170 --> 00:42:23,670
+differently finally the last standard
+
+919
+00:42:23,670 --> 00:42:26,130
+script that gets used in Bitcoin it's
+
+920
+00:42:26,130 --> 00:42:30,539
+called a null data locking script and
+
+921
+00:42:30,539 --> 00:42:33,569
+that uses this up code called opie
+
+922
+00:42:33,569 --> 00:42:37,559
+return or just return and what this our
+
+923
+00:42:37,559 --> 00:42:40,650
+code does it invalidates the script so
+
+924
+00:42:40,650 --> 00:42:43,319
+no matter what you put in the unlocking
+
+925
+00:42:43,319 --> 00:42:46,739
+code whenever you run or a node runs
+
+926
+00:42:46,739 --> 00:42:49,309
+this
+
+927
+00:42:51,160 --> 00:42:54,340
+up code it's going to invalidate the
+
+928
+00:42:54,340 --> 00:42:56,620
+script which means that this batch of
+
+929
+00:42:56,620 --> 00:43:00,250
+bitcoins can never be spent so why would
+
+930
+00:43:00,250 --> 00:43:02,110
+you do that it seems quite pointless why
+
+931
+00:43:02,110 --> 00:43:03,340
+would you create a batch of bitcoins
+
+932
+00:43:03,340 --> 00:43:06,070
+that can never be spent well what
+
+933
+00:43:06,070 --> 00:43:08,910
+typically happens in Bitcoin is they
+
+934
+00:43:08,910 --> 00:43:11,560
+someone will create a transaction but
+
+935
+00:43:11,560 --> 00:43:15,190
+then they'll also create a output with
+
+936
+00:43:15,190 --> 00:43:17,680
+no bitcoins in it so like an like almost
+
+937
+00:43:17,680 --> 00:43:19,900
+like a dummy output and in the locking
+
+938
+00:43:19,900 --> 00:43:21,730
+script they'll put the return opcode in
+
+939
+00:43:21,730 --> 00:43:24,010
+there so it can't be spent but there's
+
+940
+00:43:24,010 --> 00:43:25,750
+no bitcoins in there so you know be
+
+941
+00:43:25,750 --> 00:43:28,540
+spent anyway and then after the return
+
+942
+00:43:28,540 --> 00:43:31,330
+up code they'll just put some data after
+
+943
+00:43:31,330 --> 00:43:34,720
+it for example you could take the text
+
+944
+00:43:34,720 --> 00:43:36,940
+will you marry me convert to text XML
+
+945
+00:43:36,940 --> 00:43:39,880
+hexadecimal and put it in the lock in
+
+946
+00:43:39,880 --> 00:43:42,280
+script after this return up code and
+
+947
+00:43:42,280 --> 00:43:49,060
+this is a standard format for a or
+
+948
+00:43:49,060 --> 00:43:51,990
+standard transaction format so basically
+
+949
+00:43:51,990 --> 00:43:57,580
+this format is just a way of adding some
+
+950
+00:43:57,580 --> 00:44:00,610
+arbitrary data to a Bitcoin transaction
+
+951
+00:44:00,610 --> 00:44:02,920
+so when you hear people inserting data
+
+952
+00:44:02,920 --> 00:44:06,760
+into the blockchain this is the easiest
+
+953
+00:44:06,760 --> 00:44:10,690
+way for a typical person creating a
+
+954
+00:44:10,690 --> 00:44:12,370
+transaction to add data to the
+
+955
+00:44:12,370 --> 00:44:14,620
+blockchain you just create an empty
+
+956
+00:44:14,620 --> 00:44:17,350
+output and on the locking script use the
+
+957
+00:44:17,350 --> 00:44:20,680
+return opcode and put any teacher in
+
+958
+00:44:20,680 --> 00:44:23,050
+after it that you want
+
+959
+00:44:23,050 --> 00:44:30,670
+that make sense okay so that is the top
+
+960
+00:44:30,670 --> 00:44:33,610
+five or five main standard scripts using
+
+961
+00:44:33,610 --> 00:44:38,320
+bitcoins if you yeah is the use of the
+
+962
+00:44:38,320 --> 00:44:42,370
+return keyword kind of okay with the
+
+963
+00:44:42,370 --> 00:44:46,770
+community or the they are not very happy
+
+964
+00:44:49,740 --> 00:44:51,970
+sound very interesting right yeah I
+
+965
+00:44:51,970 --> 00:44:53,500
+think it is a bit controversial because
+
+966
+00:44:53,500 --> 00:44:55,750
+it kind should just be like a simple
+
+967
+00:44:55,750 --> 00:44:58,650
+transaction system but this noble turn
+
+968
+00:44:58,650 --> 00:45:03,070
+I'm not sure why yeah it was sort of
+
+969
+00:45:03,070 --> 00:45:05,530
+allowed or why it's allowed in a way I
+
+970
+00:45:05,530 --> 00:45:08,230
+don't understand because bitcoin is
+
+971
+00:45:08,230 --> 00:45:10,660
+quite strict really with you know it
+
+972
+00:45:10,660 --> 00:45:14,020
+wants to be a small database and this
+
+973
+00:45:14,020 --> 00:45:18,010
+just allows people to so I'm not sure a
+
+974
+00:45:18,010 --> 00:45:20,860
+bit but for the time being for now this
+
+975
+00:45:20,860 --> 00:45:25,180
+is a allowed standard script that you
+
+976
+00:45:25,180 --> 00:45:27,610
+can use to insert arbitrary data into
+
+977
+00:45:27,610 --> 00:45:30,420
+the blog chain through transactions
+
+978
+00:45:30,420 --> 00:45:33,850
+anyway so coming back to your question
+
+979
+00:45:33,850 --> 00:45:35,710
+earlier these are the standard scripts
+
+980
+00:45:35,710 --> 00:45:37,750
+that you're most commonly see on the
+
+981
+00:45:37,750 --> 00:45:40,540
+blockchain these top four obviously just
+
+982
+00:45:40,540 --> 00:45:43,240
+pay public keys this fifth one just like
+
+983
+00:45:43,240 --> 00:45:46,310
+an extra additional one
+
+984
+00:45:46,310 --> 00:45:50,850
+but inside the script pro mini
+
+985
+00:45:50,850 --> 00:45:53,040
+programming language you have a wide
+
+986
+00:45:53,040 --> 00:45:55,080
+variety of different operators so far
+
+987
+00:45:55,080 --> 00:45:57,119
+I've just covered these ones standard
+
+988
+00:45:57,119 --> 00:45:59,190
+scripts but you might have noticed that
+
+989
+00:45:59,190 --> 00:46:01,890
+we have these little numbers up codes
+
+990
+00:46:01,890 --> 00:46:04,800
+just just numbers then we also have some
+
+991
+00:46:04,800 --> 00:46:06,450
+other operators like mathematical winds
+
+992
+00:46:06,450 --> 00:46:08,750
+like addition and subtraction
+
+993
+00:46:08,750 --> 00:46:11,010
+conditional operators if and else and
+
+994
+00:46:11,010 --> 00:46:17,430
+then or sorry more hashing operators you
+
+995
+00:46:17,430 --> 00:46:20,580
+know like sha-256 and ymd 160 so you
+
+996
+00:46:20,580 --> 00:46:22,740
+know this script programming language
+
+997
+00:46:22,740 --> 00:46:25,470
+has a quite a few different opera op
+
+998
+00:46:25,470 --> 00:46:27,030
+codes that we can use to create
+
+999
+00:46:27,030 --> 00:46:29,130
+different types of scripts so for
+
+1000
+00:46:29,130 --> 00:46:32,750
+example you could create a put a lock on
+
+1001
+00:46:32,750 --> 00:46:35,520
+top of a batch of bitcoins there's just
+
+1002
+00:46:35,520 --> 00:46:37,590
+a mathematical puzzle so you could use
+
+1003
+00:46:37,590 --> 00:46:41,190
+add 8 and then equal so when when
+
+1004
+00:46:41,190 --> 00:46:42,570
+someone comes to want to unlock this
+
+1005
+00:46:42,570 --> 00:46:43,770
+script if they want to unlock it and
+
+1006
+00:46:43,770 --> 00:46:46,380
+spend it all they need to do is provide
+
+1007
+00:46:46,380 --> 00:46:49,650
+two numbers that when you add them then
+
+1008
+00:46:49,650 --> 00:46:51,359
+so basically two numbers get pushed onto
+
+1009
+00:46:51,359 --> 00:46:53,550
+the stack add will take those two add
+
+1010
+00:46:53,550 --> 00:46:55,530
+them push them back onto the stack eight
+
+1011
+00:46:55,530 --> 00:46:57,390
+goes on top of the stack and if those
+
+1012
+00:46:57,390 --> 00:46:59,250
+two items on top of the stack are equal
+
+1013
+00:46:59,250 --> 00:47:02,430
+then the bitcoins can be spent so for
+
+1014
+00:47:02,430 --> 00:47:04,380
+example to unlock this batch of bitcoins
+
+1015
+00:47:04,380 --> 00:47:06,420
+in the unlocking script you just need to
+
+1016
+00:47:06,420 --> 00:47:08,600
+provide two numbers that add up to eight
+
+1017
+00:47:08,600 --> 00:47:13,050
+like so similarly you could create a
+
+1018
+00:47:13,050 --> 00:47:15,930
+hash puzzle so you could use a char 256
+
+1019
+00:47:15,930 --> 00:47:18,420
+up code put some data in there after it
+
+1020
+00:47:18,420 --> 00:47:22,260
+and then the equal up code so if you
+
+1021
+00:47:22,260 --> 00:47:23,820
+want to unlock this batch of bitcoins
+
+1022
+00:47:23,820 --> 00:47:25,710
+all you need to do is provide some data
+
+1023
+00:47:25,710 --> 00:47:30,600
+that's hashes to this piece of data in
+
+1024
+00:47:30,600 --> 00:47:35,400
+the locking code so this kind of locking
+
+1025
+00:47:35,400 --> 00:47:37,170
+script you can find these on the
+
+1026
+00:47:37,170 --> 00:47:40,080
+blockchain I haven't got any links off
+
+1027
+00:47:40,080 --> 00:47:42,450
+the top of my head but you know you can
+
+1028
+00:47:42,450 --> 00:47:44,790
+create scripts like these and they can
+
+1029
+00:47:44,790 --> 00:47:50,000
+be mined onto the Bachchan however
+
+1030
+00:47:50,000 --> 00:47:53,970
+in Bitcoin you can't create a
+
+1031
+00:47:53,970 --> 00:47:56,640
+non-standard script but if you're trying
+
+1032
+00:47:56,640 --> 00:48:00,780
+to insert it into a Bitcoin core node so
+
+1033
+00:48:00,780 --> 00:48:02,850
+the Bitcoin coin program implementation
+
+1034
+00:48:02,850 --> 00:48:06,000
+it actually keeps a list of standard
+
+1035
+00:48:06,000 --> 00:48:07,950
+scripts so if you create one that is
+
+1036
+00:48:07,950 --> 00:48:10,940
+non-standard they actually rejected
+
+1037
+00:48:10,940 --> 00:48:15,150
+which is a bit of shame the reason for
+
+1038
+00:48:15,150 --> 00:48:19,430
+that is as far as I'm aware it's because
+
+1039
+00:48:19,430 --> 00:48:22,230
+there's a wide variety of these up codes
+
+1040
+00:48:22,230 --> 00:48:24,420
+and operators and not all combinations
+
+1041
+00:48:24,420 --> 00:48:27,240
+of them have been thoroughly tested so
+
+1042
+00:48:27,240 --> 00:48:29,640
+it could be that someone could create a
+
+1043
+00:48:29,640 --> 00:48:32,040
+combination of up codes that when they
+
+1044
+00:48:32,040 --> 00:48:35,310
+insert the transaction into a node the
+
+1045
+00:48:35,310 --> 00:48:37,680
+node might end up taking a while to
+
+1046
+00:48:37,680 --> 00:48:40,800
+process it or validate it so all of the
+
+1047
+00:48:40,800 --> 00:48:43,170
+standard scripts are known to be run
+
+1048
+00:48:43,170 --> 00:48:45,420
+quickly and you know can be validated
+
+1049
+00:48:45,420 --> 00:48:48,270
+quickly so to protect against anyone
+
+1050
+00:48:48,270 --> 00:48:50,280
+trying to attack the network by creating
+
+1051
+00:48:50,280 --> 00:48:54,510
+you know thousands of slow or expensive
+
+1052
+00:48:54,510 --> 00:48:56,460
+to verify scripts and insert and enter
+
+1053
+00:48:56,460 --> 00:48:59,700
+them into a node a Bitcoin or Bitcoin
+
+1054
+00:48:59,700 --> 00:49:01,290
+core node will actually just reject
+
+1055
+00:49:01,290 --> 00:49:03,570
+anything that's non-standard which i
+
+1056
+00:49:03,570 --> 00:49:05,700
+think is a bit aim because you know
+
+1057
+00:49:05,700 --> 00:49:08,370
+script it's a simple language but it
+
+1058
+00:49:08,370 --> 00:49:10,830
+does have a variety of operators to use
+
+1059
+00:49:10,830 --> 00:49:13,860
+and create scripts with but Bitcoin core
+
+1060
+00:49:13,860 --> 00:49:16,320
+limits the number all the types of
+
+1061
+00:49:16,320 --> 00:49:17,910
+scripts you can put on batches of
+
+1062
+00:49:17,910 --> 00:49:23,700
+bitcoins however none that doesn't mean
+
+1063
+00:49:23,700 --> 00:49:25,380
+that nonce on standard scripts are
+
+1064
+00:49:25,380 --> 00:49:28,080
+actually invalid even though a Bitcoin
+
+1065
+00:49:28,080 --> 00:49:31,770
+core node will reject them or not accept
+
+1066
+00:49:31,770 --> 00:49:34,350
+them into their memory pools if a
+
+1067
+00:49:34,350 --> 00:49:36,330
+non-standard script were to be mined
+
+1068
+00:49:36,330 --> 00:49:39,120
+onto the blockchain then those blocks
+
+1069
+00:49:39,120 --> 00:49:41,820
+would be valid so as long as the actual
+
+1070
+00:49:41,820 --> 00:49:47,220
+script itself is valid you know contains
+
+1071
+00:49:47,220 --> 00:49:49,710
+all the standard operators and data if
+
+1072
+00:49:49,710 --> 00:49:52,590
+it gets mind into a block every noodle
+
+1073
+00:49:52,590 --> 00:49:56,850
+accept it but they won't accept it if a
+
+1074
+00:49:56,850 --> 00:49:58,080
+non-standard script
+
+1075
+00:49:58,080 --> 00:50:00,000
+tries to enter their mempool
+
+1076
+00:50:00,000 --> 00:50:02,040
+and the reason for that is the memory
+
+1077
+00:50:02,040 --> 00:50:03,570
+pool can receive a large quantity of
+
+1078
+00:50:03,570 --> 00:50:04,980
+transactions in a small period of time
+
+1079
+00:50:04,980 --> 00:50:08,160
+so you know you could create a slow to
+
+1080
+00:50:08,160 --> 00:50:11,070
+verify transaction and try and insert
+
+1081
+00:50:11,070 --> 00:50:13,200
+thousands into the network which could
+
+1082
+00:50:13,200 --> 00:50:14,970
+bring the network down because everyone
+
+1083
+00:50:14,970 --> 00:50:16,500
+slowly trying to verify all these
+
+1084
+00:50:16,500 --> 00:50:18,360
+non-standard transactions
+
+1085
+00:50:18,360 --> 00:50:23,690
+however a block can only hold the
+
+1086
+00:50:23,690 --> 00:50:26,280
+limited number of transactions so if
+
+1087
+00:50:26,280 --> 00:50:28,290
+someone did insert you know stow to
+
+1088
+00:50:28,290 --> 00:50:31,350
+verify transactions into a block because
+
+1089
+00:50:31,350 --> 00:50:32,760
+blocks only get added every 10 minutes
+
+1090
+00:50:32,760 --> 00:50:35,070
+they'll probably be validated it be
+
+1091
+00:50:35,070 --> 00:50:38,970
+easier to validate them or be an ass of
+
+1092
+00:50:38,970 --> 00:50:42,060
+a problem whereas having thousands of
+
+1093
+00:50:42,060 --> 00:50:44,280
+non-standard scripts hit in the memory
+
+1094
+00:50:44,280 --> 00:50:48,080
+pool could be a big risk but like I said
+
+1095
+00:50:48,080 --> 00:50:50,370
+non-standard scripts are valid but
+
+1096
+00:50:50,370 --> 00:50:52,080
+unfortunately it's hard to get their
+
+1097
+00:50:52,080 --> 00:50:55,860
+mind onto the blockchain so I'm not sure
+
+1098
+00:50:55,860 --> 00:50:58,140
+how you'll end up getting it mind if the
+
+1099
+00:50:58,140 --> 00:51:00,450
+nodes don't accept it because even a
+
+1100
+00:51:00,450 --> 00:51:07,980
+minor is like yeah right so yeah don't
+
+1101
+00:51:07,980 --> 00:51:10,890
+make that make sense so options you have
+
+1102
+00:51:10,890 --> 00:51:14,970
+which aren't many options is one to send
+
+1103
+00:51:14,970 --> 00:51:18,240
+your non-standard transaction to a minor
+
+1104
+00:51:18,240 --> 00:51:21,810
+who will accept them and will add it to
+
+1105
+00:51:21,810 --> 00:51:25,470
+the proxy for you which I don't know of
+
+1106
+00:51:25,470 --> 00:51:26,640
+any miners that you can send a
+
+1107
+00:51:26,640 --> 00:51:29,460
+non-standard transaction to or secondly
+
+1108
+00:51:29,460 --> 00:51:32,190
+which is an option but not necessarily
+
+1109
+00:51:32,190 --> 00:51:34,470
+easy is just to mine it onto the pocket
+
+1110
+00:51:34,470 --> 00:51:37,110
+in yourself so unless effort however
+
+1111
+00:51:37,110 --> 00:51:38,610
+unless you've got a lot of processing
+
+1112
+00:51:38,610 --> 00:51:40,860
+power that's gonna be a bit tricky so
+
+1113
+00:51:40,860 --> 00:51:43,080
+you know practically you know you are
+
+1114
+00:51:43,080 --> 00:51:44,910
+right you're probably not going to be
+
+1115
+00:51:44,910 --> 00:51:46,680
+able to get a non-standard transactions
+
+1116
+00:51:46,680 --> 00:51:48,420
+into the blockchain which is a very
+
+1117
+00:51:48,420 --> 00:51:52,830
+shame however like I said it's only the
+
+1118
+00:51:52,830 --> 00:51:56,070
+Bitcoin core implementation that keeps a
+
+1119
+00:51:56,070 --> 00:51:58,140
+list i don't well it might be other ones
+
+1120
+00:51:58,140 --> 00:52:01,320
+but you could create your Bitcoin node
+
+1121
+00:52:01,320 --> 00:52:03,210
+written in your own programming language
+
+1122
+00:52:03,210 --> 00:52:06,090
+with your own rules and you could accept
+
+1123
+00:52:06,090 --> 00:52:08,130
+non-standard scripts but if there's no
+
+1124
+00:52:08,130 --> 00:52:09,630
+one else you know on the network when in
+
+1125
+00:52:09,630 --> 00:52:11,370
+your same software every time you try
+
+1126
+00:52:11,370 --> 00:52:12,549
+and be lame
+
+1127
+00:52:12,549 --> 00:52:14,009
+Bitcoin core knows they're just gonna
+
+1128
+00:52:14,009 --> 00:52:18,160
+reject them so yeah for all intents and
+
+1129
+00:52:18,160 --> 00:52:19,349
+purposes
+
+1130
+00:52:19,349 --> 00:52:21,910
+unfortunately non-standard scripts are
+
+1131
+00:52:21,910 --> 00:52:25,239
+not really going to be used and mind
+
+1132
+00:52:25,239 --> 00:52:27,400
+onto the blockchain in Bitcoin at the
+
+1133
+00:52:27,400 --> 00:52:32,160
+moment which i think is a bit of a shame
+
+1134
+00:52:34,769 --> 00:52:36,459
+finally ok so that's basically
+
+1135
+00:52:36,459 --> 00:52:38,259
+everything you need to know about script
+
+1136
+00:52:38,259 --> 00:52:39,969
+and how it works if you understand all
+
+1137
+00:52:39,969 --> 00:52:41,410
+these op codes and data and the stack
+
+1138
+00:52:41,410 --> 00:52:43,689
+that's just how script works it's just a
+
+1139
+00:52:43,689 --> 00:52:45,579
+mini programming language that executes
+
+1140
+00:52:45,579 --> 00:52:49,089
+on a stack and if there's a one left on
+
+1141
+00:52:49,089 --> 00:52:50,859
+top of the stack at the end the script
+
+1142
+00:52:50,859 --> 00:52:52,859
+is valid and the bitcoins can be spent
+
+1143
+00:52:52,859 --> 00:52:57,359
+so you know it was always like this or
+
+1144
+00:52:57,359 --> 00:52:59,709
+more recently they actually stopped
+
+1145
+00:52:59,709 --> 00:53:01,420
+allowing it because they probably wanted
+
+1146
+00:53:01,420 --> 00:53:06,059
+to reduce the size of the block yeah I
+
+1147
+00:53:06,059 --> 00:53:12,729
+think I think the standard you know
+
+1148
+00:53:12,729 --> 00:53:17,589
+having this set of standard scripts was
+
+1149
+00:53:17,589 --> 00:53:20,769
+in Bitcoin from the start but from what
+
+1150
+00:53:20,769 --> 00:53:24,789
+I understand I know the restriction of
+
+1151
+00:53:24,789 --> 00:53:27,819
+non-standard yeah I think ultimately it
+
+1152
+00:53:27,819 --> 00:53:31,569
+was planned for it to be lifted so but
+
+1153
+00:53:31,569 --> 00:53:39,449
+it hasn't happened so yeah so finally
+
+1154
+00:53:39,449 --> 00:53:41,979
+where do you find you know I've done
+
+1155
+00:53:41,979 --> 00:53:44,199
+I've just used simple you know locking
+
+1156
+00:53:44,199 --> 00:53:46,809
+script and locking script you know
+
+1157
+00:53:46,809 --> 00:53:50,469
+little diagrams to symbolize it where'd
+
+1158
+00:53:50,469 --> 00:53:51,939
+you find this actual a knocking code
+
+1159
+00:53:51,939 --> 00:53:55,529
+inside transaction data well like I said
+
+1160
+00:53:55,529 --> 00:53:58,209
+when you make a Bitcoin transaction you
+
+1161
+00:53:58,209 --> 00:54:01,929
+say this is transaction data you the
+
+1162
+00:54:01,929 --> 00:54:03,609
+first part of transaction data just
+
+1163
+00:54:03,609 --> 00:54:05,319
+selects an input so that's selecting
+
+1164
+00:54:05,319 --> 00:54:07,059
+this input here and the second part
+
+1165
+00:54:07,059 --> 00:54:09,819
+creates the output and so inside this
+
+1166
+00:54:09,819 --> 00:54:13,449
+output code of transaction data contains
+
+1167
+00:54:13,449 --> 00:54:16,630
+the script pub key which is the lock in
+
+1168
+00:54:16,630 --> 00:54:19,619
+script so this part here this first part
+
+1169
+00:54:19,619 --> 00:54:23,109
+is the amount of bitcoins and the second
+
+1170
+00:54:23,109 --> 00:54:24,090
+part
+
+1171
+00:54:24,090 --> 00:54:26,160
+I think I've highlighted I finally that
+
+1172
+00:54:26,160 --> 00:54:27,330
+I did this a bit wrong but don't worry
+
+1173
+00:54:27,330 --> 00:54:31,140
+this second part here is the script pub
+
+1174
+00:54:31,140 --> 00:54:33,450
+key so move that there that is the
+
+1175
+00:54:33,450 --> 00:54:36,330
+locking script as found inside
+
+1176
+00:54:36,330 --> 00:54:39,120
+transaction data so where is the
+
+1177
+00:54:39,120 --> 00:54:41,090
+unlocking script for this particular
+
+1178
+00:54:41,090 --> 00:54:44,220
+locking script well that will appear in
+
+1179
+00:54:44,220 --> 00:54:47,240
+a second transaction that tries to spend
+
+1180
+00:54:47,240 --> 00:54:50,850
+this batch of bitcoins or this output so
+
+1181
+00:54:50,850 --> 00:54:52,920
+in this second transaction you have an
+
+1182
+00:54:52,920 --> 00:54:55,230
+input which all that does really is
+
+1183
+00:54:55,230 --> 00:54:58,350
+reference an output from a previous
+
+1184
+00:54:58,350 --> 00:55:00,690
+transaction so that's referencing this
+
+1185
+00:55:00,690 --> 00:55:02,760
+year and the second transaction will
+
+1186
+00:55:02,760 --> 00:55:05,790
+also create new outputs from it but what
+
+1187
+00:55:05,790 --> 00:55:07,680
+we're interested in here in the second
+
+1188
+00:55:07,680 --> 00:55:10,920
+transaction is the unlocking code so
+
+1189
+00:55:10,920 --> 00:55:14,330
+when it references this previous output
+
+1190
+00:55:14,330 --> 00:55:18,290
+inside the input sits the unlocking code
+
+1191
+00:55:18,290 --> 00:55:21,240
+so this here is the unlocking code and
+
+1192
+00:55:21,240 --> 00:55:23,520
+this is also referred to sometimes as a
+
+1193
+00:55:23,520 --> 00:55:25,950
+script sig because it's a script and it
+
+1194
+00:55:25,950 --> 00:55:28,320
+typically contains the signature for the
+
+1195
+00:55:28,320 --> 00:55:31,200
+public key so there we have the
+
+1196
+00:55:31,200 --> 00:55:35,730
+unlocking code so this is obviously or
+
+1197
+00:55:35,730 --> 00:55:41,370
+in hexadecimal how do we get the opcodes
+
+1198
+00:55:41,370 --> 00:55:46,910
+out of this well just need to decode it
+
+1199
+00:55:46,910 --> 00:55:49,380
+if you weren't if we run through every
+
+1200
+00:55:49,380 --> 00:55:51,030
+single byte inside the lock in script
+
+1201
+00:55:51,030 --> 00:55:53,520
+and the unlocking script each byte will
+
+1202
+00:55:53,520 --> 00:55:56,750
+correspond to a particular up code so
+
+1203
+00:55:56,750 --> 00:56:01,200
+the byte in hexadecimal 76 is equal to
+
+1204
+00:56:01,200 --> 00:56:05,910
+the tip or duplicate up code so there we
+
+1205
+00:56:05,910 --> 00:56:07,170
+are a nine
+
+1206
+00:56:07,170 --> 00:56:12,810
+that is hash 160 14 14 isn't actually
+
+1207
+00:56:12,810 --> 00:56:15,650
+that doesn't have a corresponding opcode
+
+1208
+00:56:15,650 --> 00:56:19,080
+but if anything is below for B in
+
+1209
+00:56:19,080 --> 00:56:22,440
+hexadecimal what that means is that this
+
+1210
+00:56:22,440 --> 00:56:26,520
+number indicates that this many bytes is
+
+1211
+00:56:26,520 --> 00:56:29,610
+the piece of data to be pushed onto the
+
+1212
+00:56:29,610 --> 00:56:30,710
+stack
+
+1213
+00:56:30,710 --> 00:56:35,000
+so 14 is below for beef that says push
+
+1214
+00:56:35,000 --> 00:56:37,040
+this many bytes onto the stack or this
+
+1215
+00:56:37,040 --> 00:56:39,950
+is just the data and not an opcode so 14
+
+1216
+00:56:39,950 --> 00:56:43,730
+in decimal is 20 bytes so there we have
+
+1217
+00:56:43,730 --> 00:56:45,560
+this next 20 bytes it's just a piece of
+
+1218
+00:56:45,560 --> 00:56:50,510
+data then carrying on we have 8 8 that's
+
+1219
+00:56:50,510 --> 00:56:53,870
+equal verify and AC which is check sick
+
+1220
+00:56:53,870 --> 00:56:55,280
+so then we ha
+
+1221
+00:56:55,280 --> 00:56:58,610
+we've just decoded the docking script
+
+1222
+00:56:58,610 --> 00:57:01,010
+it's just a bunch of bytes correspondent
+
+1223
+00:57:01,010 --> 00:57:01,490
+opcodes
+
+1224
+00:57:01,490 --> 00:57:03,350
+and if a byte is below a certain number
+
+1225
+00:57:03,350 --> 00:57:06,260
+then that means the next X number of
+
+1226
+00:57:06,260 --> 00:57:10,190
+bytes is a bunch of data so there we are
+
+1227
+00:57:10,190 --> 00:57:12,290
+that's locking script decoded then we
+
+1228
+00:57:12,290 --> 00:57:14,000
+come to the unlocking script and if you
+
+1229
+00:57:14,000 --> 00:57:16,330
+remember all the unlocking script is is
+
+1230
+00:57:16,330 --> 00:57:19,970
+free this particular kind of lock is
+
+1231
+00:57:19,970 --> 00:57:23,000
+just a signature and a public key so 4 7
+
+1232
+00:57:23,000 --> 00:57:25,100
+that's lesson for B so that's saying
+
+1233
+00:57:25,100 --> 00:57:28,520
+this number of bytes is just in data and
+
+1234
+00:57:28,520 --> 00:57:32,180
+that is the signature and then for when
+
+1235
+00:57:32,180 --> 00:57:34,550
+this number of bytes and that is just a
+
+1236
+00:57:34,550 --> 00:57:35,990
+more data again which is going to be the
+
+1237
+00:57:35,990 --> 00:57:39,500
+public key so there we ha just decoded
+
+1238
+00:57:39,500 --> 00:57:44,570
+the locking and unlocking script so make
+
+1239
+00:57:44,570 --> 00:57:50,600
+sense ok so yeah the locking scripts can
+
+1240
+00:57:50,600 --> 00:57:51,290
+be found
+
+1241
+00:57:51,290 --> 00:57:53,830
+locking script is inside the output of
+
+1242
+00:57:53,830 --> 00:57:56,540
+one transaction and then the Enochian
+
+1243
+00:57:56,540 --> 00:58:00,440
+script is found in the input of a new
+
+1244
+00:58:00,440 --> 00:58:03,320
+transaction that tries to spend the
+
+1245
+00:58:03,320 --> 00:58:05,740
+image output
+
+1246
+00:58:06,560 --> 00:58:09,510
+so there we are summarize now everything
+
+1247
+00:58:09,510 --> 00:58:13,170
+that we've done in this video in a
+
+1248
+00:58:13,170 --> 00:58:14,610
+Bitcoin transaction you just take a
+
+1249
+00:58:14,610 --> 00:58:16,440
+batch of bitcoins akut create a new
+
+1250
+00:58:16,440 --> 00:58:18,720
+batch from it and what do you want to
+
+1251
+00:58:18,720 --> 00:58:21,000
+send it someone else they'll have a
+
+1252
+00:58:21,000 --> 00:58:24,900
+public key they'll give you you know
+
+1253
+00:58:24,900 --> 00:58:28,290
+probably an address and then your
+
+1254
+00:58:28,290 --> 00:58:32,160
+construct the locking script for them
+
+1255
+00:58:32,160 --> 00:58:35,520
+and lock up bitcoins until they either
+
+1256
+00:58:35,520 --> 00:58:37,410
+the public key or the hash of their
+
+1257
+00:58:37,410 --> 00:58:41,430
+public key so this one here this is this
+
+1258
+00:58:41,430 --> 00:58:42,990
+particular format it's called pay to pop
+
+1259
+00:58:42,990 --> 00:58:47,580
+key hash this is the locking script so
+
+1260
+00:58:47,580 --> 00:58:50,190
+when you want to come to or this person
+
+1261
+00:58:50,190 --> 00:58:52,440
+wants to come to spend these bitcoins
+
+1262
+00:58:52,440 --> 00:58:54,480
+they will need to provide an unlocking
+
+1263
+00:58:54,480 --> 00:58:57,930
+script like so and then this script will
+
+1264
+00:58:57,930 --> 00:59:00,480
+get run so the unlocking script gets
+
+1265
+00:59:00,480 --> 00:59:02,460
+provided second in the second
+
+1266
+00:59:02,460 --> 00:59:04,800
+transaction but when we come to run the
+
+1267
+00:59:04,800 --> 00:59:06,960
+full script together we put this at the
+
+1268
+00:59:06,960 --> 00:59:09,210
+start so this gets added to the stack
+
+1269
+00:59:09,210 --> 00:59:11,609
+first and then we run the script using
+
+1270
+00:59:11,609 --> 00:59:14,940
+the opcodes and data and if a one is
+
+1271
+00:59:14,940 --> 00:59:16,800
+left on the stack after you've run the
+
+1272
+00:59:16,800 --> 00:59:18,600
+entire script then this batch of
+
+1273
+00:59:18,600 --> 00:59:21,780
+bitcoins or the script is valid and this
+
+1274
+00:59:21,780 --> 00:59:23,520
+batch bitcoins can be successfully
+
+1275
+00:59:23,520 --> 00:59:27,320
+unlocked and spent and that is how the
+
+1276
+00:59:27,320 --> 00:59:31,710
+mechanism for locking up bitcoins works
+
+1277
+00:59:31,710 --> 00:59:34,080
+it works using this mini programming
+
+1278
+00:59:34,080 --> 00:59:36,210
+language poor script that contains data
+
+1279
+00:59:36,210 --> 00:59:39,030
+and up codes and it all works on top of
+
+1280
+00:59:39,030 --> 00:59:43,859
+a stack this script has lots of
+
+1281
+00:59:43,859 --> 00:59:44,790
+different approach
+
+1282
+00:59:44,790 --> 00:59:50,700
+like so however we are the Bitcoin core
+
+1283
+00:59:50,700 --> 00:59:52,980
+implementation kony restricts you to
+
+1284
+00:59:52,980 --> 00:59:57,240
+these five main formats for locking up
+
+1285
+00:59:57,240 --> 00:59:59,780
+bitcoins
+
+1286
+00:59:59,780 --> 01:00:01,520
+and these are the four words you've got
+
+1287
+01:00:01,520 --> 01:00:03,200
+Peter pepper key hash which is the most
+
+1288
+01:00:03,200 --> 01:00:05,780
+commonly one used got Peter purp key
+
+1289
+01:00:05,780 --> 01:00:08,360
+which is a simplified version of Peter
+
+1290
+01:00:08,360 --> 01:00:12,080
+pop key hash but it's not really used
+
+1291
+01:00:12,080 --> 01:00:14,780
+these days this page cache is the most
+
+1292
+01:00:14,780 --> 01:00:18,320
+common one there we have Peter multi-sig
+
+1293
+01:00:18,320 --> 01:00:20,180
+and then paint a script hash which is
+
+1294
+01:00:20,180 --> 01:00:22,220
+just the easier way to pass around a
+
+1295
+01:00:22,220 --> 01:00:25,730
+painting multi-sig lock in script like
+
+1296
+01:00:25,730 --> 01:00:31,940
+so there we have script and how batches
+
+1297
+01:00:31,940 --> 01:00:33,800
+of bitcoins are locked and unlocked in
+
+1298
+01:00:33,800 --> 01:00:36,850
+Bitcoin any questions about that
+
+1299
+01:00:36,850 --> 01:00:40,780
+presentation or any part of it
+
+1300
+01:00:40,780 --> 01:00:46,630
+okay it's less tender than presentation
+
+1301
+01:00:46,630 --> 01:00:49,520
+if that made sense then you understand
+
+1302
+01:00:49,520 --> 01:00:50,780
+that script works I don't think it's
+
+1303
+01:00:50,780 --> 01:00:53,330
+terribly difficult there only a few you
+
+1304
+01:00:53,330 --> 01:00:57,020
+know things to note about the paid to
+
+1305
+01:00:57,020 --> 01:01:01,070
+script hash part but the actual
+
+1306
+01:01:01,070 --> 01:01:02,840
+execution of stuff is quite simple just
+
+1307
+01:01:02,840 --> 01:01:10,540
+a simple programming language so yeah
+
+1308
+01:01:10,540 --> 01:01:12,890
+involving and the other ones are pretty
+
+1309
+01:01:12,890 --> 01:01:16,790
+yeah this page script hash he was sort
+
+1310
+01:01:16,790 --> 01:01:18,560
+of added on to Bitcoin later on so it
+
+1311
+01:01:18,560 --> 01:01:19,430
+wasn't part of the original
+
+1312
+01:01:19,430 --> 01:01:22,760
+implementation so that's why it feels a
+
+1313
+01:01:22,760 --> 01:01:27,380
+bit hacky I suppose but you know we were
+
+1314
+01:01:27,380 --> 01:01:29,150
+sort of added on so it has these extra
+
+1315
+01:01:29,150 --> 01:01:34,640
+rules of validation I made a little I
+
+1316
+01:01:34,640 --> 01:01:39,230
+wrote some little bit of code to that
+
+1317
+01:01:39,230 --> 01:01:42,560
+will basically decode or encode a script
+
+1318
+01:01:42,560 --> 01:01:45,860
+and run it for you so if you wanted to
+
+1319
+01:01:45,860 --> 01:01:47,720
+play with it it's very simple I wouldn't
+
+1320
+01:01:47,720 --> 01:01:51,230
+use it properly in production it's more
+
+1321
+01:01:51,230 --> 01:01:52,880
+just for us all of you know to learn
+
+1322
+01:01:52,880 --> 01:01:54,380
+from it just to see how simple the
+
+1323
+01:01:54,380 --> 01:01:58,560
+script is so for example
+
+1324
+01:01:58,560 --> 01:02:02,230
+once cryptic odor it'll take a lock in
+
+1325
+01:02:02,230 --> 01:02:05,589
+script so here's a typical Bitcoin
+
+1326
+01:02:05,589 --> 01:02:10,300
+transaction obviously locking script and
+
+1327
+01:02:10,300 --> 01:02:11,829
+unlocking scripted even provided for it
+
+1328
+01:02:11,829 --> 01:02:14,980
+so it's been spent but say you wanted to
+
+1329
+01:02:14,980 --> 01:02:18,609
+decode some script you can put the
+
+1330
+01:02:18,609 --> 01:02:21,369
+locking script in there it's identified
+
+1331
+01:02:21,369 --> 01:02:23,619
+that as a to pop key hash because it has
+
+1332
+01:02:23,619 --> 01:02:26,800
+a special format so it's off to you
+
+1333
+01:02:26,800 --> 01:02:29,950
+decoded it there and then when you want
+
+1334
+01:02:29,950 --> 01:02:31,630
+to unlock something you need to provide
+
+1335
+01:02:31,630 --> 01:02:35,619
+the locking script so there we are
+
+1336
+01:02:35,619 --> 01:02:38,230
+this is just two pieces of data there's
+
+1337
+01:02:38,230 --> 01:02:40,030
+no up codes in it so I want to run this
+
+1338
+01:02:40,030 --> 01:02:42,220
+script and this little program will just
+
+1339
+01:02:42,220 --> 01:02:45,490
+run it for you just to simulate it so
+
+1340
+01:02:45,490 --> 01:02:48,369
+this is the entire script if I can pull
+
+1341
+01:02:48,369 --> 01:02:51,520
+this across anyway so it's basically
+
+1342
+01:02:51,520 --> 01:02:54,339
+just one big array of all the individual
+
+1343
+01:02:54,339 --> 01:02:57,579
+pieces of the script so let's say this
+
+1344
+01:02:57,579 --> 01:03:00,670
+is the stack here it pushes the data on
+
+1345
+01:03:00,670 --> 01:03:03,369
+to the stack then this is the remainder
+
+1346
+01:03:03,369 --> 01:03:05,500
+of the script so we got dope duplicate
+
+1347
+01:03:05,500 --> 01:03:07,690
+here I'll duplicate the top element hash
+
+1348
+01:03:07,690 --> 01:03:10,300
+160 and they'll hash table moment then
+
+1349
+01:03:10,300 --> 01:03:14,020
+we've got the public key hash I guess
+
+1350
+01:03:14,020 --> 01:03:16,540
+pressed on top equal verify that I'll
+
+1351
+01:03:16,540 --> 01:03:17,980
+take the top two elements and if they're
+
+1352
+01:03:17,980 --> 01:03:20,020
+equal we'll push anything back onto the
+
+1353
+01:03:20,020 --> 01:03:23,079
+stack so after we've executed this these
+
+1354
+01:03:23,079 --> 01:03:24,849
+two elements should disappear because
+
+1355
+01:03:24,849 --> 01:03:27,250
+they are equal and then hope you check
+
+1356
+01:03:27,250 --> 01:03:31,200
+sig so this will check this public key
+
+1357
+01:03:31,200 --> 01:03:34,089
+against this signature and there we are
+
+1358
+01:03:34,089 --> 01:03:36,940
+and so we'll push true on to the stack
+
+1359
+01:03:36,940 --> 01:03:39,069
+true isn't actually using Bitcoin it
+
+1360
+01:03:39,069 --> 01:03:41,710
+should be one but same thing so there we
+
+1361
+01:03:41,710 --> 01:03:44,650
+are that's a valid script so I'll add a
+
+1362
+01:03:44,650 --> 01:03:47,589
+link to this into the description if you
+
+1363
+01:03:47,589 --> 01:03:49,030
+want to play with this code it's just
+
+1364
+01:03:49,030 --> 01:03:50,920
+there so you can sort of see how the
+
+1365
+01:03:50,920 --> 01:03:53,219
+code runs
+
+1366
+01:03:53,219 --> 01:03:58,359
+alternatively if you go on Bitcoin dye
+
+1367
+01:03:58,359 --> 01:04:01,689
+t4 just Wiki going to the script page it
+
+1368
+01:04:01,689 --> 01:04:04,749
+covers all the different up codes that
+
+1369
+01:04:04,749 --> 01:04:06,609
+you can use so I was you can see there's
+
+1370
+01:04:06,609 --> 01:04:08,439
+quite a few I only really scratched the
+
+1371
+01:04:08,439 --> 01:04:10,539
+surface of all the ones you can use but
+
+1372
+01:04:10,539 --> 01:04:12,279
+like I said unfortunately we are
+
+1373
+01:04:12,279 --> 01:04:14,859
+restricted really to only be able to use
+
+1374
+01:04:14,859 --> 01:04:17,829
+the standard scripts even though script
+
+1375
+01:04:17,829 --> 01:04:19,719
+does contain all these various different
+
+1376
+01:04:19,719 --> 01:04:26,640
+codes lastly I found this little IDE
+
+1377
+01:04:26,640 --> 01:04:30,130
+which allows you to enter a script and
+
+1378
+01:04:30,130 --> 01:04:32,289
+it will visualize the running of the
+
+1379
+01:04:32,289 --> 01:04:35,829
+script on the stack for you I think it
+
+1380
+01:04:35,829 --> 01:04:37,569
+covers every single opcode so you know
+
+1381
+01:04:37,569 --> 01:04:43,569
+you could add you know much more complex
+
+1382
+01:04:43,569 --> 01:04:47,619
+script in here and then try and run it
+
+1383
+01:04:47,619 --> 01:04:52,719
+and it will run it for you so I didn't
+
+1384
+01:04:52,719 --> 01:04:54,729
+make this someone else did but it might
+
+1385
+01:04:54,729 --> 01:04:57,130
+be a very good way to visualize how the
+
+1386
+01:04:57,130 --> 01:04:59,859
+stack works and actually inserts your
+
+1387
+01:04:59,859 --> 01:05:02,439
+own scripts and watch them run and it's
+
+1388
+01:05:02,439 --> 01:05:04,179
+adhere I provide another link in the
+
+1389
+01:05:04,179 --> 01:05:09,009
+description and then lastly if you want
+
+1390
+01:05:09,009 --> 01:05:11,799
+to browse scripts on my blog in Explorer
+
+1391
+01:05:11,799 --> 01:05:18,009
+go to any transaction as you can see
+
+1392
+01:05:18,009 --> 01:05:20,199
+this is a transaction has inputs and
+
+1393
+01:05:20,199 --> 01:05:23,469
+outputs click on the unlocking part or
+
+1394
+01:05:23,469 --> 01:05:25,390
+the locking part and it will show you
+
+1395
+01:05:25,390 --> 01:05:28,390
+the unlocking code also at the locking
+
+1396
+01:05:28,390 --> 01:05:30,249
+code that was placed on top of the
+
+1397
+01:05:30,249 --> 01:05:33,029
+transaction and this was the subsequent
+
+1398
+01:05:33,029 --> 01:05:37,569
+and locking code so when you run this
+
+1399
+01:05:37,569 --> 01:05:39,309
+all together you'll put this onto a
+
+1400
+01:05:39,309 --> 01:05:41,979
+stack you should be able to visualize
+
+1401
+01:05:41,979 --> 01:05:44,339
+you know it all working or hopefully
+
+1402
+01:05:44,339 --> 01:05:46,419
+doesn't actually visualize anything for
+
+1403
+01:05:46,419 --> 01:05:48,999
+you but you know all the opcodes and
+
+1404
+01:05:48,999 --> 01:05:50,380
+data is there if you to look at and
+
+1405
+01:05:50,380 --> 01:05:52,979
+maybe get a feel for
+
