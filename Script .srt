@@ -118,190 +118,129 @@ will create a batch of bitcoins with the
 
 52
 00:02:17,250 --> 00:02:19,160
+只有这个人可以解锁，
 lock that only this person can unlock
 
 53
-00:02:19,160 --> 00:02:22,650
-and you do that because all the way that
+00:02:19,160 --> 00:02:25,709
+这是因为在比特币中，
 
-54
-00:02:22,650 --> 00:02:25,709
-works is that everyone in Bitcoin has
-
-55
 00:02:25,709 --> 00:02:28,620
+每个人都有自己的私钥和公钥，
 their own private key and public key and
 
 56
-00:02:28,620 --> 00:02:30,569
-this is very much like having your own
+00:02:28,620 --> 00:02:33,180
+这就像每个人都有自己的密码和账号一样。
 
-57
-00:02:30,569 --> 00:02:33,180
-password and account number so what
-
-58
 00:02:33,180 --> 00:02:34,590
-happens is when you want to send this
+当你想要给某人发送比特币时，
 
-59
-00:02:34,590 --> 00:02:37,980
-person about your bitcoins or your some
-
-60
 00:02:37,980 --> 00:02:41,010
+他们会给你他们的公钥，
 bitcoins they will give you their public
 
 61
 00:02:41,010 --> 00:02:43,799
+你将创建一个交易，
 key you will create a transaction and
 
 62
 00:02:43,799 --> 00:02:46,769
+并锁定一些你拥有的比特币，
 lock some bitcoins that you own create a
 
 63
 00:02:46,769 --> 00:02:48,930
+创建一批新的比特币，
 new batch of bitcoins and inside the
 
 64
-00:02:48,930 --> 00:02:50,639
-lock you put on top of this batch of
+00:02:48,930 --> 00:02:53,599
+然后在这批比特币的锁上放置他们的公钥。
 
-65
-00:02:50,639 --> 00:02:53,599
-bitcoins you will put their public key
-
-66
 00:02:53,599 --> 00:02:56,519
+这就是为什么这个人拥有这批比特币的原因，因为
 so that is why this person owns this
 
 67
-00:02:56,519 --> 00:03:00,150
-batch of bitcoins because the lock on it
+00:02:56,519 --> 00:03:02,280
+因为这批比特币的锁上包含了他们的公钥，
 
-68
-00:03:00,150 --> 00:03:02,280
-contains the public key which is their
-
-69
 00:03:02,280 --> 00:03:07,230
+这是他们的唯一账号。
 unique account number so what that means
 
 70
-00:03:07,230 --> 00:03:11,669
-is if they want to spend this batch of
+00:03:07,230 --> 00:03:14,280
+如果他们想要花费这批比特币或者发送给其他人，
 
-71
-00:03:11,669 --> 00:03:14,280
-bitcoins or send down someone else they
-
-72
 00:03:14,280 --> 00:03:17,130
+他们将使用他们的私钥，
 will use their private key which is like
 
 73
-00:03:17,130 --> 00:03:19,200
-the air their password for their account
+00:03:17,130 --> 00:03:21,959
+就像他们的账号的密码一样，来解锁它。
 
-74
-00:03:19,200 --> 00:03:21,959
-number to unlock it and the way they do
-
-75
 00:03:21,959 --> 00:03:24,630
-that is they will create what's called a
+他们会从私钥创建一个签名，
 
-76
-00:03:24,630 --> 00:03:26,430
-signature from their private key which
-
-77
 00:03:26,430 --> 00:03:30,299
+这就像一个一次性密码。
 is like a one-time password they are
 
 78
-00:03:30,299 --> 00:03:33,450
-signature and if anyone looks at this
+00:03:30,299 --> 00:03:36,389
+任何人看到这个签名和这个公钥，
 
-79
-00:03:33,450 --> 00:03:36,389
-signature and this public key they will
+00:03:36,389 --> 00:03:44,940
+都能够确定这个签名只能由拥有这个公钥的私钥的人创建。
 
-80
-00:03:36,389 --> 00:03:40,380
-be able to say okay this signature could
+00:03:44,940 --> 00:03:51,889
+没有人能够创建一个能够与这个公钥特定匹配的签名。
 
-81
-00:03:40,380 --> 00:03:42,810
-only have been created by the person who
+00:03:51,889 --> 00:03:57,630
+我在密钥和地址的视频中介绍了如何进行这个操作，
 
-82
-00:03:42,810 --> 00:03:44,940
-has the private key that this public key
+00:03:57,630 --> 00:04:02,940
+但在这个视频，我只会介绍锁定机制，
 
-83
-00:03:44,940 --> 00:03:47,760
-was made from so no one else can create
+00:04:02,940 --> 00:04:05,790
+如果你对这些签名、私钥、公钥的来源以及工作原理感兴趣，
 
-84
-00:03:47,760 --> 00:03:49,919
-this signature that will match the
-
-85
-00:03:49,919 --> 00:03:51,889
-public key in this specific way I
-
-86
-00:03:51,889 --> 00:03:55,049
-covered how this works in the video on
-
-87
-00:03:55,049 --> 00:03:57,630
-keys and addresses but
-
-88
-00:03:57,630 --> 00:04:00,960
-in this video I'm just gonna be covering
-
-89
-00:04:00,960 --> 00:04:02,940
-the locking mechanism so if you
-
-90
-00:04:02,940 --> 00:04:04,110
-interested in how these signatures
-
-91
-00:04:04,110 --> 00:04:05,790
-private keys and public keys where they
-
-92
 00:04:05,790 --> 00:04:07,860
+可以观看那个视频。
 come from and how they work watch that
 
 93
 00:04:07,860 --> 00:04:10,550
+在常规交易中，
 video but in a typical transaction
 
 94
 00:04:10,550 --> 00:04:13,260
+比特币被锁定到一个公钥，
 bitcoins get locked locked to a public
 
 95
 00:04:13,260 --> 00:04:14,970
+然后当你想要解锁它们时，
 key and then when you want to unlock
 
 96
 00:04:14,970 --> 00:04:18,029
+你提供一个签名来解锁它们，
 them you provide a signature to unlock
 
 97
 00:04:18,029 --> 00:04:20,430
+以证明你是这个公钥的所有者，
 them to show that you are the owner of
 
 98
 00:04:20,430 --> 00:04:22,770
+因为你拥有从这个公钥创建的私钥。
 that public key because you have the
 
 99
@@ -310,22 +249,20 @@ private key that was made from anyway so
 
 100
 00:04:25,920 --> 00:04:26,430
-there we are
+任何人都可以查看签名，
 
-101
-00:04:26,430 --> 00:04:27,510
-anyone can look at the signature
-
-102
 00:04:27,510 --> 00:04:30,150
+与公钥进行对比，看到它们匹配，
 compared to the public key and see that
 
 103
 00:04:30,150 --> 00:04:32,820
+如果它们匹配，
 they match and therefore if they match
 
 104
 00:04:32,820 --> 00:04:34,980
+然后这些比特币可以被解锁并在新的交易中使用，
 then these bitcoins can be unlocked and
 
 105
@@ -334,65 +271,45 @@ spent in a new transaction and they can
 
 106
 00:04:37,890 --> 00:04:39,560
+它们可以被发送给其他人。
 be sent on to someone else and so
 
 107
-00:04:39,560 --> 00:04:42,480
-obviously this batch of bitcoins will
+00:04:39,560 --> 00:04:45,240
+显然，这批比特币将包含别人的公钥，
 
-108
-00:04:42,480 --> 00:04:45,240
-contain someone else's public key and
-
-109
 00:04:45,240 --> 00:04:49,110
-that's how transactions work using these
+这就是使用这些公钥和签名进行交易的方式。
 
-110
-00:04:49,110 --> 00:04:52,770
-public keys and signatures so in this
-
-111
 00:04:52,770 --> 00:04:55,050
+所以在这个视频中，就像我说的，
 video like I said I'm not going to cover
 
 112
 00:04:55,050 --> 00:04:57,600
+我不会涉及交易和这些密钥是如何工作的。
 how transactions and these Keys work I'm
 
 113
-00:04:57,600 --> 00:05:00,300
-just going to be looking at these this
+00:04:57,600 --> 00:05:02,880
+我只会关注锁定代码和解锁代码。
 
-114
-00:05:00,300 --> 00:05:02,880
-locking code and this unlocking code
-
-115
 00:05:02,880 --> 00:05:05,640
+他们是如何交互的，
 here how do they interact so there's a
 
 116
 00:05:05,640 --> 00:05:07,950
+这里有一个锁定机制，我们会在基础知识中介绍，
 locking mechanism so that'll be covered
 
 117
-00:05:07,950 --> 00:05:10,680
-in the basics we'll find this just a
+00:05:07,950 --> 00:05:12,870
+你会发现这只是一个小型的编程语言坐在这些锁里，
 
-118
-00:05:10,680 --> 00:05:12,870
-little mini programming language sitting
+00:05:12,870 --> 00:05:19,080
+同样的事情再次出现在解锁代码里。实际
 
-119
-00:05:12,870 --> 00:05:15,300
-inside these locks and the same thing
-
-120
-00:05:15,300 --> 00:05:19,080
-again sitting inside the unlocking code
-
-121
 00:05:19,080 --> 00:05:23,580
 here there are actually quite a few
 
