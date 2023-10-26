@@ -1522,9 +1522,7 @@ just a little bug in Bitcoin attack you
 667
 00:30:21,390 --> 00:30:24,960
 你可以假装它不存在。
-can pretend it's not there anyway so now
 
-668
 00:30:24,960 --> 00:30:29,309
 现在，它必须检查签名是否与公钥匹配，
 
@@ -1662,60 +1660,48 @@ say there are three of us or more of us
 
 713
 00:32:22,120 --> 00:32:29,140
-我们只想接受比特币到一个Pay To Multisig签名的锁定脚本。
+我们只想接受Pay To Multisig签名的锁定脚本的比特币。
 
 00:32:29,140 --> 00:32:33,450
 我们必须构建这个锁定脚本并给别人。
 
 00:32:33,450 --> 00:32:36,880
+他们将不得不构建一个交易，
 and they'll have to construct a
 
 718
 00:32:36,880 --> 00:32:39,070
+并将我们给出的整个脚本，
 transaction and put the entire script we
 
 719
-00:32:39,070 --> 00:32:42,390
-have given them into the locking code
+00:32:39,070 --> 00:32:45,630
+放入他们要发送给我们的比特币的锁定代码中。
 
-720
-00:32:42,390 --> 00:32:45,630
-for the bitcoins they are sending us
-
-721
 00:32:45,630 --> 00:32:49,090
+他们就构建这个完整的交易，
+
 like so so they construct this entire
 
 722
-00:32:49,090 --> 00:32:51,490
-track transaction and they all have to
+00:32:49,090 --> 00:32:53,380
+他们必须将我们想要的锁定代码放到这批比特币上。
 
-723
-00:32:51,490 --> 00:32:53,380
-put the locking code that we want onto
-
-724
 00:32:53,380 --> 00:32:57,460
+但CHECKMULTISIG的问题是，
 this batch of bitcoins problem with this
 
 725
-00:32:57,460 --> 00:33:00,720
+00:32:57,460 --> 00:33:03,580
+
 check multi-sig is that they can get
+这些特定的锁定脚本可能会变得相当大。
 
-726
-00:33:00,720 --> 00:33:03,580
-these particular locking scripts can get
+00:33:03,580 --> 00:33:08,350
+这个2或3的多重签名锁定脚本有105字节，
 
-727
-00:33:03,580 --> 00:33:06,040
-become quite big so this two or three
-
-728
-00:33:06,040 --> 00:33:08,350
-multi-sig locking script is a hundred
-
-729
-00:33:08,350 --> 00:33:13,000
+00:33:08,350 --> 00:33:16,180
+但每增加一个公钥到多重签名中，
 and five bytes but with every public key
 
 730
@@ -1724,42 +1710,31 @@ that we add in to the pater multi-sig it
 
 731
 00:33:16,180 --> 00:33:18,010
+它就会变得越来越大，
 gets bigger and bigger and bigger
 
 732
-00:33:18,010 --> 00:33:21,370
-because every public key takes up 33
+00:33:18,010 --> 00:33:23,910
+因为每个公钥在交易数据中占用33字节的空间。
 
-733
-00:33:21,370 --> 00:33:23,910
-bytes of space inside transaction data
+00:33:23,910 --> 00:33:30,910
+如果我们给这个很大的锁定脚本，
 
-734
-00:33:23,910 --> 00:33:27,070
-so if we were to give this you know a
-
-735
-00:33:27,070 --> 00:33:30,910
-very big locking script a very big paid
-
-736
 00:33:30,910 --> 00:33:32,470
+一个很大的支付到多重签名的锁定脚本给某人锁定我们的比特币，
 to multi-sig locking script to someone
 
 737
 00:33:32,470 --> 00:33:35,020
+他们可能不会很高兴，
 to lock up our bitcoins they're probably
 
 738
-00:33:35,020 --> 00:33:37,150
-not gonna be very happy because this is
+00:33:35,020 --> 00:33:39,400
+因为这将在他们的交易中占用大量的数据。
 
-739
-00:33:37,150 --> 00:33:39,400
-going to take up a lot of data inside
-
-740
-00:33:39,400 --> 00:33:41,530
+00:33:39,400 --> 00:33:44,940
+他们将不得不为这些数据支付交易费用。
 their transaction and they're gonna have
 
 741
@@ -1767,99 +1742,62 @@ their transaction and they're gonna have
 to pay for that data in transaction fees
 
 742
-00:33:44,940 --> 00:33:48,370
-so you know especially when you consider
+00:33:44,940 --> 00:33:51,280
+尤其是当你考虑到Pay To Pubkey是35字节，
 
-743
-00:33:48,370 --> 00:33:51,280
-that pay to public is 35 bytes paid to
-
-744
 00:33:51,280 --> 00:33:54,130
+Pay To Pubkey Hash是25字节，
 public key hash 25 bytes and typically
 
 745
-00:33:54,130 --> 00:33:57,190
-the smallest peter multi-sig locking
+00:33:54,130 --> 00:34:00,040
+而通常最小的Pay To Multisig锁定脚本要105字节，
 
-746
-00:33:57,190 --> 00:34:00,040
-script is gonna be 105 bytes it's not
-
-747
 00:34:00,040 --> 00:34:05,470
+这对这个人来说，
 too exciting for this person to want to
 
 748
-00:34:05,470 --> 00:34:07,540
-send bitcoins to anything other than
+00:34:05,470 --> 00:34:09,550
+他们可能不会想发送比特币到除了Pay To Pubkey或Pay To Pubkey Hash脚本之外的任何地方。
 
-749
-00:34:07,540 --> 00:34:09,550
-Peter pop key or pay to pokey hash
-
-750
 00:34:09,550 --> 00:34:14,199
+那么我们如何避免这个问题，
 scripts so what can we do to sort of
 
 751
-00:34:14,199 --> 00:34:17,020
-avoid this problem of this person having
+00:34:14,199 --> 00:34:27,619
+避免这个人不得不通过创建包含更多交易数据的交易来支付这些大型锁定脚本的问题呢？
 
-752
-00:34:17,020 --> 00:34:20,839
-to pay for these large locking scripts
+00:34:27,619 --> 00:34:34,099 
+这就是Pay To Pubkey Hash的作用。
 
-753
-00:34:20,839 --> 00:34:24,679
-you know through creating transactions
+00:34:34,099 --> 00:34:41,899
+它主要是为了使这些更复杂的脚本更短，
 
-754
-00:34:24,679 --> 00:34:27,619
-that contain more trent data than they
-
-755
-00:34:27,619 --> 00:34:33,379
-would like so that's where peter script
-
-756
-00:34:33,379 --> 00:34:34,099
-ash comes in
-
-757
-00:34:34,099 --> 00:34:36,559
-it's basically there to make these more
-
-758
-00:34:36,559 --> 00:34:41,899
-complex scripts shorter and easier for
-
-759
 00:34:41,899 --> 00:34:45,460
+更容易让别人创建交易。
 someone else to creat transactions with
 
 760
 00:34:45,460 --> 00:34:48,018
-so this is called peter script hash and
+这就是所谓的Pay To Pubkey Hash，
 
-761
 00:34:48,018 --> 00:34:50,268
+我现在来解释一下这是怎么工作的。
 i'll explain how this works now so let's
 
 762
-00:34:50,268 --> 00:34:53,599
-say we want to receive bitcoins to a
+00:34:50,268 --> 00:34:57,710
+让我们假设我们想要接收到一个Pay To Multisig锁定脚本的比特币。
 
-763
-00:34:53,599 --> 00:34:57,710
-peter multi-sig locking script what
-
-764
 00:34:57,710 --> 00:34:59,479
+我们要做的不是给他们整个锁定脚本，
 we'll do instead of given them is in
 
 765
 00:34:59,479 --> 00:35:03,109
+而是首先将它散列在一起，
 this entire locking script your first of
 
 766
@@ -1868,14 +1806,17 @@ all just hash it together
 
 767
 00:35:04,880 --> 00:35:06,289
+得到这个特定脚本的唯一哈希，
 the unique hash of this particular
 
 768
 00:35:06,289 --> 00:35:08,119
+这就叫做脚本哈希。
 script and this is called the script
 
 769
 00:35:08,119 --> 00:35:13,130
+那么我们可以做的就是将这个脚本哈希给别人，
 hash so what we can do then you can just
 
 770
@@ -1884,118 +1825,96 @@ give this script hash to someone else
 
 771
 00:35:14,479 --> 00:35:17,479
+然后他们可以将这个放入锁定脚本，
 and then they can put this into the
 
 772
 00:35:17,479 --> 00:35:20,960
+用一组操作码包裹起来，
 locking script wrap it with a sick of a
 
 773
-00:35:20,960 --> 00:35:25,789
-set of opcodes and so there we have he
+00:35:20,960 --> 00:35:29,269
+所以我们有了一个Pay To Pubkey Hash锁定。
 
-774
-00:35:25,789 --> 00:35:29,269
-paid to script hash lock so it's
-
-775
 00:35:29,269 --> 00:35:30,890
+这显然要小得多。
 obviously a lot smaller so instead of
 
 776
 00:35:30,890 --> 00:35:33,259
+我们不是给这个人整个原始的锁定脚本，
 giving this person the entire original
 
 777
 00:35:33,259 --> 00:35:35,299
+我们只是给他们一个哈希，
 locking script we just give them a hash
 
 778
 00:35:35,299 --> 00:35:37,249
+这使得它缩小了很多，
 of it then which shrinks it shrinks it
 
 779
 00:35:37,249 --> 00:35:39,529
+他们只需要在其周围应用两个操作码，
 down a lot they just have to apply to
 
 780
-00:35:39,529 --> 00:35:41,539
-opcodes around it and then we have a
+00:35:39,529 --> 00:35:45,589
+那么我们就有了一个Pay To Pubkey Hash的锁定脚本，
 
-781
-00:35:41,539 --> 00:35:45,589
-page of script hash locking script and
-
-782
 00:35:45,589 --> 00:35:47,690
+这个脚本要短得多。
 this is much shorter so whereas the
 
 783
-00:35:47,690 --> 00:35:50,269
-original 105 bytes a page of script hash
+00:35:47,690 --> 00:35:53,150
+原来的105字节变得和Pay To Script Hash、Pay To Pubkey Hash差不多，
 
-784
-00:35:50,269 --> 00:35:53,150
-is similar to a peter pub key hash about
-
-785
 00:35:53,150 --> 00:35:55,969
+大约23字节，这使得他们很高兴，
 23 bytes which makes them happy because
 
 786
 00:35:55,969 --> 00:35:58,039
+因为他们不需要构建这些巨大的交易，
 they don't have to construct these huge
 
 787
 00:35:58,039 --> 00:36:01,279
+并为这些大型锁定脚本支付费用。
 transactions and pay for the fees from
 
 788
 00:36:01,279 --> 00:36:06,079
+那么这个工作，
 these large locking scripts so that
 
 789
-00:36:06,079 --> 00:36:09,380
-works but then how do we unlock or
+00:36:06,079 --> 00:36:14,479
+但是我们如何解锁或赎回这批有这个Pay To Script Hash代码上锁定脚本的比特币呢？
 
-790
-00:36:09,380 --> 00:36:11,779
-redeem this batch of bitcoins for this
+00:36:14,479 --> 00:36:19,950
+如果是支付到多重签名，
 
-791
-00:36:11,779 --> 00:36:14,479
-painter script hash code on it lock and
-
-792
-00:36:14,479 --> 00:36:17,539
-script on it well what we do if it's a
-
-793
-00:36:17,539 --> 00:36:19,950
-peter multi-sig
-
-794
 00:36:19,950 --> 00:36:21,930
+我们所要做的就是提供两个签名，
 same as before you just need to provide
 
 795
 00:36:21,930 --> 00:36:25,860
-two signatures but then in addition to
+但是除此之外，
 
-796
 00:36:25,860 --> 00:36:28,020
-that we also have to provide the
+我们还需要提供原始的锁定脚本，
 
-797
-00:36:28,020 --> 00:36:31,920
-original locking script though this hash
+00:36:28,020 --> 00:36:34,460
+也就是这个锁定脚本哈希是从哪里创建出来的。
 
-798
-00:36:31,920 --> 00:36:34,460
-of the locking script was created from
-
-799
 00:36:34,460 --> 00:36:36,750
+但是我们不需要放入单个操作码。
 but instead of putting the individual op
 
 800
