@@ -1203,159 +1203,123 @@ matches the public key and if it does
 you're pushing one on to the top of the
 
 512
-00:23:00,640 --> 00:23:05,800
-stack so the only difference really with
+00:23:00,640 --> 00:23:10,810
+所以与pay to pub key hash的唯一真正区别是，
 
-513
-00:23:05,800 --> 00:23:08,620
-this pay to pub key hash versus the
+00:23:10,810 --> 00:23:18,630
+你需要检查你提供的公钥，
 
-514
-00:23:08,620 --> 00:23:10,810
-original or simpler pay to pub key is
+00:23:18,630 --> 00:23:25,480
+是否与最初提供的公钥的哈希匹配，
 
-515
-00:23:10,810 --> 00:23:14,610
-that you need to that you to put it will
-
-516
-00:23:14,610 --> 00:23:18,630
-check that the public you've provided
-
-517
-00:23:18,630 --> 00:23:23,140
-matches against the hash of the public
-
-518
-00:23:23,140 --> 00:23:25,480
-key that was originally provided and if
-
-519
 00:23:25,480 --> 00:23:31,350
+如果匹配，
+
 it does it will just check the signature
 
 520
-00:23:31,350 --> 00:23:34,390
-against the public key like it did
+00:23:31,350 --> 00:23:37,060
+它就会像Pay To Pubkey 那样检查签名。
 
-521
-00:23:34,390 --> 00:23:37,060
-imagine either Peter pop key does that
-
-522
 00:23:37,060 --> 00:23:39,240
-make sense
+有其他问题吗？
 
 523
 00:23:39,660 --> 00:23:43,930
+我们是否可以自己创建，
 are you aware if we can come up with our
 
 524
 00:23:43,930 --> 00:23:48,810
+比如Pay To Pubkey，
 own like you know you have paid to
 
 525
 00:23:48,810 --> 00:23:52,570
+比如Pay To Pubkey Hash，
 publicly paid to public key hash let's
 
 526
 00:23:52,570 --> 00:23:54,880
+假设我想做一个Pay To Pubkey Hash，
 say I want to do a play to public key
 
 527
 00:23:54,880 --> 00:23:57,850
+这是用户实际可以做的吗？
 hash of hash is that something that
 
 528
 00:23:57,850 --> 00:24:06,460
+答案是肯定的，
 users can actually do yes yes yes yes I
 
 529
 00:24:06,460 --> 00:24:08,440
+我会在稍后解释为什么。
 know and I'll explain why in a moment
 
 530
 00:24:08,440 --> 00:24:12,040
+好的问题，
 but good question okay oh yeah I'll come
 
 531
-00:24:12,040 --> 00:24:14,950
-to that I'm for now I'll just continue
+00:24:12,040 --> 00:24:16,690
+现在我将继续讲解这些标准脚本。
 
-532
-00:24:14,950 --> 00:24:16,690
-covering these standard scripts as long
+00:24:16,690 --> 00:24:20,410
+Pay To Pubkey和Pay To Pubkey Hash相同，
 
-533
-00:24:16,690 --> 00:24:18,490
-as that makes sense and this pay to pop
+00:24:20,410 --> 00:24:29,420
+它只是首先检查你在解锁脚本中提供的公钥哈希是否与最初提供的哈希匹配，
 
-534
-00:24:18,490 --> 00:24:20,410
-key hash it's just the same as pay to
-
-535
-00:24:20,410 --> 00:24:23,630
-pokey but it just checks that the public
-
-536
-00:24:23,630 --> 00:24:25,460
-public-key you provide in the Enochian
-
-537
-00:24:25,460 --> 00:24:27,800
-scrip hashes matches the hash that was
-
-538
-00:24:27,800 --> 00:24:29,420
-providing a large gap first and then
-
-539
 00:24:29,420 --> 00:24:32,300
+然后像往常一样检查签名。
 just check the singer's normal so this
 
 540
 00:24:32,300 --> 00:24:33,740
-is what so I I gone
+我想说，
 
-541
 00:24:33,740 --> 00:24:36,530
+Pay To Pubkey是针对公钥的，
 yeah people pika is for the public keys
 
 542
 00:24:36,530 --> 00:24:38,810
+而Pay To Pubkey Hash是针对比特币地址的。
 but we do PK H is for the Bitcoin
 
 543
 00:24:38,810 --> 00:24:40,430
-addresses yes yes exactly
+是的，
 
-544
-00:24:40,430 --> 00:24:43,310
-so this is the most common locking
+00:24:40,430 --> 00:24:46,250
+这是你在比特币上最常见的锁定脚本。
 
-545
-00:24:43,310 --> 00:24:46,250
-script you'll find on bitcoins these
-
-546
 00:24:46,250 --> 00:24:55,610
+为了方便实用，
 days for convenience instead of when you
 
 547
 00:24:55,610 --> 00:24:57,530
+当你想接收比特币时，
 want to receive bitcoins instead of you
 
 548
 00:24:57,530 --> 00:24:59,390
+我们有一种更方便的方式，而不是创建这个哈希，
 know creating this hash and then
 
 549
 00:24:59,390 --> 00:25:02,120
+然后用你想用的所有操作码包围它，
 surrounding it with all the opcodes you
 
 550
-00:25:02,120 --> 00:25:03,860
+00:25:02,120 --> 00:25:05,570
+基本上构造了整个锁定脚本，
 want to use around it so basically
 
 551
@@ -1364,34 +1328,35 @@ construct this entire lock-in script and
 
 552
 00:25:05,570 --> 00:25:06,790
+然后给别人。
 then giving it to someone else
 
 553
-00:25:06,790 --> 00:25:09,290
-we have a lot more convenient way of
+00:25:06,790 --> 00:25:11,480
+我们在比特币中有很多更方便的方法来做到这一点，
 
-554
-00:25:09,290 --> 00:25:11,480
-doing that in Bitcoin so what we do is
-
-555
 00:25:11,480 --> 00:25:14,120
+我们创建一个地址，
 we create an address which is basically
 
 556
 00:25:14,120 --> 00:25:22,270
+这基本上是公钥的哈希160，
 a the hash 160 of the public key
 
 557
 00:25:22,270 --> 00:25:24,530
+转换成用户更好使用的格式，
 converted into a more user-friendly
 
 558
 00:25:24,530 --> 00:25:28,100
+它有一个校验和，
 format it has a checksum and uses more
 
 559
 00:25:28,100 --> 00:25:29,810
+使用对用户更友好的字符。
 user-friendly characters so it's harder
 
 560
