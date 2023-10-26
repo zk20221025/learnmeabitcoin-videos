@@ -939,270 +939,162 @@ CHECKSIG会检查这个签名是否匹配这个公钥，
 
 00:20:12,519 --> 00:20:15,879
 所以当我们把这个给别人的时候。
-of the public key so that's when we give
 
-448
 00:20:15,879 --> 00:20:19,479
 我们可以给他们一个更小的公钥，
 
 00:20:19,479 --> 00:20:21,909
 但这仍然是我们的公钥，
-but it's still a unique vision of our
 
-451
 00:20:21,909 --> 00:20:25,919
 所以我们会做的是，
-public key so what we would do
 
-452
 00:20:25,919 --> 00:20:27,789
 当我们创建了我们的密钥和地址后，
-whence we've created our keys in the
 
-453
 00:20:27,789 --> 00:20:30,489
 我们会对我们的公钥进行哈希，
-dress is we will hash our public key
 
-454
 00:20:30,489 --> 00:20:33,070
 这样就减小了它的大小，
-which produces its size we'll give that
 
-455
 00:20:33,070 --> 00:20:36,009
 然后我们会将这个哈希值给别人，
-some else and then they'll put that into
 
-456
 00:20:36,009 --> 00:20:38,499
 然后他们会将这个哈希值放入锁定代码中，
-the locking code instead of our original
 
-457
 00:20:38,499 --> 00:20:42,209
 而不是我们原来的公钥，
-public key so the way this particular
 
-458
 00:20:42,209 --> 00:20:47,129
 这种特殊的锁定脚本是使用我们公钥的哈希版本，
 
 00:20:47,129 --> 00:20:49,690
 而不是标准的原始公钥。
-standard you know original public key is
 
-461
 00:20:49,690 --> 00:20:56,049
 我们会在它周围放一个类似的锁定脚本，
-we put a locking script like this around
 
-462
-00:20:53,169 --> 00:20:56,049
-it so it's a little bit similar we still
-
-463
 00:20:56,049 --> 00:20:58,299
 我们仍然有这个检查签名函数，
-have this check sync function but now
 
-464
-00:20:58,299 --> 00:20:59,649
+00:20:58,299 --> 00:21:01,179
 但现在不是只有哈希公钥和check sig，
-instead of having the public key and
 
-465
-00:20:59,649 --> 00:21:01,179
-
-just the check sig we have hash the
-
-466
 00:21:01,179 --> 00:21:03,309
 我们对哈希公钥和这些额外的操作码进行哈希处理。
-public key and these extra operators
 
-467
 00:21:03,309 --> 00:21:08,820
 稍后就会知道原因。
-here and we'll see why in a moment so
 
-468
 00:21:08,820 --> 00:21:13,089
-这就是Pay To Pubkey Hash，
 
-
-this is the paid up key hash pattern or
-
-469
 00:21:13,089 --> 00:21:14,739
 或者说Pay To Pubkey Hash锁定脚本，
-the pattern for a paid-up key hash
 
-470
 00:21:14,739 --> 00:21:20,019
 当你来解锁这个特定的锁定脚本时
 
 00:21:20,019 --> 00:21:22,629
 我们需要做的就像之前一样，
-what we need to do like before all we
 
-473
 00:21:22,629 --> 00:21:27,909
 我们需要一个签名，
-need is a signature from for from the
 
-474
 00:21:27,909 --> 00:21:29,409
 这个签名来自于生成这个公钥的私钥，
-private key that this public key is made
 
-475
 00:21:29,409 --> 00:21:32,679
 除此之外，
-from and then also in addition to that
 
-476
 00:21:32,679 --> 00:21:34,599
 我们还需要提供原始的公钥。
-we all need to provide the original
 
-477
 00:21:34,599 --> 00:21:40,779
 当一个节点来运行这个脚本，
 
 00:21:40,779 --> 00:21:43,059
 确保它是有效的时，
-to make sure it's valid they do the same
 
-480
 00:21:43,059 --> 00:21:45,999
 他们会再次确保解锁脚本从左到右运行。
 
 00:21:45,999 --> 00:21:48,129
 他们会把他们的堆栈，
-left to right so what they'll do they'll
 
-483
 00:21:48,129 --> 00:21:50,679
 显然数据会被推到堆栈上，
-take their stack they'll obviously data
 
-484
 00:21:50,679 --> 00:21:52,419
 签名会在顶部，
-gets pushed onto the stack the signature
 
-485
 00:21:52,419 --> 00:21:55,690
 然后是公钥。
-goes on top top then the public key let
 
-486
 00:21:55,690 --> 00:21:59,049
 然后我们遇到这个复制操作码，
-me hit this dupe up code and it does
 
-487
 00:21:59,049 --> 00:22:01,869
 它会做你期望它做的事情，
-what you expect it would it pops the top
 
-488
 00:22:01,869 --> 00:22:04,419
 它会弹出堆栈的顶部元素，复制它，
-element of the stack duplicates it and
 
-489
 00:22:04,419 --> 00:22:13,240
 然后把这个复制的顶部元素推回到堆栈上。
 
 00:22:13,240 --> 00:22:16,570
 我们有哈希160，
-done next up we have the hash 160
 
-493
 00:22:16,570 --> 00:22:19,300
 它会弹出顶部元素，对它进行哈希，
-that'll pop the top element off hash it
 
-494
 00:22:19,300 --> 00:22:20,920
 然后把它推回到堆栈的顶部。
-and then push it back on top of the
 
-495
-00:22:20,920 --> 00:22:25,300
+00:22:20,920 --> 00:22:27,040
 然后我们来看原始锁定脚本中的哈希公钥，
-start then we went into the hashed
 
-496
-00:22:25,300 --> 00:22:27,040
-public key that was a in the original
-
-497
 00:22:27,040 --> 00:22:28,920
 它被推到了顶部。
-locking script that gets pushed on top
 
-498
 00:22:28,920 --> 00:22:31,180
 然后我们来到EQUALVERIFY操作码，
-then we went into the equal verify
 
-499
 00:22:31,180 --> 00:22:35,050
 这个操作码会从堆栈的顶部弹出两个元素，
 
 00:22:35,050 --> 00:22:37,510
 检查它们是否相等，如果它们相等，
-checks are they equal and if they are
 
-502
 00:22:37,510 --> 00:22:39,970
 它不会把任何东西推回到堆栈上。
-equal it won't push anything back onto
 
-503
 00:22:39,970 --> 00:22:42,550
 然后是EQUALVERIFY操作码，
 
-
-the stack so whereas the equal up code
-
-504
 00:22:42,550 --> 00:22:44,410
 它会把1推到堆栈的顶部，
-would push the number one on top equal
 
-505
 00:22:44,410 --> 00:22:46,510
 检查签名是否匹配公钥，
-verify checks the equal and if they are
 
-506
 00:22:46,510 --> 00:22:48,370
 如果匹配，它不会把任何内容推回到堆栈上。
-doesn't push anything on top of the
 
-507
 00:22:48,370 --> 00:22:54,040
 然后我们遇到了熟悉的CHECKSIG操作码，
 
 00:22:54,040 --> 00:22:56,770
 该代码将弹出，
-pop to its off check that the signature
 
-510
 00:22:56,770 --> 00:22:58,870
 检查签名与公钥是否匹配，
-matches the public key and if it does
 
-511
 00:22:58,870 --> 00:23:00,640
 如果匹配，它会把一个数字推到堆栈的顶部。
-you're pushing one on to the top of the
 
-512
 00:23:00,640 --> 00:23:10,810
 所以与pay to pub key hash的唯一真正区别是，
 
@@ -1215,56 +1107,36 @@ you're pushing one on to the top of the
 00:23:25,480 --> 00:23:31,350
 如果匹配，
 
-it does it will just check the signature
-
-520
 00:23:31,350 --> 00:23:37,060
 它就会像Pay To Pubkey 那样检查签名。
 
 00:23:37,060 --> 00:23:39,240
 有其他问题吗？
 
-523
 00:23:39,660 --> 00:23:43,930
-我们是否可以自己创建，
-are you aware if we can come up with our
+我们是否可以自己创建脚本？
 
-524
 00:23:43,930 --> 00:23:48,810
 比如Pay To Pubkey，
-own like you know you have paid to
 
-525
 00:23:48,810 --> 00:23:52,570
 比如Pay To Pubkey Hash，
-publicly paid to public key hash let's
 
-526
 00:23:52,570 --> 00:23:54,880
 假设我想做一个Pay To Pubkey Hash，
-say I want to do a play to public key
 
-527
 00:23:54,880 --> 00:23:57,850
 这是用户实际可以做的吗？
-hash of hash is that something that
 
-528
 00:23:57,850 --> 00:24:06,460
 答案是肯定的，
-users can actually do yes yes yes yes I
 
-529
 00:24:06,460 --> 00:24:08,440
 我会在稍后解释为什么。
-know and I'll explain why in a moment
 
-530
 00:24:08,440 --> 00:24:12,040
 好的问题，
-but good question okay oh yeah I'll come
 
-531
 00:24:12,040 --> 00:24:16,690
 现在我将继续讲解这些标准脚本。
 
@@ -1276,22 +1148,16 @@ Pay To Pubkey和Pay To Pubkey Hash相同，
 
 00:24:29,420 --> 00:24:32,300
 然后像往常一样检查签名。
-just check the singer's normal so this
 
-540
 00:24:32,300 --> 00:24:33,740
 我想说，
 
 00:24:33,740 --> 00:24:36,530
 Pay To Pubkey是针对公钥的，
-yeah people pika is for the public keys
 
-542
 00:24:36,530 --> 00:24:38,810
 而Pay To Pubkey Hash是针对比特币地址的。
-but we do PK H is for the Bitcoin
 
-543
 00:24:38,810 --> 00:24:40,430
 是的，
 
@@ -1300,319 +1166,174 @@ but we do PK H is for the Bitcoin
 
 00:24:46,250 --> 00:24:55,610
 为了方便实用，
-days for convenience instead of when you
 
-547
 00:24:55,610 --> 00:24:57,530
 当你想接收比特币时，
-want to receive bitcoins instead of you
 
-548
 00:24:57,530 --> 00:24:59,390
 我们有一种更方便的方式，而不是创建这个哈希，
-know creating this hash and then
 
-549
 00:24:59,390 --> 00:25:02,120
 然后用你想用的所有操作码包围它，
-surrounding it with all the opcodes you
 
-550
 00:25:02,120 --> 00:25:05,570
 基本上构造了整个锁定脚本，
-want to use around it so basically
 
-551
-00:25:03,860 --> 00:25:05,570
-construct this entire lock-in script and
-
-552
 00:25:05,570 --> 00:25:06,790
 然后给别人。
-then giving it to someone else
 
-553
 00:25:06,790 --> 00:25:11,480
 我们在比特币中有很多更方便的方法来做到这一点，
 
 00:25:11,480 --> 00:25:14,120
 我们创建一个地址，
-we create an address which is basically
 
-556
 00:25:14,120 --> 00:25:22,270
 这基本上是公钥的哈希160，
-a the hash 160 of the public key
 
-557
 00:25:22,270 --> 00:25:24,530
 转换成用户更好使用的格式，
-converted into a more user-friendly
 
-558
 00:25:24,530 --> 00:25:28,100
 它有一个校验和，
-format it has a checksum and uses more
 
-559
 00:25:28,100 --> 00:25:29,810
 使用对用户更友好的字符。
-user-friendly characters so it's harder
 
-560
 00:25:29,810 --> 00:25:32,630
-to make make mistakes with and then this
+这更难犯错，
 
-561
 00:25:32,630 --> 00:25:35,720
-address will be prepended with a one at
+然后这个地址会在前面加上一个1，
 
-562
 00:25:35,720 --> 00:25:38,830
-the front so that means if you give an
+这意味着如果你给别人提供一个地址，
 
-563
 00:25:38,830 --> 00:25:41,240
-address to someone else where the one at
+以1开头的地址，
 
-564
 00:25:41,240 --> 00:25:43,850
-the start they will be able to decode it
+他们将能够解码它，
 
-565
 00:25:43,850 --> 00:25:46,490
-to get the original hash of the public
+得到公钥的原始哈希。
 
-566
 00:25:46,490 --> 00:25:48,860
-key and because they see that there's a
+因为他们看到前面有一个1，
 
-567
-00:25:48,860 --> 00:25:51,860
-one at the front they'll go okay this
+00:25:48,860 --> 00:25:53,960
+他们就会知道这个人想要支付到公钥哈希，
 
-568
-00:25:51,860 --> 00:25:53,960
-person wants to pay to pub key hash so
-
-569
 00:25:53,960 --> 00:25:57,440
-they will decode it and form this
+所以他们会解码它，
 
-570
-00:25:57,440 --> 00:25:59,929
-locking script with the
+00:25:57,440 --> 00:26:02,450
+并使用放置在其中的公钥的哈希160形成这个锁定脚本，
 
-571
-00:25:59,929 --> 00:26:02,450
-hache 160 the public key placed inside
-
-572
 00:26:02,450 --> 00:26:05,090
-it so this address here is just a
+所以这个地址只是一种方便的方式，
 
-573
-00:26:05,090 --> 00:26:07,580
-convenient way of telling people how you
+00:26:05,090 --> 00:26:10,119
+告诉人们你希望你的比特币如何被锁定。
 
-574
-00:26:07,580 --> 00:26:10,119
-want your bitcoins to be locked up
-
-575
 00:26:10,119 --> 00:26:15,080
-so Peter PK does not have a address
+P2PK没有地址格式，
 
-576
-00:26:15,080 --> 00:26:17,059
-format so if you want bitcoins to be
+00:26:15,080 --> 00:26:18,580
+所以如果你希望比特币以这种格式被锁定，
 
-577
-00:26:17,059 --> 00:26:18,580
-locked up in this format you have to
-
-578
 00:26:18,580 --> 00:26:21,259
-send them the entire locking script and
+你必须发送完整的锁定脚本，
 
-579
-00:26:21,259 --> 00:26:23,200
-the after the person will have to
+00:26:21,259 --> 00:26:26,330
+然后接收人必须手动构造交易，
 
-580
-00:26:23,200 --> 00:26:26,330
-construct the transaction manually to
-
-581
 00:26:26,330 --> 00:26:29,659
-put this locking script inside but the
+将这个锁定脚本放入。
 
-582
-00:26:29,659 --> 00:26:31,850
-Pater pub key hash the more common
+00:26:29,659 --> 00:26:34,369
+但是Pay to Public Key Hash (P2PKH)这种更常见的格式有这个地址，
 
-583
-00:26:31,850 --> 00:26:34,369
-format has this address so whenever you
-
-584
 00:26:34,369 --> 00:26:36,289
-send someone an address all you're
+所以当你向某人发送一个地址时，
 
-585
 00:26:36,289 --> 00:26:39,230
-sending them is the hash of your public
+你发送的只是你的公钥的哈希，
 
-586
 00:26:39,230 --> 00:26:42,080
-key and telling them to lock it up in a
+并告诉他们以某种方式锁定它。
 
-587
 00:26:42,080 --> 00:26:48,830
-certain way thirdly I'm gonna do five
+我要介绍五个，这是第三个，
 
-588
-00:26:48,830 --> 00:26:50,480
-just a third one so these are just pay
+00:26:48,830 --> 00:26:54,019
+这些都是支付给一个人的公钥，
 
-589
-00:26:50,480 --> 00:26:54,019
-into a single person's public key you
+00:26:54,019 --> 00:26:58,850
+在比特币中还有Pay To Multisig，
 
-590
-00:26:54,019 --> 00:26:56,840
-have what's called pay to multi-sig so
+00:26:58,850 --> 00:27:02,690
+你可以做的不仅仅是将一批比特币锁定到一个人的公钥上，
 
-591
-00:26:56,840 --> 00:26:58,850
-what you can do in Bitcoin instead of
-
-592
-00:26:58,850 --> 00:27:00,470
-just lock in a batch of bitcoins up to
-
-593
-00:27:00,470 --> 00:27:02,690
-one person's public key see there are
-
-594
 00:27:02,690 --> 00:27:04,490
-three of you in a company or inside a
+如果你们三个人在一个公司或企业内部，
 
-595
 00:27:04,490 --> 00:27:06,789
-business and you want to receive
+你们想一起接收比特币，
 
-596
-00:27:06,789 --> 00:27:09,830
-bitcoins together or you can do you can
+00:27:06,789 --> 00:27:12,379
+你们可以做的是将你们的公钥都放入一个锁定脚本中，
 
-597
-00:27:09,830 --> 00:27:12,379
-all put your public keys into a locking
-
-598
 00:27:12,379 --> 00:27:17,869
-script and then what you'll do your put
+然后你们会在后面放入一个数字，
 
-599
 00:27:17,869 --> 00:27:20,389
-in number after it which is n the number
+这个数字是n，
 
-600
 00:27:20,389 --> 00:27:22,669
-of public keys inside the locking script
+表示锁定脚本中的公钥数量，
 
-601
 00:27:22,669 --> 00:27:26,210
-and then another number called M which
+然后还有另一个数字叫做m，
 
-602
 00:27:26,210 --> 00:27:29,269
-is the number of signatures that needs
+这是需要提供的签名数量，
 
-603
-00:27:29,269 --> 00:27:32,389
-to be provided for this locking script
+00:27:29,269 --> 00:27:38,600
+才能解锁这个锁定脚本或者这个批次的比特币
 
-604
-00:27:32,389 --> 00:27:34,850
-to be unlocked or this but so I
+00:27:38,600 --> 00:27:44,139
+最后你将使用CHECKMULTISIG函数，
 
-605
-00:27:34,850 --> 00:27:38,600
-Bitcoin assign to be unlocked and then
-
-606
-00:27:38,600 --> 00:27:40,429
-at the end of it then you'll use the
-
-607
-00:27:40,429 --> 00:27:44,139
-check multi-sig function so this is a
-
-608
 00:27:44,139 --> 00:27:47,899
-Peter multi-sig locking script so like I
+所以这是一个Pay To Multisig锁定脚本。
 
-609
-00:27:47,899 --> 00:27:50,740
-said the M here just indicates how many
+00:27:47,899 --> 00:27:57,940
+这里的m只是表示需要多少签名才能解锁这个锁定脚本。
 
-610
-00:27:50,740 --> 00:27:53,960
-signatures are going to be needed for
-
-611
-00:27:53,960 --> 00:27:57,940
-this lock in scope to be unlocked
-
-612
 00:27:57,940 --> 00:28:01,809
-so when it comes to so say you give this
+当你把这个锁定脚本给别人时，
 
-613
-00:28:01,809 --> 00:28:03,429
-locking script to someone else they put
+00:28:01,809 --> 00:28:05,139
+他们把一批比特币用这个锁定脚本锁定了，
 
-614
-00:28:03,429 --> 00:28:05,139
-a batch of bitcoins with this locking
+00:28:05,139 --> 00:28:10,870
+所以当这三个人想要解锁这批比特币时，
 
-615
-00:28:05,139 --> 00:28:08,470
-script on it so when these three people
-
-616
-00:28:08,470 --> 00:28:10,870
-here want to come to unlock this batch
-
-617
 00:28:10,870 --> 00:28:12,070
-of bitcoins are send them on to someone
+或者把它们发给别人时
 
-618
-00:28:12,070 --> 00:28:15,309
-else or we all need is two signatures
+00:28:12,070 --> 00:28:20,110
+他们需要的只是这三个人中的任何两个人的签名，
 
-619
-00:28:15,309 --> 00:28:20,110
-from any two of these people they also
-
-620
 00:28:20,110 --> 00:28:22,419
-need to be in the correct order so if
+这些签名也需要按正确的顺序，
 
-621
-00:28:22,419 --> 00:28:24,549
-these public keys were put into the
+00:28:22,419 --> 00:28:26,980
+如果这些公钥是按特定的顺序放入锁定脚本的，
 
-622
-00:28:24,549 --> 00:28:26,980
-locking code in a specific order these
-
-623
 00:28:26,980 --> 00:28:28,450
+这些签名也需要按正确的顺序，
 signatures will be need to be in the
 
 624
