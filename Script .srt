@@ -1337,107 +1337,111 @@ P2PK没有地址格式，
 signatures will be need to be in the
 
 624
-00:28:28,450 --> 00:28:30,309
-correct order also which you will see
+00:28:28,450 --> 00:28:31,889
 
-625
-00:28:30,309 --> 00:28:31,889
-why in a moment
-
-626
 00:28:31,889 --> 00:28:34,929
+这就是典型的Pay To Multisig签名，
 so that is a typical Paton multi-sig and
 
 627
 00:28:34,929 --> 00:28:37,539
+我会在片刻后运行它，只是一个小提示，
 I'll run it in a moment just a quick
 
 628
-00:28:37,539 --> 00:28:40,990
-note there's a little bug in this check
+00:28:37,539 --> 00:28:46,200
+这个CHECKMULTISIG函数或者它的工作方式中有一个小错误。
 
-629
-00:28:40,990 --> 00:28:46,200
-multi-sig function or the way it works
-
-630
 00:28:46,200 --> 00:28:49,870
+这只是从比特币开始就有的一个错误，
 and this was just a boat from the start
 
 631
 00:28:49,870 --> 00:28:51,250
+我们只需要现在就考虑它。
 of Bitcoin that we just need to account
 
 632
-00:28:51,250 --> 00:28:54,100
-for now basically what happens is the M
+00:28:51,250 --> 00:28:56,950
+基本上，发生的情况是这个M在这里开头有一个偏移一个的错误。
 
-633
-00:28:54,100 --> 00:28:56,950
-at the start here has an off by one
-
-634
 00:28:56,950 --> 00:29:00,960
+会发生的是它会多消耗掉的一个堆栈。
 error so what happens is it will consume
 
 635
 00:29:00,960 --> 00:29:04,750
+我们在这里指出，
 one more item from the stack then we've
 
 636
 00:29:04,750 --> 00:29:07,779
+为了解决这个问题，
 indicated here so to get around that for
 
 637
 00:29:07,779 --> 00:29:09,669
+对于每个Pay To Multisig签名，
 every pay to multi-sig we just need to
 
 638
 00:29:09,669 --> 00:29:13,980
+我们只需要在开始时放一个虚拟的或零操作码。
 put a dummy or zero opcode at the start
 
 639
 00:29:13,980 --> 00:29:16,629
+这就是我们需要考虑的错误，
 so this is the bug that need to account
 
 640
 00:29:16,629 --> 00:29:19,590
+当我们使用CHECKMULTISIG签名脚本时。
 for let me use the check multi-sig
 
 641
 00:29:19,590 --> 00:29:24,120
+无论如何，让我们运行这个脚本，
 script so anyway let's run this script
 
 642
 00:29:24,120 --> 00:29:26,110
+如何运行它，如何检查它，
 how does it get run how does it get
 
 643
 00:29:26,110 --> 00:29:29,289
+把锁定代码放在开始，
 checked and put the locking code at the
 
 644
 00:29:29,289 --> 00:29:32,500
+然后从左到右，
 start then go from left to right numbers
 
 645
 00:29:32,500 --> 00:29:34,059
+数字就被推到堆栈上，
 they just get pushed onto the stack
 
 646
 00:29:34,059 --> 00:29:36,519
+就像数据一样。所以零在堆栈上，
 just like data like so so the zeros on
 
 647
 00:29:36,519 --> 00:29:38,620
+然后我们把签名推到堆栈上
 the stack there then we push on the
 
 648
 00:29:38,620 --> 00:29:40,960
+因为它们是数据，
 signatures because their data then we
 
 649
 00:29:40,960 --> 00:29:42,220
+然后我们有两个数字再次被推到堆栈上，
 have the two again number just gets
 
 650
@@ -1446,62 +1450,68 @@ pushed numbers just get pushed on top of
 
 651
 00:29:43,840 --> 00:29:46,929
+然后每一个公钥，它们只是数据，
 the stack then each of these public keys
 
 652
 00:29:46,929 --> 00:29:48,789
+可以推到堆栈的顶部，
 again they're just data can push on top
 
 653
 00:29:48,789 --> 00:29:52,330
+然后是三
 the stack and then the three finally we
 
 654
 00:29:52,330 --> 00:29:54,639
+最后我们来到CHECKMULTISIG操作码，
 come to the check mark multi-sig opcode
 
 655
 00:29:54,639 --> 00:29:56,980
+它首先会弹出顶部的元素，
 what this does first of all it'll pop
 
 656
 00:29:56,980 --> 00:29:58,899
+看到这是一个三，
 the top element off see that's a three
 
 657
 00:29:58,899 --> 00:30:01,629
+当它看到这是一个三，
 when it sees us a three it means it will
 
 658
 00:30:01,629 --> 00:30:02,950
+它意味着它会弹出接下来的三个元素，
 pop the next three elements off the top
 
 659
 00:30:02,950 --> 00:30:05,259
+然后它会弹出下一个元素，
 the stack then you'll pop the next
 
 660
-00:30:05,259 --> 00:30:07,029
-element off which is a two and when it
+00:30:05,259 --> 00:30:07,029，
+是二，
 
-661
-00:30:07,029 --> 00:30:08,889
-sees that it'll pop the next 2 ms off
+00:30:07,029 --> 00:30:09,960
+当它看到这是一个二，它会弹出接下来的两个元素，
 
-662
-00:30:08,889 --> 00:30:09,960
-the stack
-
-663
 00:30:09,960 --> 00:30:13,250
+但是像我之前提到的，
 but like I mentioned earlier this M here
 
 664
 00:30:13,250 --> 00:30:16,110
+这个M在这里有一个偏移一个的错误，
 hasn't off by one error so it will
 
 665
 00:30:16,110 --> 00:30:19,440
+所以它会消耗掉三个，而不是两个。
 consume three instead of two but this is
 
 666
