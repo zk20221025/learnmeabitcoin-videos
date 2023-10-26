@@ -942,59 +942,59 @@ CHECKSIG会检查这个签名是否匹配这个公钥，
 of the public key so that's when we give
 
 448
-00:20:15,879 --> 00:20:17,379
-this to other people we can give them a
+00:20:15,879 --> 00:20:19,479
+我们可以给他们一个更小的公钥，
 
-449
-00:20:17,379 --> 00:20:19,479
-much smaller vision of our public key
-
-450
 00:20:19,479 --> 00:20:21,909
+但这仍然是我们的公钥，
 but it's still a unique vision of our
 
 451
 00:20:21,909 --> 00:20:25,919
+所以我们会做的是，
 public key so what we would do
 
 452
 00:20:25,919 --> 00:20:27,789
+当我们创建了我们的密钥和地址后，
 whence we've created our keys in the
 
 453
 00:20:27,789 --> 00:20:30,489
+我们会对我们的公钥进行哈希，
 dress is we will hash our public key
 
 454
 00:20:30,489 --> 00:20:33,070
+这样就减小了它的大小，
 which produces its size we'll give that
 
 455
 00:20:33,070 --> 00:20:36,009
+然后我们会将这个哈希值给别人，
 some else and then they'll put that into
 
 456
 00:20:36,009 --> 00:20:38,499
+然后他们会将这个哈希值放入锁定代码中，
 the locking code instead of our original
 
 457
 00:20:38,499 --> 00:20:42,209
+而不是我们原来的公钥，
 public key so the way this particular
 
 458
-00:20:42,209 --> 00:20:44,709
-locking script works using this hashed
+00:20:42,209 --> 00:20:47,129
+这种特殊的锁定脚本是使用我们公钥的哈希版本，
 
-459
-00:20:44,709 --> 00:20:47,129
-version of our public key instead of the
-
-460
 00:20:47,129 --> 00:20:49,690
+而不是标准的原始公钥。
 standard you know original public key is
 
 461
-00:20:49,690 --> 00:20:53,169
+00:20:49,690 --> 00:20:56,049
+我们会在它周围放一个类似的锁定脚本，
 we put a locking script like this around
 
 462
@@ -1003,134 +1003,136 @@ it so it's a little bit similar we still
 
 463
 00:20:56,049 --> 00:20:58,299
+我们仍然有这个检查签名函数，
 have this check sync function but now
 
 464
 00:20:58,299 --> 00:20:59,649
+但现在不是只有哈希公钥和check sig，
 instead of having the public key and
 
 465
 00:20:59,649 --> 00:21:01,179
+
 just the check sig we have hash the
 
 466
 00:21:01,179 --> 00:21:03,309
+我们对哈希公钥和这些额外的操作码进行哈希处理。
 public key and these extra operators
 
 467
 00:21:03,309 --> 00:21:08,820
+稍后就会知道原因。
 here and we'll see why in a moment so
 
 468
 00:21:08,820 --> 00:21:13,089
+这就是Pay To Pubkey Hash，
+
+
 this is the paid up key hash pattern or
 
 469
 00:21:13,089 --> 00:21:14,739
+或者说Pay To Pubkey Hash锁定脚本，
 the pattern for a paid-up key hash
 
 470
-00:21:14,739 --> 00:21:17,639
-locking script so when you come to
+00:21:14,739 --> 00:21:20,019
+当你来解锁这个特定的锁定脚本时
 
-471
-00:21:17,639 --> 00:21:20,019
-unlock this particular locking script
-
-472
 00:21:20,019 --> 00:21:22,629
+我们需要做的就像之前一样，
 what we need to do like before all we
 
 473
 00:21:22,629 --> 00:21:27,909
+我们需要一个签名，
 need is a signature from for from the
 
 474
 00:21:27,909 --> 00:21:29,409
+这个签名来自于生成这个公钥的私钥，
 private key that this public key is made
 
 475
 00:21:29,409 --> 00:21:32,679
+除此之外，
 from and then also in addition to that
 
 476
 00:21:32,679 --> 00:21:34,599
+我们还需要提供原始的公钥。
 we all need to provide the original
 
 477
-00:21:34,599 --> 00:21:38,739
-public key so when we come to run this
+00:21:34,599 --> 00:21:40,779
+当一个节点来运行这个脚本，
 
-478
-00:21:38,739 --> 00:21:40,779
-or when a node comes to run this script
-
-479
 00:21:40,779 --> 00:21:43,059
+确保它是有效的时，
 to make sure it's valid they do the same
 
 480
-00:21:43,059 --> 00:21:44,349
-again make sure the unlocking script
+00:21:43,059 --> 00:21:45,999
+他们会再次确保解锁脚本从左到右运行。
 
-481
-00:21:44,349 --> 00:21:45,999
-goes to the start and then run it from
-
-482
 00:21:45,999 --> 00:21:48,129
+他们会把他们的堆栈，
 left to right so what they'll do they'll
 
 483
 00:21:48,129 --> 00:21:50,679
+显然数据会被推到堆栈上，
 take their stack they'll obviously data
 
 484
 00:21:50,679 --> 00:21:52,419
+签名会在顶部，
 gets pushed onto the stack the signature
 
 485
 00:21:52,419 --> 00:21:55,690
+然后是公钥。
 goes on top top then the public key let
 
 486
 00:21:55,690 --> 00:21:59,049
+然后我们遇到这个复制操作码，
 me hit this dupe up code and it does
 
 487
 00:21:59,049 --> 00:22:01,869
+它会做你期望它做的事情，
 what you expect it would it pops the top
 
 488
 00:22:01,869 --> 00:22:04,419
+它会弹出堆栈的顶部元素，复制它，
 element of the stack duplicates it and
 
 489
-00:22:04,419 --> 00:22:08,799
-then pushes the duplicate of that top
+00:22:04,419 --> 00:22:13,240
+然后把这个复制的顶部元素推回到堆栈上。
 
-490
-00:22:08,799 --> 00:22:11,950
-element back onto the stack like so and
-
-491
-00:22:11,950 --> 00:22:13,240
-that's the dupe
-
-492
 00:22:13,240 --> 00:22:16,570
+我们有哈希160，
 done next up we have the hash 160
 
 493
 00:22:16,570 --> 00:22:19,300
+它会弹出顶部元素，对它进行哈希，
 that'll pop the top element off hash it
 
 494
 00:22:19,300 --> 00:22:20,920
+然后把它推回到堆栈的顶部。
 and then push it back on top of the
 
 495
 00:22:20,920 --> 00:22:25,300
+然后我们来看原始锁定脚本中的哈希公钥，
 start then we went into the hashed
 
 496
@@ -1139,62 +1141,65 @@ public key that was a in the original
 
 497
 00:22:27,040 --> 00:22:28,920
+它被推到了顶部。
 locking script that gets pushed on top
 
 498
 00:22:28,920 --> 00:22:31,180
+然后我们来到EQUALVERIFY操作码，
 then we went into the equal verify
 
 499
-00:22:31,180 --> 00:22:34,240
-opcode this one pops two elements off
+00:22:31,180 --> 00:22:35,050
+这个操作码会从堆栈的顶部弹出两个元素，
 
-500
-00:22:34,240 --> 00:22:35,050
-the top of the stack
-
-501
 00:22:35,050 --> 00:22:37,510
+检查它们是否相等，如果它们相等，
 checks are they equal and if they are
 
 502
 00:22:37,510 --> 00:22:39,970
+它不会把任何东西推回到堆栈上。
 equal it won't push anything back onto
 
 503
 00:22:39,970 --> 00:22:42,550
+然后是EQUALVERIFY操作码，
+
+
 the stack so whereas the equal up code
 
 504
 00:22:42,550 --> 00:22:44,410
+它会把1推到堆栈的顶部，
 would push the number one on top equal
 
 505
 00:22:44,410 --> 00:22:46,510
+检查签名是否匹配公钥，
 verify checks the equal and if they are
 
 506
 00:22:46,510 --> 00:22:48,370
+如果匹配，它不会把任何内容推回到堆栈上。
 doesn't push anything on top of the
 
 507
-00:22:48,370 --> 00:22:51,280
-stack and then you went into the
+00:22:48,370 --> 00:22:54,040
+然后我们遇到了熟悉的CHECKSIG操作码，
 
-508
-00:22:51,280 --> 00:22:54,040
-familiar checks a cop code and that will
-
-509
 00:22:54,040 --> 00:22:56,770
+该代码将弹出，
 pop to its off check that the signature
 
 510
 00:22:56,770 --> 00:22:58,870
+检查签名与公钥是否匹配，
 matches the public key and if it does
 
 511
 00:22:58,870 --> 00:23:00,640
+如果匹配，它会把一个数字推到堆栈的顶部。
 you're pushing one on to the top of the
 
 512
