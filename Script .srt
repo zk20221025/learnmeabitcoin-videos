@@ -792,274 +792,153 @@ CHECKSIG会检查这个签名是否匹配这个公钥，
 
 00:17:05,209 --> 00:17:08,209
 这批比特币可以被花费。
-the batch of bitcoins can be spent if
 
-381
 00:17:08,209 --> 00:17:12,260
-the stack is empty after the script has
+如果在脚本运行后，
 
-382
 00:17:12,260 --> 00:17:15,619
-been run then it's invalid or similarly
+堆栈为空，则它无效，
 
-383
-00:17:15,619 --> 00:17:20,179
-if the zero is left on top of the stack
+00:17:15,619 --> 00:17:21,679
+如果在整个脚本运行后堆栈顶部留下零，
 
-384
-00:17:20,179 --> 00:17:21,679
-after the entire script has been run
-
-385
 00:17:21,679 --> 00:17:25,849
-then again the script is invalid so in
+那么脚本同样无效。
 
-386
 00:17:25,849 --> 00:17:28,580
-this last example if this check sig
+因此在这最后一个示例中，
 
-387
 00:17:28,580 --> 00:17:30,020
-didn't work out right
+如果这个检查签名没有正确执行，
 
-388
-00:17:30,020 --> 00:17:33,020
-I think you'd either push a zero or push
+00:17:30,020 --> 00:17:34,340
+我认为它会将零或者什么都不推到堆栈顶部，
 
-389
-00:17:33,020 --> 00:17:34,340
-nothing on top of the stack probably a
-
-390
 00:17:34,340 --> 00:17:36,740
-zero and the stack would've been invalid
+可能是零，堆栈就会被判定为无效。
 
-391
 00:17:36,740 --> 00:17:38,720
-but in this example the signature
+但在这个示例中，
 
-392
 00:17:38,720 --> 00:17:41,090
-matches the public key you know the
+签名与公钥匹配，
 
-393
 00:17:41,090 --> 00:17:42,649
-check stick operator performs all that
+检查签名操作码执行所有这些操作，
 
-394
 00:17:42,649 --> 00:17:45,380
-and if it's correct it'll push a one
+如果正确，
 
-395
-00:17:45,380 --> 00:17:49,010
-onto the top of the stack like so and
+00:17:45,380 --> 00:17:49,730
+它会将1推到堆栈顶部，
 
-396
-00:17:49,010 --> 00:17:49,730
-there we are
+00:17:49,730 --> 00:17:53,480
+如果在脚本运行后堆栈顶部留下1，
 
-397
-00:17:49,730 --> 00:17:51,380
-if a one is left on top of the stack def
+00:17:53,480 --> 00:17:59,230
+那么这批比特币可以被花费，这是有道理的。
 
-398
-00:17:51,380 --> 00:17:53,480
-after the script has been run this batch
-
-399
-00:17:53,480 --> 00:17:57,559
-of bitcoins can be spent does that make
-
-400
-00:17:57,559 --> 00:17:59,230
-sense
-
-401
 00:17:59,230 --> 00:18:04,029
-yes okay so let me just move all this
+让我把这些都移回来，
 
-402
-00:18:04,029 --> 00:18:08,409
-back then we have why just did there was
+00:18:04,029 --> 00:18:10,899
+我们知道为什么刚才有一个所谓的p2pk的例子，
 
-403
-00:18:08,409 --> 00:18:10,899
-an example of what's called p2 pup key
-
-404
 00:18:10,899 --> 00:18:14,320
-it's very simple the locking code on top
+它非常简单，
 
-405
-00:18:14,320 --> 00:18:15,909
-of a batch of bitcoins just contain
+00:18:14,320 --> 00:18:18,250
+一批比特币上的锁定代码只包含别人的公钥和检查签名操作码，
 
-406
-00:18:15,909 --> 00:18:18,250
-contains someone else's public key on
+00:18:18,250 --> 00:18:23,620
+然后当那个人想要解锁他们时，
 
-407
-00:18:18,250 --> 00:18:21,159
-the check sig operator and then when
-
-408
-00:18:21,159 --> 00:18:23,620
-that person wants to unlock them all
-
-409
 00:18:23,620 --> 00:18:25,299
-they have to do or unlock this batch of
+他们要的就是解锁这批比特币
 
-410
-00:18:25,299 --> 00:18:27,309
-bitcoins all I have to do is to provide
+00:18:25,299 --> 00:18:29,559
+我所要做的是提供私钥的有效签名，
 
-411
-00:18:27,309 --> 00:18:29,559
-a valid signature from the private key
-
-412
 00:18:29,559 --> 00:18:32,620
-that this public key was made from now
+该公钥是从现在开始创建的，
 
-413
-00:18:32,620 --> 00:18:37,570
-this is the probably simplest way of
+00:18:32,620 --> 00:18:40,809
+这可能是锁定一批比特币的最简单的方式，
 
-414
-00:18:37,570 --> 00:18:40,809
-locking up batches of bitcoins and it
+00:18:40,809 --> 00:18:46,360
+矿工们在区块内的coinbase交易中大量使用了这种方式，
 
-415
-00:18:40,809 --> 00:18:44,049
-was used a lot by miners for the coin
+00:18:46,360 --> 00:18:52,539
+但通常今天我们使用这种锁定机制的一种变体。
 
-416
-00:18:44,049 --> 00:18:46,360
-based transactions inside blocks but
-
-417
-00:18:46,360 --> 00:18:49,299
-generally today we use a bit of a
-
-418
-00:18:49,299 --> 00:18:52,539
-variant on this type of locking
-
-419
 00:18:52,539 --> 00:18:54,070
-mechanism so this is the one of the
+这是最简单的一种，
 
-420
 00:18:54,070 --> 00:18:57,730
-simplest ones but we use something a lot
+但我们现在使用的是一种有点不同的东西。
 
-421
-00:18:57,730 --> 00:18:59,769
-bit different now so this is called
+00:18:57,730 --> 00:19:06,100
+这被称为Pay To Pubkey或简称P2PK。
 
-422
-00:18:59,769 --> 00:19:06,100
-Paita pub key or p2 PK for short just to
-
-423
 00:19:06,100 --> 00:19:09,789
-note these P 2 P K and Peter pop key
+请注意，这些P 2 P K和Pay To Pubkey，
 
-424
-00:19:09,789 --> 00:19:12,250
-these names apply to the patterns of
+00:19:09,789 --> 00:19:13,960
+这些名字适用于你应用到一批比特币的锁定脚本的模式。
 
-425
-00:19:12,250 --> 00:19:13,960
-locking scripts that you apply to
-
-426
 00:19:13,960 --> 00:19:15,909
-batches of bitcoins so if you see a
+所以如果你看到一批比特币，
 
-427
-00:19:15,909 --> 00:19:18,370
-batch of bitcoins that has a public key
+00:19:15,909 --> 00:19:19,960
+它有一个公钥和一个检查操作码，没有别的，
 
-428
-00:19:18,370 --> 00:19:19,960
-and that checks a cooperator and nothing
-
-429
 00:19:19,960 --> 00:19:24,360
-else and that pattern is a page up key
+那个模式就是一个Pay To Pubkey脚本，
 
-430
-00:19:24,360 --> 00:19:29,350
-script and this one is one of a set of
+00:19:24,360 --> 00:19:30,940
+这个脚本是一组最常用的标准脚本中的一个。
 
-431
-00:19:29,350 --> 00:19:30,940
-standard scripts that are most commonly
-
-432
 00:19:30,940 --> 00:19:33,190
-used in Bitcoin so I'm going to cover
+我将介绍其中的五个，
 
-433
 00:19:33,190 --> 00:19:37,230
-five altogether this is the simplest one
+这是最简单的一个，
 
-434
 00:19:37,230 --> 00:19:42,490
-called Paita pub key next up we have one
+叫做Pay To Pubkey。
 
-435
 00:19:42,490 --> 00:19:44,830
-called Paita pub key hash which is very
+接下来我们有一个叫做Pay To Pubkey Hash的，
 
-436
 00:19:44,830 --> 00:19:46,659
-similar to this but only slightly
+它与这个非常相似，只是稍微有些不同，
 
-437
 00:19:46,659 --> 00:19:48,870
-different and explain why in a moment
+我会在一会儿后解释原因。
 
-438
-00:19:48,870 --> 00:19:52,929
-so if you remember from the video on
+00:19:48,870 --> 00:19:55,570
+如果你还记得在关于密钥和地址的视频中，
 
-439
-00:19:52,929 --> 00:19:55,570
-keys and addresses even though we create
-
-440
 00:19:55,570 --> 00:19:57,279
-a private key and public key this is all
+我们创建了一个私钥和公钥，
 
-441
 00:19:57,279 --> 00:19:58,480
-we really need to send and receive
+这就是我们在比特币中发送和接收比特币所需要的全部，
 
-442
-00:19:58,480 --> 00:20:01,659
-bitcoins in Bitcoin what we normally do
+00:19:58,480 --> 00:20:03,519
+我们通常会先对公钥进行哈希，
 
-443
-00:20:01,659 --> 00:20:03,519
-with the public key is we hash it first
-
-444
 00:20:03,519 --> 00:20:06,340
-I mentioned this was because of security
+我提到这是因为安全性，
 
-445
 00:20:06,340 --> 00:20:09,220
-I think it's mostly because of the start
+我认为，这主要是因为一开始，
 
-446
 00:20:09,220 --> 00:20:12,519
-this was a simple way to reduce the size
+这是一种简单的减小公钥大小的方式，
 
-447
 00:20:12,519 --> 00:20:15,879
+所以当我们把这个给别人的时候。
 of the public key so that's when we give
 
 448
