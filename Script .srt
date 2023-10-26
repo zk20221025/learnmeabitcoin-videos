@@ -1516,209 +1516,157 @@ consume three instead of two but this is
 
 666
 00:30:19,440 --> 00:30:21,390
+但这只是比特币中的一个小漏洞，
 just a little bug in Bitcoin attack you
 
 667
 00:30:21,390 --> 00:30:24,960
+你可以假装它不存在。
 can pretend it's not there anyway so now
 
 668
-00:30:24,960 --> 00:30:27,510
-it has to come to check the signatures
+00:30:24,960 --> 00:30:29,309
+现在，它必须检查签名是否与公钥匹配，
 
-669
-00:30:27,510 --> 00:30:29,309
-against the public keys that's why
+00:30:29,309 --> 00:30:32,970
+我们从栈底的第一个签名开始，
 
-670
-00:30:29,309 --> 00:30:30,870
-you'll do it we'll start with the first
+00:30:32,970 --> 00:30:37,230
+然后检查它是否与第一个公钥匹配。
 
-671
-00:30:30,870 --> 00:30:32,970
-signature it's got at the bottom of the
+00:30:37,230 --> 00:30:42,390
+如果不匹配，那也没关系，
 
-672
-00:30:32,970 --> 00:30:35,070
-stack and then check it against the
-
-673
-00:30:35,070 --> 00:30:37,230
-first public key there's got to check
-
-674
-00:30:37,230 --> 00:30:40,140
-there's and check their matches so let's
-
-675
-00:30:40,140 --> 00:30:41,700
-say this to it and doesn't match but
-
-676
-00:30:41,700 --> 00:30:42,390
-that's fine
-
-677
 00:30:42,390 --> 00:30:44,309
+它会继续检查下一个公钥，
 if that doesn't match it I'll move on to
 
 678
 00:30:44,309 --> 00:30:45,600
+看它是否匹配。
 the next public key to see if that
 
 679
 00:30:45,600 --> 00:30:48,210
+这个公钥如果匹配，
 matches and this one does much so let's
 
 680
 00:30:48,210 --> 00:30:49,620
+我们在这里标记一下。
 put a little one here to see the lab
 
 681
-00:30:49,620 --> 00:30:54,059
-matter that hasn't matched the reason I
+00:30:49,620 --> 00:30:56,130
+我之所以说要把这些签名按正确的顺序放好，
 
-682
-00:30:54,059 --> 00:30:56,130
-said to put these signatures into the
+00:30:56,130 --> 00:31:02,490
+是因为在检查过一个签名与公钥的匹配之后，
 
-683
-00:30:56,130 --> 00:30:59,669
-correct order is because after the check
+00:31:02,490 --> 00:31:08,460
+CHECKMULTISIG函数就不会再检查这些公钥了。
 
-684
-00:30:59,669 --> 00:31:02,490
-multi-sig function has checked a
-
-685
-00:31:02,490 --> 00:31:05,490
-signature against public keys it won't
-
-686
-00:31:05,490 --> 00:31:08,460
-check those public keys again so when
-
-687
 00:31:08,460 --> 00:31:10,740
+所以当你要匹配第二个签名和公钥时，
 you come to match the second signature
 
 688
 00:31:10,740 --> 00:31:13,470
+
 against the public keys instead of going
 
 689
-00:31:13,470 --> 00:31:14,820
+00:31:13,470 --> 00:31:16,770
+它不会从头开始与每个单独的公钥进行匹配，
 from the start and match them against
 
 690
 00:31:14,820 --> 00:31:16,770
+
 each of the individual public keys it
 
 691
 00:31:16,770 --> 00:31:18,240
+而是从上次匹配的位置开始。
 will start from where it left off or the
 
 692
-00:31:18,240 --> 00:31:22,200
-last match so again you'll check the
+00:31:18,240 --> 00:31:23,610
+你会再次检查这个签名是否与这个公钥匹配，
 
-693
-00:31:22,200 --> 00:31:23,610
-signature against this public key here
-
-694
 00:31:23,610 --> 00:31:25,980
+如果匹配，
 if that matches the near we are we have
 
 695
 00:31:25,980 --> 00:31:28,980
+那我们就有了两个匹配的签名。
 got too much in signatures and therefore
 
 696
-00:31:28,980 --> 00:31:32,279
-because we asked for asked for - after
+00:31:28,980 --> 00:31:36,380
+因为我们在这个锁定脚本中要求有两个签名，
 
-697
-00:31:32,279 --> 00:31:36,380
-three signatures for this lock in script
-
-698
 00:31:36,380 --> 00:31:39,799
+所以CHECKMULTISIG对此很满意，
 this script is Viator check multi-sig is
 
 699
 00:31:39,799 --> 00:31:43,409
+它会在栈顶推入一个1。
 happy with this so it'll push a one on
 
 700
-00:31:43,409 --> 00:31:45,990
-top of the stack obviously if there's
+00:31:43,409 --> 00:31:49,140
+如果只有0或1个签名与这些公钥匹配，
 
-701
-00:31:45,990 --> 00:31:49,140
-only 0 or 1 matches signatures for these
-
-702
 00:31:49,140 --> 00:31:51,840
+那么它会在栈顶推入一个0。
 public keys they were pushes you on top
 
 703
 00:31:51,840 --> 00:31:53,250
+但因为我们有足够的匹配签名，
 but because we've got enough matching
 
 704
 00:31:53,250 --> 00:31:55,620
+所以它在栈顶推入一个1。
 signatures it pushes a one on top of the
 
 705
-00:31:55,620 --> 00:32:03,539
-stack as that make sense ok so there we
+00:31:55,620 --> 00:32:03,750
+这个过程明白了吗？好了，
 
-706
-00:32:03,539 --> 00:32:03,750
-are
-
-707
 00:32:03,750 --> 00:32:06,480
+这就是Pay To Multisig签名。
 8a multi-sig obviously now you know how
 
 708
 00:32:06,480 --> 00:32:10,380
+现在你知道这些脚本是如何工作的，
 these scripts work is quite simple
 
 709
 00:32:10,380 --> 00:32:13,290
+其实很简单。在我们继续讨论第四个问题之前。
 before we move on to the fourth one
 
 710
-00:32:13,290 --> 00:32:15,730
-there's a little bit of a problem but
+00:32:13,290 --> 00:32:19,380
+但是在设置Pay To Multisig签名时有一个小问题。
 
-711
-00:32:15,730 --> 00:32:19,380
-it's all Peter multi-sig setup because
-
-712
 00:32:19,380 --> 00:32:22,120
+假设我们公司有三个或更多的人，
 say there are three of us or more of us
 
 713
-00:32:22,120 --> 00:32:24,760
-in a company and we just want to accept
+00:32:22,120 --> 00:32:29,140
+我们只想接受比特币到一个Pay To Multisig签名的锁定脚本。
 
-714
-00:32:24,760 --> 00:32:29,140
-bitcoins to a multi-sig lock-in script
+00:32:29,140 --> 00:32:33,450
+我们必须构建这个锁定脚本并给别人。
 
-715
-00:32:29,140 --> 00:32:31,180
-will obviously have to construct this
-
-716
-00:32:31,180 --> 00:32:33,450
-lock-in script and give to someone else
-
-717
 00:32:33,450 --> 00:32:36,880
 and they'll have to construct a
 
