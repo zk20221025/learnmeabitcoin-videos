@@ -2488,211 +2488,132 @@ Pay To Script Hash是唯一一个运行方式略有不同的脚本。
 否则这可能会有些棘手。
 power that's gonna be a bit tricky so
 
-1113
 00:51:40,860 --> 00:51:43,080
-you know practically you know you are
+你知道，实际上，
 
-1114
-00:51:43,080 --> 00:51:44,910
-right you're probably not going to be
+00:51:43,080 --> 00:51:46,680
+你可能无法将非标准的交易加入区块链，
 
-1115
-00:51:44,910 --> 00:51:46,680
-able to get a non-standard transactions
-
-1116
 00:51:46,680 --> 00:51:48,420
-into the blockchain which is a very
+这非常可惜。
 
-1117
 00:51:48,420 --> 00:51:52,830
-shame however like I said it's only the
+然而，像我说的，
 
-1118
 00:51:52,830 --> 00:51:56,070
-Bitcoin core implementation that keeps a
+只有比特币核心实现才会保留一个列表，
 
-1119
 00:51:56,070 --> 00:51:58,140
-list i don't well it might be other ones
+也许其他的也会，
 
-1120
-00:51:58,140 --> 00:52:01,320
-but you could create your Bitcoin node
+00:51:58,140 --> 00:52:03,210
+但是你可以用你自己的编程语言编写你的比特币节点，
 
-1121
-00:52:01,320 --> 00:52:03,210
-written in your own programming language
-
-1122
 00:52:03,210 --> 00:52:06,090
-with your own rules and you could accept
+用你自己的规则，你可以接受非标准的脚本。
 
-1123
-00:52:06,090 --> 00:52:08,130
-non-standard scripts but if there's no
+00:52:06,090 --> 00:52:11,370
+但是，如果没有其他人在网络上运行你的相同软件，
 
-1124
-00:52:08,130 --> 00:52:09,630
-one else you know on the network when in
-
-1125
-00:52:09,630 --> 00:52:11,370
-your same software every time you try
-
-1126
 00:52:11,370 --> 00:52:12,549
-and be lame
+每次你尝试和比特币核心节点进行交易，
 
-1127
 00:52:12,549 --> 00:52:14,009
-Bitcoin core knows they're just gonna
+它们都会被拒绝。
 
-1128
-00:52:14,009 --> 00:52:18,160
-reject them so yeah for all intents and
+00:52:14,009 --> 00:52:19,349
+所以，出于所有的目的和原因，
 
-1129
-00:52:18,160 --> 00:52:19,349
-purposes
+00:52:19,349 --> 00:52:25,239 
+不幸的是，非标准的脚本并不会真正被用到，
 
-1130
-00:52:19,349 --> 00:52:21,910
-unfortunately non-standard scripts are
-
-1131
-00:52:21,910 --> 00:52:25,239
-not really going to be used and mind
-
-1132
 00:52:25,239 --> 00:52:27,400
-onto the blockchain in Bitcoin at the
+并且在比特币的区块链上进行挖矿，
 
-1133
-00:52:27,400 --> 00:52:32,160
-moment which i think is a bit of a shame
+00:52:27,400 --> 00:52:34,769 
+我认为这是一种遗憾。
 
-1134
 00:52:34,769 --> 00:52:36,459
-finally ok so that's basically
+最后，这基本上，
 
-1135
-00:52:36,459 --> 00:52:38,259
-everything you need to know about script
+00:52:36,459 -->00:52:39,969
+就是你需要了解的关于脚本和它的工作方式的所有内容。
 
-1136
-00:52:38,259 --> 00:52:39,969
-and how it works if you understand all
-
-1137
 00:52:39,969 --> 00:52:41,410
-these op codes and data and the stack
+如果你理解了所有的操作码、数据和堆栈，
 
-1138
 00:52:41,410 --> 00:52:43,689
-that's just how script works it's just a
+那就是脚本的工作方式。
 
-1139
 00:52:43,689 --> 00:52:45,579
-mini programming language that executes
+它只是一个在堆栈上执行的迷你编程语言，
 
-1140
 00:52:45,579 --> 00:52:49,089
-on a stack and if there's a one left on
+如果在最后堆栈顶部留下一个1，
 
-1141
 00:52:49,089 --> 00:52:50,859
-top of the stack at the end the script
+那么脚本就是有效的，
 
-1142
 00:52:50,859 --> 00:52:52,859
-is valid and the bitcoins can be spent
+比特币就可以被花费。
 
-1143
 00:52:52,859 --> 00:52:57,359
-so you know it was always like this or
+你知道，它总是像这样，
 
-1144
 00:52:57,359 --> 00:52:59,709
-more recently they actually stopped
+或者更近期，他们实际上停止允许这样做，
 
-1145
-00:52:59,709 --> 00:53:01,420
-allowing it because they probably wanted
+00:52:59,709 --> 00:53:06,059
+因为他们可能想减小区块的大小。
 
-1146
-00:53:01,420 --> 00:53:06,059
-to reduce the size of the block yeah I
-
-1147
 00:53:06,059 --> 00:53:12,729
-think I think the standard you know
+我认为，我认为从一开始，
 
-1148
 00:53:12,729 --> 00:53:17,589
-having this set of standard scripts was
+比特币就有这套标准的脚本，
 
-1149
 00:53:17,589 --> 00:53:20,769
-in Bitcoin from the start but from what
+但是从我所了解的，
 
-1150
 00:53:20,769 --> 00:53:24,789
-I understand I know the restriction of
+我知道对非标准的限制，
 
-1151
 00:53:24,789 --> 00:53:27,819
-non-standard yeah I think ultimately it
+我认为最终计划是取消这种限制，
 
-1152
 00:53:27,819 --> 00:53:31,569
-was planned for it to be lifted so but
+但是这还没有发生。
 
-1153
 00:53:31,569 --> 00:53:39,449
-it hasn't happened so yeah so finally
+最后，你在哪里找到这个实际的操作码呢？
 
-1154
 00:53:39,449 --> 00:53:41,979
-where do you find you know I've done
+所以，你在哪里找到这个，
 
-1155
-00:53:41,979 --> 00:53:44,199
-I've just used simple you know locking
+00:53:41,979 --> 00:53:46,809
+我只是简单地使用了锁定脚本和解锁脚本，
 
-1156
-00:53:44,199 --> 00:53:46,809
-script and locking script you know
-
-1157
 00:53:46,809 --> 00:53:50,469
-little diagrams to symbolize it where'd
+你知道，用小图示来表示它，
 
-1158
 00:53:50,469 --> 00:53:51,939
-you find this actual a knocking code
+你在哪里找到这个实际的解锁代码在交易数据中呢？
 
-1159
 00:53:51,939 --> 00:53:55,529
-inside transaction data well like I said
-
-1160
+正如我所说，
+i
 00:53:55,529 --> 00:53:58,209
-when you make a Bitcoin transaction you
+当你进行比特币交易时，
 
-1161
 00:53:58,209 --> 00:54:01,929
-say this is transaction data you the
+你说这就是交易数据，
 
-1162
 00:54:01,929 --> 00:54:03,609
-first part of transaction data just
+交易数据的第一部分只是选择一个输入，
 
-1163
 00:54:03,609 --> 00:54:05,319
-selects an input so that's selecting
+所以这就是选择这个输入。
 
-1164
 00:54:05,319 --> 00:54:07,059
 this input here and the second part
 
