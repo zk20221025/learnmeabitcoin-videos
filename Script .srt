@@ -2252,194 +2252,123 @@ Pay To Script Hash是唯一一个运行方式略有不同的脚本。
 
 00:46:59,250 --> 00:47:02,430
 那么比特币就可以被花费了。
-then the bitcoins can be spent so for
 
-1014
 00:47:02,430 --> 00:47:04,380
-example to unlock this batch of bitcoins
+例如，要解锁这批比特币，
 
-1015
 00:47:04,380 --> 00:47:06,420
-in the unlocking script you just need to
+在解锁脚本中，
 
-1016
 00:47:06,420 --> 00:47:08,600
-provide two numbers that add up to eight
+你只需要提供两个相加等于8的数字。
 
-1017
 00:47:08,600 --> 00:47:13,050
-like so similarly you could create a
+类似地，你可以创建一个哈希谜题，
 
-1018
 00:47:13,050 --> 00:47:15,930
-hash puzzle so you could use a char 256
+你可以使用sha 256操作码，
 
-1019
 00:47:15,930 --> 00:47:18,420
-up code put some data in there after it
+然后在其后面放入一些数据，
 
-1020
 00:47:18,420 --> 00:47:22,260
-and then the equal up code so if you
+然后是等于操作码。
 
-1021
 00:47:22,260 --> 00:47:23,820
-want to unlock this batch of bitcoins
+如果你想解锁这批比特币，
 
-1022
 00:47:23,820 --> 00:47:25,710
-all you need to do is provide some data
+你只需要提供一些数据，
 
-1023
 00:47:25,710 --> 00:47:30,600
-that's hashes to this piece of data in
+这些数据的哈希值等于锁定代码中的这部分数据。
 
-1024
 00:47:30,600 --> 00:47:35,400
-the locking code so this kind of locking
+这种类型的锁定脚本，
 
-1025
 00:47:35,400 --> 00:47:37,170
-script you can find these on the
+你可以在区块链上找到，
 
-1026
 00:47:37,170 --> 00:47:40,080
-blockchain I haven't got any links off
+我现在想不出任何链接，
 
-1027
 00:47:40,080 --> 00:47:42,450
-the top of my head but you know you can
+但你知道，
 
-1028
 00:47:42,450 --> 00:47:44,790
-create scripts like these and they can
+你可以创建这样的脚本，
 
-1029
 00:47:44,790 --> 00:47:50,000
-be mined onto the Bachchan however
+它们可以被挖掘到区块链上。
 
-1030
 00:47:50,000 --> 00:47:53,970
-in Bitcoin you can't create a
+然而，在比特币中，
 
-1031
 00:47:53,970 --> 00:47:56,640
-non-standard script but if you're trying
+你不能创建一个非标准的脚本，
 
-1032
 00:47:56,640 --> 00:48:00,780
-to insert it into a Bitcoin core node so
+但如果你试图将其插入到一个比特币核心节点中，
 
-1033
-00:48:00,780 --> 00:48:02,850
-the Bitcoin coin program implementation
+00:48:00,780 --> 00:48:06,000
+比特币程序实现实际上会保留一个标准脚本的列表，
 
-1034
-00:48:02,850 --> 00:48:06,000
-it actually keeps a list of standard
-
-1035
 00:48:06,000 --> 00:48:07,950
-scripts so if you create one that is
+所以如果你创建一个非标准的脚本，
 
-1036
 00:48:07,950 --> 00:48:10,940
-non-standard they actually rejected
+它们实际上会被拒绝，
 
-1037
 00:48:10,940 --> 00:48:15,150
-which is a bit of shame the reason for
+这是有点可惜的。
 
-1038
 00:48:15,150 --> 00:48:19,430
-that is as far as I'm aware it's because
+据我所知，这样做的原因是
 
-1039
 00:48:19,430 --> 00:48:22,230
-there's a wide variety of these up codes
+因为这些操作码和运算符有很多种，
 
-1040
-00:48:22,230 --> 00:48:24,420
-and operators and not all combinations
+00:48:22,230 --> 00:48:27,240
+并且并非所有的组合都经过了彻底的测试，
 
-1041
-00:48:24,420 --> 00:48:27,240
-of them have been thoroughly tested so
+00:48:27,240 --> 00:48:32,040
+所以可能有人能创建出一种操作码的组合，，
 
-1042
-00:48:27,240 --> 00:48:29,640
-it could be that someone could create a
-
-1043
-00:48:29,640 --> 00:48:32,040
-combination of up codes that when they
-
-1044
 00:48:32,040 --> 00:48:35,310
-insert the transaction into a node the
+当他们将交易插入到一个节点时，
 
-1045
 00:48:35,310 --> 00:48:37,680
-node might end up taking a while to
+该节点可能需要一段时间来处理或验证它，
 
-1046
-00:48:37,680 --> 00:48:40,800
-process it or validate it so all of the
+00:48:37,680 --> 00:48:43,170
+所以所有的标准脚本都被认为能快速运行，
 
-1047
-00:48:40,800 --> 00:48:43,170
-standard scripts are known to be run
-
-1048
 00:48:43,170 --> 00:48:45,420
-quickly and you know can be validated
+并且可以快速验证。
 
-1049
-00:48:45,420 --> 00:48:48,270
-quickly so to protect against anyone
+00:48:45,420 --> 00:48:50,280
+为了防止任何人试图通过验证脚本，
 
-1050
-00:48:48,270 --> 00:48:50,280
-trying to attack the network by creating
-
-1051
 00:48:50,280 --> 00:48:54,510
-you know thousands of slow or expensive
+创建数千个慢或昂贵的验证脚本，
 
-1052
 00:48:54,510 --> 00:48:56,460
-to verify scripts and insert and enter
+并将它们插入到一个节点中来攻击网络，
 
-1053
-00:48:56,460 --> 00:48:59,700
-them into a node a Bitcoin or Bitcoin
+00:48:56,460 --> 00:49:03,570
+比特币或比特币核心节点实际上会拒绝任何非标准的东西，
 
-1054
-00:48:59,700 --> 00:49:01,290
-core node will actually just reject
-
-1055
-00:49:01,290 --> 00:49:03,570
-anything that's non-standard which i
-
-1056
 00:49:03,570 --> 00:49:05,700
-think is a bit aim because you know
+我认为这有点目标不明，
 
-1057
 00:49:05,700 --> 00:49:08,370
-script it's a simple language but it
+因为脚本虽然是一种简单的语言，
 
-1058
-00:49:08,370 --> 00:49:10,830
-does have a variety of operators to use
+00:49:08,370 --> 00:49:13,860
+但它确实有各种运算符可以使用和创建脚本，
 
-1059
-00:49:10,830 --> 00:49:13,860
-and create scripts with but Bitcoin core
-
-1060
-00:49:13,860 --> 00:49:16,320
+00:49:13,860 --> 00:49:17,910
+但比特币核心限制了脚本的数量或类型。
 limits the number all the types of
 
 1061
