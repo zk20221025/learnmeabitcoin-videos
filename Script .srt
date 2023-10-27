@@ -1835,221 +1835,126 @@ stack then we run into this see realized
 
 00:38:27,609 --> 00:38:29,260
 然后锁定脚本的哈希也会放回堆栈顶部。
-script again put on top of the stack as
 
-838
-00:38:29,260 --> 00:38:33,880
-well and then they're equal opcode will
+00:38:29,260 --> 00:38:36,250
+"equal opcode"将从栈中弹出两个元素并检查它们是否相等，
 
-839
-00:38:33,880 --> 00:38:36,250
-pop two elements off check that they
-
-840
 00:38:36,250 --> 00:38:38,440
-equal and if they are it'll put a one on
+如果相等，它将把一个1压入栈顶。
 
-841
 00:38:38,440 --> 00:38:41,109
-top of the stack and so this stack no
+因此这个脚本部分，
 
-842
 00:38:41,109 --> 00:38:43,299
-this script part the unlocking script
+即解锁脚本和锁定脚本，
 
-843
 00:38:43,299 --> 00:38:44,650
-and the locking script has been
+已经完全运行，
 
-844
 00:38:44,650 --> 00:38:47,799
-completely run and we are left with a 1
+并且我们在栈顶留下了一个1。
 
-845
-00:38:47,799 --> 00:38:49,900
-on top of the stack so this first part
+00:38:47,799 --> 00:38:57,400
+这个第一部分检查我们提供的序列化锁定脚本
 
-846
-00:38:49,900 --> 00:38:57,400
-checks that the locking script the
+00:38:57,400 --> 00:39:05,460
+是否与最初被哈希并放入锁定脚本中的脚本匹配，
 
-847
-00:38:57,400 --> 00:38:58,950
-serialized locking script we've provided
-
-848
-00:38:58,950 --> 00:39:01,780
-matches the one that was originally
-
-849
-00:39:01,780 --> 00:39:05,460
-hashed and put into the locking script
-
-850
 00:39:05,460 --> 00:39:09,119
-so that part is done
+这部分已经完成了。
 
-851
 00:39:10,080 --> 00:39:12,720
-then after it's been run because it's a
+当它运行完毕后，
 
-852
 00:39:12,720 --> 00:39:16,320
+因为它是描述性的，
 descriptive it brings the copy back and
 
 853
 00:39:16,320 --> 00:39:18,630
-uses that as the stack so the first part
+它会把副本带回并用作栈。
 
-854
-00:39:18,630 --> 00:39:22,220
-checks that the the hash match is the
+00:39:18,630 --> 00:39:25,980
+第一部分检查哈希是否匹配我们提供的赎回脚本，
 
-855
-00:39:22,220 --> 00:39:25,980
-Redeem script that we provided and in
-
-856
 00:39:25,980 --> 00:39:27,210
-the second part of the page a script
+而再第二部分中，
 
-857
 00:39:27,210 --> 00:39:30,300
-hash it will pop the top element off
+Pay To Script Hash则会弹出栈顶元素，
 
-858
 00:39:30,300 --> 00:39:32,220
-which is the regime script it will
+即赎回脚本，
 
-859
 00:39:32,220 --> 00:39:35,970
-deserialize it and then run the stack
+对其进行反序列化，然后再次运行栈。
 
-860
 00:39:35,970 --> 00:39:39,680
-again so like before in PT multi-sig
+像之前在Pay To Multisig中一样，
 
-861
 00:39:39,680 --> 00:39:42,210
-this is a number two gets pushed on top
+这是一个数字2被压入栈顶，
 
-862
 00:39:42,210 --> 00:39:44,790
-then all the public keys then the three
+然后是所有的公钥，然后是3，
 
-863
 00:39:44,790 --> 00:39:47,040
-then we went into chat multi C again
+然后我们再次进入了CHECKMULTISIG。
 
-864
 00:39:47,040 --> 00:39:49,310
-you'll do the exact same as last time
+它会像上次一样，
 
-865
 00:39:49,310 --> 00:39:51,900
-pop all the ailments off check the
+弹出所有的元素，
 
-866
 00:39:51,900 --> 00:39:53,310
-signatures against public keys make sure
+检查签名是否与公钥匹配，
 
-867
 00:39:53,310 --> 00:39:54,660
-it's got enough and if that's correct
+确保有足够的匹配，如果正确，
 
-868
 00:39:54,660 --> 00:39:56,790
-it'll push someone back onto the stack
+它会把一个1压回栈顶，
 
-869
 00:39:56,790 --> 00:40:03,860
-and that is that done do you follow that
+这样就完成了。
 
-870
-00:40:03,860 --> 00:40:07,670
-okay okay so this page of script hash
+00:40:03,860 --> 00:40:13,890
+Pay To Script Hash是唯一一个运行方式略有不同的脚本。
 
-871
-00:40:07,670 --> 00:40:10,440
-it's the only one that gets run a little
-
-872
-00:40:10,440 --> 00:40:13,890
-differently to these typical scripts and
-
-873
 00:40:13,890 --> 00:40:15,630
-it's only and it was added into Bitcoin
+它是后来添加到比特币中的，
 
-874
-00:40:15,630 --> 00:40:21,840
-later on as a way to be able to create
+00:40:15,630 --> 00:40:26,250
+用来创建复杂的脚本，
 
-875
-00:40:21,840 --> 00:40:26,250
-simple complex scripts basically then
+00:40:26,250 --> 00:40:32,400
+然后让其他人只需要在比特币顶部放一个简单的锁定脚本，
 
-876
-00:40:26,250 --> 00:40:28,410
-have other that have other people only
-
-877
-00:40:28,410 --> 00:40:32,400
-have to put a simple format of locking
-
-878
 00:40:32,400 --> 00:40:34,200
-script on top of bitcoins to make it
+使其更易于操作。
 
-879
-00:40:34,200 --> 00:40:37,530
-easier for them these peter script
+00:40:34,200 --> 00:40:39,090
+这些Pay To Script Hash也有自己的地址，
 
-880
-00:40:37,530 --> 00:40:39,090
-hashes also have their own address
-
-881
 00:40:39,090 --> 00:40:42,510
-similar to the peter pub key hash so the
+类似于Pay To Pubkey Hash的付款方式。
 
-882
-00:40:42,510 --> 00:40:44,430
-way you get a way you form an address
+00:40:42,510 --> 00:40:49,619
+你可以为一个Pay To Script Hash锁定脚本形成一个地址，
 
-883
-00:40:44,430 --> 00:40:46,140
-for a
-
-884
-00:40:46,140 --> 00:40:49,619
-pay to script hash locking script is you
-
-885
 00:40:49,619 --> 00:40:55,650
-will hash the script that you the
+你将哈希你想要的锁定脚本，
 
-886
-00:40:55,650 --> 00:40:57,539
-locking script they or basically how you
+00:40:55,650 --> 00:40:58,829
+或者你想要如何锁定这个比特币，
 
-887
-00:40:57,539 --> 00:40:58,829
-want this matchup it going to be locked
-
-888
 00:40:58,829 --> 00:41:00,869
-up like before great a hash remit and
+然后像之前一样创建一个哈希，
 
-889
-00:41:00,869 --> 00:41:03,779
-then from this hash you will encode it
+00:41:00,869 --> 00:41:07,799
+然后从这个哈希你将把它编码成一个漂亮的地址格式。
 
-890
-00:41:03,779 --> 00:41:07,799
-into a pretty format of an address and
-
-891
 00:41:07,799 --> 00:41:09,390
 you can go back and forth between these
 
