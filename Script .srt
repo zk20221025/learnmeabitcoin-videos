@@ -2118,223 +2118,140 @@ Pay To Script Hash是唯一一个运行方式略有不同的脚本。
 00:44:17,350 --> 00:44:23,050
 然后在后面放入你想要的任何数据。
 
-00:44:23,050 --> 00:44:30,670
-that make sense okay so that is the top
+00:44:23,050 --> 00:44:33,610
+这就是使用比特币的五个主要标准脚本。
 
-960
-00:44:30,670 --> 00:44:33,610
-five or five main standard scripts using
-
-961
 00:44:33,610 --> 00:44:38,320
-bitcoins if you yeah is the use of the
+如果你对"return"关键词的使用感到疑惑，
 
-962
-00:44:38,320 --> 00:44:42,370
-return keyword kind of okay with the
+00:44:38,320 --> 00:44:49,740
+社区对此的态度是可以接受的，尽管他们对此并不十分满意。
 
-963
-00:44:42,370 --> 00:44:46,770
-community or the they are not very happy
-
-964
 00:44:49,740 --> 00:44:51,970
-sound very interesting right yeah I
+这听起来很有趣，
 
-965
 00:44:51,970 --> 00:44:53,500
-think it is a bit controversial because
+我认为这是有些争议的，
 
-966
 00:44:53,500 --> 00:44:55,750
-it kind should just be like a simple
+因为它应该只是一个简单的交易系统，
 
-967
 00:44:55,750 --> 00:44:58,650
-transaction system but this noble turn
+但这个"return"关键词的存在
 
-968
 00:44:58,650 --> 00:45:03,070
-I'm not sure why yeah it was sort of
+使得我不太明白为什么它被允许，
 
-969
 00:45:03,070 --> 00:45:05,530
-allowed or why it's allowed in a way I
+或者为什么它以某种方式被允许，
 
-970
-00:45:05,530 --> 00:45:08,230
-don't understand because bitcoin is
+00:45:05,530 --> 00:45:10,660
+因为比特币对此是非常严格的，
 
-971
-00:45:08,230 --> 00:45:10,660
-quite strict really with you know it
-
-972
 00:45:10,660 --> 00:45:14,020
-wants to be a small database and this
+它希望成为一个小型数据库，
 
-973
 00:45:14,020 --> 00:45:18,010
-just allows people to so I'm not sure a
+而这个关键词的存在就使得人们可以在比特币中插入任意的数据，
 
-974
 00:45:18,010 --> 00:45:20,860
-bit but for the time being for now this
+我对此并不太确定。但是，就目前而言，
 
-975
 00:45:20,860 --> 00:45:25,180
-is a allowed standard script that you
+这是一个被允许的标准脚本，
 
-976
-00:45:25,180 --> 00:45:27,610
-can use to insert arbitrary data into
+00:45:25,180 --> 00:45:30,420
+你可以使用它在区块链中通过交易插入任意数据。
 
-977
-00:45:27,610 --> 00:45:30,420
-the blog chain through transactions
-
-978
 00:45:30,420 --> 00:45:33,850
-anyway so coming back to your question
+回到你之前的问题，
 
-979
-00:45:33,850 --> 00:45:35,710
-earlier these are the standard scripts
+00:45:33,850 --> 00:45:37,750
+这些是你在区块链上最常见的标准脚本。
 
-980
-00:45:35,710 --> 00:45:37,750
-that you're most commonly see on the
-
-981
 00:45:37,750 --> 00:45:40,540
-blockchain these top four obviously just
+前四个主要是支付公钥，
 
-982
-00:45:40,540 --> 00:45:43,240
-pay public keys this fifth one just like
+00:45:40,540 --> 00:45:46,310
+第五个就像是一个额外的附加项。
 
-983
-00:45:43,240 --> 00:45:46,310
-an extra additional one
-
-984
 00:45:46,310 --> 00:45:50,850
-but inside the script pro mini
+但在脚本编程语言中，
 
-985
-00:45:50,850 --> 00:45:53,040
-programming language you have a wide
+00:45:50,850 --> 00:45:55,080
+你有很多不同的运算符可以使用。
 
-986
-00:45:53,040 --> 00:45:55,080
-variety of different operators so far
-
-987
 00:45:55,080 --> 00:45:57,119
-I've just covered these ones standard
+到目前为止，我只是介绍了这些标准脚本，
 
-988
 00:45:57,119 --> 00:45:59,190
-scripts but you might have noticed that
+但你可能已经注意到，
 
-989
 00:45:59,190 --> 00:46:01,890
-we have these little numbers up codes
+我们有这些数字操作码，
 
-990
 00:46:01,890 --> 00:46:04,800
-just just numbers then we also have some
+然后还有一些其他的运算符，
 
-991
 00:46:04,800 --> 00:46:06,450
-other operators like mathematical winds
+比如数学运算符，
 
-992
 00:46:06,450 --> 00:46:08,750
-like addition and subtraction
+如加法和减法，
 
-993
 00:46:08,750 --> 00:46:11,010
-conditional operators if and else and
+条件运算符if和else，
 
-994
 00:46:11,010 --> 00:46:17,430
-then or sorry more hashing operators you
+还有更多的哈希运算符，
 
-995
 00:46:17,430 --> 00:46:20,580
-know like sha-256 and ymd 160 so you
+比如sha-256和ripemd-160。
 
-996
-00:46:20,580 --> 00:46:22,740
-know this script programming language
+00:46:20,580 --> 00:46:25,470
+所以，这个脚本编程语言有很多不同的操作码，
 
-997
-00:46:22,740 --> 00:46:25,470
-has a quite a few different opera op
+00:46:25,470 --> 00:46:29,130
+我们可以使用它们来创建不同类型的脚本。
 
-998
-00:46:25,470 --> 00:46:27,030
-codes that we can use to create
+00:46:29,130 --> 00:46:35,520
+例如，你可以在一批比特币创建一个锁，
 
-999
-00:46:27,030 --> 00:46:29,130
-different types of scripts so for
-
-1000
-00:46:29,130 --> 00:46:32,750
-example you could create a put a lock on
-
-1001
-00:46:32,750 --> 00:46:35,520
-top of a batch of bitcoins there's just
-
-1002
 00:46:35,520 --> 00:46:37,590
-a mathematical puzzle so you could use
+这只是一个数学难题，
 
-1003
 00:46:37,590 --> 00:46:41,190
-add 8 and then equal so when when
+你可以使用加起来等于8，
 
-1004
 00:46:41,190 --> 00:46:42,570
-someone comes to want to unlock this
+当有人想要解锁这个脚本，
 
-1005
 00:46:42,570 --> 00:46:43,770
-script if they want to unlock it and
+如果他们想要解锁并花费它，
 
-1006
 00:46:43,770 --> 00:46:46,380
-spend it all they need to do is provide
+他们需要提供两个数字，
 
-1007
 00:46:46,380 --> 00:46:49,650
-two numbers that when you add them then
+这个脚本就可以被解锁。
 
-1008
 00:46:49,650 --> 00:46:51,359
-so basically two numbers get pushed onto
+基本上，两个数字被推送到栈上，
 
-1009
 00:46:51,359 --> 00:46:53,550
-the stack add will take those two add
+堆栈会把它们加起来，
 
-1010
 00:46:53,550 --> 00:46:55,530
-them push them back onto the stack eight
+然后把结果推回到栈上，
 
-1011
 00:46:55,530 --> 00:46:57,390
-goes on top of the stack and if those
+然后8会被推送到栈顶，
 
-1012
 00:46:57,390 --> 00:46:59,250
-two items on top of the stack are equal
+如果栈顶的两个元素相等，
 
-1013
 00:46:59,250 --> 00:47:02,430
+那么比特币就可以被花费了。
 then the bitcoins can be spent so for
 
 1014
