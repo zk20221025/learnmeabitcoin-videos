@@ -1956,277 +1956,168 @@ Pay To Script Hash是唯一一个运行方式略有不同的脚本。
 然后从这个哈希你将把它编码成一个漂亮的地址格式。
 
 00:41:07,799 --> 00:41:09,390
-you can go back and forth between these
+你可以在这些之间来回切换。
 
-892
 00:41:09,390 --> 00:41:12,869
-two and whereas in a pay to pop key hash
+在Pay To Pubkey Hash中，
 
-893
 00:41:12,869 --> 00:41:18,150
-you have the hash they create well in
+你有哈希值，
 
-894
 00:41:18,150 --> 00:41:19,739
-this page script - you couldn't address
+而在这个Pay To Script Hash中，你无法找到地址，
 
-895
 00:41:19,739 --> 00:41:22,470
-and the hash is inside there and you put
+哈希值在其中，
 
-896
 00:41:22,470 --> 00:41:24,690
-a three at the start so when you give
+你在开头放一个3，
 
-897
 00:41:24,690 --> 00:41:26,880
-this three to someone else they'll be
+所以当你将这个3给别人时，
 
-898
 00:41:26,880 --> 00:41:29,160
-able to decode it get the hash and then
+他们可以解码它，获取哈希值，
 
-899
 00:41:29,160 --> 00:41:32,190
-form this particular format of locking
+然后形成这种特定格式的锁定脚本。
 
-900
-00:41:32,190 --> 00:41:35,339
-script so a one address I need any
+00:41:32,190 --> 00:41:39,059
+以1开头的地址对应这种类型的锁定脚本，
 
-901
-00:41:35,339 --> 00:41:37,380
-address begins with the one corresponds
+00:41:39,059 --> 00:41:45,859
+以3开头的地址对应这种类型的锁定脚本。
 
-902
-00:41:37,380 --> 00:41:39,059
-to this particular type of lock in
+00:41:45,859 --> 00:41:51,539
+它通常会是Pay To Multisig，
 
-903
-00:41:39,059 --> 00:41:43,049
-script and any address you find the
-
-904
-00:41:43,049 --> 00:41:45,859
-start with a three correspond to this
-
-905
-00:41:45,859 --> 00:41:49,079
-kind of locking script so it's typically
-
-906
-00:41:49,079 --> 00:41:51,539
-going to be you know a paid to multi-sig
-
-907
 00:41:51,539 --> 00:41:55,319
-or more recently pay into a segregated
+或最近的隔离见证类型交易，
 
-908
 00:41:55,319 --> 00:41:57,720
-witness type transaction which I'm not
+我不会在这里讲述，
 
-909
-00:41:57,720 --> 00:42:00,299
-going to cover here but segregated
+00:41:57,720 --> 00:42:03,660
+但隔离见证已经使用这种格式来锁定他们的币。
 
-910
-00:42:00,299 --> 00:42:03,660
-witness has used this format for locking
-
-911
 00:42:03,660 --> 00:42:08,579
-up their coins so that's page script
+这就是Pay To Script Hash，
 
-912
 00:42:08,579 --> 00:42:10,829
-hash then that's the most complex part
+这是整个演示中最复杂的部分，
 
-913
 00:42:10,829 --> 00:42:12,839
-of this whole presentation so if that
+如果这部分讲清楚了，
 
-914
-00:42:12,839 --> 00:42:14,220
-made sense then everything else gonna be
+00:42:12,839 --> 00:42:14,549
+那么其他部分就容易了。
 
-915
-00:42:14,220 --> 00:42:14,549
-easy
-
-916
 00:42:14,549 --> 00:42:17,190
-um but this is just like a special form
+但这就像是一种特殊的形式，
 
-917
 00:42:17,190 --> 00:42:19,170
-that gets asked executed slightly
+要求执行的方式略有不同，
 
-918
 00:42:19,170 --> 00:42:23,670
-differently finally the last standard
+在最后，
 
-919
-00:42:23,670 --> 00:42:26,130
-script that gets used in Bitcoin it's
+00:42:23,670 --> 00:42:30,539
+最后一个在比特币中使用的标准脚本叫做空数据锁定脚本，
 
-920
-00:42:26,130 --> 00:42:30,539
-called a null data locking script and
-
-921
 00:42:30,539 --> 00:42:33,569
-that uses this up code called opie
+它使用了一个叫做op return的操作码，
 
-922
 00:42:33,569 --> 00:42:37,559
-return or just return and what this our
+或者简单叫做return的操作码。
 
-923
 00:42:37,559 --> 00:42:40,650
-code does it invalidates the script so
+我们的代码做了什么呢？
 
-924
 00:42:40,650 --> 00:42:43,319
-no matter what you put in the unlocking
+这个操作码会使脚本无效，
 
-925
 00:42:43,319 --> 00:42:46,739
-code whenever you run or a node runs
+无论你在解锁码中放什么，
 
-926
 00:42:46,739 --> 00:42:49,309
-this
+只要一个节点运行了这个操作码，
 
 927
 00:42:51,160 --> 00:42:54,340
-up code it's going to invalidate the
+它就会使脚本无效，
 
-928
-00:42:54,340 --> 00:42:56,620
-script which means that this batch of
+00:42:54,340 --> 00:43:00,250
+这意味着这批比特币永远不能被花费。
 
-929
-00:42:56,620 --> 00:43:00,250
-bitcoins can never be spent so why would
-
-930
 00:43:00,250 --> 00:43:02,110
-you do that it seems quite pointless why
+为什么你要这么做呢？
 
-931
-00:43:02,110 --> 00:43:03,340
-would you create a batch of bitcoins
+00:43:02,110 --> 00:43:06,070
+为什么要创建一批永远不能被花费的比特币呢？
 
-932
-00:43:03,340 --> 00:43:06,070
-that can never be spent well what
-
-933
 00:43:06,070 --> 00:43:08,910
-typically happens in Bitcoin is they
+在比特币中，
 
-934
 00:43:08,910 --> 00:43:11,560
-someone will create a transaction but
+通常会有人创建一个交易，
 
-935
 00:43:11,560 --> 00:43:15,190
-then they'll also create a output with
+然后他们还会创建一个没有比特币的输出，
 
-936
 00:43:15,190 --> 00:43:17,680
-no bitcoins in it so like an like almost
+就像一个虚拟的输出，
 
-937
 00:43:17,680 --> 00:43:19,900
-like a dummy output and in the locking
+然后在锁定脚本中，
 
-938
 00:43:19,900 --> 00:43:21,730
-script they'll put the return opcode in
+他们会放入return操作码，
 
-939
 00:43:21,730 --> 00:43:24,010
-there so it can't be spent but there's
+所以它不能被花费，
 
-940
 00:43:24,010 --> 00:43:25,750
-no bitcoins in there so you know be
+但是里面没有比特币，
 
-941
 00:43:25,750 --> 00:43:28,540
-spent anyway and then after the return
+所以也不能被花费。
 
-942
 00:43:28,540 --> 00:43:31,330
-up code they'll just put some data after
+在return操作码后面，他们会放入一些数据。
 
-943
-00:43:31,330 --> 00:43:34,720
-it for example you could take the text
+00:43:31,330 --> 00:43:36,940
+例如，你可以取文本“will you marry me”，
 
-944
-00:43:34,720 --> 00:43:36,940
-will you marry me convert to text XML
-
-945
 00:43:36,940 --> 00:43:39,880
-hexadecimal and put it in the lock in
+以ASCII转换为十六进制，
 
-946
 00:43:39,880 --> 00:43:42,280
-script after this return up code and
+并将其放入锁定脚本的return操作码后面。
 
-947
 00:43:42,280 --> 00:43:49,060
-this is a standard format for a or
+这是一个标准的交易格式，
 
-948
 00:43:49,060 --> 00:43:51,990
-standard transaction format so basically
+所以基本上，
 
-949
-00:43:51,990 --> 00:43:57,580
-this format is just a way of adding some
+00:43:51,990 --> 00:44:00,610
+这种格式只是一种将任意数据添加到比特币交易的方式。
 
-950
-00:43:57,580 --> 00:44:00,610
-arbitrary data to a Bitcoin transaction
+00:44:00,610 --> 00:44:06,760
+所以当你听到人们在区块链中插入数据时，
 
-951
-00:44:00,610 --> 00:44:02,920
-so when you hear people inserting data
+00:44:06,760 --> 00:44:12,370
+这是一个典型的人们创建交易以添加数据到区块链的最简单方式，
 
-952
-00:44:02,920 --> 00:44:06,760
-into the blockchain this is the easiest
-
-953
-00:44:06,760 --> 00:44:10,690
-way for a typical person creating a
-
-954
-00:44:10,690 --> 00:44:12,370
-transaction to add data to the
-
-955
 00:44:12,370 --> 00:44:14,620
-blockchain you just create an empty
+你只需要创建一个空的输出，
 
-956
 00:44:14,620 --> 00:44:17,350
-output and on the locking script use the
+并在锁定脚本中使用return操作码，
 
-957
-00:44:17,350 --> 00:44:20,680
-return opcode and put any teacher in
+00:44:17,350 --> 00:44:23,050
+然后在后面放入你想要的任何数据。
 
-958
-00:44:20,680 --> 00:44:23,050
-after it that you want
-
-959
 00:44:23,050 --> 00:44:30,670
 that make sense okay so that is the top
 
