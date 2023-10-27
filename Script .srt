@@ -1332,168 +1332,102 @@ P2PK没有地址格式，
 00:28:22,419 --> 00:28:26,980
 如果这些公钥是按特定的顺序放入锁定脚本的，
 
-00:28:26,980 --> 00:28:28,450
+00:28:26,980 --> 00:28:31,889
 这些签名也需要按正确的顺序，
-signatures will be need to be in the
-
-624
-00:28:28,450 --> 00:28:31,889
 
 00:28:31,889 --> 00:28:34,929
 这就是典型的Pay To Multisig签名，
-so that is a typical Paton multi-sig and
 
-627
 00:28:34,929 --> 00:28:37,539
 我会在片刻后运行它，只是一个小提示，
-I'll run it in a moment just a quick
 
-628
 00:28:37,539 --> 00:28:46,200
 这个CHECKMULTISIG函数或者它的工作方式中有一个小错误。
 
 00:28:46,200 --> 00:28:49,870
 这只是从比特币开始就有的一个错误，
-and this was just a boat from the start
 
-631
 00:28:49,870 --> 00:28:51,250
 我们只需要现在就考虑它。
-of Bitcoin that we just need to account
 
-632
 00:28:51,250 --> 00:28:56,950
 基本上，发生的情况是这个M在这里开头有一个偏移一个的错误。
 
 00:28:56,950 --> 00:29:00,960
 会发生的是它会多消耗掉的一个堆栈。
-error so what happens is it will consume
 
-635
 00:29:00,960 --> 00:29:04,750
 我们在这里指出，
-one more item from the stack then we've
 
-636
 00:29:04,750 --> 00:29:07,779
 为了解决这个问题，
-indicated here so to get around that for
 
-637
 00:29:07,779 --> 00:29:09,669
 对于每个Pay To Multisig签名，
-every pay to multi-sig we just need to
 
-638
 00:29:09,669 --> 00:29:13,980
 我们只需要在开始时放一个虚拟的或零操作码。
-put a dummy or zero opcode at the start
 
-639
 00:29:13,980 --> 00:29:16,629
 这就是我们需要考虑的错误，
-so this is the bug that need to account
 
-640
 00:29:16,629 --> 00:29:19,590
 当我们使用CHECKMULTISIG签名脚本时。
-for let me use the check multi-sig
 
-641
 00:29:19,590 --> 00:29:24,120
 无论如何，让我们运行这个脚本，
-script so anyway let's run this script
 
-642
 00:29:24,120 --> 00:29:26,110
 如何运行它，如何检查它，
-how does it get run how does it get
 
-643
 00:29:26,110 --> 00:29:29,289
 把锁定代码放在开始，
-checked and put the locking code at the
 
-644
 00:29:29,289 --> 00:29:32,500
 然后从左到右，
-start then go from left to right numbers
 
-645
 00:29:32,500 --> 00:29:34,059
 数字就被推到堆栈上，
-they just get pushed onto the stack
 
-646
 00:29:34,059 --> 00:29:36,519
 就像数据一样。所以零在堆栈上，
-just like data like so so the zeros on
 
-647
 00:29:36,519 --> 00:29:38,620
 然后我们把签名推到堆栈上
-the stack there then we push on the
 
-648
 00:29:38,620 --> 00:29:40,960
 因为它们是数据，
-signatures because their data then we
 
-649
-00:29:40,960 --> 00:29:42,220
+00:29:40,960 --> 00:29:43,840
 然后我们有两个数字再次被推到堆栈上，
-have the two again number just gets
 
-650
-00:29:42,220 --> 00:29:43,840
-pushed numbers just get pushed on top of
-
-651
 00:29:43,840 --> 00:29:46,929
 然后每一个公钥，它们只是数据，
-the stack then each of these public keys
 
-652
 00:29:46,929 --> 00:29:48,789
 可以推到堆栈的顶部，
-again they're just data can push on top
 
-653
 00:29:48,789 --> 00:29:52,330
-然后是三
-the stack and then the three finally we
+然后是三，
 
-654
 00:29:52,330 --> 00:29:54,639
 最后我们来到CHECKMULTISIG操作码，
-come to the check mark multi-sig opcode
 
-655
 00:29:54,639 --> 00:29:56,980
 它首先会弹出顶部的元素，
-what this does first of all it'll pop
 
-656
 00:29:56,980 --> 00:29:58,899
 看到这是一个三，
-the top element off see that's a three
 
-657
 00:29:58,899 --> 00:30:01,629
 当它看到这是一个三，
-when it sees us a three it means it will
 
-658
 00:30:01,629 --> 00:30:02,950
 它意味着它会弹出接下来的三个元素，
-pop the next three elements off the top
 
-659
 00:30:02,950 --> 00:30:05,259
 然后它会弹出下一个元素，
-the stack then you'll pop the next
 
-660
 00:30:05,259 --> 00:30:07,029，
 是二，
 
@@ -1502,24 +1436,16 @@ the stack then you'll pop the next
 
 00:30:09,960 --> 00:30:13,250
 但是像我之前提到的，
-but like I mentioned earlier this M here
 
-664
 00:30:13,250 --> 00:30:16,110
 这个M在这里有一个偏移一个的错误，
-hasn't off by one error so it will
 
-665
 00:30:16,110 --> 00:30:19,440
 所以它会消耗掉三个，而不是两个。
-consume three instead of two but this is
 
-666
 00:30:19,440 --> 00:30:21,390
 但这只是比特币中的一个小漏洞，
-just a little bug in Bitcoin attack you
 
-667
 00:30:21,390 --> 00:30:24,960
 你可以假装它不存在。
 
@@ -1537,24 +1463,16 @@ just a little bug in Bitcoin attack you
 
 00:30:42,390 --> 00:30:44,309
 它会继续检查下一个公钥，
-if that doesn't match it I'll move on to
 
-678
 00:30:44,309 --> 00:30:45,600
 看它是否匹配。
-the next public key to see if that
 
-679
 00:30:45,600 --> 00:30:48,210
 这个公钥如果匹配，
-matches and this one does much so let's
 
-680
 00:30:48,210 --> 00:30:49,620
 我们在这里标记一下。
-put a little one here to see the lab
 
-681
 00:30:49,620 --> 00:30:56,130
 我之所以说要把这些签名按正确的顺序放好，
 
@@ -1564,101 +1482,63 @@ put a little one here to see the lab
 00:31:02,490 --> 00:31:08,460
 CHECKMULTISIG函数就不会再检查这些公钥了。
 
-00:31:08,460 --> 00:31:10,740
+00:31:08,460 --> 00:31:13,470
 所以当你要匹配第二个签名和公钥时，
-you come to match the second signature
 
-688
-00:31:10,740 --> 00:31:13,470
-
-against the public keys instead of going
-
-689
 00:31:13,470 --> 00:31:16,770
 它不会从头开始与每个单独的公钥进行匹配，
-from the start and match them against
 
-690
-00:31:14,820 --> 00:31:16,770
-
-each of the individual public keys it
-
-691
 00:31:16,770 --> 00:31:18,240
 而是从上次匹配的位置开始。
-will start from where it left off or the
 
-692
 00:31:18,240 --> 00:31:23,610
 你会再次检查这个签名是否与这个公钥匹配，
 
 00:31:23,610 --> 00:31:25,980
 如果匹配，
-if that matches the near we are we have
 
-695
 00:31:25,980 --> 00:31:28,980
 那我们就有了两个匹配的签名。
-got too much in signatures and therefore
 
-696
 00:31:28,980 --> 00:31:36,380
 因为我们在这个锁定脚本中要求有两个签名，
 
 00:31:36,380 --> 00:31:39,799
 所以CHECKMULTISIG对此很满意，
-this script is Viator check multi-sig is
 
-699
 00:31:39,799 --> 00:31:43,409
 它会在栈顶推入一个1。
-happy with this so it'll push a one on
 
-700
 00:31:43,409 --> 00:31:49,140
 如果只有0或1个签名与这些公钥匹配，
 
 00:31:49,140 --> 00:31:51,840
 那么它会在栈顶推入一个0。
-public keys they were pushes you on top
 
-703
 00:31:51,840 --> 00:31:53,250
 但因为我们有足够的匹配签名，
-but because we've got enough matching
 
-704
 00:31:53,250 --> 00:31:55,620
 所以它在栈顶推入一个1。
-signatures it pushes a one on top of the
 
-705
 00:31:55,620 --> 00:32:03,750
 这个过程明白了吗？好了，
 
 00:32:03,750 --> 00:32:06,480
 这就是Pay To Multisig签名。
-8a multi-sig obviously now you know how
 
-708
 00:32:06,480 --> 00:32:10,380
 现在你知道这些脚本是如何工作的，
-these scripts work is quite simple
 
-709
 00:32:10,380 --> 00:32:13,290
 其实很简单。在我们继续讨论第四个问题之前。
-before we move on to the fourth one
 
-710
 00:32:13,290 --> 00:32:19,380
 但是在设置Pay To Multisig签名时有一个小问题。
 
 00:32:19,380 --> 00:32:22,120
 假设我们公司有三个或更多的人，
-say there are three of us or more of us
 
-713
 00:32:22,120 --> 00:32:29,140
 我们只想接受Pay To Multisig签名的锁定脚本的比特币。
 
@@ -1667,34 +1547,23 @@ say there are three of us or more of us
 
 00:32:33,450 --> 00:32:36,880
 他们将不得不构建一个交易，
-and they'll have to construct a
 
-718
 00:32:36,880 --> 00:32:39,070
 并将我们给出的整个脚本，
-transaction and put the entire script we
 
-719
 00:32:39,070 --> 00:32:45,630
 放入他们要发送给我们的比特币的锁定代码中。
 
 00:32:45,630 --> 00:32:49,090
 他们就构建这个完整的交易，
 
-like so so they construct this entire
-
-722
 00:32:49,090 --> 00:32:53,380
 他们必须将我们想要的锁定代码放到这批比特币上。
 
 00:32:53,380 --> 00:32:57,460
 但CHECKMULTISIG的问题是，
-this batch of bitcoins problem with this
 
-725
 00:32:57,460 --> 00:33:03,580
-
-check multi-sig is that they can get
 这些特定的锁定脚本可能会变得相当大。
 
 00:33:03,580 --> 00:33:08,350
@@ -1702,13 +1571,7 @@ check multi-sig is that they can get
 
 00:33:08,350 --> 00:33:16,180
 但每增加一个公钥到多重签名中，
-and five bytes but with every public key
 
-730
-00:33:13,000 --> 00:33:16,180
-that we add in to the pater multi-sig it
-
-731
 00:33:16,180 --> 00:33:18,010
 它就会变得越来越大，
 gets bigger and bigger and bigger
@@ -1722,50 +1585,34 @@ gets bigger and bigger and bigger
 
 00:33:30,910 --> 00:33:32,470
 一个很大的支付到多重签名的锁定脚本给某人锁定我们的比特币，
-to multi-sig locking script to someone
 
-737
 00:33:32,470 --> 00:33:35,020
 他们可能不会很高兴，
-to lock up our bitcoins they're probably
 
-738
 00:33:35,020 --> 00:33:39,400
 因为这将在他们的交易中占用大量的数据。
 
 00:33:39,400 --> 00:33:44,940
 他们将不得不为这些数据支付交易费用。
-their transaction and they're gonna have
 
-741
-00:33:41,530 --> 00:33:44,940
-to pay for that data in transaction fees
-
-742
 00:33:44,940 --> 00:33:51,280
 尤其是当你考虑到Pay To Pubkey是35字节，
 
 00:33:51,280 --> 00:33:54,130
 Pay To Pubkey Hash是25字节，
-public key hash 25 bytes and typically
 
-745
 00:33:54,130 --> 00:34:00,040
 而通常最小的Pay To Multisig锁定脚本要105字节，
 
 00:34:00,040 --> 00:34:05,470
 这对这个人来说，
-too exciting for this person to want to
 
-748
 00:34:05,470 --> 00:34:09,550
 他们可能不会想发送比特币到除了Pay To Pubkey或Pay To Pubkey Hash脚本之外的任何地方。
 
 00:34:09,550 --> 00:34:14,199
 那么我们如何避免这个问题，
-scripts so what can we do to sort of
 
-751
 00:34:14,199 --> 00:34:27,619
 避免这个人不得不通过创建包含更多交易数据的交易来支付这些大型锁定脚本的问题呢？
 
@@ -1777,122 +1624,76 @@ scripts so what can we do to sort of
 
 00:34:41,899 --> 00:34:45,460
 更容易让别人创建交易。
-someone else to creat transactions with
 
-760
 00:34:45,460 --> 00:34:48,018
 这就是所谓的Pay To Pubkey Hash，
 
 00:34:48,018 --> 00:34:50,268
 我现在来解释一下这是怎么工作的。
-i'll explain how this works now so let's
 
-762
 00:34:50,268 --> 00:34:57,710
 让我们假设我们想要接收到一个Pay To Multisig锁定脚本的比特币。
 
 00:34:57,710 --> 00:34:59,479
 我们要做的不是给他们整个锁定脚本，
-we'll do instead of given them is in
 
-765
-00:34:59,479 --> 00:35:03,109
+00:34:59,479 --> 00:35:04,880
 而是首先将它散列在一起，
-this entire locking script your first of
 
-766
-00:35:03,109 --> 00:35:04,880
-all just hash it together
-
-767
 00:35:04,880 --> 00:35:06,289
 得到这个特定脚本的唯一哈希，
-the unique hash of this particular
 
-768
 00:35:06,289 --> 00:35:08,119
 这就叫做脚本哈希。
-script and this is called the script
 
-769
-00:35:08,119 --> 00:35:13,130
+00:35:08,119 --> 00:35:14,479
 那么我们可以做的就是将这个脚本哈希给别人，
-hash so what we can do then you can just
 
-770
-00:35:13,130 --> 00:35:14,479
-give this script hash to someone else
-
-771
 00:35:14,479 --> 00:35:17,479
 然后他们可以将这个放入锁定脚本，
-and then they can put this into the
 
-772
 00:35:17,479 --> 00:35:20,960
 用一组操作码包裹起来，
-locking script wrap it with a sick of a
 
-773
 00:35:20,960 --> 00:35:29,269
 所以我们有了一个Pay To Pubkey Hash锁定。
 
 00:35:29,269 --> 00:35:30,890
 这显然要小得多。
-obviously a lot smaller so instead of
 
-776
 00:35:30,890 --> 00:35:33,259
 我们不是给这个人整个原始的锁定脚本，
-giving this person the entire original
 
-777
 00:35:33,259 --> 00:35:35,299
 我们只是给他们一个哈希，
-locking script we just give them a hash
 
-778
 00:35:35,299 --> 00:35:37,249
 这使得它缩小了很多，
-of it then which shrinks it shrinks it
 
-779
 00:35:37,249 --> 00:35:39,529
 他们只需要在其周围应用两个操作码，
-down a lot they just have to apply to
 
-780
 00:35:39,529 --> 00:35:45,589
 那么我们就有了一个Pay To Pubkey Hash的锁定脚本，
 
 00:35:45,589 --> 00:35:47,690
 这个脚本要短得多。
-this is much shorter so whereas the
 
-783
 00:35:47,690 --> 00:35:53,150
 原来的105字节变得和Pay To Script Hash、Pay To Pubkey Hash差不多，
 
 00:35:53,150 --> 00:35:55,969
 大约23字节，这使得他们很高兴，
-23 bytes which makes them happy because
 
-786
 00:35:55,969 --> 00:35:58,039
 因为他们不需要构建这些巨大的交易，
-they don't have to construct these huge
 
-787
 00:35:58,039 --> 00:36:01,279
 并为这些大型锁定脚本支付费用。
-transactions and pay for the fees from
 
-788
 00:36:01,279 --> 00:36:06,079
 那么这个工作，
-these large locking scripts so that
 
-789
 00:36:06,079 --> 00:36:14,479
 但是我们如何解锁或赎回这批有这个Pay To Script Hash代码上锁定脚本的比特币呢？
 
@@ -1901,9 +1702,7 @@ these large locking scripts so that
 
 00:36:19,950 --> 00:36:21,930
 我们所要做的就是提供两个签名，
-same as before you just need to provide
 
-795
 00:36:21,930 --> 00:36:25,860
 但是除此之外，
 
@@ -1919,154 +1718,123 @@ but instead of putting the individual op
 
 800
 00:36:36,750 --> 00:36:38,610
+我们只是将所有的东西压缩到一起
 codes we just squeeze it all together
 
 801
 00:36:38,610 --> 00:36:41,580
+变成一份单一的数据，
 into a single piece of data or serialize
 
 802
 00:36:41,580 --> 00:36:44,340
+或者序列化成一份单一的数据，
 it to a single piece of data so all the
 
 803
 00:36:44,340 --> 00:36:46,140
+所有的操作码都在里面，
 op codes are in there but instead of
 
 804
 00:36:46,140 --> 00:36:47,940
+但不是以单独的操作码的形式出现，
 them peered individual op codes it's
 
 805
 00:36:47,940 --> 00:36:54,050
+只是一堆数据。
 just a bunch of data right so let's run
 
 806
 00:36:54,050 --> 00:36:59,060
+所以让我们再次运行这个锁定码和解锁码。
 this locking code and a knockin code
 
 807
 00:36:59,060 --> 00:37:02,010
+你将锁定码放在开始，
 right so once again you put the locking
 
 808
-00:37:02,010 --> 00:37:06,180
-code at the start but the thing is with
+00:37:02,010 --> 00:37:08,430
+但是对于Pay To Script Hash，
 
-809
-00:37:06,180 --> 00:37:08,430
-a pager script hash and even though it
+00:37:08,430 --> 00:37:14,300
+尽管它以大致相同的方式执行，
 
-810
-00:37:08,430 --> 00:37:11,000
-gets executed in roughly the same way
+00:37:14,300 --> 00:37:19,830
+但这种特殊的锁定码格式会以略微不同的方式执行，
 
-811
-00:37:11,000 --> 00:37:14,300
-this particular format of locking code
-
-812
-00:37:14,300 --> 00:37:17,430
-is like it's a special form and it will
-
-813
-00:37:17,430 --> 00:37:19,830
-be executed slightly differently and
-
-814
 00:37:19,830 --> 00:37:23,940
+我将展示如何操作。
 I'll show you how that works now so it
 
 815
 00:37:23,940 --> 00:37:26,130
+它像往常一样开始，使用堆栈，
 starts off as normal using the stack we
 
 816
 00:37:26,130 --> 00:37:28,710
+我们将锁定码放在开始，
 put the locking code at the start and we
 
 817
 00:37:28,710 --> 00:37:30,960
+然后我们将签名推到堆栈上。
 all just push the signatures onto the
 
 818
 00:37:30,960 --> 00:37:35,340
+然后我们遇到这个序列化的锁定脚本，
 stack then we run into this see realized
 
 819
 00:37:35,340 --> 00:37:38,910
-lock in script also call the redeem
+也叫做赎回脚本，
 
-820
-00:37:38,910 --> 00:37:41,250
-script and because it's just data just
+00:37:38,910 --> 00:37:43,020
+因为它只是数据被压缩在一起，
 
-821
-00:37:41,250 --> 00:37:43,020
-shove together that just goes on top of
-
-822
 00:37:43,020 --> 00:37:44,960
-the stack as well and that is the
+所以它也就直接放在堆栈的顶部，
 
-823
 00:37:44,960 --> 00:37:49,350
-unlocking code part done because it's a
+这就是解锁码的完成部分。
 
-824
 00:37:49,350 --> 00:37:51,000
-pager script hash this is where the
+因为它是一个Pay To Script Hash，
 
-825
 00:37:51,000 --> 00:37:53,490
-difference comes in it will make a copy
+这就是差异所在，
 
-826
 00:37:53,490 --> 00:37:57,420
-of the stack after the unlocking code or
+它会在解锁脚本运行后复制堆栈。
 
-827
 00:37:57,420 --> 00:38:00,210
-a knockin script has been run so it
+所以它会复制一份。
 
-828
-00:38:00,210 --> 00:38:03,150
-takes a copy of it now it will run the
+00:38:00,210 --> 00:38:10,440
+它将使用从解锁脚本得到的堆栈来运行原始的锁定脚本。
 
-829
-00:38:03,150 --> 00:38:07,110
-original locking script with the stack
-
-830
-00:38:07,110 --> 00:38:10,440
-we've got from the unlocking script so
-
-831
 00:38:10,440 --> 00:38:14,040
-first of all it there's a hash 160 of
+首先，它会对堆栈顶部的元素进行哈希160，
 
-832
-00:38:14,040 --> 00:38:16,440
-the top element on the stack so it will
+00:38:14,040 --> 00:38:19,450
+所以它会对这份数据进行哈希，
 
-833
-00:38:16,440 --> 00:38:19,450
-hash this piece of data the
-
-834
 00:38:19,450 --> 00:38:22,750
-see realized lock-in script the original
+这就是原始的序列化锁定脚本。
 
-835
 00:38:22,750 --> 00:38:24,849
-one and they were hash it put it back on
+然后它们会对它进行哈希处理，
 
-836
 00:38:24,849 --> 00:38:27,609
-top then the hash from the locking
+再放回堆栈顶部，
 
-837
 00:38:27,609 --> 00:38:29,260
+然后锁定脚本的哈希也会放回堆栈顶部。
 script again put on top of the stack as
 
 838
