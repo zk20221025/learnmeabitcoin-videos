@@ -2624,33 +2624,22 @@ this input here and the second part
 
 00:54:13,449 --> 00:54:16,630
 包含脚本公钥，即锁定脚本。
-the script pub key which is the lock in
 
-1168
 00:54:16,630 --> 00:54:19,619
 这部分的第一部分是比特币的数量，
-script so this part here this first part
 
-1169
 00:54:19,619 --> 00:54:24,090
 第二部分是脚本公钥，
 
 00:54:24,090 --> 00:54:26,160
 我在这里出了一些错误，
-I think I've highlighted I finally that
 
-1172
 00:54:26,160 --> 00:54:27,330
 但不用担心，
-I did this a bit wrong but don't worry
 
-1173
 00:54:27,330 --> 00:54:31,140
 第二部分是脚本公钥
 
-this second part here is the script pub
-
-1174
 00:54:31,140 --> 00:54:36,330
 也就是我们在交易数据中找到的锁定脚本。
 
@@ -2662,24 +2651,16 @@ this second part here is the script pub
 
 00:54:50,850 --> 00:54:52,920
 在这第二笔交易中，
-in this second transaction you have an
 
-1182
 00:54:52,920 --> 00:54:55,230
 你有一个输入，
-input which all that does really is
 
-1183
 00:54:55,230 --> 00:54:58,350
 它所做的只是引用来自之前交易的一个输出。
-reference an output from a previous
 
-1184
 00:54:58,350 --> 00:55:00,690
 就是引用这里，
-transaction so that's referencing this
 
-1185
 00:55:00,690 --> 00:55:05,790
 第二笔交易也会从中创建新的输出，
 
@@ -2688,63 +2669,37 @@ transaction so that's referencing this
 
 00:55:10,920 --> 00:55:14,330
 当它引用这个之前的输出时，
-when it references this previous output
 
-1190
 00:55:14,330 --> 00:55:18,290
 解锁代码就在输入里。
-inside the input sits the unlocking code
 
-1191
 00:55:18,290 --> 00:55:21,240
 这就是解锁代码，
-so this here is the unlocking code and
 
-1192
 00:55:21,240 --> 00:55:23,520
 有时也被称为脚本签名，
-this is also referred to sometimes as a
 
-1193
 00:55:23,520 --> 00:55:25,950
 因为它是一个脚本，
-script sig because it's a script and it
 
-1194
 00:55:25,950 --> 00:55:28,320
 并且通常包含公钥的签名。
-typically contains the signature for the
 
-1195
 00:55:28,320 --> 00:55:31,200
 所以这就是解锁代码。
-public key so there we have the
 
-1196
 00:55:31,200 --> 00:55:35,730
 这显然是十六进制的，
-unlocking code so this is obviously or
 
-1197
 00:55:35,730 --> 00:55:41,370
 我们如何从中得到操作码呢？
-in hexadecimal how do we get the opcodes
 
-1198
 00:55:41,370 --> 00:55:46,910
 我们只需要对其进行解码。
-out of this well just need to decode it
 
-1199
-00:55:46,910 --> 00:55:49,380
+00:55:46,910 --> 00:55:51,030
 如果我们浏览锁定脚本和解锁脚本中的每一个字节，
-if you weren't if we run through every
 
-1200
-00:55:49,380 --> 00:55:51,030
-single byte inside the lock in script
-
-1201
 00:55:51,030 --> 00:55:56,750
 每个字节都会对应一个特定的操作码。
 
@@ -2753,265 +2708,161 @@ single byte inside the lock in script
 
 00:56:05,910 --> 00:56:07,170
 接下来的9代表哈希160，
-are a nine
 
-1206
 00:56:07,170 --> 00:56:15,650
 而14并没有对应的操作码。
 
 00:56:15,650 --> 00:56:19,080
 但是，如果任何东西在十六进制中小于4B，
-but if anything is below for B in
 
-1209
 00:56:19,080 --> 00:56:30,710
 那么这个数字表示有这么多字节的数据需要被推入栈中。
 
-00:56:30,710 --> 00:56:35,000
-so 14 is below for beef that says push
+00:56:30,710 --> 00:56:37,040
+所以14表示将有这么多字节推入堆栈，
 
-1214
-00:56:35,000 --> 00:56:37,040
-this many bytes onto the stack or this
-
-1215
 00:56:37,040 --> 00:56:39,950
-is just the data and not an opcode so 14
+或者这只是数据而不是操作码，
 
-1216
 00:56:39,950 --> 00:56:43,730
-in decimal is 20 bytes so there we have
+所以十进制中的14就是20字节，
 
-1217
 00:56:43,730 --> 00:56:45,560
-this next 20 bytes it's just a piece of
+所以我们有接下来的20字节，
 
-1218
 00:56:45,560 --> 00:56:50,510
-data then carrying on we have 8 8 that's
+这只是一部分数据。
 
-1219
 00:56:50,510 --> 00:56:53,870
-equal verify and AC which is check sick
+然后我们继续，我们有88，这是等于验证，AC是校验。
 
-1220
-00:56:53,870 --> 00:56:55,280
-so then we ha
+00:56:53,870 --> 00:56:58,610
+所以然后我们就解码了锁定脚本，
 
-1221
-00:56:55,280 --> 00:56:58,610
-we've just decoded the docking script
+00:56:58,610 --> 00:57:01,490
+它只是一堆字节对应的操作码，
 
-1222
-00:56:58,610 --> 00:57:01,010
-it's just a bunch of bytes correspondent
-
-1223
-00:57:01,010 --> 00:57:01,490
-opcodes
-
-1224
 00:57:01,490 --> 00:57:03,350
-and if a byte is below a certain number
+如果一个字节低于某个数，
 
-1225
 00:57:03,350 --> 00:57:06,260
-then that means the next X number of
+那么就意味着接下来的X字节数是一堆数据。
 
-1226
 00:57:06,260 --> 00:57:10,190
-bytes is a bunch of data so there we are
 
-1227
 00:57:10,190 --> 00:57:12,290
-that's locking script decoded then we
+所以我们就解码了锁定脚本，
 
-1228
 00:57:12,290 --> 00:57:14,000
-come to the unlocking script and if you
+然后我们来到解锁脚本，
 
-1229
-00:57:14,000 --> 00:57:16,330
-remember all the unlocking script is is
+00:57:14,000 --> 00:57:19,970
+所有的解锁脚本就是对这种特定类型的锁进行解锁，
 
-1230
-00:57:16,330 --> 00:57:19,970
-free this particular kind of lock is
-
-1231
 00:57:19,970 --> 00:57:23,000
-just a signature and a public key so 4 7
+这就是签名和公钥，
 
-1232
 00:57:23,000 --> 00:57:25,100
-that's lesson for B so that's saying
+所以47就是小于4B，
 
-1233
 00:57:25,100 --> 00:57:28,520
-this number of bytes is just in data and
+这表示这个字节数是数据，
 
-1234
 00:57:28,520 --> 00:57:32,180
-that is the signature and then for when
+这就是签名，
 
-1235
 00:57:32,180 --> 00:57:34,550
-this number of bytes and that is just a
+然后当这个字节数，
 
-1236
 00:57:34,550 --> 00:57:35,990
-more data again which is going to be the
+只是更多的数据，只是更多的数据，
 
-1237
 00:57:35,990 --> 00:57:39,500
-public key so there we ha just decoded
+所以我们已经解码了锁定和解锁脚本，
 
-1238
 00:57:39,500 --> 00:57:44,570
-the locking and unlocking script so make
+这是有意义的。
 
-1239
-00:57:44,570 --> 00:57:50,600
-sense ok so yeah the locking scripts can
+00:57:44,570 --> 00:57:51,290
+锁定脚本可以在一个交易的输出中找到，
 
-1240
-00:57:50,600 --> 00:57:51,290
-be found
+00:57:51,290 --> 00:58:00,440
+然后解锁脚本是在一个新的交易的输入中找到的，
 
-1241
-00:57:51,290 --> 00:57:53,830
-locking script is inside the output of
+00:58:00,440 --> 00:58:06,560
+这个新的交易试图花费这个输出。
 
-1242
-00:57:53,830 --> 00:57:56,540
-one transaction and then the Enochian
+00:58:06,560 --> 00:58:13,170
+所以我们现在总结一下我们在这个视频中做的所有事情，
 
-1243
-00:57:56,540 --> 00:58:00,440
-script is found in the input of a new
-
-1244
-00:58:00,440 --> 00:58:03,320
-transaction that tries to spend the
-
-1245
-00:58:03,320 --> 00:58:05,740
-image output
-
-1246
-00:58:06,560 --> 00:58:09,510
-so there we are summarize now everything
-
-1247
-00:58:09,510 --> 00:58:13,170
-that we've done in this video in a
-
-1248
 00:58:13,170 --> 00:58:14,610
-Bitcoin transaction you just take a
+在一个比特币交易中，
 
-1249
 00:58:14,610 --> 00:58:16,440
-batch of bitcoins akut create a new
+你只需要把一批比特币拿出来，
 
-1250
 00:58:16,440 --> 00:58:18,720
-batch from it and what do you want to
+创建一个新的批次，
 
-1251
 00:58:18,720 --> 00:58:21,000
-send it someone else they'll have a
+然后你想把它发送给别人，
 
-1252
 00:58:21,000 --> 00:58:24,900
-public key they'll give you you know
+他们会有一个公钥，
 
-1253
 00:58:24,900 --> 00:58:28,290
-probably an address and then your
+他们会给你一个地址，
 
-1254
 00:58:28,290 --> 00:58:32,160
-construct the locking script for them
+然后你为他们构建一个锁定脚本，
 
-1255
 00:58:32,160 --> 00:58:35,520
-and lock up bitcoins until they either
+并锁定比特币，
 
-1256
 00:58:35,520 --> 00:58:37,410
-the public key or the hash of their
+直到他们使用公钥或者公钥的哈希。
 
-1257
-00:58:37,410 --> 00:58:41,430
-public key so this one here this is this
+00:58:37,410 --> 00:58:42,990
+这个特殊的格式叫做Pay To Pubkey Hash，
 
-1258
-00:58:41,430 --> 00:58:42,990
-particular format it's called pay to pop
-
-1259
 00:58:42,990 --> 00:58:47,580
-key hash this is the locking script so
+这是锁定脚本，
 
-1260
-00:58:47,580 --> 00:58:50,190
-when you want to come to or this person
+00:58:47,580 --> 00:58:52,440
+所以当你想来或者这个人想来花费这些比特币时，
 
-1261
-00:58:50,190 --> 00:58:52,440
-wants to come to spend these bitcoins
-
-1262
 00:58:52,440 --> 00:58:54,480
-they will need to provide an unlocking
+他们需要提供一个解锁脚本，
 
-1263
 00:58:54,480 --> 00:58:57,930
-script like so and then this script will
+然后这个脚本会被运行，
 
-1264
-00:58:57,930 --> 00:59:00,480
-get run so the unlocking script gets
+00:58:57,930 --> 00:59:02,460
+解锁脚本在第二个交易中提供，
 
-1265
-00:59:00,480 --> 00:59:02,460
-provided second in the second
-
-1266
 00:59:02,460 --> 00:59:04,800
-transaction but when we come to run the
+但是当我们运行全脚本时，
 
-1267
 00:59:04,800 --> 00:59:06,960
-full script together we put this at the
+我们把这个放在开始，
 
-1268
 00:59:06,960 --> 00:59:09,210
-start so this gets added to the stack
+这个被添加到栈的开始，
 
-1269
 00:59:09,210 --> 00:59:11,609
-first and then we run the script using
+然后我们运行脚本，
 
-1270
 00:59:11,609 --> 00:59:14,940
-the opcodes and data and if a one is
+使用操作码和数据，
 
-1271
 00:59:14,940 --> 00:59:16,800
-left on the stack after you've run the
+如果在运行完整个脚本后，栈上剩下一个1，
 
-1272
-00:59:16,800 --> 00:59:18,600
-entire script then this batch of
+00:59:16,800 --> 00:59:21,780
+那么这批比特币或者脚本就是有效的，
 
-1273
-00:59:18,600 --> 00:59:21,780
-bitcoins or the script is valid and this
-
-1274
 00:59:21,780 --> 00:59:23,520
+这批比特币可以被成功解锁和花费。
 batch bitcoins can be successfully
 
 1275
