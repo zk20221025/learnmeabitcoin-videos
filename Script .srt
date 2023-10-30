@@ -2863,33 +2863,19 @@ this input here and the second part
 
 00:59:21,780 --> 00:59:23,520
 这批比特币可以被成功解锁和花费。
-batch bitcoins can be successfully
 
-1275
-00:59:23,520 --> 00:59:27,320
+00:59:23,520 --> 00:59:31,710
 这就是比特币锁定机制的工作原理。
-unlocked and spent and that is how the
 
-1276
-00:59:27,320 --> 00:59:31,710
-mechanism for locking up bitcoins works
-
-1277
 00:59:31,710 --> 00:59:34,080
 它使用这种微型编程语言，
-it works using this mini programming
 
-1278
 00:59:34,080 --> 00:59:36,210
 即脚本，包含数据和操作码，
-language poor script that contains data
 
-1279
 00:59:36,210 --> 00:59:39,030
 并在栈上运行。
-and up codes and it all works on top of
 
-1280
 00:59:39,030 --> 00:59:44,790
 这个脚本有许多不同的方法，
 
@@ -2901,68 +2887,46 @@ and up codes and it all works on top of
 
 00:59:59,780 --> 01:00:01,520
 这里有四个词，你得知道：
-and these are the four words you've got
 
-1287
 01:00:01,520 --> 01:00:03,200
 Pay To Pubkey Hash，
-Peter pepper key hash which is the most
 
-1288
 01:00:03,200 --> 01:00:05,780
 这是最常用的一种；PPay To Pubkey，
-commonly one used got Peter purp key
 
-1289
 01:00:05,780 --> 01:00:08,360
 这是Pay To Pubkey Hash的简化版本，
-which is a simplified version of Peter
 
-1290
 01:00:08,360 --> 01:00:12,080
 但现在并不常用，
-pop key hash but it's not really used
 
-1291
 01:00:12,080 --> 01:00:14,780
 Pay To Pubkey Hash是最常见的。
-these days this page cache is the most
 
-1292
 01:00:14,780 --> 01:00:18,320
 然后我们有Pay To Multisig，
-common one there we have Peter multi-sig
 
-1293
 01:00:18,320 --> 01:00:20,180
 以及Pay To Script Hash，
-and then paint a script hash which is
 
-1294
 01:00:20,180 --> 01:00:25,730
-这只是传递一个Pay To Multisig锁定脚本的更简单的方式
+这只是传递一个Pay To Multisig锁定脚本的更简单的方式。
 
 01:00:25,730 --> 01:00:31,940
 所以，我们有了脚本，
-so there we have script and how batches
 
-1297
 01:00:31,940 --> 01:00:36,850
 以及如何在比特币中锁定和解锁一批比特币。
 
 01:00:36,850 --> 01:00:40,780
 关于这个演示或任何部分有任何问题吗？
-presentation or any part of it
 
-1300
 01:00:40,780 --> 01:00:49,520
 好的，如果这个演示让你理解了脚本是如何工作的，
 
 01:00:49,520 --> 01:00:50,780
-那么我认为这并不难
-that script works I don't think it's
+那么我认为这并不难，
 
-1303
 01:00:50,780 --> 01:00:57,020
 只有关于支付脚本哈希部分的几点需要注意，
 
@@ -2971,223 +2935,156 @@ that script works I don't think it's
 
 01:01:02,840 --> 01:01:10,540
 只是一个简单的编程语言。
-a simple programming language so yeah
 
-1308
 01:01:10,540 --> 01:01:12,890
 是的，涉及到其他的一些，
-involving and the other ones are pretty
 
-1309
 01:01:12,890 --> 01:01:18,560
 这个Pay To Script Hash后来被添加到比特币上，
 
 01:01:18,560 --> 01:01:19,430
 所以它并不是原始实现的一部分，
-wasn't part of the original
 
-1312
 01:01:19,430 --> 01:01:22,760
 这就是为什么它感觉有点复杂。
-implementation so that's why it feels a
 
-1313
 01:01:22,760 --> 01:01:27,380
 但你知道，我们是后来添加的，
-bit hacky I suppose but you know we were
 
-1314
 01:01:27,380 --> 01:01:29,150
 所以它有这些额外的验证规则。
-sort of added on so it has these extra
 
-1315
 01:01:29,150 --> 01:01:39,230
 我写了一点代码，
 
 01:01:39,230 --> 01:01:42,560
 这个代码基本上可以为你解码或编码一个脚本，
-will basically decode or encode a script
 
-1318
 01:01:42,560 --> 01:01:45,860
 并为你运行它，所以如果你想玩玩看，
-and run it for you so if you wanted to
 
-1319
 01:01:45,860 --> 01:01:47,720
 它非常简单。
-play with it it's very simple I wouldn't
 
-1320
 01:01:47,720 --> 01:01:51,230
 我不会在生产中正式使用它，
-use it properly in production it's more
 
-1321
 01:01:51,230 --> 01:01:52,880
 这更多的是为了从中学习，
-just for us all of you know to learn
 
-1322
 01:01:52,880 --> 01:01:54,380
 看看脚本有多简单。
-from it just to see how simple the
 
-1323
 01:01:54,380 --> 01:01:58,560
-script is so for example
+例如，
 
-1324
 01:01:58,560 --> 01:02:02,230
-once cryptic odor it'll take a lock in
+一旦加密代码被锁定在脚本中，
 
-1325
 01:02:02,230 --> 01:02:05,589
-script so here's a typical Bitcoin
+这就是一个典型的比特币交易，
 
-1326
-01:02:05,589 --> 01:02:10,300
-transaction obviously locking script and
+01:02:05,589 --> 01:02:11,829
+显然锁定脚本和解锁脚本提供了它。
 
-1327
-01:02:10,300 --> 01:02:11,829
-unlocking scripted even provided for it
-
-1328
 01:02:11,829 --> 01:02:14,980
-so it's been spent but say you wanted to
+所以它已经被花费了，
 
-1329
 01:02:14,980 --> 01:02:18,609
-decode some script you can put the
+但假设你想解码一些脚本，
 
-1330
 01:02:18,609 --> 01:02:21,369
-locking script in there it's identified
+你可以把锁定脚本放在那里，
 
-1331
 01:02:21,369 --> 01:02:23,619
-that as a to pop key hash because it has
+它已经识别出这是一个Pay To Pubkey Hash，
 
-1332
 01:02:23,619 --> 01:02:26,800
-a special format so it's off to you
+因为它有一个特殊的格式，所以它已经解码了。
 
-1333
 01:02:26,800 --> 01:02:29,950
-decoded it there and then when you want
+然后当你想解锁一些东西时，
 
-1334
 01:02:29,950 --> 01:02:31,630
-to unlock something you need to provide
+你需要提供锁定脚本。
 
-1335
 01:02:31,630 --> 01:02:35,619
-the locking script so there we are
+所以这就是两段数据，
 
-1336
 01:02:35,619 --> 01:02:38,230
-this is just two pieces of data there's
+没有操作码在里面，
 
-1337
 01:02:38,230 --> 01:02:40,030
-no up codes in it so I want to run this
+所以我想运行这个脚本，
 
-1338
 01:02:40,030 --> 01:02:42,220
-script and this little program will just
+这个小程序会为你运行它，
 
-1339
 01:02:42,220 --> 01:02:45,490
-run it for you just to simulate it so
+只是为了模拟它。
 
-1340
 01:02:45,490 --> 01:02:48,369
-this is the entire script if I can pull
+这是整个脚本，
 
-1341
 01:02:48,369 --> 01:02:51,520
-this across anyway so it's basically
+如果我能把它拉过来的话，
 
-1342
 01:02:51,520 --> 01:02:54,339
-just one big array of all the individual
+它基本上就是所有单独脚本部分的一个大数组。
 
-1343
 01:02:54,339 --> 01:02:57,579
-pieces of the script so let's say this
+假设这是堆栈，
 
-1344
 01:02:57,579 --> 01:03:00,670
-is the stack here it pushes the data on
+它会把数据推入堆栈，
 
-1345
 01:03:00,670 --> 01:03:03,369
-to the stack then this is the remainder
+然后这是脚本的剩余部分，
 
-1346
 01:03:03,369 --> 01:03:05,500
-of the script so we got dope duplicate
+所以我们在这里得到了重复的内容，
 
-1347
 01:03:05,500 --> 01:03:07,690
-here I'll duplicate the top element hash
+我将复制顶部元素，hash160，
 
-1348
 01:03:07,690 --> 01:03:10,300
-160 and they'll hash table moment then
+并将它们哈希处理，
 
-1349
 01:03:10,300 --> 01:03:14,020
-we've got the public key hash I guess
+然后我们得到了公钥哈希，
 
-1350
 01:03:14,020 --> 01:03:16,540
-pressed on top equal verify that I'll
+我猜放在顶部进行等于验证，
 
-1351
 01:03:16,540 --> 01:03:17,980
-take the top two elements and if they're
+它会取顶部两个元素，如果它们相等，
 
-1352
 01:03:17,980 --> 01:03:20,020
-equal we'll push anything back onto the
+我们会把任何东西推回堆栈，
 
-1353
 01:03:20,020 --> 01:03:23,079
-stack so after we've executed this these
+所以在我们执行了这个操作之后，
 
-1354
 01:03:23,079 --> 01:03:24,849
-two elements should disappear because
+这两个元素会消失，
 
-1355
 01:03:24,849 --> 01:03:27,250
-they are equal and then hope you check
+因为它们是相等的，然后希望你check sig，
 
-1356
-01:03:27,250 --> 01:03:31,200
-sig so this will check this public key
+01:03:27,250 --> 01:03:34,089
+将根据这个公钥检查这个签名，
 
-1357
-01:03:31,200 --> 01:03:34,089
-against this signature and there we are
-
-1358
 01:03:34,089 --> 01:03:36,940
-and so we'll push true on to the stack
+然后我们会把true推到堆栈上，
 
-1359
 01:03:36,940 --> 01:03:39,069
-true isn't actually using Bitcoin it
+true实际上并不使用比特币，
 
-1360
 01:03:39,069 --> 01:03:41,710
-should be one but same thing so there we
+它应该是一，但在这是相同的，
 
-1361
 01:03:41,710 --> 01:03:44,650
+所以这是一个有效的脚本。
 are that's a valid script so I'll add a
 
 1362
