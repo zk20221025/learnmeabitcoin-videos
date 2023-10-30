@@ -162,14 +162,10 @@
 
 00:03:19,019 --> 00:03:20,940
 他们会将该区块传递给连接的节点，
-it they're not they will pass on that
 
-81
 00:03:20,940 --> 00:03:23,100
 然后将其添加到他们的区块链中，
-block to the nodes are connected to add
 
-82
 00:03:23,100 --> 00:03:24,870
 如此反复，
 
@@ -178,73 +174,49 @@ block to the nodes are connected to add
 
 00:03:31,980 --> 00:03:33,329
 然后这个人可以查看区块链，
-person can look at the Bark chain and
 
-87
 00:03:33,329 --> 00:03:40,260
 看到所有权已经从这个人转移到了那个人。
 
 00:03:40,260 --> 00:03:43,069
 在上一次的演讲中，
-last presentation I covered how these
 
-90
 00:03:43,069 --> 00:03:45,299
 我解释了这些交易在内部看起来是什么样子的。
-what these transactions look like on the
 
-91
 00:03:45,299 --> 00:03:47,910
 你可以把交易想象成这样：
-inside so you can think of transaction
 
-92
 00:03:47,910 --> 00:03:54,750
 区块链充满了所有的交易数据，
 
 00:03:54,750 --> 00:03:56,370
 但如果你将其拆开看，
-if you saw split it open look inside
 
-95
 00:03:56,370 --> 00:03:58,950
 就像看到很多不同批次，
-it's basically like looking at lots of
 
-96
 00:03:58,950 --> 00:04:01,470
 不同大小的比特币。
-different batches of bitcoins all
 
-97
 00:04:01,470 --> 00:04:03,690
 当你进行交易时，
-different sizes so when you make a
 
-98
 00:04:03,690 --> 00:04:06,000
 你需要进入到区块链中，
-transaction already do is to go into the
 
-99
 00:04:06,000 --> 00:04:08,700
 选择一个特定的比特币批次，
-blockchain and you select a specific
 
-100
 00:04:08,700 --> 00:04:13,829
 比如说这个窗口是一个10的批次，
 
 00:04:13,829 --> 00:04:15,569
 然后你会从那里取出那批比特币，
-there you will take that batch of
 
-103
 00:04:15,569 --> 00:04:17,608
 创建一个新的批次。
-bitcoins and create a new batch from it
 
-104
 00:04:17,608 --> 00:04:25,960
 发送一批新的比特币就像从旧的批次中创建一个新的批次。
 
@@ -253,152 +225,97 @@ bitcoins and create a new batch from it
 
 00:04:29,830 --> 00:04:31,570
 这个交易大约需要两个比特币，
-takes about two bitcoins
 
-110
 00:04:31,570 --> 00:04:33,220
 然后创建一个新的进入网络，
-create a new one into the network and
 
-111
 00:04:33,220 --> 00:04:35,560
 然后这个新的批次会进入到一个内存池，
-then that we're getting go into a memory
 
-112
 00:04:35,560 --> 00:04:37,810
 然后进入到区块链中。
-port the transaction and finally into
 
-113
 00:04:37,810 --> 00:04:39,340
 然后当你查看区块链时，
 
-the bar chain and then when you look at
-
-114
 00:04:39,340 --> 00:04:41,410
 这个新的批次会出现在这个新的区块中，
-the blockchain then this new batch will
 
-115
 00:04:41,410 --> 00:04:46,630
 而我们用过的整个批次将会被灰掉，
 
 00:04:46,630 --> 00:04:50,250
 因为它已经被消费掉了。
-out it's grayed out because it's spent
 
-118
 00:04:50,440 --> 00:04:51,940
 我一直在称它们为批次，
-I've been colonies batches but actually
 
-119
 00:04:51,940 --> 00:04:54,510
 但实际上它们被称为输出，
-calls outputs and when you use an output
 
-120
 00:04:54,510 --> 00:04:56,320
 当你在交易中使用一个输出时，
-when you're spending one in the
 
-121
 00:04:56,320 --> 00:04:58,060
 它被称为输入。
-transaction is referred to as an input
 
-122
 00:04:58,060 --> 00:05:00,400
 所以你可以把区块链想象为充满了输出，
-so you can think of the blockchain as
 
-123
 00:05:00,400 --> 00:05:03,070
 它们只是被选择出来，
-full of outputs that just basically get
 
-124
 00:05:03,070 --> 00:05:09,010
 然后从它们中创建出新的输出。
 
 00:05:09,010 --> 00:05:12,580
 这一切都很好，
-so that's all well and good but how do
 
-127
 00:05:12,580 --> 00:05:16,630
 但是你如何拥有这些比特币批次呢？
-you own these batches of bitcoins well
 
-128
 00:05:16,630 --> 00:05:18,370
 每一批比特币都有一个锁，
-every single batch of bitcoins has a
 
-129
 00:05:18,370 --> 00:05:23,920
 每个想要使用比特币的人都有自己的一套密钥，
 
 00:05:23,920 --> 00:05:26,140
 你有一个私钥，就像你的密码，
-you have a private key which is like
 
-132
 00:05:26,140 --> 00:05:28,420
 和你的公钥，就像你的账户号码。
-your password and your public key which
 
-133
 00:05:28,420 --> 00:05:32,050
 所以，当你想要进行交易，
-is like your account number so when you
 
-134
 00:05:32,050 --> 00:05:35,200
 如果这批比特币属于你，
-wanna make a transaction if this batch
 
-135
 00:05:35,200 --> 00:05:41,080
 那么你就可以使用你的私钥来解锁它们，
 
 00:05:41,080 --> 00:05:42,910
 然后从那里你可以创建一个新的批次。
-then from there you can create a new
 
-138
 00:05:42,910 --> 00:05:46,330
 如果你想把比特币发送给这个人，
-batch and if you want to send bitcoins
 
-139
 00:05:46,330 --> 00:05:48,580
 他们会给你他们的公钥，
-to this person they will give you their
 
-140
 00:05:48,580 --> 00:05:52,000
 使用这个公钥，
-public key and using that public key you
 
-141
 00:05:52,000 --> 00:05:56,050
 你可以在这个输出，这批比特币上创建一个锁，
-can create a lock on this output this
 
-142
 00:05:56,050 --> 00:05:58,120
 这批比特币被锁定到这个人的公钥，
-batch of bitcoins that is locked to this
 
-143
 00:05:58,120 --> 00:05:59,770
 因为他们把它给了我们。
-person's public key because they gave it
 
-144
 00:05:59,770 --> 00:06:05,470
 如果他们想要把这批10个比特币的比特币发送给别人，
 
@@ -407,233 +324,139 @@ person's public key because they gave it
 
 00:06:10,630 --> 00:06:14,470
 然后发送，所以这就是一个典型的交易。
-them on and so that's a typical
 
-149
-00:06:14,470 --> 00:06:15,850
-transaction that's how they owned
+00:06:14,470 --> 00:06:20,890
+通过使用这些密钥——私钥和公钥，
 
-150
-00:06:15,850 --> 00:06:18,940
-through the use of these keys the
+00:06:20,890 --> 00:06:25,130
+这就相当于拥有一个账号和密码。
 
-151
-00:06:18,940 --> 00:06:20,890
-private key and the public key which is
-
-152
-00:06:20,890 --> 00:06:23,350
-the equivalent of having an account
-
-153
-00:06:23,350 --> 00:06:25,130
-number and a password
-
-154
 00:06:25,130 --> 00:06:27,470
-so again like I said once you've
+我再次强调，
 
-155
 00:06:27,470 --> 00:06:29,180
-constructed this transaction you no
+一旦你构建了这个交易，
 
-156
 00:06:29,180 --> 00:06:30,680
-change in the ownership of a batch of
+你就不再拥有一批比特币的所有权，
 
-157
 00:06:30,680 --> 00:06:33,230
-bitcoins you own and create a new batch
+而是创建了一批新的比特币，
 
-158
 00:06:33,230 --> 00:06:34,940
-that are locked to a different person
+锁定给另一个人。
 
-159
 00:06:34,940 --> 00:06:36,950
-you'll send that transaction into the
+然后你会将这个交易发送到网络中，
 
-160
-00:06:36,950 --> 00:06:39,500
-network and eventually that transaction
+00:06:36,950 --> 00:06:41,230
+最终这个交易会被记录到区块链上，
 
-161
-00:06:39,500 --> 00:06:41,230
-will get mind onto the blockchain and
-
-162
 00:06:41,230 --> 00:06:44,150
-the patches of bitcoins will be updated
+比特币的批次将会更新。
 
-163
 00:06:44,150 --> 00:06:46,460
-like so so this one has been spent it's
+这个批次已经被花费掉了，
 
-164
 00:06:46,460 --> 00:06:48,200
-been great out it can't be spent again
+它被灰色标记，不能再次被花费，
 
-165
 00:06:48,200 --> 00:06:50,210
-and a new batch arrives in a new block
+新的批次会出现在新的区块中，
 
-166
 00:06:50,210 --> 00:06:54,100
-that belongs to someone else
+属于另一个人。
 
-167
 00:06:55,490 --> 00:06:59,300
-so if you want to use Bitcoin all you
+如果你想使用比特币，
 
-168
 00:06:59,300 --> 00:07:02,720
-need to do is just have your own set of
+你只需要拥有自己的一套密钥。
 
-169
-00:07:02,720 --> 00:07:05,690
-keys so again if you just want to
+00:07:02,720 --> 00:07:07,100
+如果你只是想接收别人的比特币，
 
-170
-00:07:05,690 --> 00:07:07,100
-receive bitcoins some other people you
+00:07:07,100 --> 00:07:11,060
+你就需要创建并拥有自己的一套密钥才能使用比特币。
 
-171
-00:07:07,100 --> 00:07:08,690
-just need to create have your own set of
-
-172
-00:07:08,690 --> 00:07:11,060
-keys to be able to use Bitcoin so where
-
-173
 00:07:11,060 --> 00:07:13,850
-did these keys come from well I can tell
+那么，这些密钥是从哪里来的呢？
 
-174
 00:07:13,850 --> 00:07:15,890
-you where they don't come from there's
+我可以告诉你它们不是从哪里来的。
 
-175
 00:07:15,890 --> 00:07:18,170
-not one single person in charge of
+没有人可以控制比特币，
 
-176
-00:07:18,170 --> 00:07:21,080
-Bitcoin that has a book full or a
+00:07:18,170 --> 00:07:24,440
+有一本书或一台电脑充满了密钥，
 
-177
-00:07:21,080 --> 00:07:24,440
-computer full of sets of keys that you
-
-178
 00:07:24,440 --> 00:07:26,360
-can ask to give you a private key in a
+你可以要求他给你一个私钥和一个公钥。
 
-179
-00:07:26,360 --> 00:07:28,190
-public key there's no one you need to
+00:07:26,360 --> 00:07:31,430
+没有人你需要问他给你一个公钥。
 
-180
-00:07:28,190 --> 00:07:31,430
-ask to give you a public key so this is
-
-181
 00:07:31,430 --> 00:07:33,650
-what a bank might be like so if you go
+这可能是银行的情况，如果你去银行，
 
-182
-00:07:33,650 --> 00:07:34,970
-to a bank you have to ask someone for
+00:07:33,650 --> 00:07:37,060
+你必须要求某人给你自己的账号和密码，
 
-183
-00:07:34,970 --> 00:07:37,060
-your own account number and password to
-
-184
 00:07:37,060 --> 00:07:40,490
-use their services to send money and
+以便使用他们的服务发送和接收资金。
 
-185
 00:07:40,490 --> 00:07:42,890
-receive money but in Bitcoin we don't
+但在比特币中，
 
-186
 00:07:42,890 --> 00:07:45,920
-have a central authority because bitcoin
+我们没有中央控制点，
 
-187
 00:07:45,920 --> 00:07:48,950
-is decentralized and no single person is
+因为比特币是去中心化的，
 
-188
 00:07:48,950 --> 00:07:52,790
-in control of who can use it so that's
+没有一个人可以控制谁可以使用它。
 
-189
 00:07:52,790 --> 00:07:55,340
-not how Bitcoin works so if there's no
+所以，这不是比特币的工作方式。
 
-190
 00:07:55,340 --> 00:07:57,650
-person in control of sets of keys or
+那么，如果没有人控制密钥或账号，
 
-191
 00:07:57,650 --> 00:07:59,750
-account numbers that you can ask to give
+你可以要求他们给你，
 
-192
 00:07:59,750 --> 00:08:02,780
-you where do they come from well the
+那么它们是从哪里来的呢？
 
-193
-00:08:02,780 --> 00:08:04,730
-answer is we just generate our own
+00:08:02,780 --> 00:08:07,910
+答案是，我们自己生成私钥和公钥。
 
-194
-00:08:04,730 --> 00:08:07,910
-private key and public key so there's no
-
-195
 00:08:07,910 --> 00:08:10,040
-person that we ask or we have to you
+我们不需要问其他人，
 
-196
 00:08:10,040 --> 00:08:12,350
-know get these keys from we literally
+或者我们需要从哪里获取这些密钥，
 
-197
 00:08:12,350 --> 00:08:13,670
-just create them ourselves
+我们实际上自己创建它们。
 
-198
 00:08:13,670 --> 00:08:18,200
-so we create we are like we are anyone
+我们创建，我们就像我们是任何人一样，
 
-199
 00:08:18,200 --> 00:08:20,090
-basically can use Bitcoin because we
+基本上任何人都可以使用比特币，
 
-200
 00:08:20,090 --> 00:08:21,530
-create our own account numbers and
+因为我们创建我们自己的账号和密码。
 
-201
 00:08:21,530 --> 00:08:27,170
-passwords so that's the intro 10 I hope
+我希望这个介绍能让你们都理解，
 
-202
-00:08:27,170 --> 00:08:29,600
-y'all all that makes sense and I'll move
+00:08:27,170 --> 00:08:35,169
+现在我将进入创建、生成和使用这些密钥的基础知识。
 
-203
-00:08:29,600 --> 00:08:33,049
-on now to the basics of creating
-
-204
-00:08:33,049 --> 00:08:35,169
-generating and using
-
-205
 00:08:35,169 --> 00:08:39,279
 these keys so how do you generate your
 
