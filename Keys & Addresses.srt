@@ -161,278 +161,252 @@
 所以一旦有一个交易块被添加进去，
 
 00:03:19,019 --> 00:03:20,940
+他们会将该区块传递给连接的节点，
 it they're not they will pass on that
 
 81
 00:03:20,940 --> 00:03:23,100
+然后将其添加到他们的区块链中，
 block to the nodes are connected to add
 
 82
 00:03:23,100 --> 00:03:24,870
-it to their buck chains and so on and so
+如此反复，
 
-83
-00:03:24,870 --> 00:03:26,850
-on until everyone's copy of the
+00:03:24,870 --> 00:03:31,980
+直到每个人的区块链副本都更新了最新的交易区块。
 
-84
-00:03:26,850 --> 00:03:27,900
-blockchain is updated with the latest
-
-85
-00:03:27,900 --> 00:03:31,980
-block of transactions and then this
-
-86
 00:03:31,980 --> 00:03:33,329
+然后这个人可以查看区块链，
 person can look at the Bark chain and
 
 87
-00:03:33,329 --> 00:03:36,690
-see that the ownership has changed from
+00:03:33,329 --> 00:03:40,260
+看到所有权已经从这个人转移到了那个人。
 
-88
-00:03:36,690 --> 00:03:40,260
-this person to this person so in the
-
-89
 00:03:40,260 --> 00:03:43,069
+在上一次的演讲中，
 last presentation I covered how these
 
 90
 00:03:43,069 --> 00:03:45,299
+我解释了这些交易在内部看起来是什么样子的。
 what these transactions look like on the
 
 91
 00:03:45,299 --> 00:03:47,910
+你可以把交易想象成这样：
 inside so you can think of transaction
 
 92
-00:03:47,910 --> 00:03:51,989
-like this so the blockchain is full of
+00:03:47,910 --> 00:03:54,750
+区块链充满了所有的交易数据，
 
-93
-00:03:51,989 --> 00:03:54,750
-all transaction all transaction data but
-
-94
 00:03:54,750 --> 00:03:56,370
+但如果你将其拆开看，
 if you saw split it open look inside
 
 95
 00:03:56,370 --> 00:03:58,950
+就像看到很多不同批次，
 it's basically like looking at lots of
 
 96
 00:03:58,950 --> 00:04:01,470
+不同大小的比特币。
 different batches of bitcoins all
 
 97
 00:04:01,470 --> 00:04:03,690
+当你进行交易时，
 different sizes so when you make a
 
 98
 00:04:03,690 --> 00:04:06,000
+你需要进入到区块链中，
 transaction already do is to go into the
 
 99
 00:04:06,000 --> 00:04:08,700
+选择一个特定的比特币批次，
 blockchain and you select a specific
 
 100
-00:04:08,700 --> 00:04:11,220
-batch of bitcoins so let's say this
+00:04:08,700 --> 00:04:13,829
+比如说这个窗口是一个10的批次，
 
-101
-00:04:11,220 --> 00:04:13,829
-window is a batch of ten and then from
-
-102
 00:04:13,829 --> 00:04:15,569
+然后你会从那里取出那批比特币，
 there you will take that batch of
 
 103
 00:04:15,569 --> 00:04:17,608
+创建一个新的批次。
 bitcoins and create a new batch from it
 
 104
-00:04:17,608 --> 00:04:20,200
-so send in a batch
+00:04:17,608 --> 00:04:25,960
+发送一批新的比特币就像从旧的批次中创建一个新的批次。
 
-105
-00:04:20,200 --> 00:04:22,630
-to a new well it's creating a new batch
+00:04:25,960 --> 00:04:29,830
+然后你会将那批比特币发送到网络中，
 
-106
-00:04:22,630 --> 00:04:25,960
-from an old batch so what you do then
-
-107
-00:04:25,960 --> 00:04:28,180
-you'll send that batch of bitcoins into
-
-108
-00:04:28,180 --> 00:04:29,830
-the net about this transaction that
-
-109
 00:04:29,830 --> 00:04:31,570
+这个交易大约需要两个比特币，
 takes about two bitcoins
 
 110
 00:04:31,570 --> 00:04:33,220
+然后创建一个新的进入网络，
 create a new one into the network and
 
 111
 00:04:33,220 --> 00:04:35,560
+然后这个新的批次会进入到一个内存池，
 then that we're getting go into a memory
 
 112
 00:04:35,560 --> 00:04:37,810
+然后进入到区块链中。
 port the transaction and finally into
 
 113
 00:04:37,810 --> 00:04:39,340
+然后当你查看区块链时，
+
 the bar chain and then when you look at
 
 114
 00:04:39,340 --> 00:04:41,410
+这个新的批次会出现在这个新的区块中，
 the blockchain then this new batch will
 
 115
-00:04:41,410 --> 00:04:43,330
-appear here in this new block and this
+00:04:41,410 --> 00:04:46,630
+而我们用过的整个批次将会被灰掉，
 
-116
-00:04:43,330 --> 00:04:46,630
-whole batch that we used up it's grayed
-
-117
 00:04:46,630 --> 00:04:50,250
+因为它已经被消费掉了。
 out it's grayed out because it's spent
 
 118
 00:04:50,440 --> 00:04:51,940
+我一直在称它们为批次，
 I've been colonies batches but actually
 
 119
 00:04:51,940 --> 00:04:54,510
+但实际上它们被称为输出，
 calls outputs and when you use an output
 
 120
 00:04:54,510 --> 00:04:56,320
+当你在交易中使用一个输出时，
 when you're spending one in the
 
 121
 00:04:56,320 --> 00:04:58,060
+它被称为输入。
 transaction is referred to as an input
 
 122
 00:04:58,060 --> 00:05:00,400
+所以你可以把区块链想象为充满了输出，
 so you can think of the blockchain as
 
 123
 00:05:00,400 --> 00:05:03,070
+它们只是被选择出来，
 full of outputs that just basically get
 
 124
-00:05:03,070 --> 00:05:06,070
-selected and new outputs are created
+00:05:03,070 --> 00:05:09,010
+然后从它们中创建出新的输出。
 
-125
-00:05:06,070 --> 00:05:08,400
-from them
-
-126
 00:05:09,010 --> 00:05:12,580
+这一切都很好，
 so that's all well and good but how do
 
 127
 00:05:12,580 --> 00:05:16,630
+但是你如何拥有这些比特币批次呢？
 you own these batches of bitcoins well
 
 128
 00:05:16,630 --> 00:05:18,370
+每一批比特币都有一个锁，
 every single batch of bitcoins has a
 
 129
-00:05:18,370 --> 00:05:22,120
-lock on them and every person who wants
+00:05:18,370 --> 00:05:23,920
+每个想要使用比特币的人都有自己的一套密钥，
 
-130
-00:05:22,120 --> 00:05:23,920
-to use Bitcoin has their own set of keys
-
-131
 00:05:23,920 --> 00:05:26,140
+你有一个私钥，就像你的密码，
 you have a private key which is like
 
 132
 00:05:26,140 --> 00:05:28,420
+和你的公钥，就像你的账户号码。
 your password and your public key which
 
 133
 00:05:28,420 --> 00:05:32,050
+所以，当你想要进行交易，
 is like your account number so when you
 
 134
 00:05:32,050 --> 00:05:35,200
+如果这批比特币属于你，
 wanna make a transaction if this batch
 
 135
-00:05:35,200 --> 00:05:38,050
-of bitcoins belongs to you then you can
+00:05:35,200 --> 00:05:41,080
+那么你就可以使用你的私钥来解锁它们，
 
-136
-00:05:38,050 --> 00:05:41,080
-use your private key to unlock them and
-
-137
 00:05:41,080 --> 00:05:42,910
+然后从那里你可以创建一个新的批次。
 then from there you can create a new
 
 138
 00:05:42,910 --> 00:05:46,330
+如果你想把比特币发送给这个人，
 batch and if you want to send bitcoins
 
 139
 00:05:46,330 --> 00:05:48,580
+他们会给你他们的公钥，
 to this person they will give you their
 
 140
 00:05:48,580 --> 00:05:52,000
+使用这个公钥，
 public key and using that public key you
 
 141
 00:05:52,000 --> 00:05:56,050
+你可以在这个输出，这批比特币上创建一个锁，
 can create a lock on this output this
 
 142
 00:05:56,050 --> 00:05:58,120
+这批比特币被锁定到这个人的公钥，
 batch of bitcoins that is locked to this
 
 143
 00:05:58,120 --> 00:05:59,770
+因为他们把它给了我们。
 person's public key because they gave it
 
 144
-00:05:59,770 --> 00:06:03,640
-to us like so and then if they want to
+00:05:59,770 --> 00:06:05,470
+如果他们想要把这批10个比特币的比特币发送给别人，
 
-145
-00:06:03,640 --> 00:06:05,470
-send this batch of bitcoins have 10
+00:06:05,470 --> 00:06:10,630
+他们就可以使用他们的私钥来解锁它们，
 
-146
-00:06:05,470 --> 00:06:07,510
-bitcoins onto someone else they will use
-
-147
-00:06:07,510 --> 00:06:10,630
-their private key to unlock it and send
-
-148
 00:06:10,630 --> 00:06:14,470
+然后发送，所以这就是一个典型的交易。
 them on and so that's a typical
 
 149
