@@ -2867,6 +2867,7 @@ batch bitcoins can be successfully
 
 1275
 00:59:23,520 --> 00:59:27,320
+这就是比特币锁定机制的工作原理。
 unlocked and spent and that is how the
 
 1276
@@ -2875,186 +2876,162 @@ mechanism for locking up bitcoins works
 
 1277
 00:59:31,710 --> 00:59:34,080
+它使用这种微型编程语言，
 it works using this mini programming
 
 1278
 00:59:34,080 --> 00:59:36,210
+即脚本，包含数据和操作码，
 language poor script that contains data
 
 1279
 00:59:36,210 --> 00:59:39,030
+并在栈上运行。
 and up codes and it all works on top of
 
 1280
-00:59:39,030 --> 00:59:43,859
-a stack this script has lots of
+00:59:39,030 --> 00:59:44,790
+这个脚本有许多不同的方法，
 
-1281
-00:59:43,859 --> 00:59:44,790
-different approach
+00:59:44,790 --> 00:59:52,980
+然而我们的比特币核心实现将你限制在这五种主要格式，
 
-1282
-00:59:44,790 --> 00:59:50,700
-like so however we are the Bitcoin core
+00:59:52,980 --> 00:59:59,780
+来锁定比特币。
 
-1283
-00:59:50,700 --> 00:59:52,980
-implementation kony restricts you to
-
-1284
-00:59:52,980 --> 00:59:57,240
-these five main formats for locking up
-
-1285
-00:59:57,240 --> 00:59:59,780
-bitcoins
-
-1286
 00:59:59,780 --> 01:00:01,520
+这里有四个词，你得知道：
 and these are the four words you've got
 
 1287
 01:00:01,520 --> 01:00:03,200
+Pay To Pubkey Hash，
 Peter pepper key hash which is the most
 
 1288
 01:00:03,200 --> 01:00:05,780
+这是最常用的一种；PPay To Pubkey，
 commonly one used got Peter purp key
 
 1289
 01:00:05,780 --> 01:00:08,360
+这是Pay To Pubkey Hash的简化版本，
 which is a simplified version of Peter
 
 1290
 01:00:08,360 --> 01:00:12,080
+但现在并不常用，
 pop key hash but it's not really used
 
 1291
 01:00:12,080 --> 01:00:14,780
+Pay To Pubkey Hash是最常见的。
 these days this page cache is the most
 
 1292
 01:00:14,780 --> 01:00:18,320
+然后我们有Pay To Multisig，
 common one there we have Peter multi-sig
 
 1293
 01:00:18,320 --> 01:00:20,180
+以及Pay To Script Hash，
 and then paint a script hash which is
 
 1294
-01:00:20,180 --> 01:00:22,220
-just the easier way to pass around a
+01:00:20,180 --> 01:00:25,730
+这只是传递一个Pay To Multisig锁定脚本的更简单的方式
 
-1295
-01:00:22,220 --> 01:00:25,730
-painting multi-sig lock in script like
-
-1296
 01:00:25,730 --> 01:00:31,940
+所以，我们有了脚本，
 so there we have script and how batches
 
 1297
-01:00:31,940 --> 01:00:33,800
-of bitcoins are locked and unlocked in
+01:00:31,940 --> 01:00:36,850
+以及如何在比特币中锁定和解锁一批比特币。
 
-1298
-01:00:33,800 --> 01:00:36,850
-Bitcoin any questions about that
-
-1299
 01:00:36,850 --> 01:00:40,780
+关于这个演示或任何部分有任何问题吗？
 presentation or any part of it
 
 1300
-01:00:40,780 --> 01:00:46,630
-okay it's less tender than presentation
+01:00:40,780 --> 01:00:49,520
+好的，如果这个演示让你理解了脚本是如何工作的，
 
-1301
-01:00:46,630 --> 01:00:49,520
-if that made sense then you understand
-
-1302
 01:00:49,520 --> 01:00:50,780
+那么我认为这并不难
 that script works I don't think it's
 
 1303
-01:00:50,780 --> 01:00:53,330
-terribly difficult there only a few you
+01:00:50,780 --> 01:00:57,020
+只有关于支付脚本哈希部分的几点需要注意，
 
-1304
-01:00:53,330 --> 01:00:57,020
-know things to note about the paid to
+01:00:57,020 --> 01:01:02,840
+但实际上执行脚本是相当简单的，
 
-1305
-01:00:57,020 --> 01:01:01,070
-script hash part but the actual
-
-1306
-01:01:01,070 --> 01:01:02,840
-execution of stuff is quite simple just
-
-1307
 01:01:02,840 --> 01:01:10,540
+只是一个简单的编程语言。
 a simple programming language so yeah
 
 1308
 01:01:10,540 --> 01:01:12,890
+是的，涉及到其他的一些，
 involving and the other ones are pretty
 
 1309
-01:01:12,890 --> 01:01:16,790
-yeah this page script hash he was sort
+01:01:12,890 --> 01:01:18,560
+这个Pay To Script Hash后来被添加到比特币上，
 
-1310
-01:01:16,790 --> 01:01:18,560
-of added on to Bitcoin later on so it
-
-1311
 01:01:18,560 --> 01:01:19,430
+所以它并不是原始实现的一部分，
 wasn't part of the original
 
 1312
 01:01:19,430 --> 01:01:22,760
+这就是为什么它感觉有点复杂。
 implementation so that's why it feels a
 
 1313
 01:01:22,760 --> 01:01:27,380
+但你知道，我们是后来添加的，
 bit hacky I suppose but you know we were
 
 1314
 01:01:27,380 --> 01:01:29,150
+所以它有这些额外的验证规则。
 sort of added on so it has these extra
 
 1315
-01:01:29,150 --> 01:01:34,640
-rules of validation I made a little I
+01:01:29,150 --> 01:01:39,230
+我写了一点代码，
 
-1316
-01:01:34,640 --> 01:01:39,230
-wrote some little bit of code to that
-
-1317
 01:01:39,230 --> 01:01:42,560
+这个代码基本上可以为你解码或编码一个脚本，
 will basically decode or encode a script
 
 1318
 01:01:42,560 --> 01:01:45,860
+并为你运行它，所以如果你想玩玩看，
 and run it for you so if you wanted to
 
 1319
 01:01:45,860 --> 01:01:47,720
+它非常简单。
 play with it it's very simple I wouldn't
 
 1320
 01:01:47,720 --> 01:01:51,230
+我不会在生产中正式使用它，
 use it properly in production it's more
 
 1321
 01:01:51,230 --> 01:01:52,880
+这更多的是为了从中学习，
 just for us all of you know to learn
 
 1322
 01:01:52,880 --> 01:01:54,380
+看看脚本有多简单。
 from it just to see how simple the
 
 1323
