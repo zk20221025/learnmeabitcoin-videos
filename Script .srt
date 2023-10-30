@@ -3085,181 +3085,111 @@ true实际上并不使用比特币，
 
 01:03:41,710 --> 01:03:44,650
 所以这是一个有效的脚本。
-are that's a valid script so I'll add a
 
-1362
 01:03:44,650 --> 01:03:47,589
-link to this into the description if you
+所以我会在描述中添加这个链接，
 
-1363
 01:03:47,589 --> 01:03:49,030
-want to play with this code it's just
+如果你想试玩这段代码，
 
-1364
-01:03:49,030 --> 01:03:50,920
-there so you can sort of see how the
+01:03:49,030 --> 01:03:53,219
+它就在那里，你可以看到代码是如何运行的。
 
-1365
-01:03:50,920 --> 01:03:53,219
-code runs
-
-1366
 01:03:53,219 --> 01:03:58,359
-alternatively if you go on Bitcoin dye
+另外，如果你去Bitcoin dy t4的维基页面，
 
-1367
 01:03:58,359 --> 01:04:01,689
-t4 just Wiki going to the script page it
+看一下脚本页，
 
-1368
 01:04:01,689 --> 01:04:04,749
-covers all the different up codes that
+它涵盖了所有可以使用的不同操作码。
 
-1369
 01:04:04,749 --> 01:04:06,609
-you can use so I was you can see there's
+如你所见，
 
-1370
 01:04:06,609 --> 01:04:08,439
-quite a few I only really scratched the
+有很多我只是稍微提及了一下，
 
-1371
 01:04:08,439 --> 01:04:10,539
-surface of all the ones you can use but
+但像我说的，
 
-1372
 01:04:10,539 --> 01:04:12,279
-like I said unfortunately we are
+不幸的是，
 
-1373
 01:04:12,279 --> 01:04:14,859
-restricted really to only be able to use
+我们实际上只能使用标准脚本，
 
-1374
-01:04:14,859 --> 01:04:17,829
-the standard scripts even though script
+01:04:14,859 --> 01:04:19,719
+尽管脚本包含了所有这些不同的代码。
 
-1375
-01:04:17,829 --> 01:04:19,719
-does contain all these various different
-
-1376
 01:04:19,719 --> 01:04:26,640
-codes lastly I found this little IDE
+最后，我找到了这个小型的IDE，
 
-1377
 01:04:26,640 --> 01:04:30,130
-which allows you to enter a script and
+它允许你输入一个脚本，
 
-1378
-01:04:30,130 --> 01:04:32,289
-it will visualize the running of the
+01:04:30,130 --> 01:04:35,829
+然后它会为你在堆栈上可视化运行脚本。
 
-1379
-01:04:32,289 --> 01:04:35,829
-script on the stack for you I think it
-
-1380
 01:04:35,829 --> 01:04:37,569
-covers every single opcode so you know
+我认为它涵盖了每一个操作码，
 
-1381
 01:04:37,569 --> 01:04:43,569
-you could add you know much more complex
+所以你知道，你可以添加更复杂的脚本在这里，
 
-1382
 01:04:43,569 --> 01:04:47,619
-script in here and then try and run it
+然后试着运行它，
 
-1383
 01:04:47,619 --> 01:04:52,719
-and it will run it for you so I didn't
+它会为你运行。
 
-1384
 01:04:52,719 --> 01:04:54,729
-make this someone else did but it might
+我没有制作这个，这是别人做的，
 
-1385
-01:04:54,729 --> 01:04:57,130
-be a very good way to visualize how the
+01:04:54,729 --> 01:04:59,859
+但它可能是一个很好的方式来可视化堆栈的工作方式，
 
-1386
-01:04:57,130 --> 01:04:59,859
-stack works and actually inserts your
-
-1387
 01:04:59,859 --> 01:05:02,439
-own scripts and watch them run and it's
+并插入你自己的脚本并观察它们的运行情况，
 
-1388
 01:05:02,439 --> 01:05:04,179
-adhere I provide another link in the
+它在这里，我在描述中提供了另一个链接。
 
-1389
-01:05:04,179 --> 01:05:09,009
-description and then lastly if you want
+01:05:04,179 --> 01:05:11,799
+最后，如果你想在我的博客的浏览器中浏览脚本，
 
-1390
-01:05:09,009 --> 01:05:11,799
-to browse scripts on my blog in Explorer
-
-1391
 01:05:11,799 --> 01:05:18,009
-go to any transaction as you can see
+做任何交易，你可以看到，
 
-1392
 01:05:18,009 --> 01:05:20,199
-this is a transaction has inputs and
+这是一个交易有输入和输出，
 
-1393
 01:05:20,199 --> 01:05:23,469
-outputs click on the unlocking part or
+点击解锁部分或锁定部分，
 
-1394
-01:05:23,469 --> 01:05:25,390
-the locking part and it will show you
+01:05:23,469 --> 01:05:30,249
+它会显示你解锁代码以及放在交易之上的锁定代码，
 
-1395
-01:05:25,390 --> 01:05:28,390
-the unlocking code also at the locking
-
-1396
-01:05:28,390 --> 01:05:30,249
-code that was placed on top of the
-
-1397
 01:05:30,249 --> 01:05:33,029
-transaction and this was the subsequent
+这是后续的解锁代码，
 
-1398
 01:05:33,029 --> 01:05:37,569
-and locking code so when you run this
+所以当你运行这个全部的时候，
 
-1399
 01:05:37,569 --> 01:05:39,309
-all together you'll put this onto a
+你应该把这个放到一个堆栈上，
 
-1400
 01:05:39,309 --> 01:05:41,979
-stack you should be able to visualize
+你应该能够可视化。
 
-1401
-01:05:41,979 --> 01:05:44,339
-you know it all working or hopefully
+01:05:41,979 --> 01:05:46,419
+所有的工作或希望不会实际上为你可视化任何东西，
 
-1402
-01:05:44,339 --> 01:05:46,419
-doesn't actually visualize anything for
-
-1403
 01:05:46,419 --> 01:05:48,999
-you but you know all the opcodes and
+但所有的操作码和数据都在那里，
 
-1404
 01:05:48,999 --> 01:05:50,380
-data is there if you to look at and
+如果你看看的话，
 
-1405
 01:05:50,380 --> 01:05:52,979
-maybe get a feel for
-
+也许你可以有所触动。
