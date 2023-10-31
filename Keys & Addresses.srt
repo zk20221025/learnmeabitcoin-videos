@@ -993,94 +993,110 @@ type of curve and that's why we use it
 
 392
 00:17:39,070 --> 00:17:42,860
+那么，当你做到这一点时，
 so have you done that when it intersects
 
 393
 00:17:42,860 --> 00:17:45,740
+当它交叉时，你就取那个称为交点的点，
 this point you take that point called
 
 394
 00:17:45,740 --> 00:17:47,840
+然后你只需翻转它，
 the intersect and then you just invert
 
 395
-00:17:47,840 --> 00:17:51,530
-it and take the opposite point on the
+00:17:47,840 --> 00:17:53,390
+并从相交处的这一点取曲线上相反的点
 
-396
-00:17:51,530 --> 00:17:53,390
-curve from this point here from the
-
-397
 00:17:53,390 --> 00:17:55,810
+我将取这个点，
 intersect I'm going to take this point
 
 398
 00:17:55,810 --> 00:17:59,150
+这个点就像做一轮乘法，
 this point here is like doing one round
 
 399
 00:17:59,150 --> 00:18:01,880
+所以如果这是一个G，
 of multiplication so if this was one G
 
 400
 00:18:01,880 --> 00:18:06,560
+那么这将是2G，
 this would be 2 G and then again if you
 
 401
 00:18:06,560 --> 00:18:07,820
+如果你想做另一轮乘法，
 want do another round of multiplication
 
 402
 00:18:07,820 --> 00:18:09,980
+画另一个切线，
 draw another tangent and it will
 
 403
 00:18:09,980 --> 00:18:12,260
+它将在曲线上交叉另一个点，
 intersect another point in the curve and
 
 404
 00:18:12,260 --> 00:18:13,910
+这会给你很好的结果，
 that will give you well then you take
 
 405
 00:18:13,910 --> 00:18:16,520
+然后你取那个点的倒数，
 the inverse of that and that will give
 
 406
 00:18:16,520 --> 00:18:18,500
+那将给你曲线上的另一个点，
 you you know another point on the curve
 
 407
 00:18:18,500 --> 00:18:20,350
+这是第二轮乘法。
 and is a second round of multiplication
 
 408
 00:18:20,350 --> 00:18:22,730
+这有点简化，
 this is a bit simplified but this is
 
 409
 00:18:22,730 --> 00:18:26,120
+但这基本上就是它的工作原理。
 basically how it works so again when you
 
 410
 00:18:26,120 --> 00:18:27,290
+当你想再次乘法时，
 want to multiply again you just take
 
 411
 00:18:27,290 --> 00:18:31,580
+你只需在曲线上的点处再次取切线，
 another tangent again at the point in
 
 412
 00:18:31,580 --> 00:18:34,070
+如此反复。
 the curve and so on and so on so
 
 413
 00:18:34,070 --> 00:18:35,360
+基本上，当你做一个椭圆曲线乘法时，
 basically when you do an elliptic curve
 
 414
-00:18:35,360 --> 00:18:36,679
+00:18:35,360 --> 00:18:38,570
+你在画所有这些切线并取相反的点，
 multiplication you're drawn all these
 
 415
@@ -1088,171 +1104,171 @@ multiplication you're drawn all these
 tangents and taking the inverse points
 
 416
-00:18:38,570 --> 00:18:40,250
-but ultimately ultimately what's
+00:18:38,570 --> 00:18:41,540
+但最终你在这个曲线上以特定的方式跳动，
 
-417
-00:18:40,250 --> 00:18:41,540
-happening you are bouncing around this
-
-418
 00:18:41,540 --> 00:18:48,770
+就像这样。
 curve in a particular way like this so
 
 419
-00:18:48,770 --> 00:18:50,360
-what you do then you're bouncing on the
+00:18:48,770 --> 00:18:52,550 
+所以你所做的是在曲线上多次跳动，
 
-420
-00:18:50,360 --> 00:18:52,550
-curve this many times
-
-421
 00:18:52,550 --> 00:18:54,920
+根据私钥次数来进行跳动，
 so you're bouncing on the key of private
 
 422
 00:18:54,920 --> 00:18:58,070
+所以显然我没有在那里结束，
 key times so obviously I don't end there
 
 423
-00:18:58,070 --> 00:19:00,890
-but you'll keep doing this until you've
+00:18:58,070 --> 00:19:02,160
+但你会继续做这个，直到你做到了私钥次数。
 
-424
-00:19:00,890 --> 00:19:02,160
-done it
-
-425
 00:19:02,160 --> 00:19:05,309
+当你做到这一点时，
 private key times when she's done that
 
 426
 00:19:05,309 --> 00:19:07,960
+当你最后完成时，
 maybe I when she done last you'll end up
 
 427
 00:19:07,960 --> 00:19:10,630
+你将在曲线上结束一个点，
 with a point on the curve and this point
 
 428
 00:19:10,630 --> 00:19:14,200
+这个点在曲线上是公钥。
 on the curve is the public key so there
 
 429
 00:19:14,200 --> 00:19:16,120
+所以，曲线上有很多很多点，
 are many many many points on this curve
 
 430
-00:19:16,120 --> 00:19:18,520
-basically about as many points in this
+00:19:16,120 --> 00:19:23,620
+基本上和私钥一样多的点。
 
-431
-00:19:18,520 --> 00:19:23,620
-cave as there are private keys so once
-
-432
 00:19:23,620 --> 00:19:25,480
+所以，一旦你得到了那个公钥，
 you've got that public so basically like
 
 433
 00:19:25,480 --> 00:19:28,390
+基本上，就像我说的，
 I said this final resting point on the
 
 434
 00:19:28,390 --> 00:19:30,040
+经过这么多次在曲线上跳动后的最后一个停留点，
 curve after bouncing around it this many
 
 435
 00:19:30,040 --> 00:19:32,500
+给你一个公钥，
 times gives you a public key and to be
 
 436
-00:19:32,500 --> 00:19:34,780
-precise your public key is just the X&Y
+00:19:32,500 --> 00:19:37,720
+准确地说，你的公钥只是这个点的X和Y坐标。
 
-437
-00:19:34,780 --> 00:19:37,720
-coordinates of this point so there we
-
-438
 00:19:37,720 --> 00:19:40,120
+所以我们得到了X和Y，
 are nasty X and as to why put them
 
 439
 00:19:40,120 --> 00:19:42,010
+把它们像这样放在一起，
 together like this and that is your
 
 440
 00:19:42,010 --> 00:19:46,960
+那就是你的公钥。
 public key one of the reasons why we use
 
 441
 00:19:46,960 --> 00:19:49,990
+我们使用这个椭圆曲线的原因之一是，
 this elliptic curve is because one of
 
 442
 00:19:49,990 --> 00:19:52,360
+它的一个特性是，
 the properties of it is it this
 
 443
 00:19:52,360 --> 00:19:54,070
+这个乘法是所谓的陷门函数，
 multiplication is what's called a
 
 444
-00:19:54,070 --> 00:19:56,230
-trapdoor function which means that you
-
-445
-00:19:56,230 --> 00:19:59,850
-can easily do private key multiplication
-
-446
+00:19:54,070 --> 00:19:59,850
+这意味着你可以很容易地做私钥乘法，
+】
 00:19:59,850 --> 00:20:02,140
+也就是说，使用私钥做乘法，
 well to multiplication using private key
 
 447
 00:20:02,140 --> 00:20:03,870
+我可以在曲线上跳动，
 and I give you can bounce on the curve
 
 448
 00:20:03,870 --> 00:20:05,830
+但是反过来，
 but going backwards
 
 449
 00:20:05,830 --> 00:20:08,740
+从曲线上的这个点，
 taking this point on the curve and
 
 450
 00:20:08,740 --> 00:20:10,780
+找出私钥是什么，
 figuring out what the private key was
 
 451
 00:20:10,780 --> 00:20:16,510
+这是非常困难的，
 from that is very difficult while it
 
 452
 00:20:16,510 --> 00:20:18,460
+而且还没有解决，
 hasn't been solved yet no one knows how
 
 453
 00:20:18,460 --> 00:20:21,520
+没有人知道如何从公钥或曲线上的一个点，
 to take a public key or a point on the
 
 454
 00:20:21,520 --> 00:20:25,510
+找出私钥是什么，
 curve and figure out what the private
 
 455
 00:20:25,510 --> 00:20:27,760
+我们通过生成器点乘以的数字。
 key was the number we multiplied the
 
 456
 00:20:27,760 --> 00:20:33,010
+解释为什么这个椭圆曲线很难，
 generator point by it's a bit hard to
 
 457
 00:20:33,010 --> 00:20:37,500
+我认为这个椭圆曲线值得单独拍一个视频。
 explain why I think this elliptic curve
 
 458
