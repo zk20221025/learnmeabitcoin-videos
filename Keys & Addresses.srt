@@ -457,115 +457,91 @@
 00:08:27,170 --> 00:08:35,169
 现在我将进入创建、生成和使用这些密钥的基础知识。
 
-00:08:35,169 --> 00:08:39,279
-these keys so how do you generate your
+00:08:35,169 --> 00:08:46,180
+你如何生成自己的一组密钥以便发送、接收和发送比特币呢？
 
-206
-00:08:39,279 --> 00:08:43,208
-own set of keys to be able to send
-
-207
-00:08:43,208 --> 00:08:46,180
-receive and send bitcoins well first of
-
-208
 00:08:46,180 --> 00:08:49,990
+首先，你从一个私钥开始，
 all you start with a private key and the
 
 209
-00:08:49,990 --> 00:08:52,630
-simplest way or well the only way to
+00:08:49,990 --> 00:08:54,459
+最简单或者唯一的方式来生成自己的私钥，
 
-210
-00:08:52,630 --> 00:08:54,459
-generate your own private key to start
-
-211
 00:08:54,459 --> 00:08:56,079
+就是生成一个随机数。
 out with it's just to generate a random
 
 212
 00:08:56,079 --> 00:09:00,490
+你只需要生成一个随机数，
 number so like so you'll just generate a
 
 213
 00:09:00,490 --> 00:09:02,170
+这明显是一个非常小的数，
 random number this is obviously a very
 
 214
 00:09:02,170 --> 00:09:04,660
+比特币的私钥是更大的数，
 small number bitcoin private keys are
 
 215
 00:09:04,660 --> 00:09:06,360
+但这只是为了展示。
 much bigger numbers but this is just
 
 216
 00:09:06,360 --> 00:09:11,260
+然后你需要一个公钥，
 just to show you and then from there you
 
 217
 00:09:11,260 --> 00:09:14,199
+如果私钥是你的密码，
 need your public key so if a private key
 
 218
 00:09:14,199 --> 00:09:17,199
+那么公钥就像你的账号。
 is your password the public key is like
 
 219
 00:09:17,199 --> 00:09:19,120
+但显然，
 your account number but obviously
 
 220
 00:09:19,120 --> 00:09:21,279
+因为没有人会分发这些密钥，
 because there's no one given out these
 
 221
 00:09:21,279 --> 00:09:23,649
+所以当我们生成公钥时，
 sets of keys when we generate our public
 
 222
-00:09:23,649 --> 00:09:25,899
-key we want to have a connection between
+00:09:23,649 --> 00:09:29,170
+我们希望私钥和公钥之间有一个联系。
 
-223
-00:09:25,899 --> 00:09:29,170
-our private key and our public key so
+00:09:29,170 --> 00:09:34,630
+这样我们就可以用私钥解锁比特币，
 
-224
-00:09:29,170 --> 00:09:33,190
-that when we use them well so that's
-
-225
-00:09:33,190 --> 00:09:34,630
-what we can use our private key to
-
-226
 00:09:34,630 --> 00:09:37,510
+因为它们是连接的。
 unlock bitcoins because they're
 
 227
-00:09:37,510 --> 00:09:41,470
-connected so how would you create a
+00:09:37,510 --> 00:09:44,140
+那么你如何创建公钥和私钥之间的联系呢？
 
-228
-00:09:41,470 --> 00:09:44,140
-connection between a public key and a
+00:09:44,140 --> 00:09:54,519
+你所要做的就是使用一些数学方法从私钥派生出你的公钥。
 
-229
-00:09:44,140 --> 00:09:46,089
-private key well what you do is you just
-
-230
-00:09:46,089 --> 00:09:51,130
-used use some mathematics to derive your
-
-231
-00:09:51,130 --> 00:09:54,519
-public key from your private key so you
-
-232
 00:09:54,519 --> 00:09:57,160
+你基本上把你的私钥通过一些数学函数，
 basically take your private key put it
 
 233
@@ -574,10 +550,12 @@ through some mathematical functions and
 
 234
 00:09:58,740 --> 00:10:01,510
+然后就会得到一个公钥。
 then that will give you a public key and
 
 235
 00:10:01,510 --> 00:10:04,660
+所以这个公钥是通过数学与你的私钥连接的。
 so this public key is connected to your
 
 236
@@ -586,6 +564,7 @@ private key through mathematics that's
 
 237
 00:10:07,120 --> 00:10:11,350
+所以，当你生成一组用于比特币的密钥时，
 where the connection is so again when
 
 238
@@ -594,45 +573,27 @@ you generates a set of keys to be used
 
 239
 00:10:13,420 --> 00:10:15,519
+你从一个随机数的私钥开始，
 in Bitcoin you start your private key
 
 240
-00:10:15,519 --> 00:10:17,560
-it's just a random number and then from
+00:10:15,519 --> 00:10:19,420
+然后从中创建你的公钥或者你的账号，
 
-241
-00:10:17,560 --> 00:10:19,420
-that you create your public key or your
+00:10:19,420 --> 00:10:23,860
+这只是一个与你的私钥连接的数学相关的数字。
 
-242
-00:10:19,420 --> 00:10:21,100
-account number which is just a
+00:10:23,860 --> 00:10:28,890
+这就是你如何生成自己的一组密钥，
 
-243
-00:10:21,100 --> 00:10:23,860
-mathematically connected number that's
-
-244
-00:10:23,860 --> 00:10:25,350
-connected to your private key and that
-
-245
-00:10:25,350 --> 00:10:28,890
-is how you generate your own set of keys
-
-246
 00:10:28,890 --> 00:10:32,199
+以便你可以从其他人那里接收比特币，
 so that you can receive bitcoins from
 
 247
-00:10:32,199 --> 00:10:34,089
-other people and then send them on to
+00:10:32,199 --> 00:10:36,110
+然后再将它们发送给其他人。
 
-248
-00:10:34,089 --> 00:10:36,110
-other people also
-
-249
 00:10:36,110 --> 00:10:38,000
 so anyone can do this anyone can
 
