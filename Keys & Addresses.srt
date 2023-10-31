@@ -821,6 +821,7 @@ be big news but like I said it's a very
 
 342
 00:15:14,810 --> 00:15:17,690
+所以私钥你只需要在1和这个值之间生成一个数字，
 big number so private key you just
 
 343
@@ -829,194 +830,165 @@ generate a number up to between one and
 
 344
 00:15:21,440 --> 00:15:24,290
+这个值刚刚生成，
 this value here just generated and I'll
 
 345
 00:15:24,290 --> 00:15:29,300
+我会给你私钥，
 give you your private key something
 
 346
-00:15:29,300 --> 00:15:38,420
-sensitive huh okay right so private key
+00:15:29,300 --> 00:15:39,620
+所以私钥只是一个我们刚刚生成的随机数，
 
-347
-00:15:38,420 --> 00:15:39,620
-just a random number we've just
-
-348
 00:15:39,620 --> 00:15:42,680
+有了它我们就可以得到我们的公钥了。
 generated from that we can now get our
 
 349
 00:15:42,680 --> 00:15:47,930
+像我说的，没有公钥，
 public key so like I said without public
 
 350
 00:15:47,930 --> 00:15:49,610
+我们需要将它与我们的私钥连接起来，
 key it needs to be connected to our
 
 351
-00:15:49,610 --> 00:15:52,790
-private key somehow because we need our
+00:15:49,610 --> 00:15:54,620
+因为我们需要将我们的账号和密码连接起来。
 
-352
-00:15:52,790 --> 00:15:54,620
-account number to be connected to our
-
-353
 00:15:54,620 --> 00:15:58,730
+我们做这个的方法是使用一些数学，
 password so the way we do that is we use
 
 354
-00:15:58,730 --> 00:16:02,120
-some mathematics and there's a
+00:15:58,730 --> 00:16:03,769
+有一种特定类型的数学，
 
-355
-00:16:02,120 --> 00:16:03,769
-particular type of mathematics we use
-
-356
 00:16:03,769 --> 00:16:07,550
+使用这个东西，
 though and that mathematics uses this
 
 357
 00:16:07,550 --> 00:16:09,889
+叫做椭圆曲线。
 thing here which is called an elliptic
 
 358
 00:16:09,889 --> 00:16:13,190
+有很多不同的椭圆曲线，
 curve you have lots of different
 
 359
 00:16:13,190 --> 00:16:15,889
+这只是其中一个的插图，
 elliptic curves this is just in this
 
 360
-00:16:15,889 --> 00:16:17,690
-illustration of one but the what
+00:16:15,889 --> 00:16:19,639
+但是比特币使用的特别的一个叫做sec p 2 5 6 k 1。
 
-361
-00:16:17,690 --> 00:16:19,639
-particular one used in Bitcoin is called
-
-362
 00:16:19,639 --> 00:16:23,870
+像我说的，
 sec p 2 5 6 k 1 so like I said there are
 
 363
 00:16:23,870 --> 00:16:25,850
+有很多不同的椭圆曲线，
 lots of different elliptic curves but
 
 364
-00:16:25,850 --> 00:16:27,350
-this is the particular one the
+00:16:25,850 --> 00:16:31,880
+但是这是比特币使用的特别的椭圆曲线。
 
-365
-00:16:27,350 --> 00:16:31,880
-particular shape that Bitcoin users and
+00:16:31,880 --> 00:16:36,470
+所以从这个私钥得到你的公钥，
 
-366
-00:16:31,880 --> 00:16:34,250
-so to get your public key from this
+00:16:36,470 --> 00:16:42,230
+你必须做所谓的椭圆曲线乘法。
 
-367
-00:16:34,250 --> 00:16:36,470
-private key you often do you have to do
-
-368
-00:16:36,470 --> 00:16:37,579
-what's called elliptic curve
-
-369
-00:16:37,579 --> 00:16:42,230
-multiplication the reason well but why
-
-370
 00:16:42,230 --> 00:16:44,240
+我们为什么要使用这个椭圆曲线，
 we we are using this limit elliptic
 
 371
 00:16:44,240 --> 00:16:46,699
+稍后会解释，
 curve for them apparent later on so just
 
 372
 00:16:46,699 --> 00:16:48,620
+所以现在请耐心等待，
 bear with me now while I show you how
 
 373
 00:16:48,620 --> 00:16:51,250
+我会向你展示这个椭圆曲线乘法是如何工作的。
 this elliptic curve multiplication works
 
 374
 00:16:51,250 --> 00:16:55,730
+所以对于SEC P 2 5 6 K 1，
 so with the SEC P 2 5 6 K 1 it comes
 
 375
 00:16:55,730 --> 00:16:58,399
+它有一个起始点，
 with a starting point and to do
 
 376
 00:16:58,399 --> 00:17:00,110
+要做乘法，
 multiplication
 
 377
 00:17:00,110 --> 00:17:01,750
+这将是一个简化的解释，
 this is going to be a simplified
 
 378
 00:17:01,750 --> 00:17:05,329
+但基本上这被称为G，
 explanation but it's basically this is
 
 379
-00:17:05,329 --> 00:17:06,829
-called G blow away the starting point or
+00:17:05,329 --> 00:17:08,869
+也称为起始点或生成点，
 
-380
-00:17:06,829 --> 00:17:08,869
-the generated point but for
-
-381
 00:17:08,869 --> 00:17:10,839
+但对于乘法，
 multiplication
 
 382
-00:17:10,839 --> 00:17:15,199
-it's basically draw a tangent on the
+00:17:10,839 --> 00:17:20,359
+基本上是在曲线上画一条切线。
 
-383
-00:17:15,199 --> 00:17:20,359
-cave starting by a tangent at the point
+00:17:20,359 --> 00:17:25,130
+所以我们将从这个生成点开始，
 
-384
-00:17:20,359 --> 00:17:22,250
-on the curve so we'll start at this
-
-385
-00:17:22,250 --> 00:17:25,130
-generate generate a point here and one
-
-386
 00:17:25,130 --> 00:17:26,839
+这个椭圆曲线的一个特性是，
 of the properties of this elliptic curve
 
 387
 00:17:26,839 --> 00:17:29,510
+如果你在上面画一条切线。
 is that if you draw a tangent on it then
 
 388
 00:17:29,510 --> 00:17:31,490
+那么，它总是会在曲线的另一点相交，
 it's always going to intersect the curve
 
 389
-00:17:31,490 --> 00:17:34,520
-at one other point and that's just one
+00:17:31,490 --> 00:17:35,930
+这只是这种特殊类型曲线的一个特性，
 
-390
-00:17:34,520 --> 00:17:35,930
-of the properties of this particular
-
-391
 00:17:35,930 --> 00:17:39,070
+这就是我们使用它的原因。
 type of curve and that's why we use it
 
 392
