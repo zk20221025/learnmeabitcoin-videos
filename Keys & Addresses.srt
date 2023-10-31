@@ -796,45 +796,31 @@
 
 00:15:54,620 --> 00:15:58,730
 我们做这个的方法是使用一些数学，
-password so the way we do that is we use
 
-354
 00:15:58,730 --> 00:16:03,769
 有一种特定类型的数学，
 
 00:16:03,769 --> 00:16:07,550
 使用这个东西，
-though and that mathematics uses this
 
-357
 00:16:07,550 --> 00:16:09,889
 叫做椭圆曲线。
-thing here which is called an elliptic
 
-358
 00:16:09,889 --> 00:16:13,190
 有很多不同的椭圆曲线，
-curve you have lots of different
 
-359
 00:16:13,190 --> 00:16:15,889
 这只是其中一个的插图，
-elliptic curves this is just in this
 
-360
 00:16:15,889 --> 00:16:19,639
 但是比特币使用的特别的一个叫做sec p 2 5 6 k 1。
 
 00:16:19,639 --> 00:16:23,870
 像我说的，
-sec p 2 5 6 k 1 so like I said there are
 
-363
 00:16:23,870 --> 00:16:25,850
 有很多不同的椭圆曲线，
-lots of different elliptic curves but
 
-364
 00:16:25,850 --> 00:16:31,880
 但是这是比特币使用的特别的椭圆曲线。
 
@@ -846,57 +832,37 @@ lots of different elliptic curves but
 
 00:16:42,230 --> 00:16:44,240
 我们为什么要使用这个椭圆曲线，
-we we are using this limit elliptic
 
-371
 00:16:44,240 --> 00:16:46,699
 稍后会解释，
-curve for them apparent later on so just
 
-372
 00:16:46,699 --> 00:16:48,620
 所以现在请耐心等待，
-bear with me now while I show you how
 
-373
 00:16:48,620 --> 00:16:51,250
 我会向你展示这个椭圆曲线乘法是如何工作的。
-this elliptic curve multiplication works
 
-374
 00:16:51,250 --> 00:16:55,730
 所以对于SEC P 2 5 6 K 1，
-so with the SEC P 2 5 6 K 1 it comes
 
-375
 00:16:55,730 --> 00:16:58,399
 它有一个起始点，
-with a starting point and to do
 
-376
 00:16:58,399 --> 00:17:00,110
 要做乘法，
-multiplication
 
-377
 00:17:00,110 --> 00:17:01,750
 这将是一个简化的解释，
-this is going to be a simplified
 
-378
 00:17:01,750 --> 00:17:05,329
 但基本上这被称为G，
-explanation but it's basically this is
 
-379
 00:17:05,329 --> 00:17:08,869
 也称为起始点或生成点，
 
 00:17:08,869 --> 00:17:10,839
 但对于乘法，
-multiplication
 
-382
 00:17:10,839 --> 00:17:20,359
 基本上是在曲线上画一条切线。
 
@@ -905,387 +871,241 @@ multiplication
 
 00:17:25,130 --> 00:17:26,839
 这个椭圆曲线的一个特性是，
-of the properties of this elliptic curve
 
-387
 00:17:26,839 --> 00:17:29,510
 如果你在上面画一条切线。
-is that if you draw a tangent on it then
 
-388
 00:17:29,510 --> 00:17:31,490
 那么，它总是会在曲线的另一点相交，
-it's always going to intersect the curve
 
-389
 00:17:31,490 --> 00:17:35,930
 这只是这种特殊类型曲线的一个特性，
 
 00:17:35,930 --> 00:17:39,070
 这就是我们使用它的原因。
-type of curve and that's why we use it
 
-392
 00:17:39,070 --> 00:17:42,860
 那么，当你做到这一点时，
-so have you done that when it intersects
 
-393
 00:17:42,860 --> 00:17:45,740
 当它交叉时，你就取那个称为交点的点，
-this point you take that point called
 
-394
 00:17:45,740 --> 00:17:47,840
 然后你只需翻转它，
-the intersect and then you just invert
 
-395
 00:17:47,840 --> 00:17:53,390
 并从相交处的这一点取曲线上相反的点
 
 00:17:53,390 --> 00:17:55,810
 我将取这个点，
-intersect I'm going to take this point
 
-398
 00:17:55,810 --> 00:17:59,150
 这个点就像做一轮乘法，
-this point here is like doing one round
 
-399
 00:17:59,150 --> 00:18:01,880
 所以如果这是一个G，
-of multiplication so if this was one G
 
-400
 00:18:01,880 --> 00:18:06,560
 那么这将是2G，
-this would be 2 G and then again if you
 
-401
 00:18:06,560 --> 00:18:07,820
 如果你想做另一轮乘法，
-want do another round of multiplication
 
-402
 00:18:07,820 --> 00:18:09,980
 画另一个切线，
-draw another tangent and it will
 
-403
 00:18:09,980 --> 00:18:12,260
 它将在曲线上交叉另一个点，
-intersect another point in the curve and
 
-404
 00:18:12,260 --> 00:18:13,910
 这会给你很好的结果，
-that will give you well then you take
 
-405
 00:18:13,910 --> 00:18:16,520
 然后你取那个点的倒数，
-the inverse of that and that will give
 
-406
 00:18:16,520 --> 00:18:18,500
 那将给你曲线上的另一个点，
-you you know another point on the curve
 
-407
 00:18:18,500 --> 00:18:20,350
 这是第二轮乘法。
-and is a second round of multiplication
 
-408
 00:18:20,350 --> 00:18:22,730
 这有点简化，
-this is a bit simplified but this is
 
-409
 00:18:22,730 --> 00:18:26,120
 但这基本上就是它的工作原理。
-basically how it works so again when you
 
-410
 00:18:26,120 --> 00:18:27,290
 当你想再次乘法时，
-want to multiply again you just take
 
-411
 00:18:27,290 --> 00:18:31,580
 你只需在曲线上的点处再次取切线，
-another tangent again at the point in
 
-412
 00:18:31,580 --> 00:18:34,070
 如此反复。
-the curve and so on and so on so
 
-413
 00:18:34,070 --> 00:18:35,360
 基本上，当你做一个椭圆曲线乘法时，
-basically when you do an elliptic curve
 
-414
 00:18:35,360 --> 00:18:38,570
 你在画所有这些切线并取相反的点，
-multiplication you're drawn all these
 
-415
-00:18:36,679 --> 00:18:38,570
-tangents and taking the inverse points
-
-416
 00:18:38,570 --> 00:18:41,540
 但最终你在这个曲线上以特定的方式跳动，
 
 00:18:41,540 --> 00:18:48,770
 就像这样。
-curve in a particular way like this so
 
-419
 00:18:48,770 --> 00:18:52,550 
 所以你所做的是在曲线上多次跳动，
 
 00:18:52,550 --> 00:18:54,920
 根据私钥次数来进行跳动，
-so you're bouncing on the key of private
 
-422
 00:18:54,920 --> 00:18:58,070
 所以显然我没有在那里结束，
-key times so obviously I don't end there
 
-423
 00:18:58,070 --> 00:19:02,160
 但你会继续做这个，直到你做到了私钥次数。
 
 00:19:02,160 --> 00:19:05,309
 当你做到这一点时，
-private key times when she's done that
 
-426
 00:19:05,309 --> 00:19:07,960
 当你最后完成时，
-maybe I when she done last you'll end up
 
-427
 00:19:07,960 --> 00:19:10,630
 你将在曲线上结束一个点，
-with a point on the curve and this point
 
-428
 00:19:10,630 --> 00:19:14,200
 这个点在曲线上是公钥。
-on the curve is the public key so there
 
-429
 00:19:14,200 --> 00:19:16,120
 所以，曲线上有很多很多点，
-are many many many points on this curve
 
-430
 00:19:16,120 --> 00:19:23,620
 基本上和私钥一样多的点。
 
 00:19:23,620 --> 00:19:25,480
 所以，一旦你得到了那个公钥，
-you've got that public so basically like
 
-433
 00:19:25,480 --> 00:19:28,390
 基本上，就像我说的，
-I said this final resting point on the
 
-434
 00:19:28,390 --> 00:19:30,040
 经过这么多次在曲线上跳动后的最后一个停留点，
-curve after bouncing around it this many
 
-435
 00:19:30,040 --> 00:19:32,500
 给你一个公钥，
-times gives you a public key and to be
 
-436
 00:19:32,500 --> 00:19:37,720
 准确地说，你的公钥只是这个点的X和Y坐标。
 
 00:19:37,720 --> 00:19:40,120
 所以我们得到了X和Y，
-are nasty X and as to why put them
 
-439
 00:19:40,120 --> 00:19:42,010
 把它们像这样放在一起，
-together like this and that is your
 
-440
 00:19:42,010 --> 00:19:46,960
 那就是你的公钥。
-public key one of the reasons why we use
 
-441
 00:19:46,960 --> 00:19:49,990
 我们使用这个椭圆曲线的原因之一是，
-this elliptic curve is because one of
 
-442
 00:19:49,990 --> 00:19:52,360
 它的一个特性是，
-the properties of it is it this
 
-443
 00:19:52,360 --> 00:19:54,070
 这个乘法是所谓的陷门函数，
-multiplication is what's called a
 
-444
 00:19:54,070 --> 00:19:59,850
 这意味着你可以很容易地做私钥乘法，
-】
+
 00:19:59,850 --> 00:20:02,140
 也就是说，使用私钥做乘法，
-well to multiplication using private key
 
-447
 00:20:02,140 --> 00:20:03,870
 我可以在曲线上跳动，
-and I give you can bounce on the curve
 
-448
 00:20:03,870 --> 00:20:05,830
 但是反过来，
-but going backwards
 
-449
 00:20:05,830 --> 00:20:08,740
 从曲线上的这个点，
-taking this point on the curve and
 
-450
 00:20:08,740 --> 00:20:10,780
 找出私钥是什么，
-figuring out what the private key was
 
-451
 00:20:10,780 --> 00:20:16,510
 这是非常困难的，
-from that is very difficult while it
 
-452
 00:20:16,510 --> 00:20:18,460
 而且还没有解决，
-hasn't been solved yet no one knows how
 
-453
 00:20:18,460 --> 00:20:21,520
 没有人知道如何从公钥或曲线上的一个点，
-to take a public key or a point on the
 
-454
 00:20:21,520 --> 00:20:25,510
 找出私钥是什么，
-curve and figure out what the private
 
-455
 00:20:25,510 --> 00:20:27,760
 我们通过生成器点乘以的数字。
-key was the number we multiplied the
 
-456
 00:20:27,760 --> 00:20:33,010
 解释为什么这个椭圆曲线很难，
-generator point by it's a bit hard to
 
-457
 00:20:33,010 --> 00:20:42,940
 我认为这个椭圆曲线值得单独拍一个视频。
 
-00:20:42,940 --> 00:20:44,440
+00:20:42,940 --> 00:20:47,950
 但是我要说的是你正在进行大量的模数运算，
-can say is that you're doing a lot of
 
-460
-00:20:44,440 --> 00:20:47,950
-modulus modulus mathematics and so
-
-461
 00:20:47,950 --> 00:20:49,330
 所以在进行这种乘法运算时，
-enough information gets thrown away
 
-462
 00:20:49,330 --> 00:20:53,250
 会有足够多的信息被丢弃。
-whilst doing this multiplication stuff
 
-463
 00:20:53,250 --> 00:20:56,200
 所以你不能轻易地逆转，
-so you can't just just very difficult to
 
-464
 00:20:56,200 --> 00:21:06,280
 这就是为什么我们依赖这个曲线来保护我们的公钥和私钥。
 
 00:21:06,280 --> 00:21:10,250
 如果你想了解更多为什么不能逆转，
 
-00:21:10,250 --> 00:21:11,570
+00:21:10,250 --> 00:21:14,690
 这被称为椭圆曲线离散对数问题。
-elliptic curve discrete logarithm
 
-470
-00:21:11,570 --> 00:21:14,690
-problem but there we go
-
-471
 00:21:14,690 --> 00:21:16,880
 我们从一个随机数开始，
-so we've started with a random number
 
-472
 00:21:16,880 --> 00:21:18,110
 做一些椭圆曲线数学运算，
-we've done some elliptic curve
 
-473
 00:21:18,110 --> 00:21:20,750
 得到曲线上的一个点，
-mathematics and we've got a point on the
 
-474
 00:21:20,750 --> 00:21:23,360
 这就是我们的公钥。
-curve and that is our public key so this
 
-475
 00:21:23,360 --> 00:21:28,730
 这就是我们的私钥和公钥之间的数学联系，
 
 00:21:28,730 --> 00:21:34,610
 通过椭圆曲线实现的。
-key to our public key yes yes so when
 
-479
 00:21:34,610 --> 00:21:36,950
 当你有不同的曲线，
-you have different caves and this one's
 
-480
 00:21:36,950 --> 00:21:39,980
 这个被称为SECP，
-called SEC P you have this one and so
 
-481
 00:21:39,980 --> 00:21:43,250
 它有一个特定的G生成点。
-that comes with a particular G generator
 
-482
 00:21:43,250 --> 00:21:55,309
 所以你可以有多个密钥，
 
@@ -1293,263 +1113,147 @@ that comes with a particular G generator
 但是它使用这个特定的曲线和这些特定的参数。
 
 00:22:02,360 --> 00:22:06,169
-are so that's creating our public key so
 
-487
 00:22:06,169 --> 00:22:10,850
 现在我们已经生成了我们的私钥和公钥，
 
 00:22:10,850 --> 00:22:14,120
 我们可以开始使用比特币了。
-start using Bitcoin so if you want some
 
-490
 00:22:14,120 --> 00:22:15,830
 如果你想让人们给我们发送比特币，
-people to send us bitcoins we just give
 
-491
 00:22:15,830 --> 00:22:18,440
 我们只需要给他们我们的公钥，
-them our public key like so so they've
 
-492
 00:22:18,440 --> 00:22:23,030
 他们就可以解锁他们拥有的任何比特币，
 
 00:22:23,030 --> 00:22:26,539
 创建一个新的批次，
-that they own create a new batch and put
 
-495
 00:22:26,539 --> 00:22:29,419
 并把锁放在上面，
-a lock on it and lock this batch of
 
-496
 00:22:29,419 --> 00:22:34,700
 把这批比特币锁定到我们的公钥上。
-bitcoins to our public key so when we
 
-497
 00:22:34,700 --> 00:22:38,210
 当我们想发送比特币的时候，
-want to send bitcoins then the ones
 
-498
-00:22:38,210 --> 00:22:40,490
+00:22:38,210 --> 00:22:42,289
 我们收到的那些比特币已经被锁定到我们公开的公钥上了，
-we've received they've been locked to
 
-499
-00:22:40,490 --> 00:22:42,289
-our public key that we've given away we
-
-500
 00:22:42,289 --> 00:22:44,990
 我们只需要创建交易，
-just use what we create the transaction
 
-501
-00:22:44,990 --> 00:22:47,240
+00:22:44,990 --> 00:22:50,539
 然后使用我们的私钥来解锁这个锁，
-first we want to send them and then we
 
-502
-00:22:47,240 --> 00:22:50,539
-use our private key to unlock this lock
-
-503
 00:22:50,539 --> 00:22:54,230
 或者说证明我们创建了这个公钥，
-or basically prove that we created this
 
-504
 00:22:54,230 --> 00:22:58,880
 或者说我们有这个公钥的数学联系，
 
 00:22:58,880 --> 00:23:01,880
 其他人是没有的。
-key and no one else no one else should
 
-507
-00:23:01,880 --> 00:23:06,730
-have it so how do we prove that
+00:23:01,880 --> 00:23:10,280
+那么我们如何证明我们创建了这个公钥，
 
-508
-00:23:06,820 --> 00:23:10,280
-we created this public key how can we
+00:23:10,280 --> 00:23:16,610
+我们如何证明我们拥有这个公钥是由私钥创建的呢？
 
-509
-00:23:10,280 --> 00:23:11,809
-show that we have the private key that
+00:23:16,610 --> 00:23:25,520
+一个糟糕的方法是把你的私钥放入你创建的交易中。
 
-510
-00:23:11,809 --> 00:23:16,610
-this public key was created from well a
+00:23:25,520 --> 00:23:30,200
+这意味着任何人都可以看到这个私钥和公钥，
 
-511
-00:23:16,610 --> 00:23:19,700
-bad way to do it would be to or one way
-
-512
-00:23:19,700 --> 00:23:21,500
-of doing it that would be bad
-
-513
-00:23:21,500 --> 00:23:23,720
-would be just to put your private key
-
-514
-00:23:23,720 --> 00:23:25,520
-into this transaction into the
-
-515
-00:23:25,520 --> 00:23:28,130
-transaction you've created so well that
-
-516
-00:23:28,130 --> 00:23:30,200
-means is anyone could look at this
-
-517
 00:23:30,200 --> 00:23:32,530
-private key in public key and say okay
+然后说，
 
-518
 00:23:32,530 --> 00:23:36,169
-this public this person obviously has
+这个人显然拥有这个私钥，
 
-519
 00:23:36,169 --> 00:23:37,370
-this private key because they've given
+因为他们已经给了我们，
 
-520
-00:23:37,370 --> 00:23:39,770
-it to us and they can they can see the
+00:23:37,370 --> 00:23:41,179
+他们可以自己看到数学上的联系，
 
-521
-00:23:39,770 --> 00:23:41,179
-mathematical connection for themselves
-
-522
 00:23:41,179 --> 00:23:42,220
-they can do the elliptic curve
+他们可以做椭圆曲线乘法，
 
-523
 00:23:42,220 --> 00:23:44,450
-multiplication and get the same public
+得到相同的公钥，
 
-524
 00:23:44,450 --> 00:23:46,820
-key and that proves that we created this
+这证明了我们创建了这个公钥。
 
-525
 00:23:46,820 --> 00:23:50,540
-public key but the problem is when this
+但是问题是，
 
-526
 00:23:50,540 --> 00:23:52,820
-transaction goes out into the Bitcoin
+当这笔交易进入比特币网络时，
 
-527
 00:23:52,820 --> 00:23:55,010
-network it's gonna be in all of these
+它将存在于所有的节点中，
 
-528
-00:23:55,010 --> 00:24:01,700
-nodes and so anyone can see this
+00:23:55,010 --> 00:24:05,030
+所以任何人都可以看到这个公开暴露的私钥。
 
-529
-00:24:01,700 --> 00:24:05,030
-publicly exposed private key and if they
-
-530
 00:24:05,030 --> 00:24:07,340
-can see it then what they can do they
+如果他们能看到它，他们就可以做的是，
 
-531
-00:24:07,340 --> 00:24:10,040
-can take that public private key and if
+00:24:07,340 --> 00:24:12,830 
+如果有任何其他的比特币被锁定到与这个公钥相同的公钥上，
 
-532
-00:24:10,040 --> 00:24:12,830
-there are any other bitcoins locked to
+00:24:12,830 --> 00:24:19,610
+他们就可以复制我们的私钥，
 
-533
-00:24:12,830 --> 00:24:16,309
-the same public key as this one they can
+00:24:19,610 --> 00:24:27,320
+并且基本上拿走所有被锁定到这个公钥上的比特币或输出。
 
-534
-00:24:16,309 --> 00:24:19,610
-just copy our private key and basically
-
-535
-00:24:19,610 --> 00:24:25,880
-take all of the bitcoins or outputs that
-
-536
-00:24:25,880 --> 00:24:27,320
-have been locked to this public key
-
-537
 00:24:27,320 --> 00:24:29,360
-before so the last thing we want to do
+所以我们最不想做的就是把私钥给出去，
 
-538
 00:24:29,360 --> 00:24:33,380
-is give away this private key so that
+那样就不行了。
 
-539
 00:24:33,380 --> 00:24:35,410
-wouldn't work so what can we do instead
+那么我们能做什么呢？
 
-540
-00:24:35,410 --> 00:24:37,669
-we need to put something here
+00:24:35,410 --> 00:24:40,970
+我们需要在这笔交易中放入一些东西，
 
-541
-00:24:37,669 --> 00:24:40,970
-in this transaction that proves that we
-
-542
 00:24:40,970 --> 00:24:43,220
-created this public key and we need to
+证明我们创建了这个公钥，
 
-543
 00:24:43,220 --> 00:24:44,780
-put something here the only we can
+我们需要放入一些只有我们能创建的东西，
 
-544
 00:24:44,780 --> 00:24:48,679
-create that no one else can put here to
+其他人无法放入解锁这批比特币的东西。
 
-545
 00:24:48,679 --> 00:24:52,130
-unlock this batch of bitcoins it's what
+我们要做什么呢？
 
-546
 00:24:52,130 --> 00:24:53,660
-do we do well we use our private key
+我们再次使用我们的私钥，
 
-547
-00:24:53,660 --> 00:24:55,850
-again but instead of putting our actual
+00:24:53,660 --> 00:24:59,120
+但是我们不把实际的私钥放入这个交易数据中，
 
-548
-00:24:55,850 --> 00:24:59,120
-private key into this transaction data
-
-549
 00:24:59,120 --> 00:25:02,480
-you create what's called a signature now
+而是创建一个所谓的签名。
 
-550
 00:25:02,480 --> 00:25:05,049
-these signatures are very handy because
+这些签名非常方便，
 
-551
 00:25:05,049 --> 00:25:07,250
+因为它们是由私钥创建的。
 they are created from the private key
 
 552
