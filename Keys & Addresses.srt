@@ -659,37 +659,25 @@
 
 00:12:43,070 --> 00:12:46,370
 就像这样。这个过程会一直持续下去，
-like so so this goes on and on so the
 
-293
 00:12:46,370 --> 00:12:47,360
 因此数字越大，
-bigger the number
 
-294
 00:12:47,360 --> 00:12:52,670
 你就需要更多的位来表示它或者在计算机上存储它。
 
 00:12:52,670 --> 00:12:55,870
 如果你继续这样做，
-computer so who carried on doing this
 
-297
 00:12:55,870 --> 00:13:02,209
 你会有256个位排列在一起，
-and you had 256 bits lined up together
 
-298
 00:13:02,209 --> 00:13:05,180
 如果你在所有这些位上都放上1，
-and you put ones in all of them then
 
-299
 00:13:05,180 --> 00:13:09,470
 那么它就能存储这个数字。
-that would be able to store this number
 
-300
 00:13:09,470 --> 00:13:13,519
 这就是为什么它被称为256位数字，
 
@@ -701,65 +689,43 @@ that would be able to store this number
 
 00:13:26,470 --> 00:13:28,970
 因为我们每个块都有两个选择，
-because we have two options for each
 
-307
 00:13:28,970 --> 00:13:32,390
 可能是0或1，
-each block here and sock might be either
 
-308
 00:13:32,390 --> 00:13:36,490
 如果你这样做256次，
-be a 0 or 1 and if you do that 256 times
 
-309
 00:13:36,490 --> 00:13:40,220
 那么2的256次方就会给你这个数字，
-so ^ 2056 that gives you this number
 
-310
 00:13:40,220 --> 00:13:45,310
 这是一个非常大的数字。
-here 2 ^ 256 which is a very big number
 
-311
 00:13:45,310 --> 00:13:48,620
 那么现在的问题是，
-so then the question now is what if
 
-312
 00:13:48,620 --> 00:13:50,209
 如果有人生成了和我一样的私钥怎么办？
-someone generates the same private key
 
-313
 00:13:50,209 --> 00:13:52,459
 这显然看起来，
-as me this obviously seems like a bit of
 
-314
 00:13:52,459 --> 00:13:58,100
 像是一种生成自己的私人密码以便使用比特币的粗糙机制。
 
 00:13:58,100 --> 00:14:02,180
 答案是这个数字如此之大，
-Bitcoin well the answer is that this
 
-317
 00:14:02,180 --> 00:14:10,089
 以至于没有人会生成和你一样的私钥。
 
 00:14:10,089 --> 00:14:13,459
 为了说明这一点，
-to illustrate that let's say this is the
 
-320
 00:14:13,459 --> 00:14:17,560
 假设这是已知的可见宇宙，
-known visible universe this number here
 
-321
 00:14:17,560 --> 00:14:24,140
 这里的数字是这个已知的可见宇宙中的原子数量。
 
@@ -768,95 +734,63 @@ known visible universe this number here
 
 00:14:33,829 --> 00:14:37,670
 你只需要相信我，
-universe so you just have to trust me
 
-327
 00:14:37,670 --> 00:14:40,730
 这个数字非常大，
-when I say that because this is number
 
-328
 00:14:40,730 --> 00:14:44,360
 虽然我可以在屏幕上显示它，
 
 00:14:44,360 --> 00:14:47,060
 但它实在是太大了。
-can display it on a screen but it is
 
-331
 00:14:47,060 --> 00:14:49,220
 由于这个数字如此之大，
-unbelievably large and the fact that
 
-332
 00:14:49,220 --> 00:14:55,630
 两个不同的人不会生成相同的数字。
 
 00:14:55,630 --> 00:14:59,029
 这就是它的大小，
-and that's just how big it is and that's
 
-336
 00:14:59,029 --> 00:15:01,310
 这就是它的安全性。
-so secure it is and this has been
 
-337
 00:15:01,310 --> 00:15:04,279
 在比特币中，这一切都运行得很好，没有问题。
-working fine in Bitcoin no problems
 
-338
 00:15:04,279 --> 00:15:09,170
 没有人知道有人生成了相同的私钥，
 
 00:15:09,170 --> 00:15:12,259
 至少我不知道。如果有的话，那将是大新闻。
-know of anyway and if there was it would
 
-341
 00:15:12,259 --> 00:15:14,810
 但就像我说的，这是一个非常大的数字。
-be big news but like I said it's a very
 
-342
 00:15:14,810 --> 00:15:17,690
 所以私钥你只需要在1和这个值之间生成一个数字，
-big number so private key you just
 
-343
 00:15:17,690 --> 00:15:21,440
-generate a number up to between one and
 
-344
 00:15:21,440 --> 00:15:24,290
 这个值刚刚生成，
-this value here just generated and I'll
 
-345
 00:15:24,290 --> 00:15:29,300
 我会给你私钥，
-give you your private key something
 
-346
 00:15:29,300 --> 00:15:39,620
 所以私钥只是一个我们刚刚生成的随机数，
 
 00:15:39,620 --> 00:15:42,680
 有了它我们就可以得到我们的公钥了。
-generated from that we can now get our
 
-349
 00:15:42,680 --> 00:15:47,930
 像我说的，没有公钥，
-public key so like I said without public
 
-350
 00:15:47,930 --> 00:15:49,610
 我们需要将它与我们的私钥连接起来，
-key it needs to be connected to our
 
-351
 00:15:49,610 --> 00:15:54,620
 因为我们需要将我们的账号和密码连接起来。
 
@@ -1267,16 +1201,11 @@ key was the number we multiplied the
 generator point by it's a bit hard to
 
 457
-00:20:33,010 --> 00:20:37,500
+00:20:33,010 --> 00:20:42,940
 我认为这个椭圆曲线值得单独拍一个视频。
-explain why I think this elliptic curve
 
-458
-00:20:37,500 --> 00:20:42,940
-deserves a video of its own but all I
-
-459
 00:20:42,940 --> 00:20:44,440
+但是我要说的是你正在进行大量的模数运算，
 can say is that you're doing a lot of
 
 460
@@ -1285,38 +1214,28 @@ modulus modulus mathematics and so
 
 461
 00:20:47,950 --> 00:20:49,330
+所以在进行这种乘法运算时，
 enough information gets thrown away
 
 462
 00:20:49,330 --> 00:20:53,250
+会有足够多的信息被丢弃。
 whilst doing this multiplication stuff
 
 463
 00:20:53,250 --> 00:20:56,200
+所以你不能轻易地逆转，
 so you can't just just very difficult to
 
 464
-00:20:56,200 --> 00:20:58,900
-go backwards and that's why we we rely
+00:20:56,200 --> 00:21:06,280
+这就是为什么我们依赖这个曲线来保护我们的公钥和私钥。
 
-465
-00:20:58,900 --> 00:21:00,370
-on this little curve to basically
+00:21:06,280 --> 00:21:10,250
+如果你想了解更多为什么不能逆转，
 
-466
-00:21:00,370 --> 00:21:06,000
-protect our public keys and private keys
-
-467
-00:21:06,280 --> 00:21:08,809
-and this if want to find out more about
-
-468
-00:21:08,809 --> 00:21:10,250
-why can go backwards it's called the
-
-469
 00:21:10,250 --> 00:21:11,570
+这被称为椭圆曲线离散对数问题。
 elliptic curve discrete logarithm
 
 470
@@ -1325,114 +1244,101 @@ problem but there we go
 
 471
 00:21:14,690 --> 00:21:16,880
+我们从一个随机数开始，
 so we've started with a random number
 
 472
 00:21:16,880 --> 00:21:18,110
+做一些椭圆曲线数学运算，
 we've done some elliptic curve
 
 473
 00:21:18,110 --> 00:21:20,750
+得到曲线上的一个点，
 mathematics and we've got a point on the
 
 474
 00:21:20,750 --> 00:21:23,360
+这就是我们的公钥。
 curve and that is our public key so this
 
 475
-00:21:23,360 --> 00:21:24,890
-is the mathematical connection this
+00:21:23,360 --> 00:21:28,730
+这就是我们的私钥和公钥之间的数学联系，
 
-476
-00:21:24,890 --> 00:21:27,169
-through this elliptic curve we have a
-
-477
-00:21:27,169 --> 00:21:28,730
-mathematical connection from our private
-
-478
 00:21:28,730 --> 00:21:34,610
+通过椭圆曲线实现的。
 key to our public key yes yes so when
 
 479
 00:21:34,610 --> 00:21:36,950
+当你有不同的曲线，
 you have different caves and this one's
 
 480
 00:21:36,950 --> 00:21:39,980
+这个被称为SECP，
 called SEC P you have this one and so
 
 481
 00:21:39,980 --> 00:21:43,250
+它有一个特定的G生成点。
 that comes with a particular G generator
 
 482
-00:21:43,250 --> 00:21:53,240
-point yeah yessum okay cryptography
+00:21:43,250 --> 00:21:55,309
+所以你可以有多个密钥，
 
-483
-00:21:53,240 --> 00:21:55,309
-thing yeah so you can have 10 kids but
+00:21:55,309 --> 00:22:02,360
+但是它使用这个特定的曲线和这些特定的参数。
 
-484
-00:21:55,309 --> 00:21:57,110
-it kind uses this particular curve and
-
-485
-00:21:57,110 --> 00:22:02,360
-these particular parameters so there we
-
-486
 00:22:02,360 --> 00:22:06,169
 are so that's creating our public key so
 
 487
-00:22:06,169 --> 00:22:08,270
-now we've got you just generated our
+00:22:06,169 --> 00:22:10,850
+现在我们已经生成了我们的私钥和公钥，
 
-488
-00:22:08,270 --> 00:22:10,850
-private key and a public key we can
-
-489
 00:22:10,850 --> 00:22:14,120
+我们可以开始使用比特币了。
 start using Bitcoin so if you want some
 
 490
 00:22:14,120 --> 00:22:15,830
+如果你想让人们给我们发送比特币，
 people to send us bitcoins we just give
 
 491
 00:22:15,830 --> 00:22:18,440
+我们只需要给他们我们的公钥，
 them our public key like so so they've
 
 492
-00:22:18,440 --> 00:22:20,570
-got a copy of our public key and then
+00:22:18,440 --> 00:22:23,030
+他们就可以解锁他们拥有的任何比特币，
 
-493
-00:22:20,570 --> 00:22:23,030
-they can unlock any batteries a bitcoins
-
-494
 00:22:23,030 --> 00:22:26,539
+创建一个新的批次，
 that they own create a new batch and put
 
 495
 00:22:26,539 --> 00:22:29,419
+并把锁放在上面，
 a lock on it and lock this batch of
 
 496
 00:22:29,419 --> 00:22:34,700
+把这批比特币锁定到我们的公钥上。
 bitcoins to our public key so when we
 
 497
 00:22:34,700 --> 00:22:38,210
+当我们想发送比特币的时候，
 want to send bitcoins then the ones
 
 498
 00:22:38,210 --> 00:22:40,490
+我们收到的那些比特币已经被锁定到我们公开的公钥上了，
 we've received they've been locked to
 
 499
@@ -1441,10 +1347,12 @@ our public key that we've given away we
 
 500
 00:22:42,289 --> 00:22:44,990
+我们只需要创建交易，
 just use what we create the transaction
 
 501
 00:22:44,990 --> 00:22:47,240
+然后使用我们的私钥来解锁这个锁，
 first we want to send them and then we
 
 502
@@ -1453,18 +1361,15 @@ use our private key to unlock this lock
 
 503
 00:22:50,539 --> 00:22:54,230
+或者说证明我们创建了这个公钥，
 or basically prove that we created this
 
 504
-00:22:54,230 --> 00:22:56,360
-public key or that we have the
+00:22:54,230 --> 00:22:58,880
+或者说我们有这个公钥的数学联系，
 
-505
-00:22:56,360 --> 00:22:58,880
-mathematical connection to this public
-
-506
 00:22:58,880 --> 00:23:01,880
+其他人是没有的。
 key and no one else no one else should
 
 507
