@@ -1472,7 +1472,7 @@ we're just using a random number that's
 
 611
 00:27:31,659 --> 00:27:32,909
-
+这将用于这次一次性交易的签名，
 going to be used for this one-time
 
 612
@@ -1480,143 +1480,150 @@ going to be used for this one-time
 signature for this transaction and so
 
 613
-00:27:36,879 --> 00:27:39,730
-this random point on the curve that we
+00:27:36,879 --> 00:27:43,059
+因此我们在曲线上生成的这个随机点被称为我们的R，
 
-614
-00:27:39,730 --> 00:27:43,059
-generate is called our or what
-
-615
 00:27:43,059 --> 00:27:44,529
+更具体地说，
 specifically more specifically we just
 
 616
 00:27:44,529 --> 00:27:46,529
+我们只需要它的x值。
 need the x value for it
 
 617
 00:27:46,529 --> 00:27:51,070
+然后，使用这个随机点或x值，
 secondly using that random point or the
 
 618
 00:27:51,070 --> 00:27:53,559
+这只是一个数字，
 x value which is just a number we
 
 619
 00:27:53,559 --> 00:27:55,749
+我们将其与我们的私钥，
 multiply that but our private key which
 
 620
 00:27:55,749 --> 00:27:58,720
+也只是一个数字相乘，
 again is just a number and then we add
 
 621
 00:27:58,720 --> 00:28:02,350
+然后添加一个被称为消息的东西，
 in what's called a message some thing we
 
 622
 00:28:02,350 --> 00:28:04,509
+我们想要签名的东西。
 want to sign so the thing we want to
 
 623
 00:28:04,509 --> 00:28:06,070
+我们想要为这个交易创建一个签名，
 create a signature for is this
 
 624
-00:28:06,070 --> 00:28:08,860
-transaction here so we basically put
+00:28:06,070 --> 00:28:10,899
+所以我们基本上将这个交易作为消息放在这里，
 
-625
-00:28:08,860 --> 00:28:10,899
-that transaction into here as the
-
-626
 00:28:10,899 --> 00:28:12,549
+这只是一堆数据，
 message and this is all just a bunch of
 
 627
 00:28:12,549 --> 00:28:18,009
+但我们并不将实际的全部数据放在这里，
 data but just we don't put the actual
 
 628
-00:28:18,009 --> 00:28:20,019
-full data in there what we do we just
+00:28:18,009 --> 00:28:22,779
+我们做的只是将其哈希并将数据的哈希放在这里。
 
-629
-00:28:20,019 --> 00:28:22,779
-hash it and put that the hash of the
-
-630
 00:28:22,779 --> 00:28:25,779
+但基本上，
 data in there but basically we've got
 
 631
 00:28:25,779 --> 00:28:28,419
+我们有随机部分这个x值，
 the random part this x value we multiply
 
 632
 00:28:28,419 --> 00:28:30,129
+我们将其与私钥相乘，
 that with a private key and then we just
 
 633
-00:28:30,129 --> 00:28:34,649
-add in the fingerprint for the
+00:28:30,129 --> 00:28:38,529
+然后我们只是添加了我们想要签名的交易的指纹，
 
-634
-00:28:34,649 --> 00:28:38,529
-transaction we want to sign and then we
-
-635
 00:28:38,529 --> 00:28:42,460
+然后我们再将所有这些写入我们的R。
 just write all that then by our again so
 
 636
 00:28:42,460 --> 00:28:44,769
+所以这里的关键实际上是，
 the key thing here really is that we've
 
 637
 00:28:44,769 --> 00:28:46,779
+我们在曲线中有一个随机点，
 got a random point in the cave and we've
 
 638
 00:28:46,779 --> 00:28:48,700
+我们在这里有一个特殊的数字，
 got this special number here that
 
 639
 00:28:48,700 --> 00:28:50,740
+其中包含我们的私钥，
 contains a mix of our private key and
 
 640
 00:28:50,740 --> 00:28:53,259
+我们希望签名起作用的交易的组合，
 the transaction we want the signature to
 
 641
 00:28:53,259 --> 00:28:58,809
+这被称为S。
 work for and this is called s so as you
 
 642
 00:28:58,809 --> 00:29:00,700
+所以你可以看到，
 can see the private key and the
 
 643
 00:29:00,700 --> 00:29:03,309
+私钥和交易数据在那里，
 transaction data is in there but it's
 
 644
 00:29:03,309 --> 00:29:04,680
+但它们都被打乱了。
 all jumbled up
 
 645
 00:29:04,680 --> 00:29:06,960
+如果我们看一下这个S值，
 so if and we could look at this s value
 
 646
 00:29:06,960 --> 00:29:08,430
+他们将无法看到我们的实际私钥是什么，
 but they won't be able to see what our
 
 647
 00:29:08,430 --> 00:29:09,690
+因为我们使用了这个R等来打乱它。
 actual private key is because we've used
 
 648
@@ -1625,30 +1632,37 @@ this R and what not to scramble it up a
 
 649
 00:29:12,720 --> 00:29:15,720
+但它都在那里，
 little bit but it's all in there so the
 
 650
 00:29:15,720 --> 00:29:17,940
+所以签名就是这两部分，
 signature then is just these two parts
 
 651
 00:29:17,940 --> 00:29:20,250
+所以你在那里放入R，
 so you put the R in there and you put
 
 652
 00:29:20,250 --> 00:29:21,180
+并在那里放入S值。
 the S value in there
 
 653
 00:29:21,180 --> 00:29:22,380
+所以R只是曲线中的一个随机点，
 so the are just around a point in the
 
 654
 00:29:22,380 --> 00:29:25,680
+S是一个特殊的数字，
 cave the s is a special number that
 
 655
 00:29:25,680 --> 00:29:26,970
+包含我们的私钥和我们想要签名的交易数据，
 contains our private key and the
 
 656
@@ -1657,34 +1671,35 @@ transaction data we want to sign and
 
 657
 00:29:28,500 --> 00:29:31,620
+这就是我们的签名，
 that is our signature signature is just
 
 658
 00:29:31,620 --> 00:29:35,280
+签名只是一个R和一个S值。
 an R and an espalier so move out there
 
 659
 00:29:35,280 --> 00:29:45,690
+所以，移出那里，这就是第一部分，
 that's the first part then go on through
 
 660
 00:29:45,690 --> 00:29:47,490
+然后今天在继续一遍，这会很棒。
 this again today it will be awesome so
 
 661
-00:29:47,490 --> 00:29:52,230
-the first part you mentioned was we have
+00:29:47,490 --> 00:29:55,160
+你提到的第一部分是我们有相同的部分，
 
-662
-00:29:52,230 --> 00:29:54,980
-the same gene
-
-663
 00:29:55,160 --> 00:29:58,020
+生成一个随机数，
 generate a random number yes so this is
 
 664
 00:29:58,020 --> 00:30:00,090
+是的，这只是一个随机数。
 just a random number yeah you just
 
 665
