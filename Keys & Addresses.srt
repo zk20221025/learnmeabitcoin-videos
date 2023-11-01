@@ -1260,47 +1260,31 @@
 
 00:25:13,620 --> 00:25:16,860
 但好处是，首先，
-but the good thing is well one it
 
-555
 00:25:16,860 --> 00:25:18,300
 它不会泄露我们的私钥，
-doesn't give out a way our private key
 
-556
 00:25:18,300 --> 00:25:25,950
 其次，它们只对我们签名的交易有效。
 
 00:25:25,950 --> 00:25:28,380
 如果有人看到一个签名，
-someone else sees a signature and we've
 
-559
 00:25:28,380 --> 00:25:30,480
 我们有其他的比特币被这个公钥锁定，
-got other bitcoins locked to this public
 
-560
 00:25:30,480 --> 00:25:32,370
 他们不能只看这个签名，
-key they can't just look at this
 
-561
 00:25:32,370 --> 00:25:35,460
 把它放进这个交易，
-signature take it and put it into this
 
-562
 00:25:35,460 --> 00:25:37,620
 或者他们创建的交易，
-transaction or transaction they create
 
-563
 00:25:37,620 --> 00:25:39,750
 因为这不会起作用，
-because that won't work because this
 
-564
 00:25:39,750 --> 00:25:46,410
 因为这个签名只对我们创建的一个交易有效。
 
@@ -1309,29 +1293,19 @@ because that won't work because this
 
 00:25:55,470 --> 00:25:56,130
 这有道理吗？
-that make sense
 
-570
 00:25:56,130 --> 00:25:58,080
 我会马上详细介绍，
-I cover the details in a moment but as
 
-571
 00:25:58,080 --> 00:25:59,610
 但只要有意义，
-long as that makes some sense that's
 
-572
 00:25:59,610 --> 00:26:03,030
 这就是签名的基本原理。
-just the very basics of signatures so
 
-573
 00:26:03,030 --> 00:26:05,130
 我们有一个私钥和一个公钥，
-we've got a private key a public key but
 
-574
 00:26:05,130 --> 00:26:11,910
 但现在我们需要弄清楚如何创建数字签名，
 
@@ -1340,92 +1314,58 @@ we've got a private key a public key but
 
 00:26:16,559 --> 00:26:20,130
 而不泄露私钥，
-without giving away our private key so
 
-580
 00:26:20,130 --> 00:26:21,830
 这是一个图示，
-that's one of Kevin OH
 
-581
 00:26:21,830 --> 00:26:23,880
 所以我们需要创建一个签名。
-so a signature we need to create a
 
-582
 00:26:23,880 --> 00:26:28,710
 我会快速浏览这个过程，
-signature I'm gonna run through this a
 
-583
 00:26:28,710 --> 00:26:31,290
 并且只会涵盖最基本的部分，
-little quickly and I'm gonna cover the
 
-584
 00:26:31,290 --> 00:26:33,150
 不用担心，
-absolute basics don't worry if it
 
-585
 00:26:33,150 --> 00:26:34,830
 如果第一次听不完全理解，
-doesn't make complete sense on the first
 
-586
 00:26:34,830 --> 00:26:36,600
 只要你大致明白就好。
-attempt just as long as you get the gist
 
-587
 00:26:36,600 --> 00:26:39,120
 这涉及到一些数学。
-of it that's fine it involves some
 
-588
 00:26:39,120 --> 00:26:43,320
 让我们用其他方法移动它，
 
 00:26:43,320 --> 00:26:44,820
 可能我有很多方式来进行，
-maybe I'll just move everything of the
 
-591
 00:26:44,820 --> 00:26:47,730
 但我现在还不清楚。
-way but I don't that down here now we
 
-592
 00:26:47,730 --> 00:26:49,530
 我们需要创建一个签名，
-need to create a signature there's two
 
-593
 00:26:49,530 --> 00:26:51,480
 创建签名有两个步骤，
-steps to create a signature and it
 
-594
 00:26:51,480 --> 00:26:53,850
 这涉及到椭圆曲线的使用。
-involves the use of this elliptic curve
 
-595
 00:26:53,850 --> 00:26:56,220
 这并不奇怪，
-again no surprises that's why we use the
 
-596
 00:26:56,220 --> 00:26:57,210
 这就是我们首先使用椭圆曲线的原因，
-elliptic curve in the first place
 
-597
 00:26:57,210 --> 00:26:59,520
 因为我们可以再次使用它来创建签名。
-because we can use it again to create
 
-598
 00:26:59,520 --> 00:27:10,440
 这个创建签名的两步过程的第一部分是你需要一个随机部分，
 
@@ -1434,366 +1374,214 @@ because we can use it again to create
 
 00:27:14,559 --> 00:27:17,830
 然后再做一些椭圆曲线乘法，
-and doing some elliptic curve
 
-604
 00:27:17,830 --> 00:27:19,240
 就像我们之前做的一样，
-multiplication again just like we did
 
-605
 00:27:19,240 --> 00:27:23,440
 这会给你曲线上的一个随机点。
-earlier and that would give you a random
 
-606
-00:27:23,440 --> 00:27:25,240
+00:27:23,440 --> 00:27:26,440 
 这与我们之前做的非常相似，
-point on the curve so this is very
 
-607
-00:27:25,240 --> 00:27:26,440
-similar to what we did earlier we just
-
-608
 00:27:26,440 --> 00:27:28,330
 我们只是取了一个私钥并创建了一个公钥，
-took a private key and create a public
 
-609
 00:27:28,330 --> 00:27:29,919
 这是完全一样的，
-key this is the exact same thing but
 
-610
 00:27:29,919 --> 00:27:31,659
 但我们只是使用一个随机数，
-we're just using a random number that's
 
-611
-00:27:31,659 --> 00:27:32,909
+00:27:31,659 --> 00:27:36,879
 这将用于这次一次性交易的签名，
-going to be used for this one-time
 
-612
-00:27:32,909 --> 00:27:36,879
-signature for this transaction and so
-
-613
 00:27:36,879 --> 00:27:43,059
 因此我们在曲线上生成的这个随机点被称为我们的R，
 
 00:27:43,059 --> 00:27:44,529
 更具体地说，
-specifically more specifically we just
 
-616
 00:27:44,529 --> 00:27:46,529
 我们只需要它的x值。
-need the x value for it
 
-617
 00:27:46,529 --> 00:27:51,070
 然后，使用这个随机点或x值，
-secondly using that random point or the
 
-618
 00:27:51,070 --> 00:27:53,559
 这只是一个数字，
-x value which is just a number we
 
-619
 00:27:53,559 --> 00:27:55,749
 我们将其与我们的私钥，
-multiply that but our private key which
 
-620
 00:27:55,749 --> 00:27:58,720
 也只是一个数字相乘，
-again is just a number and then we add
 
-621
 00:27:58,720 --> 00:28:02,350
 然后添加一个被称为消息的东西，
-in what's called a message some thing we
 
-622
 00:28:02,350 --> 00:28:04,509
 我们想要签名的东西。
-want to sign so the thing we want to
 
-623
 00:28:04,509 --> 00:28:06,070
 我们想要为这个交易创建一个签名，
-create a signature for is this
 
-624
 00:28:06,070 --> 00:28:10,899
 所以我们基本上将这个交易作为消息放在这里，
 
 00:28:10,899 --> 00:28:12,549
 这只是一堆数据，
-message and this is all just a bunch of
 
-627
 00:28:12,549 --> 00:28:18,009
 但我们并不将实际的全部数据放在这里，
-data but just we don't put the actual
 
-628
 00:28:18,009 --> 00:28:22,779
 我们做的只是将其哈希并将数据的哈希放在这里。
 
 00:28:22,779 --> 00:28:25,779
 但基本上，
-data in there but basically we've got
 
-631
 00:28:25,779 --> 00:28:28,419
 我们有随机部分这个x值，
-the random part this x value we multiply
 
-632
 00:28:28,419 --> 00:28:30,129
 我们将其与私钥相乘，
-that with a private key and then we just
 
-633
 00:28:30,129 --> 00:28:38,529
 然后我们只是添加了我们想要签名的交易的指纹，
 
 00:28:38,529 --> 00:28:42,460
 然后我们再将所有这些写入我们的R。
-just write all that then by our again so
 
-636
 00:28:42,460 --> 00:28:44,769
 所以这里的关键实际上是，
-the key thing here really is that we've
 
-637
 00:28:44,769 --> 00:28:46,779
 我们在曲线中有一个随机点，
-got a random point in the cave and we've
 
-638
 00:28:46,779 --> 00:28:48,700
 我们在这里有一个特殊的数字，
-got this special number here that
 
-639
 00:28:48,700 --> 00:28:50,740
 其中包含我们的私钥，
-contains a mix of our private key and
 
-640
 00:28:50,740 --> 00:28:53,259
 我们希望签名起作用的交易的组合，
-the transaction we want the signature to
 
-641
 00:28:53,259 --> 00:28:58,809
 这被称为S。
-work for and this is called s so as you
 
-642
 00:28:58,809 --> 00:29:00,700
 所以你可以看到，
-can see the private key and the
 
-643
 00:29:00,700 --> 00:29:03,309
 私钥和交易数据在那里，
-transaction data is in there but it's
 
-644
 00:29:03,309 --> 00:29:04,680
 但它们都被打乱了。
-all jumbled up
 
-645
 00:29:04,680 --> 00:29:06,960
 如果我们看一下这个S值，
-so if and we could look at this s value
 
-646
 00:29:06,960 --> 00:29:08,430
 他们将无法看到我们的实际私钥是什么，
-but they won't be able to see what our
 
-647
-00:29:08,430 --> 00:29:09,690
+00:29:08,430 --> 00:29:12,720
 因为我们使用了这个R等来打乱它。
-actual private key is because we've used
 
-648
-00:29:09,690 --> 00:29:12,720
-this R and what not to scramble it up a
-
-649
 00:29:12,720 --> 00:29:15,720
 但它都在那里，
-little bit but it's all in there so the
 
-650
 00:29:15,720 --> 00:29:17,940
 所以签名就是这两部分，
-signature then is just these two parts
 
-651
 00:29:17,940 --> 00:29:20,250
 所以你在那里放入R，
-so you put the R in there and you put
 
-652
 00:29:20,250 --> 00:29:21,180
 并在那里放入S值。
-the S value in there
 
-653
 00:29:21,180 --> 00:29:22,380
 所以R只是曲线中的一个随机点，
-so the are just around a point in the
 
-654
 00:29:22,380 --> 00:29:25,680
 S是一个特殊的数字，
-cave the s is a special number that
 
-655
-00:29:25,680 --> 00:29:26,970
+00:29:25,680 --> 00:29:28,500
 包含我们的私钥和我们想要签名的交易数据，
-contains our private key and the
 
-656
-00:29:26,970 --> 00:29:28,500
-transaction data we want to sign and
-
-657
 00:29:28,500 --> 00:29:31,620
 这就是我们的签名，
-that is our signature signature is just
 
-658
 00:29:31,620 --> 00:29:35,280
 签名只是一个R和一个S值。
-an R and an espalier so move out there
 
-659
 00:29:35,280 --> 00:29:45,690
 所以，移出那里，这就是第一部分，
-that's the first part then go on through
 
-660
 00:29:45,690 --> 00:29:47,490
 然后今天在继续一遍，这会很棒。
-this again today it will be awesome so
 
-661
 00:29:47,490 --> 00:29:55,160
 你提到的第一部分是我们有相同的部分，
 
 00:29:55,160 --> 00:29:58,020
 生成一个随机数，
-generate a random number yes so this is
 
-664
 00:29:58,020 --> 00:30:00,090
 是的，这只是一个随机数。
-just a random number yeah you just
 
-665
 00:30:00,090 --> 00:30:03,960
 我们把这个随机数和G相乘，
-missed it yeah and we multiply that
 
-666
 00:30:03,960 --> 00:30:05,820
 就一直在曲线上跳跃，
-random number with G so we keep hopping
 
-667
 00:30:05,820 --> 00:30:07,860
 直到达到某个特定的点。
-around the curve until you get to a
 
-668
 00:30:07,860 --> 00:30:13,910
 在这个阶段，
-point just after that and at this point
 
-669
 00:30:13,910 --> 00:30:17,010
 我们的公钥或私钥还没有进入画面，
-like our public or private he has not
 
-670
 00:30:17,010 --> 00:30:19,710
 这是随机的。
-come into the picture this is random
 
-671
-00:30:19,710 --> 00:30:23,300
+00:30:19,710 --> 00:30:30,150
 然后我们从私钥中取出X，
-okay yeah let's go to number two now
 
-672
-00:30:23,300 --> 00:30:30,150
-okay so we take X from the our with our
-
-673
 00:30:30,150 --> 00:30:32,160
 我们再次跳跃。
-private key so we again be hopping
 
-674
 00:30:32,160 --> 00:30:35,000
 对不起，
-around no sorry this is uh this is not
 
-675
 00:30:35,000 --> 00:30:36,990
 这不是椭圆曲线乘法，
-elliptic curve multiplication this is
 
-676
 00:30:36,990 --> 00:30:40,020
 这只是纯数学。
-just pure mathis normal mathematics so
 
-677
 00:30:40,020 --> 00:30:41,790
 如果你还记得，我们的私钥只是一个数字，
-if you remember our private key is just
 
-678
 00:30:41,790 --> 00:30:43,590
 这个x值也只是一个数字，
-a number and this x-value is also just a
 
-679
 00:30:43,590 --> 00:30:46,410
 所以我们只做普通的数学运算，
-number so we just so we just do normal
 
-680
-00:30:46,410 --> 00:30:50,730
+00:30:46,410 --> 00:30:53,850
 这不是椭圆乘法。
-mathematics so it's not elliptical
 
-681
-00:30:50,730 --> 00:30:53,850
-multiplication okay okay okay and the
-
-682
 00:30:53,850 --> 00:31:00,240
 然后，消息基本上就是我们的交易数据。
 
 00:31:00,240 --> 00:31:02,490
 将交易数据放入这里，
-by putting the transaction data into
 
-685
 00:31:02,490 --> 00:31:07,070
 这意味着这个签名只能用于特定的交易。
 
@@ -1802,39 +1590,25 @@ by putting the transaction data into
 
 00:31:13,440 --> 00:31:16,380
 从前一个视频中，
-like and from the previous video this is
 
-691
 00:31:16,380 --> 00:31:19,650
 这就是没有签名的交易数据。
-the transaction data without the single
 
-692
 00:31:19,650 --> 00:31:21,060
 你是对的。
-yes that's correct
 
-693
 00:31:21,060 --> 00:31:22,950
 所以你把所有这些东西都拿走，
-so you take all this thing it yeah so
 
-694
 00:31:22,950 --> 00:31:24,690
 然后把所有的签名都拿走，
-you take all the signatures out and then
 
-695
 00:31:24,690 --> 00:31:26,370
 然后对数据进行哈希处理，
-you put then you hatch the data and put
 
-696
 00:31:26,370 --> 00:31:29,960
 然后放入这里。记忆力很好。
-it into here yes good good memory yep
 
-697
 00:31:29,960 --> 00:31:39,120
 这些值的作用是帮助我们打乱私钥。
 
@@ -1845,222 +1619,136 @@ it into here yes good good memory yep
 随机的曲线上的点和一个通过使用我们的私钥得到的特殊数字。
 
 00:31:52,620 --> 00:31:59,900
-
 现在我们将看到为什么这个方法有效，
-key now we'll see why this works now why
 
-704
 00:31:59,900 --> 00:32:02,190
 为什么我们为签名创建了这两样东西。
-did we create these two things for the
 
-705
 00:32:02,190 --> 00:32:10,010
 当我们发送这个交易数据或者整个交易进入比特币网络时，
 
-00:32:10,010 --> 00:32:13,410
+00:32:10,010 --> 00:32:15,390
 网络上的每一个节点都会进行验证，
-every single node on the network is
 
-709
-00:32:13,410 --> 00:32:15,390
-确保这是一个有效的交易。
-going to various verify that this is a
-
-710
 00:32:15,390 --> 00:32:18,270
-this is a valid transaction so they're
+确保这是一个有效的交易。
 
-711
 00:32:18,270 --> 00:32:21,090
-gonna take this signature and they want
+他们获取这个签名，
 
-712
 00:32:21,090 --> 00:32:22,260
-to fight and they want to be able to say
+并希望能够说，
 
-713
-00:32:22,260 --> 00:32:24,780
-okay this signature could only have been
+00:32:22,260 --> 00:32:31,590
+这个签名只能由拥有这个公钥所对应的私钥的人创建。
 
-714
-00:32:24,780 --> 00:32:29,400
-created by the person who owns the
-
-715
-00:32:29,400 --> 00:32:31,590
-private key that this public key was
-
-716
 00:32:31,590 --> 00:32:36,510
-created from so they need to verify that
+所以他们需要验证这一点，
 
-717
-00:32:36,510 --> 00:32:38,910
-to make sure that their signature works
+00:32:36,510 --> 00:32:40,290
+以确保他们的签名始终是由这个特定的私钥创建的。
 
-718
-00:32:38,910 --> 00:32:40,290
-always created from this particular
-
-719
 00:32:40,290 --> 00:32:43,950
-private key so how can they do that they
+那他们如何做到这一点呢？
 
-720
 00:32:43,950 --> 00:32:45,420
-haven't got the private key or they've
+他们并没有私钥，
 
-721
 00:32:45,420 --> 00:32:47,880
-got these two values the R and the s
+他们只有这两个值，R值和S值，
 
-722
 00:32:47,880 --> 00:32:50,160
-value but the s value has been created
+但是S值是由这个私钥创建的。
 
-723
 00:32:50,160 --> 00:32:53,400
-from this private key so how do they do
+那他们如何做到这一点呢？
 
-724
-00:32:53,400 --> 00:32:55,800
-that well first of all they take this R
+00:32:53,400 --> 00:32:57,270
+首先，他们会拿到这个给定的R值，
 
-725
-00:32:55,800 --> 00:32:57,270
-value that it given them and this is the
-
-726
 00:32:57,270 --> 00:32:59,130
-while they just start with that and
+然后开始进行一系列的步骤。
 
-727
-00:32:59,130 --> 00:33:01,290
-again this is a two step process for
+00:32:59,130 --> 00:33:02,180
+同样，这对他们来说也是一个两步的过程。
 
-728
-00:33:01,290 --> 00:33:02,180
-them as well
-
-729
 00:33:02,180 --> 00:33:04,620
-first of all
+首先，
 
-730
 00:33:04,620 --> 00:33:08,290
-they do some normal mathematics they
+他们会做一些常规的数学运算，
 
-731
-00:33:08,290 --> 00:33:12,160
-just multiply the hash of the
+00:33:08,290 --> 00:33:15,040
+他们只是将交易数据的哈希（不包括R值）与S值相乘，
 
-732
-00:33:12,160 --> 00:33:15,040
-transaction data without our value and
-
-733
 00:33:15,040 --> 00:33:17,740
-that will give them just a very big
+这将给出一个非常大的数。
 
-734
-00:33:17,740 --> 00:33:20,890
-number and so what they do without very
+00:33:17,740 --> 00:33:22,570
+然后，在第一步中，
 
-735
-00:33:20,890 --> 00:33:22,570
-big number on this first step after
-
-736
 00:33:22,570 --> 00:33:23,940
-multiplying these two values together
+他们会使用这个大数，
 
-737
 00:33:23,940 --> 00:33:26,380
-they'll start at this generator point
+从生成点开始，
 
-738
 00:33:26,380 --> 00:33:28,570
-and they'll do elliptic curve
+进行椭圆曲线乘法，
 
-739
 00:33:28,570 --> 00:33:30,250
-multiplication using this big number
+使用这个大数字进行乘法，
 
-740
 00:33:30,250 --> 00:33:34,090
-they've multiplied starting at G and
+从G开始相乘，
 
-741
 00:33:34,090 --> 00:33:35,680
-they'll bounce around it and that would
+然后在曲线上弹跳，
 
-742
 00:33:35,680 --> 00:33:39,510
-give them this first point on the curve
+这将给出曲线上的第一个点。
 
-743
-00:33:39,510 --> 00:33:42,780
-second of all they'll do some more
+00:33:39,510 --> 00:33:45,700
+他们会再做一些常规的乘法运算，
 
-744
-00:33:42,780 --> 00:33:45,700
-normal multiplication again you'll just
-
-745
 00:33:45,700 --> 00:33:49,270
-do s times R so they'll just take this s
+他们只需将S值乘以R值，
 
-746
 00:33:49,270 --> 00:33:51,730
-value multiply it by this R value and
+所以只需将S值乘以R值，
 
-747
 00:33:51,730 --> 00:33:53,920
-then starting this time at the public
+然后从公钥开始，
 
-748
-00:33:53,920 --> 00:33:56,860
-key they will bounce around the key of
+00:33:53,920 --> 00:33:59,740
+在椭圆曲线上跳跃这么多次，
 
-749
-00:33:56,860 --> 00:33:59,740
-this many times so that bounce on the
-
-750
 00:33:59,740 --> 00:34:01,360
-key of this many times and I'll give
+这样在椭圆曲线上跳跃这么多次，
 
-751
 00:34:01,360 --> 00:34:03,930
-them a second point on the curve and now
+这将给出曲线上的第二个点。
 
-752
 00:34:03,930 --> 00:34:08,020
-the magic part here is if all three of
+现在，关键的部分是，
 
-753
 00:34:08,020 --> 00:34:13,600
-these points on the curve line up then
+如果这三个点在曲线上都对齐，
 
-754
 00:34:13,600 --> 00:34:17,310
-that means that this signature is valid
+那么这个签名就是有效的。
 
-755
 00:34:17,310 --> 00:34:25,060
-so with elliptic curves if you draw a
+在椭圆曲线上，
 
-756
 00:34:25,060 --> 00:34:26,590
-line through two points on the curve
+如果你画出经过曲线上两点的一条直线，
 
-757
 00:34:26,590 --> 00:34:28,510
-just like a tangent will always
+就像切线一样，
 
-758
 00:34:28,510 --> 00:34:30,010
+它总是会与曲线上的另一点相交。
 intersect one other point on the curve
 
 759
