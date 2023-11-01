@@ -1704,30 +1704,37 @@ just a random number yeah you just
 
 665
 00:30:00,090 --> 00:30:03,960
+我们把这个随机数和G相乘，
 missed it yeah and we multiply that
 
 666
 00:30:03,960 --> 00:30:05,820
+就一直在曲线上跳跃，
 random number with G so we keep hopping
 
 667
 00:30:05,820 --> 00:30:07,860
+直到达到某个特定的点。
 around the curve until you get to a
 
 668
 00:30:07,860 --> 00:30:13,910
+在这个阶段，
 point just after that and at this point
 
 669
 00:30:13,910 --> 00:30:17,010
+我们的公钥或私钥还没有进入画面，
 like our public or private he has not
 
 670
 00:30:17,010 --> 00:30:19,710
+这是随机的。
 come into the picture this is random
 
 671
 00:30:19,710 --> 00:30:23,300
+然后我们从私钥中取出X，
 okay yeah let's go to number two now
 
 672
@@ -1736,34 +1743,42 @@ okay so we take X from the our with our
 
 673
 00:30:30,150 --> 00:30:32,160
+我们再次跳跃。
 private key so we again be hopping
 
 674
 00:30:32,160 --> 00:30:35,000
+对不起，
 around no sorry this is uh this is not
 
 675
 00:30:35,000 --> 00:30:36,990
+这不是椭圆曲线乘法，
 elliptic curve multiplication this is
 
 676
 00:30:36,990 --> 00:30:40,020
+这只是纯数学。
 just pure mathis normal mathematics so
 
 677
 00:30:40,020 --> 00:30:41,790
+如果你还记得，我们的私钥只是一个数字，
 if you remember our private key is just
 
 678
 00:30:41,790 --> 00:30:43,590
+这个x值也只是一个数字，
 a number and this x-value is also just a
 
 679
 00:30:43,590 --> 00:30:46,410
+所以我们只做普通的数学运算，
 number so we just so we just do normal
 
 680
 00:30:46,410 --> 00:30:50,730
+这不是椭圆乘法。
 mathematics so it's not elliptical
 
 681
@@ -1771,115 +1786,85 @@ mathematics so it's not elliptical
 multiplication okay okay okay and the
 
 682
-00:30:53,850 --> 00:30:57,480
-message is basically our what was that
+00:30:53,850 --> 00:31:00,240
+然后，消息基本上就是我们的交易数据。
 
-683
-00:30:57,480 --> 00:31:00,240
-again yeah just the transaction data so
-
-684
 00:31:00,240 --> 00:31:02,490
+将交易数据放入这里，
 by putting the transaction data into
 
 685
-00:31:02,490 --> 00:31:04,770
-here and that means this signature will
+00:31:02,490 --> 00:31:07,070
+这意味着这个签名只能用于特定的交易。
 
-686
-00:31:04,770 --> 00:31:07,070
-only work for this particular
+00:31:07,070 --> 00:31:13,440
+显然，私钥在这里只是为了证明我们拥有这个公钥。
 
-687
-00:31:07,070 --> 00:31:10,350
-transaction and obviously the private
-
-688
-00:31:10,350 --> 00:31:12,090
-key is here just to prove that we own
-
-689
-00:31:12,090 --> 00:31:13,440
-this public key
-
-690
 00:31:13,440 --> 00:31:16,380
+从前一个视频中，
 like and from the previous video this is
 
 691
 00:31:16,380 --> 00:31:19,650
+这就是没有签名的交易数据。
 the transaction data without the single
 
 692
 00:31:19,650 --> 00:31:21,060
+你是对的。
 yes that's correct
 
 693
 00:31:21,060 --> 00:31:22,950
+所以你把所有这些东西都拿走，
 so you take all this thing it yeah so
 
 694
 00:31:22,950 --> 00:31:24,690
+然后把所有的签名都拿走，
 you take all the signatures out and then
 
 695
 00:31:24,690 --> 00:31:26,370
+然后对数据进行哈希处理，
 you put then you hatch the data and put
 
 696
 00:31:26,370 --> 00:31:29,960
+然后放入这里。记忆力很好。
 it into here yes good good memory yep
 
 697
-00:31:29,960 --> 00:31:36,510
-and we so these are values serve to help
+00:31:29,960 --> 00:31:39,120
+这些值的作用是帮助我们打乱私钥。
 
-698
-00:31:36,510 --> 00:31:39,120
-to scramble up this you know our private
+00:31:39,120 --> 00:31:46,440
+所以，一个签名由两部分组成：
 
-699
-00:31:39,120 --> 00:31:44,490
-key basically okay yeah so that is a
+00:31:46,440 --> 00:31:52,620
+随机的曲线上的点和一个通过使用我们的私钥得到的特殊数字。
 
-700
-00:31:44,490 --> 00:31:46,440
-signature created house two parts random
-
-701
-00:31:46,440 --> 00:31:49,410
-random point on the cave and a special
-
-702
-00:31:49,410 --> 00:31:52,620
-number derived from using our private
-
-703
 00:31:52,620 --> 00:31:59,900
+
+现在我们将看到为什么这个方法有效，
 key now we'll see why this works now why
 
 704
 00:31:59,900 --> 00:32:02,190
+为什么我们为签名创建了这两样东西。
 did we create these two things for the
 
 705
-00:32:02,190 --> 00:32:06,750
-signature well when we put where we send
+00:32:02,190 --> 00:32:10,010
+当我们发送这个交易数据或者整个交易进入比特币网络时，
 
-706
-00:32:06,750 --> 00:32:08,550
-this transaction data or this whole
-
-707
-00:32:08,550 --> 00:32:10,010
-transaction into the Bitcoin network
-
-708
 00:32:10,010 --> 00:32:13,410
+网络上的每一个节点都会进行验证，
 every single node on the network is
 
 709
 00:32:13,410 --> 00:32:15,390
+确保这是一个有效的交易。
 going to various verify that this is a
 
 710
