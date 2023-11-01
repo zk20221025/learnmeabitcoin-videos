@@ -1753,18 +1753,15 @@ intersect one other point on the curve
 
 759
 00:34:30,010 --> 00:34:33,100
+如果你在曲线上的两点之间画一条线，
 if you draw a line through two points on
 
 760
-00:34:33,100 --> 00:34:35,590
-the curve that will always intersect one
+00:34:33,100 --> 00:34:38,380
+它总会与曲线上的另一点相交。
 
-761
-00:34:35,590 --> 00:34:38,380
-other point on the curve as well so by
-
-762
 00:34:38,380 --> 00:34:41,820
+通过使用我们给出的这两个值，
 generating these two points on the curve
 
 763
@@ -1773,26 +1770,25 @@ using these two values that we that we
 
 764
 00:34:45,010 --> 00:34:47,290
+以及公钥和交易数据，
 have been given along with the public
 
 765
-00:34:47,290 --> 00:34:50,409
-key and the transaction data we can
+00:34:47,290 --> 00:34:51,760
+我们可以在曲线上生成这两个点。
 
-766
-00:34:50,409 --> 00:34:51,760
-generate at these two points on the
-
-767
 00:34:51,760 --> 00:34:54,460
+如果它们都对齐，
 curve and if they all line up then the
 
 768
 00:34:54,460 --> 00:34:57,400
+那么签名就是有效的。
 signature is valid so what that means is
 
 769
 00:34:57,400 --> 00:35:00,790
+这意味着，如果有人篡改交易数据，
 that if someone tampers with the
 
 770
@@ -1801,58 +1797,65 @@ transaction data so we give them as
 
 771
 00:35:02,560 --> 00:35:04,420
+我们给他们交易数据和签名，
 transaction data and the signature and
 
 772
 00:35:04,420 --> 00:35:06,280
+然后他们试图将比特币发送到他们的地址，
 then they try and send the bitcoins to
 
 773
 00:35:06,280 --> 00:35:07,930
+
 their address they tamper with you know
 
 774
 00:35:07,930 --> 00:35:10,120
+他们篡改了交易数据，
 the transaction data that means that
 
 775
 00:35:10,120 --> 00:35:12,880
+这意味着这个值将会不同，
 this value will be different and so when
 
 776
 00:35:12,880 --> 00:35:14,440
+所以当他们生成第一个点时，
 they generate the first point that'll be
 
 777
 00:35:14,440 --> 00:35:17,510
+它会不同，它们就不会对齐，
 different and they won't all line up
 
 778
 00:35:17,510 --> 00:35:21,000
+所以签名就不会有效。
 so the signature won't work then so that
 
 779
-00:35:21,000 --> 00:35:22,920
-protects this transaction data from
+00:35:21,000 --> 00:35:26,450
+这就保护了交易数据不被改变。
 
-780
-00:35:22,920 --> 00:35:26,450
-being altered
-
-781
 00:35:26,450 --> 00:35:29,480
+如果有人试图使用他们自己的私钥（）来创建一个签名，
 similarly if someone tries to create a
 
 782
 00:35:29,480 --> 00:35:33,120
+
 signature to spend our bitcoins using a
 
 783
 00:35:33,120 --> 00:35:36,030
+来花费我们的比特币，
 private key of their own you know not
 
 784
 00:35:36,030 --> 00:35:38,370
+不是我们用来创建公钥的那个私钥，
 the one that we created the public key
 
 785
@@ -1861,46 +1864,43 @@ from so a different private key
 
 786
 00:35:40,440 --> 00:35:42,510
+那么当他们生成这个s值时，
 altogether that means that when they
 
 787
 00:35:42,510 --> 00:35:44,370
+它将完全不同。
 generate this s value that be completely
 
 788
 00:35:44,370 --> 00:35:46,200
+如果这个s值不同，
 different and if that s value is
 
 789
 00:35:46,200 --> 00:35:49,650
+那么这个数就会不同。
 different than this number here is gonna
 
 790
-00:35:49,650 --> 00:35:51,690
-be different so when we do the elliptic
+00:35:49,650 --> 00:35:53,430
+所以当我们从公钥开始进行椭圆曲线乘法时，
 
-791
-00:35:51,690 --> 00:35:53,430
-curve multiplication starting from the
-
-792
 00:35:53,430 --> 00:35:55,470
+这个点将会不同，
 public key this point is gonna be
 
 793
 00:35:55,470 --> 00:35:57,960
+这些点就不会对齐。
 different again and the points won't
 
 794
-00:35:57,960 --> 00:36:02,850
-line up so this is a very basic overview
+00:35:57,960 --> 00:36:07,770
+这就是数字签名工作的基本概述，
 
-795
-00:36:02,850 --> 00:36:07,770
-of how digital signatures work and if
-
-796
 00:36:07,770 --> 00:36:11,490
+如果你理解的只是私钥和公钥是通过椭圆曲线相连的，
 all you understand is that private keys
 
 797
@@ -1908,23 +1908,14 @@ all you understand is that private keys
 and public keys are connected through
 
 798
-00:36:14,370 --> 00:36:16,260
-elliptic curves and the reason we use
+00:36:14,370 --> 00:36:18,600
+我们使用椭圆曲线的原因是因为我们可以创建这些签名，
 
-799
-00:36:16,260 --> 00:36:18,600
-elliptic curves is because we can create
+00:36:18,600 --> 00:36:24,090
+其他人可以通过进行一些椭圆曲线数学验证它们，
 
-800
-00:36:18,600 --> 00:36:21,030
-these signatures and other people can
-
-801
-00:36:21,030 --> 00:36:24,090
-verify them doing some elliptic a of
-
-802
 00:36:24,090 --> 00:36:25,950
+这些都是椭圆曲线的特殊性质。
 mathematics and these are the special
 
 803
@@ -1933,14 +1924,17 @@ properties of elliptic curves so again
 
 804
 00:36:31,950 --> 00:36:34,380
+总的来说，
 just to summarize like I said and you
 
 805
 00:36:34,380 --> 00:36:36,810
+你只需要拿一个私钥，
 just take a private key you do elliptic
 
 806
 00:36:36,810 --> 00:36:39,270
+进行椭圆曲线数学乘法得到公钥，
 eight of mathematics multiplication
 
 807
@@ -1949,22 +1943,20 @@ together public key and then you give
 
 808
 00:36:42,300 --> 00:36:43,620
+然后你给其他人这个公钥，
 that public key to other people and
 
 809
-00:36:43,620 --> 00:36:46,170
-they'll put that or they'll lock up a
+00:36:43,620 --> 00:36:48,600
+他们会将一批比特币锁定到这个公钥上。
 
-810
-00:36:46,170 --> 00:36:48,600
-batch of bitcoins to that public key but
-
-811
 00:36:48,600 --> 00:36:50,490
+但是从那里开始，
 then from there we need to where we want
 
 812
 00:36:50,490 --> 00:36:52,950
+我们需要将它们发送给其他人。
 to send them on to other people we want
 
 813
