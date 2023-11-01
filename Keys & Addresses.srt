@@ -2079,44 +2079,27 @@ cryptography and it's very very useful
 00:38:58,200 --> 00:39:01,030
 所以让我把所有这些都移到这里，
 
-00:39:01,030 --> 00:39:05,410
+00:39:01,030 --> 00:39:08,530
 这就是私钥，公钥和签名。
-here so that is private key public key
 
-860
-00:39:05,410 --> 00:39:08,530
-and the signatures done so this is the
+00:39:08,530 --> 00:39:14,050
+所以这是发送或接收比特币的基本原理，
 
-861
-00:39:08,530 --> 00:39:13,030
-basics of sending or receiving and
+00:39:14,050 --> 00:39:24,970
+它只需要一组密钥和数字签名来证明你拥有公钥的所有权。
 
-862
-00:39:13,030 --> 00:39:14,050
-receiving bitcoins
-
-863
-00:39:14,050 --> 00:39:17,950
-in a Bitcoin just these set keys and
-
-864
-00:39:17,950 --> 00:39:20,530
-cretins digital signatures to prove that
-
-865
-00:39:20,530 --> 00:39:24,970
-you own the public part of them so from
-
-866
 00:39:24,970 --> 00:39:26,680
+你可能听说过地址，
 there you've probably heard of addresses
 
 867
 00:39:26,680 --> 00:39:29,680
+那么什么是地址呢？
 what our address is well addresses are
 
 868
 00:39:29,680 --> 00:39:33,310
+地址基本上就是公钥的更美观、对用户更友好的版本。
 just basically prettier versions of the
 
 869
@@ -2125,22 +2108,20 @@ public key more user-friendly versions
 
 870
 00:39:36,010 --> 00:39:39,880
+在比特币中，
 of the public key so originally or you
 
 871
-00:39:39,880 --> 00:39:41,410
-can still do this in Bitcoin you can
+00:39:39,880 --> 00:39:43,420
+你可以生成一个私钥和一个公钥，
 
-872
-00:39:41,410 --> 00:39:43,420
-just generate a private key and a public
-
-873
 00:39:43,420 --> 00:39:45,700
+将公钥给其他人，
 key for yourself give that public key to
 
 874
 00:39:45,700 --> 00:39:48,100
+他们会将比特币锁定到你的公钥中，
 other people they will lock up bitcoins
 
 875
@@ -2148,23 +2129,21 @@ other people they will lock up bitcoins
 for you you know to that public key and
 
 876
-00:39:50,410 --> 00:39:52,690
-then you can use that private key to
+00:39:50,410 --> 00:39:56,820
+然后你可以使用私钥创建签名并发送它们。
 
-877
-00:39:52,690 --> 00:39:56,820
-create a signature and send them on but
-
-878
 00:39:56,820 --> 00:39:59,880
+这个过程完全有效，
 this all works well and it's fine
 
 879
 00:39:59,880 --> 00:40:03,160
+如果有人查看这个公钥，
 if someone looks at this public key they
 
 880
 00:40:03,160 --> 00:40:04,510
+他们不能像我之前说的那样推算出私钥，
 can't figure out like I said before
 
 881
@@ -2173,6 +2152,7 @@ while the private key is because you
 
 882
 00:40:06,670 --> 00:40:09,250
+因为你不能通过椭圆曲线乘法反向运算。
 can't go backwards through this I
 
 883
@@ -2181,18 +2161,22 @@ diptych hear of multiplication you can
 
 884
 00:40:10,750 --> 00:40:13,780
+你可以以这个方式，我们不可以，
 go this way we can't go that way but
 
 885
 00:40:13,780 --> 00:40:17,740
+这也意味着如果这个问题被解决，
 what it does mean is that this is not
 
 886
 00:40:17,740 --> 00:40:20,140
+那么你的公钥和比特币可能会被盗。
 known to have been solved at this moment
 
 887
 00:40:20,140 --> 00:40:21,700
+虽然目前看来这个问题不太可能被解决，
 in time and it doesn't look like
 
 888
@@ -2201,30 +2185,37 @@ anyone's gonna find a solution for going
 
 889
 00:40:23,500 --> 00:40:25,780
+对于通过椭圆曲线，
 backwards for the through the elliptic
 
 890
 00:40:25,780 --> 00:40:28,240
+这意味着，
 curve but it does mean that if it was
 
 891
 00:40:28,240 --> 00:40:32,350
+如果椭圆曲线能被破解，
 ever broken then your public keys while
 
 892
 00:40:32,350 --> 00:40:35,230
+那么你的公钥和比特币就可能被盗。
 your bitcoins can be stolen I mean
 
 893
 00:40:35,230 --> 00:40:39,580
+我的意思是，没有人可以在可预见的未来，
 there's no risk no one can see this
 
 894
 00:40:39,580 --> 00:40:41,260
+没有人能看到这种情况发生，
 happening for the foreseeable future but
 
 895
 00:40:41,260 --> 00:40:43,000
+但这确实意味着但这个公钥就像一只待宰的鸭子，
 it does mean that this public key is
 
 896
@@ -2233,58 +2224,41 @@ like a sitting duck waiting to be broken
 
 897
 00:40:45,220 --> 00:40:48,910
+如果椭圆曲线能被破解，那么它就可能被攻破。
 if listen diptych if can be broken so in
 
 898
 00:40:48,910 --> 00:40:51,790
+所以在比特币中，
 Bitcoin we like to use a bit more
 
 899
 00:40:51,790 --> 00:40:54,910
+我们喜欢使用更多的安全措施，
 security how can we not have to just
 
 900
-00:40:54,910 --> 00:40:57,370
-rely on this elliptic curve discrete
+00:40:54,910 --> 00:41:01,440
+我们不仅仅依赖椭圆曲线离散对数问题来保护我们的比特币。
 
-901
-00:40:57,370 --> 00:40:59,800
-logarithm problem to protect our
+00:41:01,440 --> 00:41:09,570
+我们的解决方案是将公钥通过两种不同的哈希函数进行两次哈希，
 
-902
-00:40:59,800 --> 00:41:01,440
-bitcoins
+00:41:09,570 --> 00:41:14,370
+第一种是你应该熟悉的sha-256，
 
-903
-00:41:01,440 --> 00:41:04,380
-so the solution tart is and what we do
-
-904
-00:41:04,380 --> 00:41:07,370
-is we just a hash this public key twice
-
-905
-00:41:07,370 --> 00:41:09,570
-through tooth through two different
-
-906
-00:41:09,570 --> 00:41:12,060
-hashing functions the first one first
-
-907
-00:41:12,060 --> 00:41:14,370
-one is a sha-256 which is when you
-
-908
 00:41:14,370 --> 00:41:16,290
+这是挖矿时用到的，
 should be familiar with from mining and
 
 909
 00:41:16,290 --> 00:41:18,720
+第二种是RIPEMD160。
 then also a second one is used called
 
 910
 00:41:18,720 --> 00:41:21,720
+所以她所说的就是像通过两个不同的哈希函数，
 Reich MD 160 so what it says is like
 
 911
@@ -2297,34 +2271,21 @@ two different hashing functions the
 
 913
 00:41:25,950 --> 00:41:27,960
+对公钥进行双重哈希
 public key and then what you do then
 
 914
-00:41:27,960 --> 00:41:31,080
-you'll give that hashed version of the
+00:41:27,960 --> 00:41:37,380
+然后你将哈希后的公钥而不是标准的公钥给其他人，
 
-915
-00:41:31,080 --> 00:41:34,160
-public key to the people instead of the
-
-916
-00:41:34,160 --> 00:41:37,380
-standard public key so it's like a
-
-917
 00:41:37,380 --> 00:41:40,560
-scrambled version of this public key you
+这就像是公钥的加密版本。
 
-918
-00:41:40,560 --> 00:41:42,180
-give that to other people and then
+00:41:40,560 --> 00:41:45,450
+其他人会将这些放在锁中，
 
-919
-00:41:42,180 --> 00:41:45,450
-they'll actually put these in the locks
-
-920
 00:41:45,450 --> 00:41:49,800
+这意味着当哈希后的公钥在锁中时。
 so what that means is whilst this hashed
 
 921
