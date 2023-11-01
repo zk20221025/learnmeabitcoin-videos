@@ -1801,16 +1801,9 @@ transaction data so we give them as
 transaction data and the signature and
 
 772
-00:35:04,420 --> 00:35:06,280
+00:35:04,420 --> 00:35:07,930
 然后他们试图将比特币发送到他们的地址，
-then they try and send the bitcoins to
 
-773
-00:35:06,280 --> 00:35:07,930
-
-their address they tamper with you know
-
-774
 00:35:07,930 --> 00:35:10,120
 他们篡改了交易数据，
 the transaction data that means that
@@ -1839,30 +1832,17 @@ so the signature won't work then so that
 00:35:21,000 --> 00:35:26,450
 这就保护了交易数据不被改变。
 
-00:35:26,450 --> 00:35:29,480
-如果有人试图使用他们自己的私钥（）来创建一个签名，
-similarly if someone tries to create a
+00:35:26,450 --> 00:35:33,120
+如果有人试图使用他们自己的私钥来创建一个签名，
 
-782
-00:35:29,480 --> 00:35:33,120
-
-signature to spend our bitcoins using a
-
-783
 00:35:33,120 --> 00:35:36,030
 来花费我们的比特币，
 private key of their own you know not
 
 784
-00:35:36,030 --> 00:35:38,370
+00:35:36,030 --> 00:35:40,440
 不是我们用来创建公钥的那个私钥，
-the one that we created the public key
 
-785
-00:35:38,370 --> 00:35:40,440
-from so a different private key
-
-786
 00:35:40,440 --> 00:35:42,510
 那么当他们生成这个s值时，
 altogether that means that when they
@@ -1899,30 +1879,18 @@ different again and the points won't
 00:35:57,960 --> 00:36:07,770
 这就是数字签名工作的基本概述，
 
-00:36:07,770 --> 00:36:11,490
+00:36:07,770 --> 00:36:14,370
 如果你理解的只是私钥和公钥是通过椭圆曲线相连的，
-all you understand is that private keys
 
-797
-00:36:11,490 --> 00:36:14,370
-and public keys are connected through
-
-798
 00:36:14,370 --> 00:36:18,600
 我们使用椭圆曲线的原因是因为我们可以创建这些签名，
 
 00:36:18,600 --> 00:36:24,090
 其他人可以通过进行一些椭圆曲线数学验证它们，
 
-00:36:24,090 --> 00:36:25,950
+00:36:24,090 --> 00:36:31,950
 这些都是椭圆曲线的特殊性质。
-mathematics and these are the special
 
-803
-00:36:25,950 --> 00:36:31,950
-properties of elliptic curves so again
-
-804
 00:36:31,950 --> 00:36:34,380
 总的来说，
 just to summarize like I said and you
@@ -1933,15 +1901,9 @@ just to summarize like I said and you
 just take a private key you do elliptic
 
 806
-00:36:36,810 --> 00:36:39,270
+00:36:36,810 --> 00:36:42,300
 进行椭圆曲线数学乘法得到公钥，
-eight of mathematics multiplication
 
-807
-00:36:39,270 --> 00:36:42,300
-together public key and then you give
-
-808
 00:36:42,300 --> 00:36:43,620
 然后你给其他人这个公钥，
 that public key to other people and
@@ -1961,190 +1923,164 @@ to send them on to other people we want
 
 813
 00:36:52,950 --> 00:36:55,020
+我们想要发送他们，
 to send them on we need to prove that we
 
 814
 00:36:55,020 --> 00:36:57,330
+我们需要证明我们是这个公钥的创建者。
 are the creators of this public key so
 
 815
 00:36:57,330 --> 00:36:59,150
+所以我们做的是，
 what we do we take our private key
 
 816
 00:36:59,150 --> 00:37:02,100
+我们拿我们的私钥，创建一个签名，
 create a signal signature which again
 
 817
 00:37:02,100 --> 00:37:04,670
+这又涉及到一些椭圆曲线数学。
 involves some elliptic curve mathematics
 
 818
 00:37:04,670 --> 00:37:07,320
+然后我们给他们那个签名，
 and then we give them that signature and
 
 819
 00:37:07,320 --> 00:37:10,740
+然后他们可以做一些验证，
 then they can do some verification to
 
 820
-00:37:10,740 --> 00:37:12,780
-verify that we created this signature
+00:37:10,740 --> 00:37:14,850
+以验证我们是用正确的私钥创建了这个签名。
 
-821
-00:37:12,780 --> 00:37:14,850
-from the correct private key and they do
-
-822
 00:37:14,850 --> 00:37:17,280
+他们通过取这个公钥，
 that by taking this public key and the
 
 823
 00:37:17,280 --> 00:37:20,640
+签名和数据，
 signature and also the data and they
 
 824
 00:37:20,640 --> 00:37:22,680
+生成曲线上的三个点来做到这一点。
 generates three points on the curve and
 
 825
 00:37:22,680 --> 00:37:27,120
+如果他们排成一行，
 if they line up and if they line up then
 
 826
 00:37:27,120 --> 00:37:29,240
+那么这个签名就有效。
 that signature works
 
 827
-00:37:29,240 --> 00:37:31,820
-and again if someone doesn't use the
+00:37:29,240 --> 00:37:32,830
+如果有人不使用正确的私钥，
 
-828
-00:37:31,820 --> 00:37:32,830
-right private key
-
-829
 00:37:32,830 --> 00:37:35,660
+他们就不会排成一行，
 they won't line up or if someone alters
 
 830
 00:37:35,660 --> 00:37:37,730
+或者如果有人篡改交易数据，
 with the transaction data they won't
 
 831
 00:37:37,730 --> 00:37:41,540
+他们也不会排成一行。
 line up either again so it's a bit magic
 
 832
 00:37:41,540 --> 00:37:44,660
+这整个过程有点神奇，
 this whole process but ultimately it's
 
 833
 00:37:44,660 --> 00:37:47,030
+但最终它都是数学。
 all mathematics and if what will you
 
 834
 00:37:47,030 --> 00:37:52,010
+如果你从这几张幻灯片中学到了什么，
 take away from this a few slides it's
 
 835
-00:37:52,010 --> 00:37:54,170
-just that this elliptic curve
+00:37:52,010 --> 00:37:57,290
+那就是椭圆曲线数学非常适合用于密码学，
 
-836
-00:37:54,170 --> 00:37:57,290
-mathematics is very good for
+00:37:57,290 --> 00:38:04,010
+非常适合创建账号和密码，
 
-837
-00:37:57,290 --> 00:38:01,600
-cryptography and for you know creating
-
-838
-00:38:01,600 --> 00:38:04,010
-account numbers and passwords and then
-
-839
 00:38:04,010 --> 00:38:05,660
+然后能够证明你拥有账号，
 being able to prove that you own the
 
 840
 00:38:05,660 --> 00:38:07,670
+而无需给出密码，
 account number without ever given the
 
 841
 00:38:07,670 --> 00:38:11,960
+这非常聪明。
 password away which is very clever so
 
 842
 00:38:11,960 --> 00:38:14,300
+所以这就叫做椭圆曲线密码学，
 this is called elliptic curve
 
 843
 00:38:14,300 --> 00:38:18,110
+它非常有用。
 cryptography and it's very very useful
 
 844
-00:38:18,110 --> 00:38:20,600
-and without it we would not be able to
+00:38:18,110 --> 00:38:23,840
+没有它，我们就无法安全地发送和接收比特币，
 
-845
-00:38:20,600 --> 00:38:23,840
-send and receive bitcoins safely without
-
-846
 00:38:23,840 --> 00:38:26,050
-having a person in control of all the
+而不需要一个人控制所有的钥匙。
 
-847
-00:38:26,050 --> 00:38:28,580
-sets of keys so this means through this
+00:38:26,050 --> 00:38:30,619
+所以，通过这种椭圆曲线密码学，
 
-848
-00:38:28,580 --> 00:38:30,619
-elliptic curve cryptography we can
-
-849
 00:38:30,619 --> 00:38:33,230
-generate our own account numbers and
+我们可以生成我们自己的账号和密码，
 
-850
 00:38:33,230 --> 00:38:34,820
-passwords to be able to send and receive
+以便发送和接收比特币，
 
-851
 00:38:34,820 --> 00:38:38,600
-bitcoins which is very very handy and
+这非常方便。
 
-852
 00:38:38,600 --> 00:38:39,890
-again like I said at the start this
+就像我在开始的时候说的，
 
-853
-00:38:39,890 --> 00:38:43,369
-video crypto this is why Bitcoin another
+00:38:39,890 --> 00:38:47,480
+这就是为什么比特币和其他货币被称为加密货币，
 
-854
-00:38:43,369 --> 00:38:47,480
-and currencies I get are called crypto
+00:38:47,480 --> 00:38:58,200
+因为他们使用密码学作为比特币批次所有权的支柱。
 
-855
-00:38:47,480 --> 00:38:49,520
-currencies because they use cryptography
-
-856
-00:38:49,520 --> 00:38:52,810
-as the backbone for the ownership of
-
-857
-00:38:52,810 --> 00:38:57,760
-these batches of bitcoins
-
-858
 00:38:58,200 --> 00:39:01,030
-so let me just move all this back to
+所以让我把所有这些都移到这里，
 
-859
 00:39:01,030 --> 00:39:05,410
+这就是私钥，公钥和签名。
 here so that is private key public key
 
 860
