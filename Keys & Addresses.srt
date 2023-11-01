@@ -1254,226 +1254,201 @@
 
 00:25:05,049 --> 00:25:07,250
 因为它们是由私钥创建的。
-they are created from the private key
 
-552
-00:25:07,250 --> 00:25:11,270
-and they can actually still prove that
+00:25:07,250 --> 00:25:13,620
+他们实际上仍然可以证明我们创建了这个公钥。
 
-553
-00:25:11,270 --> 00:25:13,620
-we created this public key
-
-554
 00:25:13,620 --> 00:25:16,860
+但好处是，首先，
 but the good thing is well one it
 
 555
 00:25:16,860 --> 00:25:18,300
+它不会泄露我们的私钥，
 doesn't give out a way our private key
 
 556
-00:25:18,300 --> 00:25:22,200
-and also they only work for the
+00:25:18,300 --> 00:25:25,950
+其次，它们只对我们签名的交易有效。
 
-557
-00:25:22,200 --> 00:25:25,950
-transaction that we're signing so if
-
-558
 00:25:25,950 --> 00:25:28,380
+如果有人看到一个签名，
 someone else sees a signature and we've
 
 559
 00:25:28,380 --> 00:25:30,480
+我们有其他的比特币被这个公钥锁定，
 got other bitcoins locked to this public
 
 560
 00:25:30,480 --> 00:25:32,370
+他们不能只看这个签名，
 key they can't just look at this
 
 561
 00:25:32,370 --> 00:25:35,460
+把它放进这个交易，
 signature take it and put it into this
 
 562
 00:25:35,460 --> 00:25:37,620
+或者他们创建的交易，
 transaction or transaction they create
 
 563
 00:25:37,620 --> 00:25:39,750
+因为这不会起作用，
 because that won't work because this
 
 564
-00:25:39,750 --> 00:25:42,780
-signature only works for the one
+00:25:39,750 --> 00:25:46,410
+因为这个签名只对我们创建的一个交易有效。
 
-565
-00:25:42,780 --> 00:25:46,410
-transaction that we are creating so you
+00:25:46,410 --> 00:25:55,470
+你可以把签名看作是一种我们用来解锁一批比特币的特殊一次性私钥，
 
-566
-00:25:46,410 --> 00:25:48,360
-could think of the signature as a sort
-
-567
-00:25:48,360 --> 00:25:51,059
-of special one-time private key that we
-
-568
-00:25:51,059 --> 00:25:55,470
-use to unlock batches of bitcoins does
-
-569
 00:25:55,470 --> 00:25:56,130
+这有道理吗？
 that make sense
 
 570
 00:25:56,130 --> 00:25:58,080
+我会马上详细介绍，
 I cover the details in a moment but as
 
 571
 00:25:58,080 --> 00:25:59,610
+但只要有意义，
 long as that makes some sense that's
 
 572
 00:25:59,610 --> 00:26:03,030
+这就是签名的基本原理。
 just the very basics of signatures so
 
 573
 00:26:03,030 --> 00:26:05,130
+我们有一个私钥和一个公钥，
 we've got a private key a public key but
 
 574
-00:26:05,130 --> 00:26:07,620
-now we need to figure out how to create
+00:26:05,130 --> 00:26:11,910
+但现在我们需要弄清楚如何创建数字签名，
 
-575
-00:26:07,620 --> 00:26:10,410
-Dignitas digital signatures you know how
+00:26:11,910 --> 00:26:16,559
+并为此锁定一批交易或一批比特币呢？
 
-576
-00:26:10,410 --> 00:26:11,910
-can we create this thing here at the
-
-577
-00:26:11,910 --> 00:26:15,179
-ball and lock this transaction or the
-
-578
-00:26:15,179 --> 00:26:16,559
-batch of bitcoins for this transaction
-
-579
 00:26:16,559 --> 00:26:20,130
+而不泄露私钥，
 without giving away our private key so
 
 580
 00:26:20,130 --> 00:26:21,830
+这是一个图示，
 that's one of Kevin OH
 
 581
 00:26:21,830 --> 00:26:23,880
+所以我们需要创建一个签名。
 so a signature we need to create a
 
 582
 00:26:23,880 --> 00:26:28,710
+我会快速浏览这个过程，
 signature I'm gonna run through this a
 
 583
 00:26:28,710 --> 00:26:31,290
+并且只会涵盖最基本的部分，
 little quickly and I'm gonna cover the
 
 584
 00:26:31,290 --> 00:26:33,150
+不用担心，
 absolute basics don't worry if it
 
 585
 00:26:33,150 --> 00:26:34,830
+如果第一次听不完全理解，
 doesn't make complete sense on the first
 
 586
 00:26:34,830 --> 00:26:36,600
+只要你大致明白就好。
 attempt just as long as you get the gist
 
 587
 00:26:36,600 --> 00:26:39,120
+这涉及到一些数学。
 of it that's fine it involves some
 
 588
-00:26:39,120 --> 00:26:42,929
-mathematics so let's move this all other
+00:26:39,120 --> 00:26:43,320
+让我们用其他方法移动它，
 
-589
-00:26:42,929 --> 00:26:43,320
-way
-
-590
 00:26:43,320 --> 00:26:44,820
+可能我有很多方式来进行，
 maybe I'll just move everything of the
 
 591
 00:26:44,820 --> 00:26:47,730
+但我现在还不清楚。
 way but I don't that down here now we
 
 592
 00:26:47,730 --> 00:26:49,530
+我们需要创建一个签名，
 need to create a signature there's two
 
 593
 00:26:49,530 --> 00:26:51,480
+创建签名有两个步骤，
 steps to create a signature and it
 
 594
 00:26:51,480 --> 00:26:53,850
+这涉及到椭圆曲线的使用。
 involves the use of this elliptic curve
 
 595
 00:26:53,850 --> 00:26:56,220
+这并不奇怪，
 again no surprises that's why we use the
 
 596
 00:26:56,220 --> 00:26:57,210
+这就是我们首先使用椭圆曲线的原因，
 elliptic curve in the first place
 
 597
 00:26:57,210 --> 00:26:59,520
+因为我们可以再次使用它来创建签名。
 because we can use it again to create
 
 598
-00:26:59,520 --> 00:27:03,600
-signatures so the first part had this
+00:26:59,520 --> 00:27:10,440
+这个创建签名的两步过程的第一部分是你需要一个随机部分，
 
-599
-00:27:03,600 --> 00:27:05,360
-two-step process for creating a
+00:27:10,440 --> 00:27:14,559
+所以你首先要做的是选择一个非常大的随机数，
 
-600
-00:27:05,360 --> 00:27:10,440
-signature is you need a random part so
-
-601
-00:27:10,440 --> 00:27:12,600
-what you do is you start out by Chariton
-
-602
-00:27:12,600 --> 00:27:14,559
-a very big random number
-
-603
 00:27:14,559 --> 00:27:17,830
+然后再做一些椭圆曲线乘法，
 and doing some elliptic curve
 
 604
 00:27:17,830 --> 00:27:19,240
+就像我们之前做的一样，
 multiplication again just like we did
 
 605
 00:27:19,240 --> 00:27:23,440
+这会给你曲线上的一个随机点。
 earlier and that would give you a random
 
 606
 00:27:23,440 --> 00:27:25,240
+这与我们之前做的非常相似，
 point on the curve so this is very
 
 607
@@ -1482,18 +1457,22 @@ similar to what we did earlier we just
 
 608
 00:27:26,440 --> 00:27:28,330
+我们只是取了一个私钥并创建了一个公钥，
 took a private key and create a public
 
 609
 00:27:28,330 --> 00:27:29,919
+这是完全一样的，
 key this is the exact same thing but
 
 610
 00:27:29,919 --> 00:27:31,659
+但我们只是使用一个随机数，
 we're just using a random number that's
 
 611
 00:27:31,659 --> 00:27:32,909
+
 going to be used for this one-time
 
 612
