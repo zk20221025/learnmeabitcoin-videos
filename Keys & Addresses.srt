@@ -2793,126 +2793,102 @@ characters with the awkward ones taken
 
 1179
 00:53:28,150 --> 00:53:30,970
+如果你把所有这些数据，
 out so what you do if you just take all
 
 1180
 00:53:30,970 --> 00:53:33,160
+包含校验和的公钥，
 this data this public key with a check
 
 1181
-00:53:33,160 --> 00:53:35,830
-sum at the end and you encode it in this
+00:53:33,160 --> 00:53:38,109
+用Base58的字符编码成这种格式，
 
-1182
-00:53:35,830 --> 00:53:38,109
-format using be a fifth base 58
-
-1183
 00:53:38,109 --> 00:53:39,790
+你会得到一个稍微短一点，
 characters you get something a little
 
 1184
 00:53:39,790 --> 00:53:41,680
+稍微对用户友好的地址，
 bit shorter and a bit more slightly more
 
 1185
 00:53:41,680 --> 00:53:44,230
+但最重要的是，
 user-friendly but most importantly you
 
 1186
 00:53:44,230 --> 00:53:46,480
+它具有错误检测的能力，
 know it has this arrow tracking
 
 1187
-00:53:46,480 --> 00:53:48,670
-capability and that's why you'll often
+00:53:46,480 --> 00:53:53,910
 
-1188
-00:53:48,670 --> 00:53:50,710
-see addresses in this particular format
-
-1189
-00:53:50,710 --> 00:53:53,910
-hopefully this looks a little familiar
-
-1190
 00:53:53,910 --> 00:53:56,310
+所以基本上，
 so basically it's just basically eight
 
 1191
 00:53:56,310 --> 00:53:59,740
+这就是我们所说的地址，
 and this is what we call the address so
 
 1192
 00:53:59,740 --> 00:54:01,120
+这个地址就是公钥哈希的美化版本。
 the address is just the pretty version
 
 1193
 00:54:01,120 --> 00:54:05,950
+
 of this hashed public key there we are
 
 1194
-00:54:05,950 --> 00:54:08,410
-so we give there so instead of given the
+00:54:05,950 --> 00:54:10,510
+我们可以选择给出哈希版本，
 
-1195
-00:54:08,410 --> 00:54:10,510
-hashed version away we could give the
-
-1196
 00:54:10,510 --> 00:54:12,070
+如果我们愿意的话，
 hashed version away away if we wanted to
 
 1197
 00:54:12,070 --> 00:54:14,950
+我们可以放弃哈希版本，
 that's perfectly fine but you know with
 
 1198
 00:54:14,950 --> 00:54:16,870
+但是现在的钱包都要求一个地址，
 wallets these days everyone asked for an
 
 1199
 00:54:16,870 --> 00:54:19,270
+所以你给出地址，
 address so you give the address away and
 
 1200
-00:54:19,270 --> 00:54:20,740
-that means if they type it in and they
+00:54:19,270 --> 00:54:22,660
+这意味着如果他们输入错误，
 
-1201
-00:54:20,740 --> 00:54:22,660
-type it in wrong the wallet software can
-
-1202
 00:54:22,660 --> 00:54:24,340
+钱包软件就可以指出有问题。
 say wait there something's not right so
 
 1203
-00:54:24,340 --> 00:54:26,290
-it's more user-friendly it's used to use
+00:54:24,340 --> 00:54:32,380
+所以使用这个地址对用户更友好，也更安全。
 
-1204
-00:54:26,290 --> 00:54:32,380
-this address or safer to do so just to
+00:54:32,380 --> 00:54:36,910
+你可以很容易地在Base58编码和解码之间来回转换，
 
-1205
-00:54:32,380 --> 00:54:34,720
-clarify you can easily go backwards and
+00:54:36,910 --> 00:54:40,450
+这并没有使用任何特定的哈希函数，
 
-1206
-00:54:34,720 --> 00:54:36,910
-forwards you know encode in a base 58
-
-1207
-00:54:36,910 --> 00:54:38,680
-this isn't using any particular hash
-
-1208
-00:54:38,680 --> 00:54:40,450
-function all it's doing it's just
-
-1209
 00:54:40,450 --> 00:54:42,550
+它只是从一种数字格式转换为另一种数字格式，
 converting from one number format to
 
 1210
@@ -2921,82 +2897,74 @@ another you know like converting from
 
 1211
 00:54:44,860 --> 00:54:49,600
+就像从十进制转换为十六进制一样。
 decimal to hexadecimal that's one number
 
 1212
 00:54:49,600 --> 00:54:50,920
+这是一种数字转换，
 conversion but they're still seen the
 
 1213
-00:54:50,920 --> 00:54:52,360
-number convicted they're still the same
+00:54:50,920 --> 00:54:54,430
+但仍然看到的是相同的数字。
 
-1214
-00:54:52,360 --> 00:54:54,430
-number ultimately and you can go back
-
-1215
 00:54:54,430 --> 00:54:56,860
+你可以来回转换，
 and forth between hexadecimal base 16
 
 1216
 00:54:56,860 --> 00:55:00,130
+基数16，基数58，你可以来回转换
 base 58 you can go back and 4 again so
 
 1217
-00:55:00,130 --> 00:55:02,050
-what that means is when you do actually
+00:55:00,130 --> 00:55:05,860
+当你实际给出一个地址或者在钱包中输入一个地址时，
 
-1218
-00:55:02,050 --> 00:55:05,860
-give a address or type 1 into a wallet
-
-1219
 00:55:05,860 --> 00:55:07,480
+钱包在创建交易时，
 while the wallet does when it creates
 
 1220
-00:55:07,480 --> 00:55:10,200
-transaction it just works out what the
+00:55:07,480 --> 00:55:13,090
+会计算出公钥的哈希值，
 
-1221
-00:55:10,200 --> 00:55:13,090
-hash to public key is and then it'll put
-
-1222
 00:55:13,090 --> 00:55:16,000
+然后将其作为锁。
 that as the lock so even though you you
 
 1223
 00:55:16,000 --> 00:55:18,250
+所以，即使你输入了一个地址，
 input a an address the wallet will
 
 1224
 00:55:18,250 --> 00:55:22,210
+钱包也会将其转换为哈希版本。
 convert it to this and hashed version so
 
 1225
 00:55:22,210 --> 00:55:23,770
+如果你查看区块链，
 if you look at the blockchain there are
 
 1226
-00:55:23,770 --> 00:55:25,990
-none aren't any actual addresses on the
+00:55:23,770 --> 00:55:30,310
+你会发现区块链上的锁中并没有实际的地址，
 
-1227
-00:55:25,990 --> 00:55:30,310
-blockchain in the locks at least it's
-
-1228
 00:55:30,310 --> 00:55:32,200
+只有公钥的哈希版本，
 just the hashed version of the public
 
 1229
 00:55:32,200 --> 00:55:34,120
+或者说在交易数据中只有公钥的哈希版本。
 keys on the blockchain or inside the
 
 1230
 00:55:34,120 --> 00:55:41,280
+希望这个解释对你有所帮助。
 transaction data so does that make sense
 
 1231
