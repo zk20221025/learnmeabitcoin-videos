@@ -2556,49 +2556,31 @@ S是一个特殊的数字，
 
 00:50:52,839 --> 00:50:55,839
 并且它会短一些。
-bit shorter so how do we fix this error
 
-1125
 00:50:55,839 --> 00:50:58,569
 那我们如何修复这个错误呢?
-checking problem well what we do is you
 
-1126
 00:50:58,569 --> 00:51:02,380
 我们做的是检查问题，我们创建了一个叫做校验和的东西，
-we create what's called a checksum so we
 
-1127
 00:51:02,380 --> 00:51:07,869
 我们对密钥进行哈希，
-hash this hashed version of the perfect
 
-1128
 00:51:07,869 --> 00:51:10,739
 这会给我们一个长数字。
-key and that will give us a long number
 
-1129
 00:51:10,739 --> 00:51:13,509
 如果我们只取前四位字节，
-if we just take the four bytes the first
 
-1130
 00:51:13,509 --> 00:51:16,779
 即这个公钥的哈希值，
-four bytes of that the hash of this
 
-1131
 00:51:16,779 --> 00:51:18,999
 那就是所谓的校验和，
-public key and that is called the
 
-1132
 00:51:18,999 --> 00:51:21,719
 我们把它放在最后。
-checksum and so we stick that on the end
 
-1133
 00:51:21,719 --> 00:51:29,619
 这意味着如果有人在他们的钱包软件中输入整个公钥，
 
@@ -2607,166 +2589,100 @@ checksum and so we stick that on the end
 
 00:51:34,269 --> 00:51:37,329
 钱包软件可以哈希这个，
-hash this and check to make sure for
 
-1138
 00:51:37,329 --> 00:51:40,450
 并检查这部分的密钥是否与校验和匹配，
-this part of the key matches the
 
-1139
 00:51:40,450 --> 00:51:43,239
 如果不匹配，
-checksum and if it doesn't then they'll
 
-1140
 00:51:43,239 --> 00:51:44,489
 那么他们就知道某个地方犯了错误，
-know someone's made a mistake somewhere
 
-1141
 00:51:44,489 --> 00:51:46,539
 虽然不能告诉你错误在哪里，
-they won't be you want be able to tell
 
-1142
 00:51:46,539 --> 00:51:49,119
 但至少会发出警告，
-you where it's made a mistake but it
 
-1143
 00:51:49,119 --> 00:51:50,770
 告诉你你犯了错误，
-will note it will say wait there
 
-1144
 00:51:50,770 --> 00:51:57,150
 这总比什么都没有好。
 
 00:51:57,150 --> 00:52:00,610
 我说过这个有点长，
-similarly like I said it's a bit long
 
-1147
 00:52:00,610 --> 00:52:03,550
 我们能不能把它弄短一点呢?
-can we make this any shorter no I've got
 
-1148
 00:52:03,550 --> 00:52:06,670
 我在这里有校验和，公钥变得更长了，
-the checksum here Smith the public key a
 
-1149
 00:52:06,670 --> 00:52:08,320
 我们能不能缩短它呢?
-bit longer again can we shorten it down
 
-1150
 00:52:08,320 --> 00:52:13,119
 是的，我们可以。
-well yes we can this version here has
 
-1151
 00:52:13,119 --> 00:52:16,680
 这个版本已经用十六进制格式编码，
-been encoded in a hexadecimal format
 
-1152
 00:52:16,680 --> 00:52:21,280
 它有16个字符可以选择。
 
 00:52:21,280 --> 00:52:24,220
 如果它只是一个数字，
-what if it's just a number instead of in
 
-1155
-00:52:24,220 --> 00:52:26,470
+00:52:24,220 --> 00:52:28,630
 而不是用16个字符编码的格式呢?
-chord encoding it in a format there used
 
-1156
-00:52:26,470 --> 00:52:28,630
-to 16 characters well if we just use a
-
-1157
 00:52:28,630 --> 00:52:32,290
 如果我们用更多的字符，而不是16个字符，
-lot more characters so it's a 16
 
-1158
 00:52:32,290 --> 00:52:33,730
 那么如果我们用整个字母数字字母表，
-characters here what if you use the
 
-1159
 00:52:33,730 --> 00:52:37,150
-它有60个字符
-entire alphanumeric alphabet which has
+它有62个字符
 
-1160
 00:52:37,150 --> 00:52:39,010
 ，如果我们开始使用这些，
-six new characters if we can start using
 
-1161
 00:52:39,010 --> 00:52:42,160
 那么我们可以用更少的字符，
-these then we can represent this number
 
-1162
 00:52:42,160 --> 00:52:45,820
 更短的空间来表示这个数字。
-in a much shorter space with a lot less
 
-1163
 00:52:45,820 --> 00:52:50,320
 使用所有这些字符的问题是，
-characters problem with use in all of
 
-1164
 00:52:50,320 --> 00:52:51,940
 有些字符很难打出来，
-these characters is some of them a bit
 
-1165
 00:52:51,940 --> 00:52:56,410
 比如0和o看起来一样，
 
 00:52:56,410 --> 00:52:58,780
 所以我们不想用那些。
-so we don't want to use those similarly
 
-1168
 00:52:58,780 --> 00:53:01,060
 L和大写的i看起来也一样，
-similarly an L and a big are you can
 
-1169
 00:53:01,060 --> 00:53:02,710
 所以我们也不想用那些。
-look the same so we don't wanna use
 
-1170
 00:53:02,710 --> 00:53:04,210
 所以如果你把这些踢出去，
-those either so if you just kick those
 
-1171
 00:53:04,210 --> 00:53:07,960
 我们就有58个字符可以选择。
-out we're left with 58 characters to
 
-1172
-00:53:07,960 --> 00:53:10,720
+00:53:07,960 --> 00:53:13,359
 当你在特定的格式中编码数字时，
-choose from so when you're encoding
 
-1173
-00:53:10,720 --> 00:53:13,359
-numbers in a particular format and the
-
-1174
 00:53:13,359 --> 00:53:14,530
 你可以选择的字符的数量也被称为基数。
 number of characters you have to choose
@@ -2774,110 +2690,70 @@ number of characters you have to choose
 1175
 00:53:14,530 --> 00:53:16,750
 所以这是基数16，
-from is also known as the base so this
 
-1176
 00:53:16,750 --> 00:53:20,500
 这是基数58。
-is base 16 and this is base 58 base 58
 
-1177
 00:53:20,500 --> 00:53:24,609
 基数58就是字母数字字母表中的字符，
-is just the alphanumeric alphabet our
 
-1178
 00:53:24,609 --> 00:53:28,150
 去掉了那些难以区分的字符。
-characters with the awkward ones taken
 
-1179
 00:53:28,150 --> 00:53:30,970
 如果你把所有这些数据，
-out so what you do if you just take all
 
-1180
 00:53:30,970 --> 00:53:33,160
 包含校验和的公钥，
-this data this public key with a check
 
-1181
 00:53:33,160 --> 00:53:38,109
 用Base58的字符编码成这种格式，
 
 00:53:38,109 --> 00:53:39,790
 你会得到一个稍微短一点，
-characters you get something a little
 
-1184
 00:53:39,790 --> 00:53:41,680
 稍微对用户友好的地址，
-bit shorter and a bit more slightly more
 
-1185
 00:53:41,680 --> 00:53:44,230
 但最重要的是，
-user-friendly but most importantly you
 
-1186
 00:53:44,230 --> 00:53:46,480
-它具有错误检测的能力，
-know it has this arrow tracking
+它具有这种箭头跟踪功能，
 
-1187
 00:53:46,480 --> 00:53:53,910
-
+这就是为什么觉得这种特殊的格式看起来有点熟悉。
+ 
 00:53:53,910 --> 00:53:56,310
 所以基本上，
-so basically it's just basically eight
 
-1191
 00:53:56,310 --> 00:53:59,740
 这就是我们所说的地址，
-and this is what we call the address so
 
-1192
-00:53:59,740 --> 00:54:01,120
+00:53:59,740 --> 00:54:05,950
 这个地址就是公钥哈希的美化版本。
-the address is just the pretty version
 
-1193
-00:54:01,120 --> 00:54:05,950
-
-of this hashed public key there we are
-
-1194
 00:54:05,950 --> 00:54:10,510
 我们可以选择给出哈希版本，
 
 00:54:10,510 --> 00:54:12,070
 如果我们愿意的话，
-hashed version away away if we wanted to
 
-1197
 00:54:12,070 --> 00:54:14,950
 我们可以放弃哈希版本，
-that's perfectly fine but you know with
 
-1198
 00:54:14,950 --> 00:54:16,870
-但是现在的钱包都要求一个地址，
-wallets these days everyone asked for an
+但是现在的钱包都要求提供一个地址，
 
-1199
 00:54:16,870 --> 00:54:19,270
 所以你给出地址，
-address so you give the address away and
 
-1200
 00:54:19,270 --> 00:54:22,660
 这意味着如果他们输入错误，
 
 00:54:22,660 --> 00:54:24,340
 钱包软件就可以指出有问题。
-say wait there something's not right so
 
-1203
 00:54:24,340 --> 00:54:32,380
 所以使用这个地址对用户更友好，也更安全。
 
@@ -2887,236 +2763,146 @@ say wait there something's not right so
 00:54:36,910 --> 00:54:40,450
 这并没有使用任何特定的哈希函数，
 
-00:54:40,450 --> 00:54:42,550
+00:54:40,450 --> 00:54:44,860
 它只是从一种数字格式转换为另一种数字格式，
-converting from one number format to
 
-1210
-00:54:42,550 --> 00:54:44,860
-another you know like converting from
-
-1211
 00:54:44,860 --> 00:54:49,600
 就像从十进制转换为十六进制一样。
-decimal to hexadecimal that's one number
 
-1212
 00:54:49,600 --> 00:54:50,920
 这是一种数字转换，
-conversion but they're still seen the
 
-1213
 00:54:50,920 --> 00:54:54,430
 但仍然看到的是相同的数字。
 
 00:54:54,430 --> 00:54:56,860
 你可以来回转换，
-and forth between hexadecimal base 16
 
-1216
 00:54:56,860 --> 00:55:00,130
 基数16，基数58，你可以来回转换
-base 58 you can go back and 4 again so
 
-1217
 00:55:00,130 --> 00:55:05,860
 当你实际给出一个地址或者在钱包中输入一个地址时，
 
 00:55:05,860 --> 00:55:07,480
 钱包在创建交易时，
-while the wallet does when it creates
 
-1220
 00:55:07,480 --> 00:55:13,090
 会计算出公钥的哈希值，
 
 00:55:13,090 --> 00:55:16,000
 然后将其作为锁。
-that as the lock so even though you you
 
-1223
 00:55:16,000 --> 00:55:18,250
 所以，即使你输入了一个地址，
-input a an address the wallet will
 
-1224
 00:55:18,250 --> 00:55:22,210
 钱包也会将其转换为哈希版本。
-convert it to this and hashed version so
 
-1225
 00:55:22,210 --> 00:55:23,770
 如果你查看区块链，
-if you look at the blockchain there are
 
-1226
 00:55:23,770 --> 00:55:30,310
 你会发现区块链上的锁中并没有实际的地址，
 
 00:55:30,310 --> 00:55:32,200
 只有公钥的哈希版本，
-just the hashed version of the public
 
-1229
 00:55:32,200 --> 00:55:34,120
 或者说在交易数据中只有公钥的哈希版本。
-keys on the blockchain or inside the
 
-1230
-00:55:34,120 --> 00:55:41,280
+00:55:34,120 --> 00:55:43,630
 希望这个解释对你有所帮助。
-transaction data so does that make sense
 
-1231
-00:55:41,280 --> 00:55:43,630
-ok great
-
-1232
 00:55:43,630 --> 00:55:46,390
-lastly some code examples so if all this
+最后，让我们看一些代码示例，
 
-1233
 00:55:46,390 --> 00:55:49,960
-makes sense you understand how keys and
+如果你明白了这一切，
 
-1234
 00:55:49,960 --> 00:55:52,030
-addresses work so you have the basic
+就能理解密钥和地址是如何工作的。
 
-1235
 00:55:52,030 --> 00:55:53,980
-private key and public key which is
+你需要拥有基础的私钥和公钥，
 
-1236
 00:55:53,980 --> 00:55:56,470
-basics needed for sending and receiving
+这是发送和接收交易所必需的。
 
-1237
 00:55:56,470 --> 00:55:59,170
-transactions then you create digital
+然后你创建数字签名，
 
-1238
-00:55:59,170 --> 00:56:00,760
-signatures so that we can prove they'll
+00:55:59,170 --> 00:56:02,590
+这样我们就可以证明在公钥上的私钥是存在的。
 
-1239
-00:56:00,760 --> 00:56:02,590
-be on a public key that the private key
+00:56:02,590 --> 00:56:06,610
+我们可以证明我们用私钥创建了公钥，
 
-1240
-00:56:02,590 --> 00:56:04,920
-is that while we can prove that we
+00:56:06,610 --> 00:00:56:10,000
+但实际上我们永远不需要公开私钥，
 
-1241
-00:56:04,920 --> 00:56:06,610
-created the public key
+00:56:10,000 --> 00:56:14,190
+这就是创建数字签名的交易系统如何工作的。
 
-1242
-00:56:06,610 --> 00:56:08,560
-from a private key but I would actually
-
-1243
-00:56:08,560 --> 00:56:10,000
-ever having to give away the private key
-
-1244
-00:56:10,000 --> 00:56:11,980
-and that's how the transaction system
-
-1245
-00:56:11,980 --> 00:56:14,190
-works creating digital signatures
-
-1246
 00:56:14,190 --> 00:56:21,540
-finally we made a dress gone okay
+最后，我们创建了一个地址。
 
-1247
 00:56:21,540 --> 00:56:26,770
-actually all transaction data have
+实际上，所有的交易数据都有公钥，
 
-1248
-00:56:26,770 --> 00:56:30,820
-public keys and yes the address is just
+00:56:26,770 --> 00:56:32,830
+而地址只是对用户友好的方式。
 
-1249
-00:56:30,820 --> 00:56:32,830
-like two of the the user-friendly top
-
-1250
 00:56:32,830 --> 00:56:35,800
-layer but inside actual transactions or
+但在实际的交易中，
 
-1251
-00:56:35,800 --> 00:56:37,330
-they use is the public key and the
+00:56:35,800 --> 00:56:39,850
+使用的是公钥和哈希公钥，
 
-1252
-00:56:37,330 --> 00:56:39,850
-hashed public key the address is just
-
-1253
 00:56:39,850 --> 00:56:44,860
-for user-friendly purposes so okay so if
+地址只是为了对用户更友好。
 
-1254
 00:56:44,860 --> 00:56:45,970
-you understand all that then you
+所以如果你明白了这一切，
 
-1255
 00:56:45,970 --> 00:56:47,460
-understand how a keys and addresses work
+那你就理解了密钥和地址是如何工作的。
 
-1256
 00:56:47,460 --> 00:56:50,650
-in this final part now just went through
+在这最后的部分，
 
-1257
 00:56:50,650 --> 00:56:53,380
-quite quickly not too complex just how
+这很快就完成了，不是太复杂，
 
-1258
 00:56:53,380 --> 00:56:56,080
-you can generate your own set of keys
+只是如何生成自己的一套密钥和地址。
 
-1259
 00:56:56,080 --> 00:56:58,870
-and addresses I think this is quite fun
+我认为这很有趣，
 
-1260
 00:56:58,870 --> 00:57:01,420
-to do it's not terribly hard you know
+虽然需要一些编码，
 
-1261
-00:57:01,420 --> 00:57:04,210
-take some coding but you can actually
+00:57:01,420 --> 00:57:06,880
+但你实际上可以很容易地创建自己的一套密钥。
 
-1262
-00:57:04,210 --> 00:57:06,880
-easily create your own set of keys so
-
-1263
 00:57:06,880 --> 00:57:08,470
-you can send and receive bitcoins and
+这样你就可以发送和接收比特币，
 
-1264
 00:57:08,470 --> 00:57:09,790
-it's quite a fun thing to do if you want
+这是一件非常有趣的事情，
 
-1265
 00:57:09,790 --> 00:57:12,520
-to get started working a Bitcoin so I'll
+如果你想开始使用比特币。
 
-1266
 00:57:12,520 --> 00:57:14,530
-just show you now all the technical
+现在我将向你展示所有的技术细节，
 
-1267
 00:57:14,530 --> 00:57:16,480
-stuff how to actually create your own
+如何实际创建你自己的一套密钥，
 
-1268
 00:57:16,480 --> 00:57:18,630
+从私钥开始。
 set of keys start with a private key so
 
 1269
