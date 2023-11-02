@@ -2212,222 +2212,189 @@ say give me a public key and a signature
 
 975
 00:44:09,090 --> 00:44:11,950
+首先，
 and what I'll do then is the first thing
 
 976
-00:44:11,950 --> 00:44:14,350
-you'll do is it will check that the
+00:44:11,950 --> 00:44:18,910
+我会做的是检查你在这里输入的公钥是否与哈希版本相匹配。
 
-977
-00:44:14,350 --> 00:44:16,480
-public key that you've put here hashes
-
-978
-00:44:16,480 --> 00:44:18,910
-to this hashed version of it you know
-
-979
 00:44:18,910 --> 00:44:20,710
+任何人都可以做到。
 through this to it and anyone can do
 
 980
 00:44:20,710 --> 00:44:21,970
+这是通过这两个哈希函数来完成的，
+
 that through these two hash functions
 
 981
 00:44:21,970 --> 00:44:24,910
+然后，它会做之前做过的事情，
 and after - after doing that it will do
 
 982
 00:44:24,910 --> 00:44:27,460
+检查签名是否有效。
 what it did before just sack check that
 
 983
-00:44:27,460 --> 00:44:33,010
-the signature works so whereas before we
+00:44:27,460 --> 00:44:34,180
+之后我们在这里有公钥，
 
-984
-00:44:33,010 --> 00:44:34,180
-had the public key in here and there's
+00:44:34,180 --> 00:44:39,070
+只需要一步就可以比较签名和公钥。
 
-985
-00:44:34,180 --> 00:44:36,510
-like a one step process of comparing the
-
-986
-00:44:36,510 --> 00:44:39,070
-signature to the public key this is now
-
-987
 00:44:39,070 --> 00:44:40,780
+现在，这是一个两步的过程，
 a two step process where it first
 
 988
 00:44:40,780 --> 00:44:42,730
+首先比较公钥和你给出的哈希版本，
 compares the public key to the hashed
 
 989
 00:44:42,730 --> 00:44:44,590
+如果检查正确，
 version that you've given away and if
 
 990
-00:44:44,590 --> 00:44:46,990
-that checks out they will check the
+00:44:44,590 --> 00:44:50,020
+那么它会校验签名和公钥。
 
-991
-00:44:46,990 --> 00:44:50,020
-signature against the public key so
+00:44:50,020 --> 00:44:52,770
+基本上，它只是增加了一个步骤。
 
-992
-00:44:50,020 --> 00:44:51,730
-basically just adds another step okay go
-
-993
-00:44:51,730 --> 00:44:52,770
-on
-
-994
 00:44:52,770 --> 00:44:59,220
+所以从这个意义上说，
 so in that sense we do have public keys
 
 995
 00:44:59,220 --> 00:45:04,720
+我们确实有用于hash160的公钥，
 which are for the Asch 160s that is open
 
 996
 00:45:04,720 --> 00:45:10,720
+这是公开的信息。
 information yes if I okay another
 
 997
 00:45:10,720 --> 00:45:12,100
+如果你现在想问的是，
 question point that you'd be thinking
 
 998
 00:45:12,100 --> 00:45:13,810
+如果最终我们还是要公开公钥，
 now is okay well what's the point in
 
 999
 00:45:13,810 --> 00:45:16,630
+那么哈希这个公钥并公开有什么意义呢？
 hash in this and giving this away if
 
 1000
 00:45:16,630 --> 00:45:18,070
+无论如何，
 eventually we're going to be given the
 
 1001
 00:45:18,070 --> 00:45:21,300
+最终都会得到公钥
 public key away anyway
 
 1002
 00:45:23,610 --> 00:45:26,230
+这个思路是，
 well the thinking is that this public
 
 1003
-00:45:26,230 --> 00:45:27,240
-key and
+00:45:26,230 --> 00:45:29,990
+这个公钥只在最后一刻被公开。
 
-1004
-00:45:27,240 --> 00:45:29,990
-is only given away at the last moment so
+00:45:29,990 --> 00:45:37,320
+假设需要一些时间来通过暴力破解得到这个椭圆曲线的反向计算。
 
-1005
-00:45:29,990 --> 00:45:33,270
-say it took some time to be able to you
-
-1006
-00:45:33,270 --> 00:45:34,650
-know brute force and get backwards
-
-1007
-00:45:34,650 --> 00:45:37,320
-through this elliptic curve that if it
-
-1008
 00:45:37,320 --> 00:45:40,350
+如果它被某种方式破解了，
 was broken in some way well if it was
 
 1009
 00:45:40,350 --> 00:45:42,330
+首先，如果它完全破解了，
 first of all if it's completely broken
 
 1010
 00:45:42,330 --> 00:45:44,460
+那么你的比特币是安全的，
 then your bitcoins are safe so if you
 
 1011
 00:45:44,460 --> 00:45:45,840
+因为如果你不花费它们，
 just don't spend them then they're still
 
 1012
 00:45:45,840 --> 00:45:47,160
+那么其他人就无法取走它们。
 no one else can take them but they're
 
 1013
 00:45:47,160 --> 00:45:50,490
+但显然，这并不是很好。
 not obviously not very good but this
 
 1014
 00:45:50,490 --> 00:45:52,140
+但这个公钥的思路是，
 developed the thinking is that this is
 
 1015
 00:45:52,140 --> 00:45:53,610
+你只在最后一刻公开。
 like you only give away at the last
 
 1016
 00:45:53,610 --> 00:45:55,050
+如果它在最后一刻被公开，
 moment and if it's given away the last
 
 1017
-00:45:55,050 --> 00:45:58,200
-moment then hopefully other people won't
+00:45:55,050 --> 00:46:02,790
+那么希望其他人不会有时间快速反向工作以窃取你的比特币。
 
-1018
-00:45:58,200 --> 00:46:01,470
-have the time to be able to work
-
-1019
-00:46:01,470 --> 00:46:02,790
-backwards quick enough to be able to
-
-1020
 00:46:02,790 --> 00:46:07,340
+但另一方面，
 steal your bitcoins but on the plus side
 
 1021
 00:46:07,340 --> 00:46:09,510
+我认为这总比没有好。
 well is I think it's better than nothing
 
 1022
 00:46:09,510 --> 00:46:13,410
+所以这就是我们使用这个哈希版本的原因。
 really so this is why we use this hash
 
 1023
-00:46:13,410 --> 00:46:16,020
-version so this hashed version you know
+00:46:13,410 --> 00:46:19,619
+这个哈希版本并不会给任何人提供任何激励去尝试反向工作，
 
-1024
-00:46:16,020 --> 00:46:17,460
-it doesn't give anyone any incentive to
+00:46:19,619 --> 00:46:24,570
+因为他们首先必须通过这些哈希函数。
 
-1025
-00:46:17,460 --> 00:46:19,619
-try and work backwards through this I
-
-1026
-00:46:19,619 --> 00:46:21,510
-have to give because I have to get
-
-1027
 00:46:21,510 --> 00:46:24,570
-through these first so it's busy going
+这是很困难的。
 
-1028
 00:46:24,570 --> 00:46:27,060
-somewhere my thought is that let's say
+我的想法是，
 
-1029
 00:46:27,060 --> 00:46:32,369
+假设我们有10个比特币在这个工作后面。
 we have ten bitcoins behind this work
 
 1030
