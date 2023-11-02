@@ -2208,38 +2208,25 @@ S是一个特殊的数字，
 
 00:44:06,430 --> 00:44:09,090
 要求提供公钥和签名。
-say give me a public key and a signature
 
-975
 00:44:09,090 --> 00:44:11,950
 首先，
-and what I'll do then is the first thing
 
-976
 00:44:11,950 --> 00:44:18,910
 我会做的是检查你在这里输入的公钥是否与哈希版本相匹配。
 
 00:44:18,910 --> 00:44:20,710
 任何人都可以做到。
-through this to it and anyone can do
 
-980
 00:44:20,710 --> 00:44:21,970
 这是通过这两个哈希函数来完成的，
 
-that through these two hash functions
-
-981
 00:44:21,970 --> 00:44:24,910
 然后，它会做之前做过的事情，
-and after - after doing that it will do
 
-982
 00:44:24,910 --> 00:44:27,460
 检查签名是否有效。
-what it did before just sack check that
 
-983
 00:44:27,460 --> 00:44:34,180
 之后我们在这里有公钥，
 
@@ -2248,19 +2235,13 @@ what it did before just sack check that
 
 00:44:39,070 --> 00:44:40,780
 现在，这是一个两步的过程，
-a two step process where it first
 
-988
 00:44:40,780 --> 00:44:42,730
 首先比较公钥和你给出的哈希版本，
-compares the public key to the hashed
 
-989
 00:44:42,730 --> 00:44:44,590
 如果检查正确，
-version that you've given away and if
 
-990
 00:44:44,590 --> 00:44:50,020
 那么它会校验签名和公钥。
 
@@ -2269,49 +2250,31 @@ version that you've given away and if
 
 00:44:52,770 --> 00:44:59,220
 所以从这个意义上说，
-so in that sense we do have public keys
 
-995
 00:44:59,220 --> 00:45:04,720
 我们确实有用于hash160的公钥，
-which are for the Asch 160s that is open
 
-996
 00:45:04,720 --> 00:45:10,720
 这是公开的信息。
-information yes if I okay another
 
-997
 00:45:10,720 --> 00:45:12,100
 如果你现在想问的是，
-question point that you'd be thinking
 
-998
 00:45:12,100 --> 00:45:13,810
 如果最终我们还是要公开公钥，
-now is okay well what's the point in
 
-999
 00:45:13,810 --> 00:45:16,630
 那么哈希这个公钥并公开有什么意义呢？
-hash in this and giving this away if
 
-1000
 00:45:16,630 --> 00:45:18,070
 无论如何，
-eventually we're going to be given the
 
-1001
 00:45:18,070 --> 00:45:21,300
 最终都会得到公钥
-public key away anyway
 
-1002
 00:45:23,610 --> 00:45:26,230
 这个思路是，
-well the thinking is that this public
 
-1003
 00:45:26,230 --> 00:45:29,990
 这个公钥只在最后一刻被公开。
 
@@ -2320,67 +2283,43 @@ well the thinking is that this public
 
 00:45:37,320 --> 00:45:40,350
 如果它被某种方式破解了，
-was broken in some way well if it was
 
-1009
 00:45:40,350 --> 00:45:42,330
 首先，如果它完全破解了，
-first of all if it's completely broken
 
-1010
 00:45:42,330 --> 00:45:44,460
 那么你的比特币是安全的，
-then your bitcoins are safe so if you
 
-1011
 00:45:44,460 --> 00:45:45,840
 因为如果你不花费它们，
-just don't spend them then they're still
 
-1012
 00:45:45,840 --> 00:45:47,160
 那么其他人就无法取走它们。
-no one else can take them but they're
 
-1013
 00:45:47,160 --> 00:45:50,490
 但显然，这并不是很好。
-not obviously not very good but this
 
-1014
 00:45:50,490 --> 00:45:52,140
 但这个公钥的思路是，
-developed the thinking is that this is
 
-1015
 00:45:52,140 --> 00:45:53,610
 你只在最后一刻公开。
-like you only give away at the last
 
-1016
 00:45:53,610 --> 00:45:55,050
 如果它在最后一刻被公开，
-moment and if it's given away the last
 
-1017
 00:45:55,050 --> 00:46:02,790
 那么希望其他人不会有时间快速反向工作以窃取你的比特币。
 
 00:46:02,790 --> 00:46:07,340
 但另一方面，
-steal your bitcoins but on the plus side
 
-1021
 00:46:07,340 --> 00:46:09,510
 我认为这总比没有好。
-well is I think it's better than nothing
 
-1022
 00:46:09,510 --> 00:46:13,410
 所以这就是我们使用这个哈希版本的原因。
-really so this is why we use this hash
 
-1023
 00:46:13,410 --> 00:46:19,619
 这个哈希版本并不会给任何人提供任何激励去尝试反向工作，
 
@@ -2395,83 +2334,46 @@ really so this is why we use this hash
 
 00:46:27,060 --> 00:46:32,369
 假设我们有10个比特币在这个工作后面。
-we have ten bitcoins behind this work
 
-1030
 00:46:32,369 --> 00:46:37,580
 我们花费了一个比特币，
-yes yeah and we spend say one Bitcoin
 
-1031
 00:46:37,580 --> 00:46:40,410
 这个过程中，
-out of those term declines so at this
 
-1032
-00:46:40,410 --> 00:46:46,080
+00:46:40,410 --> 00:46:50,010
 攻击者可以获取到公钥的哈希160。
-time an attacker has the public key for
 
-1033
-00:46:46,080 --> 00:46:50,010
-
-the hash 160 yes but what you boo and
-
-1034
 00:46:50,010 --> 00:46:54,690
 你所做的是，你想在这里发送10个比特币，
 
 00:46:54,690 --> 00:46:56,970
 我们想发送一个比特币给其他人，
-want to send one Bitcoin to someone else
 
-1037
 00:46:56,970 --> 00:46:59,520
 然后我们想为自己保留剩余的比特币
-and then we want to keep the change for
 
-1038
 00:46:59,520 --> 00:47:02,550
 这里建议的是，
-ourselves what is recommended is that
 
-1039
 00:47:02,550 --> 00:47:06,930
 创建一个新地址，
-you create a new address so that's why
 
-1040
 00:47:06,930 --> 00:47:10,109
 这就是为什么每个人都说不要使用重复相同的地址，
 
-everyone says don't reuse the same
-
-1041
-00:47:10,109 --> 00:47:12,660
+00:47:10,109 --> 00:47:14,250
 因为当你更改发送给自己时，
-address that's because when you send the
 
-1042
-00:47:12,660 --> 00:47:14,250
-
-change to yourself if you use a
-
-1043
 00:47:14,250 --> 00:47:16,200
 如果你使用不同的地址，
-different address then even though you
 
-1044
 00:47:16,200 --> 00:47:18,300
 即使你放弃了自己的公钥，
-give them away there's public key it's
 
-1045
 00:47:18,300 --> 00:47:20,040
 实际上它也没有用，
-effectively useless because all of the
 
-1046
 00:47:20,040 --> 00:47:26,280
 因为所有锁定到这个公钥的比特币都被花掉并转移了。
 
@@ -2480,73 +2382,49 @@ effectively useless because all of the
 
 00:47:31,770 --> 00:47:34,600
 或每次都使用不同的地址进行更改。
-addresses every time for your change
 
-1051
 00:47:34,600 --> 00:47:37,450
 最后一刻的逻辑，
-right yeah then the last-minute logic
 
-1052
 00:47:37,450 --> 00:47:40,990
 感觉这是因为如果它是一个新地址，
 
 00:47:40,990 --> 00:47:46,060
 你又不知道公钥。
-the public Yeah right
 
-1055
 00:47:46,060 --> 00:47:48,070
 所以这是有意义的，
-so in kalameet sense but so obviously
 
-1056
 00:47:48,070 --> 00:47:53,650
 很明显现在你仍然可以使用，
-now you can still use if you go back you
 
-1057
 00:47:53,650 --> 00:47:57,070
 如果你退回去你仍然可以使用这个方法，
 
 00:47:57,070 --> 00:47:58,570
 你仍然可以创建执行此操作的锁
-still create locks that do this and that
 
-1060
 00:47:58,570 --> 00:48:06,970
 但现在所有的钱包都使用它来哈希公钥，
 
 00:48:06,970 --> 00:48:08,770
 这样更安全
-because it's more secure but you can
 
-1064
 00:48:08,770 --> 00:48:10,480
 但你仍然可以使用它
-still use this you know put a public key
 
-1065
 00:48:10,480 --> 00:48:12,010
 把公钥放在这里，只使用一个签名，
-in here and then just use one signature
 
-1066
 00:48:12,010 --> 00:48:15,070
 这就是区块链中很多早期交易的形式，
-that's how a lot of early transactions
 
-1067
 00:48:15,070 --> 00:48:16,480
 如果你检查他们，
-in the blockchain if you check them out
 
-1068
 00:48:16,480 --> 00:48:18,400
 他们使用一个非常简单的公钥和签名，
-they use a very simple public key and
 
-1069
 00:48:18,400 --> 00:48:29,910
 但现在所有的交易都使用这个锁内的哈希版本。
 
@@ -2560,186 +2438,124 @@ they use a very simple public key and
 我将在下一个视频中会详细解释这些锁是如何工作的。
 
 00:48:48,460 --> 00:48:50,080
-actually work so this is the locking
+所以这就是锁定代码，
 
-1080
 00:48:50,080 --> 00:48:51,880
-code the lock and this is the unlocking
+这就是解锁代码。
 
-1081
 00:48:51,880 --> 00:48:56,880
-code here so okay finally like I said
+最后，像我说的，
 
-1082
 00:48:56,880 --> 00:49:00,340
-what is an address I have to go through
+什么是地址？
 
-1083
 00:49:00,340 --> 00:49:01,780
-this just to show you an address comes
+我必须通过这个来向你展示一个地址的来源。
 
-1084
 00:49:01,780 --> 00:49:06,750
-from so like I said in the last one and
+就像我在上一次说的，
 
-1085
 00:49:06,750 --> 00:49:10,180
-maybe want to receive bitcoins we give
+可能你想接收比特币，
 
-1086
 00:49:10,180 --> 00:49:12,670
-away this hashed version of the public
+我们给出这个公钥的哈希版本。
 
-1087
 00:49:12,670 --> 00:49:14,980
-key but if you actually look at all this
+但是如果你实际看一下所有的这些数据，
 
-1088
 00:49:14,980 --> 00:49:17,860
-data so let's say this is a private key
+比如说这是一个私钥，
 
-1089
 00:49:17,860 --> 00:49:20,590
-and then this is a public key which is a
+然后这是一个公钥，
 
-1090
 00:49:20,590 --> 00:49:23,740
-big number as well these were typically
+也是一个大数字。
 
-1091
 00:49:23,740 --> 00:49:27,460
-stored in hexadecimal format so let me
+这些通常以十六进制格式存储，
 
-1092
 00:49:27,460 --> 00:49:30,400
-just convert those quickly and so many
+所以让我快速转换一下。
 
-1093
-00:49:30,400 --> 00:49:32,500
-hash all this data through those two
+00:49:30,400 --> 00:49:37,049
+当我们通过这两个哈希函数对所有这些数据进行哈希，
 
-1094
-00:49:32,500 --> 00:49:36,870
-hash functions we end up with this
+00:49:37,049 --> 00:49:45,130
+我们最后得到这个公钥的哈希版本的十六进制数字。
 
-1095
-00:49:37,049 --> 00:49:39,489
-hexadecimal number here for that hashed
-
-1096
-00:49:39,489 --> 00:49:45,130
-version of the public key this works and
-
-1097
 00:49:45,130 --> 00:49:46,089
-we can give this way to other people
+这个方法是可行的，我们可以把这个给别人，
 
-1098
 00:49:46,089 --> 00:49:47,019
-that's fine
+这没问题。
 
-1099
 00:49:47,019 --> 00:49:49,420
-there's no this is if you wanted to make
+这就是你想让它简单，
 
-1100
-00:49:49,420 --> 00:49:51,039
-it simple you could just give people
+00:49:49,420 --> 00:49:53,200
+你可以直接给人们这个公钥的直接哈希版本。
 
-1101
-00:49:51,039 --> 00:49:53,200
-this direct hashed version the public
-
-1102
 00:49:53,200 --> 00:49:55,390
-key and that's fine but the problem is
+但是问题是，
 
-1103
 00:49:55,390 --> 00:49:56,729
-it's not particularly user friendly
+它对用户并不友好。
 
-1104
 00:49:56,729 --> 00:50:00,099
-because so you give it away or you
+因为你把它给别人，
 
-1105
 00:50:00,099 --> 00:50:03,640
-describe the this public key over the
+或者你在电话上描述这个公钥，
 
-1106
 00:50:03,640 --> 00:50:06,059
-phone say someone else types it in and
+假设别人把它键入，
 
-1107
 00:50:06,059 --> 00:50:09,190
-they make a mistake and then they fill
+然后他们犯了一个错误，然后他们填写完了。
 
-1108
 00:50:09,190 --> 00:50:12,039
-it out if they make one single mistake
+如果他们犯了一个简单的错误，
 
-1109
-00:50:12,039 --> 00:50:14,049
-then it's gonna send the Bitcoin so
+00:50:12,039 --> 00:50:16,079
+那么它就会把比特币发送到一个完全不同的地址，
 
-1110
-00:50:14,049 --> 00:50:16,079
-different completely different address
-
-1111
 00:50:16,079 --> 00:50:18,430
-so it's going to lose those bitcoins and
+所以它会丢失那些比特币，
 
-1112
 00:50:18,430 --> 00:50:20,789
-this person is not going to receive them
+这个人就不会收到它们。
 
-1113
 00:50:20,789 --> 00:50:24,880
-so that's not good so there's no error
+所以这不好。
 
-1114
 00:50:24,880 --> 00:50:27,220
-checking so when you type in this hashed
+当你键入这个公钥的哈希版本时，
 
-1115
 00:50:27,220 --> 00:50:30,099
-version the public key there's no way to
+没有进行错误检查。
 
-1116
 00:50:30,099 --> 00:50:33,009
-check it for errors secondly it's a bit
+其次，它有点长，
 
-1117
 00:50:33,009 --> 00:50:35,859
-long so if you make it shorter that'd be
+如果你能让它短一些，那就太好了。
 
-1118
 00:50:35,859 --> 00:50:37,900
-great but it's importantly there's no
+但是最重要的是，没有错误检查。
 
-1119
 00:50:37,900 --> 00:50:40,779
-way we check in so what can we do to
+所以我们可以做些什么来让这些地址对用户更友好呢？
 
-1120
-00:50:40,779 --> 00:50:46,539
-make these well basically the address is
+00:50:40,779 --> 00:50:50,049
+地址就是这个公钥的一个对用户更加友好的版本，
 
-1121
-00:50:46,539 --> 00:50:47,799
-just going to be a you more
-
-1122
-00:50:47,799 --> 00:50:50,049
-user-friendly version of this public key
-
-1123
 00:50:50,049 --> 00:50:52,839
-that contains error checking and it's a
+它包含错误检查，
 
-1124
 00:50:52,839 --> 00:50:55,839
+并且它会短一些。
 bit shorter so how do we fix this error
 
 1125
