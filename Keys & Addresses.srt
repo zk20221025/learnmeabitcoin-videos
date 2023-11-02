@@ -2399,201 +2399,166 @@ we have ten bitcoins behind this work
 
 1030
 00:46:32,369 --> 00:46:37,580
+我们花费了一个比特币，
 yes yeah and we spend say one Bitcoin
 
 1031
 00:46:37,580 --> 00:46:40,410
+这个过程中，
 out of those term declines so at this
 
 1032
 00:46:40,410 --> 00:46:46,080
+攻击者可以获取到公钥的哈希160。
 time an attacker has the public key for
 
 1033
 00:46:46,080 --> 00:46:50,010
+
 the hash 160 yes but what you boo and
 
 1034
-00:46:50,010 --> 00:46:51,780
-yeah but what you do is say you want to
+00:46:50,010 --> 00:46:54,690
+你所做的是，你想在这里发送10个比特币，
 
-1035
-00:46:51,780 --> 00:46:54,690
-send a sin is 10 bitcoins here and we
-
-1036
 00:46:54,690 --> 00:46:56,970
+我们想发送一个比特币给其他人，
 want to send one Bitcoin to someone else
 
 1037
 00:46:56,970 --> 00:46:59,520
+然后我们想为自己保留剩余的比特币
 and then we want to keep the change for
 
 1038
 00:46:59,520 --> 00:47:02,550
+这里建议的是，
 ourselves what is recommended is that
 
 1039
 00:47:02,550 --> 00:47:06,930
+创建一个新地址，
 you create a new address so that's why
 
 1040
 00:47:06,930 --> 00:47:10,109
+这就是为什么每个人都说不要使用重复相同的地址，
+
 everyone says don't reuse the same
 
 1041
 00:47:10,109 --> 00:47:12,660
+因为当你更改发送给自己时，
 address that's because when you send the
 
 1042
 00:47:12,660 --> 00:47:14,250
+
 change to yourself if you use a
 
 1043
 00:47:14,250 --> 00:47:16,200
+如果你使用不同的地址，
 different address then even though you
 
 1044
 00:47:16,200 --> 00:47:18,300
+即使你放弃了自己的公钥，
 give them away there's public key it's
 
 1045
 00:47:18,300 --> 00:47:20,040
+实际上它也没有用，
 effectively useless because all of the
 
 1046
-00:47:20,040 --> 00:47:22,980
-bitcoins that were locked to this public
+00:47:20,040 --> 00:47:26,280
+因为所有锁定到这个公钥的比特币都被花掉并转移了。
 
-1047
-00:47:22,980 --> 00:47:26,280
-key and I've been spent and moved on so
+00:47:26,280 --> 00:47:31,770
+这就是为什么每个人都说不要使用重复不同的地址，
 
-1048
-00:47:26,280 --> 00:47:28,890
-that's why everyone says to not to use
-
-1049
-00:47:28,890 --> 00:47:31,770
-different address or to use different
-
-1050
 00:47:31,770 --> 00:47:34,600
+或每次都使用不同的地址进行更改。
 addresses every time for your change
 
 1051
 00:47:34,600 --> 00:47:37,450
+最后一刻的逻辑，
 right yeah then the last-minute logic
 
 1052
-00:47:37,450 --> 00:47:39,160
-makes sense that is because if it's a
+00:47:37,450 --> 00:47:40,990
+感觉这是因为如果它是一个新地址，
 
-1053
-00:47:39,160 --> 00:47:40,990
-new address then again you don't know
-
-1054
 00:47:40,990 --> 00:47:46,060
+你又不知道公钥。
 the public Yeah right
 
 1055
 00:47:46,060 --> 00:47:48,070
+所以这是有意义的，
 so in kalameet sense but so obviously
 
 1056
 00:47:48,070 --> 00:47:53,650
+很明显现在你仍然可以使用，
 now you can still use if you go back you
 
 1057
-00:47:53,650 --> 00:47:55,120
-can still use this method I've just put
+00:47:53,650 --> 00:47:57,070
+如果你退回去你仍然可以使用这个方法，
 
-1058
-00:47:55,120 --> 00:47:57,070
-in the public key in here and you can
-
-1059
 00:47:57,070 --> 00:47:58,570
+你仍然可以创建执行此操作的锁
 still create locks that do this and that
 
 1060
-00:47:58,570 --> 00:48:02,320
-is perfectly fine but when people all of
+00:47:58,570 --> 00:48:06,970
+但现在所有的钱包都使用它来哈希公钥，
 
-1061
-00:48:02,320 --> 00:48:04,210
-the wallets these days they all built to
-
-1062
-00:48:04,210 --> 00:48:06,970
-use this to hash vision the public key
-
-1063
 00:48:06,970 --> 00:48:08,770
+这样更安全
 because it's more secure but you can
 
 1064
 00:48:08,770 --> 00:48:10,480
+但你仍然可以使用它
 still use this you know put a public key
 
 1065
 00:48:10,480 --> 00:48:12,010
+把公钥放在这里，只使用一个签名，
 in here and then just use one signature
 
 1066
 00:48:12,010 --> 00:48:15,070
+这就是区块链中很多早期交易的形式，
 that's how a lot of early transactions
 
 1067
 00:48:15,070 --> 00:48:16,480
+如果你检查他们，
 in the blockchain if you check them out
 
 1068
 00:48:16,480 --> 00:48:18,400
+他们使用一个非常简单的公钥和签名，
 they use a very simple public key and
 
 1069
-00:48:18,400 --> 00:48:21,400
-one signature but all the transactions
+00:48:18,400 --> 00:48:29,910
+但现在所有的交易都使用这个锁内的哈希版本。
 
-1070
-00:48:21,400 --> 00:48:26,560
-now well you know more recent ones they
+00:48:29,910 --> 00:48:35,410
+然后在解锁代码中加入公钥和签名。
 
-1071
-00:48:26,560 --> 00:48:29,910
-use the hash hashed version inside this
+00:48:35,410 --> 00:48:42,550
+刚刚我对这些锁如何工作做了一个冗长的描述，
 
-1072
-00:48:29,910 --> 00:48:33,850
-lock and then they put the public key
+00:48:42,550 --> 00:48:48,460
+我将在下一个视频中会详细解释这些锁是如何工作的。
 
-1073
-00:48:33,850 --> 00:48:35,410
-and signature in the unlocking code
-
-1074
-00:48:35,410 --> 00:48:40,240
-afterwards so by here I've just done a
-
-1075
-00:48:40,240 --> 00:48:42,550
-wordy wordy description of how these
-
-1076
-00:48:42,550 --> 00:48:45,040
-locks work the next video I'll do will
-
-1077
-00:48:45,040 --> 00:48:46,930
-be actually looking inside these locks
-
-1078
-00:48:46,930 --> 00:48:48,460
-to look at the code to see how they
-
-1079
 00:48:48,460 --> 00:48:50,080
 actually work so this is the locking
 
