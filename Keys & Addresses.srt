@@ -2560,126 +2560,129 @@ bit shorter so how do we fix this error
 
 1125
 00:50:55,839 --> 00:50:58,569
+那我们如何修复这个错误呢?
 checking problem well what we do is you
 
 1126
 00:50:58,569 --> 00:51:02,380
+我们做的是检查问题，我们创建了一个叫做校验和的东西，
 we create what's called a checksum so we
 
 1127
 00:51:02,380 --> 00:51:07,869
+我们对密钥进行哈希，
 hash this hashed version of the perfect
 
 1128
 00:51:07,869 --> 00:51:10,739
+这会给我们一个长数字。
 key and that will give us a long number
 
 1129
 00:51:10,739 --> 00:51:13,509
+如果我们只取前四位字节，
 if we just take the four bytes the first
 
 1130
 00:51:13,509 --> 00:51:16,779
+即这个公钥的哈希值，
 four bytes of that the hash of this
 
 1131
 00:51:16,779 --> 00:51:18,999
+那就是所谓的校验和，
 public key and that is called the
 
 1132
 00:51:18,999 --> 00:51:21,719
+我们把它放在最后。
 checksum and so we stick that on the end
 
 1133
-00:51:21,719 --> 00:51:25,450
-and so what that means is if someone was
+00:51:21,719 --> 00:51:29,619
+这意味着如果有人在他们的钱包软件中输入整个公钥，
 
-1134
-00:51:25,450 --> 00:51:29,619
-to type in this whole entire public key
+00:51:29,619 --> 00:51:34,269
+如果他们在这里犯了一个错误，
 
-1135
-00:51:29,619 --> 00:51:31,479
-into their wallet software if they make
-
-1136
-00:51:31,479 --> 00:51:34,269
-one mistake here the wallet software can
-
-1137
 00:51:34,269 --> 00:51:37,329
+钱包软件可以哈希这个，
 hash this and check to make sure for
 
 1138
 00:51:37,329 --> 00:51:40,450
+并检查这部分的密钥是否与校验和匹配，
 this part of the key matches the
 
 1139
 00:51:40,450 --> 00:51:43,239
+如果不匹配，
 checksum and if it doesn't then they'll
 
 1140
 00:51:43,239 --> 00:51:44,489
+那么他们就知道某个地方犯了错误，
 know someone's made a mistake somewhere
 
 1141
 00:51:44,489 --> 00:51:46,539
+虽然不能告诉你错误在哪里，
 they won't be you want be able to tell
 
 1142
 00:51:46,539 --> 00:51:49,119
+但至少会发出警告，
 you where it's made a mistake but it
 
 1143
 00:51:49,119 --> 00:51:50,770
+告诉你你犯了错误，
 will note it will say wait there
 
 1144
-00:51:50,770 --> 00:51:52,869
-you made mistake here some man which is
+00:51:50,770 --> 00:51:57,150
+这总比什么都没有好。
 
-1145
-00:51:52,869 --> 00:51:55,350
-better than nothing
-
-1146
 00:51:57,150 --> 00:52:00,610
+我说过这个有点长，
 similarly like I said it's a bit long
 
 1147
 00:52:00,610 --> 00:52:03,550
+我们能不能把它弄短一点呢?
 can we make this any shorter no I've got
 
 1148
 00:52:03,550 --> 00:52:06,670
+我在这里有校验和，公钥变得更长了，
 the checksum here Smith the public key a
 
 1149
 00:52:06,670 --> 00:52:08,320
+我们能不能缩短它呢?
 bit longer again can we shorten it down
 
 1150
 00:52:08,320 --> 00:52:13,119
+是的，我们可以。
 well yes we can this version here has
 
 1151
 00:52:13,119 --> 00:52:16,680
+这个版本已经用十六进制格式编码，
 been encoded in a hexadecimal format
 
 1152
-00:52:16,680 --> 00:52:20,140
-which contains has 16 characters to
+00:52:16,680 --> 00:52:21,280
+它有16个字符可以选择。
 
-1153
-00:52:20,140 --> 00:52:21,280
-choose from
-
-1154
 00:52:21,280 --> 00:52:24,220
+如果它只是一个数字，
 what if it's just a number instead of in
 
 1155
 00:52:24,220 --> 00:52:26,470
+而不是用16个字符编码的格式呢?
 chord encoding it in a format there used
 
 1156
@@ -2688,66 +2691,75 @@ to 16 characters well if we just use a
 
 1157
 00:52:28,630 --> 00:52:32,290
+如果我们用更多的字符，而不是16个字符，
 lot more characters so it's a 16
 
 1158
 00:52:32,290 --> 00:52:33,730
+那么如果我们用整个字母数字字母表，
 characters here what if you use the
 
 1159
 00:52:33,730 --> 00:52:37,150
+它有60个字符
 entire alphanumeric alphabet which has
 
 1160
 00:52:37,150 --> 00:52:39,010
+，如果我们开始使用这些，
 six new characters if we can start using
 
 1161
 00:52:39,010 --> 00:52:42,160
+那么我们可以用更少的字符，
 these then we can represent this number
 
 1162
 00:52:42,160 --> 00:52:45,820
+更短的空间来表示这个数字。
 in a much shorter space with a lot less
 
 1163
 00:52:45,820 --> 00:52:50,320
+使用所有这些字符的问题是，
 characters problem with use in all of
 
 1164
 00:52:50,320 --> 00:52:51,940
+有些字符很难打出来，
 these characters is some of them a bit
 
 1165
-00:52:51,940 --> 00:52:55,420
-awkward type out you know like zeros and
+00:52:51,940 --> 00:52:56,410
+比如0和o看起来一样，
 
-1166
-00:52:55,420 --> 00:52:56,410
-all look the same
-
-1167
 00:52:56,410 --> 00:52:58,780
+所以我们不想用那些。
 so we don't want to use those similarly
 
 1168
 00:52:58,780 --> 00:53:01,060
+L和大写的i看起来也一样，
 similarly an L and a big are you can
 
 1169
 00:53:01,060 --> 00:53:02,710
+所以我们也不想用那些。
 look the same so we don't wanna use
 
 1170
 00:53:02,710 --> 00:53:04,210
+所以如果你把这些踢出去，
 those either so if you just kick those
 
 1171
 00:53:04,210 --> 00:53:07,960
+我们就有58个字符可以选择。
 out we're left with 58 characters to
 
 1172
 00:53:07,960 --> 00:53:10,720
+当你在特定的格式中编码数字时，
 choose from so when you're encoding
 
 1173
@@ -2756,22 +2768,27 @@ numbers in a particular format and the
 
 1174
 00:53:13,359 --> 00:53:14,530
+你可以选择的字符的数量也被称为基数。
 number of characters you have to choose
 
 1175
 00:53:14,530 --> 00:53:16,750
+所以这是基数16，
 from is also known as the base so this
 
 1176
 00:53:16,750 --> 00:53:20,500
+这是基数58。
 is base 16 and this is base 58 base 58
 
 1177
 00:53:20,500 --> 00:53:24,609
+基数58就是字母数字字母表中的字符，
 is just the alphanumeric alphabet our
 
 1178
 00:53:24,609 --> 00:53:28,150
+去掉了那些难以区分的字符。
 characters with the awkward ones taken
 
 1179
