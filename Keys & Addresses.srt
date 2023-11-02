@@ -1749,86 +1749,52 @@ S是一个特殊的数字，
 
 00:34:28,510 --> 00:34:30,010
 它总是会与曲线上的另一点相交。
-intersect one other point on the curve
 
-759
 00:34:30,010 --> 00:34:33,100
 如果你在曲线上的两点之间画一条线，
-if you draw a line through two points on
 
-760
 00:34:33,100 --> 00:34:38,380
 它总会与曲线上的另一点相交。
 
-00:34:38,380 --> 00:34:41,820
+00:34:38,380 --> 00:34:45,010
 通过使用我们给出的这两个值，
-generating these two points on the curve
 
-763
-00:34:41,820 --> 00:34:45,010
-using these two values that we that we
-
-764
 00:34:45,010 --> 00:34:47,290
 以及公钥和交易数据，
-have been given along with the public
 
-765
 00:34:47,290 --> 00:34:51,760
 我们可以在曲线上生成这两个点。
 
 00:34:51,760 --> 00:34:54,460
 如果它们都对齐，
-curve and if they all line up then the
 
-768
 00:34:54,460 --> 00:34:57,400
 那么签名就是有效的。
-signature is valid so what that means is
 
-769
-00:34:57,400 --> 00:35:00,790
+00:34:57,400 --> 00:35:02,560
 这意味着，如果有人篡改交易数据，
-that if someone tampers with the
 
-770
-00:35:00,790 --> 00:35:02,560
-transaction data so we give them as
-
-771
 00:35:02,560 --> 00:35:04,420
 我们给他们交易数据和签名，
-transaction data and the signature and
 
-772
 00:35:04,420 --> 00:35:07,930
 然后他们试图将比特币发送到他们的地址，
 
 00:35:07,930 --> 00:35:10,120
 他们篡改了交易数据，
-the transaction data that means that
 
-775
 00:35:10,120 --> 00:35:12,880
 这意味着这个值将会不同，
-this value will be different and so when
 
-776
 00:35:12,880 --> 00:35:14,440
 所以当他们生成第一个点时，
-they generate the first point that'll be
 
-777
 00:35:14,440 --> 00:35:17,510
 它会不同，它们就不会对齐，
-different and they won't all line up
 
-778
 00:35:17,510 --> 00:35:21,000
 所以签名就不会有效。
-so the signature won't work then so that
 
-779
 00:35:21,000 --> 00:35:26,450
 这就保护了交易数据不被改变。
 
@@ -1837,45 +1803,31 @@ so the signature won't work then so that
 
 00:35:33,120 --> 00:35:36,030
 来花费我们的比特币，
-private key of their own you know not
 
-784
 00:35:36,030 --> 00:35:40,440
 不是我们用来创建公钥的那个私钥，
 
 00:35:40,440 --> 00:35:42,510
 那么当他们生成这个s值时，
-altogether that means that when they
 
-787
 00:35:42,510 --> 00:35:44,370
 它将完全不同。
-generate this s value that be completely
 
-788
 00:35:44,370 --> 00:35:46,200
 如果这个s值不同，
-different and if that s value is
 
-789
 00:35:46,200 --> 00:35:49,650
 那么这个数就会不同。
-different than this number here is gonna
 
-790
 00:35:49,650 --> 00:35:53,430
 所以当我们从公钥开始进行椭圆曲线乘法时，
 
 00:35:53,430 --> 00:35:55,470
 这个点将会不同，
-public key this point is gonna be
 
-793
 00:35:55,470 --> 00:35:57,960
 这些点就不会对齐。
-different again and the points won't
 
-794
 00:35:57,960 --> 00:36:07,770
 这就是数字签名工作的基本概述，
 
@@ -1893,131 +1845,85 @@ different again and the points won't
 
 00:36:31,950 --> 00:36:34,380
 总的来说，
-just to summarize like I said and you
 
-805
 00:36:34,380 --> 00:36:36,810
 你只需要拿一个私钥，
-just take a private key you do elliptic
 
-806
 00:36:36,810 --> 00:36:42,300
 进行椭圆曲线数学乘法得到公钥，
 
 00:36:42,300 --> 00:36:43,620
 然后你给其他人这个公钥，
-that public key to other people and
 
-809
 00:36:43,620 --> 00:36:48,600
 他们会将一批比特币锁定到这个公钥上。
 
 00:36:48,600 --> 00:36:50,490
 但是从那里开始，
-then from there we need to where we want
 
-812
 00:36:50,490 --> 00:36:52,950
 我们需要将它们发送给其他人。
-to send them on to other people we want
 
-813
 00:36:52,950 --> 00:36:55,020
 我们想要发送他们，
-to send them on we need to prove that we
 
-814
 00:36:55,020 --> 00:36:57,330
 我们需要证明我们是这个公钥的创建者。
-are the creators of this public key so
 
-815
 00:36:57,330 --> 00:36:59,150
 所以我们做的是，
-what we do we take our private key
 
-816
 00:36:59,150 --> 00:37:02,100
 我们拿我们的私钥，创建一个签名，
-create a signal signature which again
 
-817
 00:37:02,100 --> 00:37:04,670
 这又涉及到一些椭圆曲线数学。
-involves some elliptic curve mathematics
 
-818
 00:37:04,670 --> 00:37:07,320
 然后我们给他们那个签名，
-and then we give them that signature and
 
-819
 00:37:07,320 --> 00:37:10,740
 然后他们可以做一些验证，
-then they can do some verification to
 
-820
 00:37:10,740 --> 00:37:14,850
 以验证我们是用正确的私钥创建了这个签名。
 
 00:37:14,850 --> 00:37:17,280
 他们通过取这个公钥，
-that by taking this public key and the
 
-823
 00:37:17,280 --> 00:37:20,640
 签名和数据，
-signature and also the data and they
 
-824
 00:37:20,640 --> 00:37:22,680
 生成曲线上的三个点来做到这一点。
-generates three points on the curve and
 
-825
 00:37:22,680 --> 00:37:27,120
 如果他们排成一行，
-if they line up and if they line up then
 
-826
 00:37:27,120 --> 00:37:29,240
 那么这个签名就有效。
-that signature works
 
-827
 00:37:29,240 --> 00:37:32,830
 如果有人不使用正确的私钥，
 
 00:37:32,830 --> 00:37:35,660
 他们就不会排成一行，
-they won't line up or if someone alters
 
-830
 00:37:35,660 --> 00:37:37,730
 或者如果有人篡改交易数据，
-with the transaction data they won't
 
-831
 00:37:37,730 --> 00:37:41,540
 他们也不会排成一行。
-line up either again so it's a bit magic
 
-832
 00:37:41,540 --> 00:37:44,660
 这整个过程有点神奇，
-this whole process but ultimately it's
 
-833
 00:37:44,660 --> 00:37:47,030
 但最终它都是数学。
-all mathematics and if what will you
 
-834
 00:37:47,030 --> 00:37:52,010
 如果你从这几张幻灯片中学到了什么，
-take away from this a few slides it's
 
-835
 00:37:52,010 --> 00:37:57,290
 那就是椭圆曲线数学非常适合用于密码学，
 
@@ -2026,29 +1932,19 @@ take away from this a few slides it's
 
 00:38:04,010 --> 00:38:05,660
 然后能够证明你拥有账号，
-being able to prove that you own the
 
-840
 00:38:05,660 --> 00:38:07,670
 而无需给出密码，
-account number without ever given the
 
-841
 00:38:07,670 --> 00:38:11,960
 这非常聪明。
-password away which is very clever so
 
-842
 00:38:11,960 --> 00:38:14,300
 所以这就叫做椭圆曲线密码学，
-this is called elliptic curve
 
-843
 00:38:14,300 --> 00:38:18,110
 它非常有用。
-cryptography and it's very very useful
 
-844
 00:38:18,110 --> 00:38:23,840
 没有它，我们就无法安全地发送和接收比特币，
 
@@ -2090,154 +1986,82 @@ cryptography and it's very very useful
 
 00:39:24,970 --> 00:39:26,680
 你可能听说过地址，
-there you've probably heard of addresses
 
-867
 00:39:26,680 --> 00:39:29,680
 那么什么是地址呢？
-what our address is well addresses are
 
-868
-00:39:29,680 --> 00:39:33,310
+00:39:29,680 --> 00:39:36,010
 地址基本上就是公钥的更美观、对用户更友好的版本。
-just basically prettier versions of the
 
-869
-00:39:33,310 --> 00:39:36,010
-public key more user-friendly versions
-
-870
 00:39:36,010 --> 00:39:39,880
 在比特币中，
-of the public key so originally or you
 
-871
 00:39:39,880 --> 00:39:43,420
 你可以生成一个私钥和一个公钥，
 
 00:39:43,420 --> 00:39:45,700
 将公钥给其他人，
-key for yourself give that public key to
 
-874
-00:39:45,700 --> 00:39:48,100
+00:39:45,700 --> 00:39:50,410
 他们会将比特币锁定到你的公钥中，
-other people they will lock up bitcoins
 
-875
-00:39:48,100 --> 00:39:50,410
-for you you know to that public key and
-
-876
 00:39:50,410 --> 00:39:56,820
 然后你可以使用私钥创建签名并发送它们。
 
 00:39:56,820 --> 00:39:59,880
 这个过程完全有效，
-this all works well and it's fine
 
-879
 00:39:59,880 --> 00:40:03,160
 如果有人查看这个公钥，
-if someone looks at this public key they
 
-880
-00:40:03,160 --> 00:40:04,510
+00:40:03,160 --> 00:40:06,670
 他们不能像我之前说的那样推算出私钥，
-can't figure out like I said before
 
-881
-00:40:04,510 --> 00:40:06,670
-while the private key is because you
-
-882
-00:40:06,670 --> 00:40:09,250
+00:40:06,670 --> 00:40:10,750
 因为你不能通过椭圆曲线乘法反向运算。
-can't go backwards through this I
 
-883
-00:40:09,250 --> 00:40:10,750
-diptych hear of multiplication you can
-
-884
 00:40:10,750 --> 00:40:13,780
 你可以以这个方式，我们不可以，
-go this way we can't go that way but
 
-885
 00:40:13,780 --> 00:40:17,740
 这也意味着如果这个问题被解决，
-what it does mean is that this is not
 
-886
 00:40:17,740 --> 00:40:20,140
 那么你的公钥和比特币可能会被盗。
-known to have been solved at this moment
 
-887
-00:40:20,140 --> 00:40:21,700
+00:40:20,140 --> 00:40:23,500
 虽然目前看来这个问题不太可能被解决，
-in time and it doesn't look like
 
-888
-00:40:21,700 --> 00:40:23,500
-anyone's gonna find a solution for going
-
-889
 00:40:23,500 --> 00:40:25,780
 对于通过椭圆曲线，
-backwards for the through the elliptic
 
-890
 00:40:25,780 --> 00:40:28,240
 这意味着，
-curve but it does mean that if it was
 
-891
 00:40:28,240 --> 00:40:32,350
 如果椭圆曲线能被破解，
-ever broken then your public keys while
 
-892
 00:40:32,350 --> 00:40:35,230
 那么你的公钥和比特币就可能被盗。
-your bitcoins can be stolen I mean
 
-893
 00:40:35,230 --> 00:40:39,580
 我的意思是，没有人可以在可预见的未来，
-there's no risk no one can see this
 
-894
 00:40:39,580 --> 00:40:41,260
 没有人能看到这种情况发生，
-happening for the foreseeable future but
 
-895
-00:40:41,260 --> 00:40:43,000
+00:40:41,260 --> 00:40:45,220
 但这确实意味着但这个公钥就像一只待宰的鸭子，
-it does mean that this public key is
 
-896
-00:40:43,000 --> 00:40:45,220
-like a sitting duck waiting to be broken
-
-897
 00:40:45,220 --> 00:40:48,910
 如果椭圆曲线能被破解，那么它就可能被攻破。
-if listen diptych if can be broken so in
 
-898
 00:40:48,910 --> 00:40:51,790
 所以在比特币中，
-Bitcoin we like to use a bit more
 
-899
 00:40:51,790 --> 00:40:54,910
 我们喜欢使用更多的安全措施，
-security how can we not have to just
 
-900
 00:40:54,910 --> 00:41:01,440
 我们不仅仅依赖椭圆曲线离散对数问题来保护我们的比特币。
 
@@ -2249,32 +2073,16 @@ security how can we not have to just
 
 00:41:14,370 --> 00:41:16,290
 这是挖矿时用到的，
-should be familiar with from mining and
 
-909
 00:41:16,290 --> 00:41:18,720
 第二种是RIPEMD160。
-then also a second one is used called
 
-910
-00:41:18,720 --> 00:41:21,720
-所以她所说的就是像通过两个不同的哈希函数，
-Reich MD 160 so what it says is like
+00:41:18,720 --> 00:41:25,950
+所以他所说的就是像通过两个不同的哈希函数，
 
-911
-00:41:21,720 --> 00:41:24,060
-double hashing through different through
-
-912
-00:41:24,060 --> 00:41:25,950
-two different hashing functions the
-
-913
 00:41:25,950 --> 00:41:27,960
-对公钥进行双重哈希
-public key and then what you do then
+对公钥进行双重哈希，
 
-914
 00:41:27,960 --> 00:41:37,380
 然后你将哈希后的公钥而不是标准的公钥给其他人，
 
@@ -2284,224 +2092,122 @@ public key and then what you do then
 00:41:40,560 --> 00:41:45,450
 其他人会将这些放在锁中，
 
-00:41:45,450 --> 00:41:49,800
-这意味着当哈希后的公钥在锁中时。
-so what that means is whilst this hashed
+00:41:45,450 --> 00:41:52,050
+这意味着当公钥的哈希版本在锁中时，
 
-921
-00:41:49,800 --> 00:41:52,050
-version of the public key is in the lock
+00:41:52,050 --> 00:41:56,550
+如果有人想获取你的私钥，
 
-922
-00:41:52,050 --> 00:41:54,150
-if someone wants to go all the way back
+00:41:56,550 --> 00:41:59,490
+而不仅仅是从公钥开始并试图反向操作，
 
-923
-00:41:54,150 --> 00:41:56,550
-to get to your private key instead of
-
-924
-00:41:56,550 --> 00:41:58,230
-just going back from the public key and
-
-925
-00:41:58,230 --> 00:41:59,490
-trying to go through backwards through
-
-926
 00:41:59,490 --> 00:42:02,250
-the and it to cave which you can't do
+这是不能做到的。
 
-927
 00:42:02,250 --> 00:42:05,820
-but that's the only here it'll jump over
+但这是唯一的办法。
 
-928
-00:42:05,820 --> 00:42:07,380
-if you want to figure out your private
+00:42:05,820 --> 00:42:08,790
+如果你想从这个公钥的哈希版本中找出你的私钥，
 
-929
-00:42:07,380 --> 00:42:08,790
-key from this hashed version of the
+00:42:08,790 --> 00:42:12,900
+你需要破解RIPEMD哈希函数，
 
-930
-00:42:08,790 --> 00:42:10,950
-public key you have to go basically you
-
-931
-00:42:10,950 --> 00:42:12,900
-have to break the ripe empty hash
-
-932
 00:42:12,900 --> 00:42:15,660
-function which no one is done then you
+这是没有人能做到的。
 
-933
-00:42:15,660 --> 00:42:17,010
-also have to be able to go backwards
+00:42:15,660 --> 00:42:20,280
+你还需要能够反向操作SHA-256哈希函数，
 
-934
-00:42:17,010 --> 00:42:20,280
-with a sha-256 hash function regional is
-
-935
 00:42:20,280 --> 00:42:22,620
-done and after doing that I'll give you
+这也是没有人能做到的。在做完这些之后，
 
-936
 00:42:22,620 --> 00:42:24,600
-the private public key then using that
+我会给你私钥，然后使用这个私钥，
 
-937
 00:42:24,600 --> 00:42:26,840
-you have to go back and break this
+你需要反向操作并破解这个椭圆曲线，
 
-938
 00:42:26,840 --> 00:42:30,300
-elliptic curve mission was done either
+这也是没有人做到的。
 
-939
-00:42:30,300 --> 00:42:33,660
-so this hashed version is a very very
+00:42:30,300 --> 00:42:40,170
+这个哈希版本是公钥的一个非常安全的版本。
 
-940
-00:42:33,660 --> 00:42:40,170
-secure version of the public key so the
-
-941
 00:42:40,170 --> 00:42:41,850
-reason we create this is because all of
+我们之所以创建这个版本，
 
-942
-00:42:41,850 --> 00:42:43,620
-these batches of bitcoins they all gonna
+00:42:41,850 --> 00:42:47,130
+是因为所有的比特币批次都将包含一个公钥。
 
-943
-00:42:43,620 --> 00:42:47,130
-contain a public key so this is just a
-
-944
 00:42:47,130 --> 00:42:49,890
-very safe version of the public key to
+这只是一个非常安全的公钥版本，
 
-945
 00:42:49,890 --> 00:42:52,170
-give away because it's hard to get back
+因为很难追溯到私钥。
 
-946
 00:42:52,170 --> 00:42:53,460
-to the private key so if there's gonna
+如果有一个待宰的鸭子，
 
-947
 00:42:53,460 --> 00:42:54,960
-be a sitting duck let's make it very
+我们就让它变得非常安全。
 
-948
 00:42:54,960 --> 00:42:58,950
-safe so there are two public key and
+这有两个公钥，
 
-949
-00:42:58,950 --> 00:43:01,020
-what we call this there's Nvidia
+00:42:58,950 --> 00:43:04,680
+我们称之为哈希160的公钥。
 
-950
-00:43:01,020 --> 00:43:04,680
-secretly a particularly a fancy name for
+00:43:04,680 --> 00:43:10,110
+这只是因为我们使用了哈希函数，
 
-951
-00:43:04,680 --> 00:43:07,020
-it we just called it the hash 160 of the
+00:43:10,110 --> 00:43:13,960
+最后一个我们使用的是RIPEMD-160，
 
-952
-00:43:07,020 --> 00:43:10,110
-public key so they just hash because I'm
-
-953
-00:43:10,110 --> 00:43:11,700
-using hash functions and that last one
-
-954
-00:43:11,700 --> 00:43:13,960
-we use is to write BMD 160 so
-
-955
 00:43:13,960 --> 00:43:16,450
-it's commonly shortened to hash 160
+所以它通常被简化为哈希160公钥。
 
-956
-00:43:16,450 --> 00:43:22,000
-public key so there we go so that's all
+00:43:16,450 --> 00:43:24,040
+我们现在已经对公钥进行了哈希，
 
-957
-00:43:22,000 --> 00:43:24,040
-well and good we've hashed this but the
-
-958
 00:43:24,040 --> 00:43:27,490
-problem is now before we would have just
+但问题是在此之前，
 
-959
 00:43:27,490 --> 00:43:29,320
-put the public key in here and in
+我们只需要将公钥放在这里，
 
-960
 00:43:29,320 --> 00:43:31,360
-created a signature and put that in
+然后在这里创建一个签名。
 
-961
-00:43:31,360 --> 00:43:34,870
-there but after a hash in this public
+00:43:31,360 --> 00:43:38,830
+但是，经过哈希处理的公钥与私钥之间没有数学联系，
 
-962
-00:43:34,870 --> 00:43:36,690
-key you know there's no mathematical
+00:43:38,830 --> 00:43:45,130
+所以我们不能只是在这里放一个签名。
 
-963
-00:43:36,690 --> 00:43:38,830
-connection you know from this hashed
-
-964
-00:43:38,830 --> 00:43:41,230
-version to the private key so we can't
-
-965
-00:43:41,230 --> 00:43:45,130
-just put a signature in here so when we
-
-966
 00:43:45,130 --> 00:43:49,390
-want to and send bitcoins what do we do
+当我们想要发送比特币时，
 
-967
 00:43:49,390 --> 00:43:49,780
-now
+我们应该做什么呢？
 
-968
 00:43:49,780 --> 00:43:53,230
-what we put in this space here this
+我们现在应该在这个解锁代码中放什么呢？
 
-969
 00:43:53,230 --> 00:43:55,930
-unlocking code well we still put the
+我们仍然在这里放签名，
 
-970
 00:43:55,930 --> 00:43:58,630
-signature in here but along with the
+但是除了签名，
 
-971
 00:43:58,630 --> 00:44:00,580
-signature we actually put in the public
+我们还放入公钥。
 
-972
-00:44:00,580 --> 00:44:04,000
-key also so what that means is so this
+00:44:00,580 --> 00:44:06,430
+所以这意味着这个锁现在已经进行了一些调整，
 
-973
-00:44:04,000 --> 00:44:06,430
-lock now has adjusted a little bit to
-
-974
 00:44:06,430 --> 00:44:09,090
+要求提供公钥和签名。
 say give me a public key and a signature
 
 975
