@@ -3038,39 +3038,25 @@ number of characters you have to choose
 
 00:59:42,040 --> 00:59:45,130
 你可以找到N的参数。
-P 2 5 6 K 1 you can find the parameter
 
-1324
 00:59:45,130 --> 00:59:50,050
 所以我们只是生成一个随机数，
-for n so there we are we just generate a
 
-1325
 00:59:50,050 --> 00:59:51,970
 我们可以证明它低于这个最大值。
-random number we can show us below this
 
-1326
 00:59:51,970 --> 00:59:54,940
 这就是私钥，
-maximum value here so that's the private
 
-1327
 00:59:54,940 --> 00:59:57,660
 只需要生成一个随机数。
-key done just generate a random number
 
-1328
 00:59:57,660 --> 01:00:00,490
 其次，我们现在想要创建公钥，
-secondly now we want to create the
 
-1329
 01:00:00,490 --> 01:00:02,859
 我们需要使用椭圆曲线，
-public key we need to use the elliptic
 
-1330
 01:00:02,859 --> 01:00:10,210
 实际上我们需要做椭圆曲线乘法，
 
@@ -3079,22 +3065,16 @@ public key we need to use the elliptic
 
 01:00:17,410 --> 01:00:20,020
 如果要给出东西，
-to give stuff so you can just include
 
-1336
 01:00:20,020 --> 01:00:21,790
 你就可以包含它并让它做一些椭圆曲线乘法。
-that in and just ask it to do some
 
-1337
 01:00:21,790 --> 01:00:25,599
 所以你在为自己编写代码时，
 
 01:00:25,599 --> 01:00:26,710
 可以找个库来帮你。
-get a librarian
 
-1340
 01:00:26,710 --> 01:00:32,349
 你需要做的就是做椭圆曲线乘法，
 
@@ -3103,252 +3083,148 @@ get a librarian
 
 01:00:38,170 --> 01:00:41,619
 最后的结果就是公钥。
-point will be this public key and the
 
-1345
 01:00:41,619 --> 01:00:44,410
 公钥是这个点的x和y值。
-public key is the ax and y value at this
 
-1346
 01:00:44,410 --> 01:00:50,080
 显然，这个公钥相当大，
-point obviously this public key is quite
 
-1347
 01:00:50,080 --> 01:00:53,200
 我们有两个256位的数字，
-large we've got to 256 bit numbers here
 
-1348
 01:00:53,200 --> 01:00:55,270
 这会占用很多空间。
-so that's gonna take up a lot of space
 
-1349
 01:00:55,270 --> 01:00:58,720
 在比特币中，
-and ID be in Bitcoin because the
 
-1350
 01:00:58,720 --> 01:01:01,330
 因为区块链是一个共享文件，
-blockchain is a shared file we don't be
 
-1351
 01:01:01,330 --> 01:01:02,650
 我们不希望占用太多空间。
-taking up too much space if we don't
 
-1352
-01:01:02,650 --> 01:01:04,450
+01:01:02,650 --> 01:01:05,470
 所以我们可以将这个数字缩小一点，
-have to so what we can do we can
 
-1353
-01:01:04,450 --> 01:01:05,470
-actually shrink this number down a
-
-1354
 01:01:05,470 --> 01:01:08,550
 我们可以这样做，
 
-little bit and we can do that because
-
-1355
-01:01:08,550 --> 01:01:10,750
+01:01:08,550 --> 01:01:13,030
 因为椭圆曲线的一个便利特性是它沿着x轴对称。
-one of the handy properties are this
 
-1356
-01:01:10,750 --> 01:01:13,030
-elliptic curve is that it's symmetrical
-
-1357
 01:01:13,030 --> 01:01:15,490
 所以这意味着，
-along the x-axis so what that means is
 
-1358
 01:01:15,490 --> 01:01:17,800
 如果你有一个x值，
-if you have an x value then it's only
 
-1359
 01:01:17,800 --> 01:01:20,020
 那么它的y值只有两个可能的值。
-the Y value it's only gonna be one of
 
-1360
 01:01:20,020 --> 01:01:23,020
 所以对于每个x值，
-two different values so for every x
 
-1361
 01:01:23,020 --> 01:01:26,440
 只有两个给定的y值。
-value there's only two given Y values so
 
-1362
 01:01:26,440 --> 01:01:29,040
 你可以考虑是Y或者-Y。
-you could think about being Y or minus y
 
-1363
 01:01:29,040 --> 01:01:35,320
 这个椭圆曲线的一个便利的性质是，
-and one of the handy properties of this
 
-1364
 01:01:35,320 --> 01:01:37,869
 如果这个Y值是偶数，
-elliptic curve is that if this Y value
 
-1365
 01:01:37,869 --> 01:01:40,750
 那么它就是曲线上的一个点，
-is even then it means it's it's one it's
 
-1366
 01:01:40,750 --> 01:01:42,369
 比如这个。
-one point on the curve say this one or
 
-1367
 01:01:42,369 --> 01:01:44,109
 如果它是奇数，
-if it's odd it means it's the other
 
-1368
 01:01:44,109 --> 01:01:47,410
 那就表示是曲线上的另一个点。
-point on the curve so I mean when we
 
-1369
 01:01:47,410 --> 01:01:50,619
 当我们想要存储这个公钥时，
-want to store this public key we don't
 
-1370
 01:01:50,619 --> 01:01:52,540
 我们不需要存储完整的Y值，
-have to store the full Y value all we
 
-1371
 01:01:52,540 --> 01:01:54,750
 我们只需要知道它是偶数还是奇数。
-need to know is whether it's even or odd
 
-1372
 01:01:54,750 --> 01:01:58,839
 这个Y值是偶数，
-so this Y value here is even so all we
 
-1373
 01:01:58,839 --> 01:02:00,609
 所以我们只需要知道这个公钥是偶数，
-need to know just always full public key
 
-1374
 01:02:00,609 --> 01:02:05,020
 然后我们可以根据X值来推算出它是什么。
 
-
 01:02:05,020 --> 01:02:09,040
 这就是X值，
-x value so this is the x value and then
 
-1377
 01:02:09,040 --> 01:02:15,040
 然后我们可以把Y是偶数还是奇数放在前面。
 
 01:02:15,040 --> 01:02:17,980
 显然，你不会把"偶数"或者"奇数"这个词放在前面，
-don't put the word even at the front or
 
-1380
 01:02:17,980 --> 01:02:20,020
 而是用两个代码来表示。
-odd there are two codes for that so if
 
-1381
 01:02:20,020 --> 01:02:22,540
 如果它是偶数，就用02表示，
-it's e if it's even but o2 like so or if
 
-1382
 01:02:22,540 --> 01:02:27,210
 如果是奇数，就用03表示。
-it's odd over 3 and early on in Bitcoin
 
-1383
 01:02:27,210 --> 01:02:30,099
 在比特币早期，
-public keys were actually stored using
 
-1384
 01:02:30,099 --> 01:02:32,140
 公钥实际上是用X和Y值一起存储的，
-both the x and y value and these are
 
-1385
 01:02:32,140 --> 01:02:34,510
 这些被称为未压缩的密钥。
-called uncompressed keys so this is a
 
-1386
 01:02:34,510 --> 01:02:36,070
 这是一个压缩的密钥，
-compressed key because you don't use the
 
-1387
 01:02:36,070 --> 01:02:38,160
 因为我们不需要使用完整的Y值，
-full y value because we don't need to
 
-1388
 01:02:38,160 --> 01:02:44,299
 但是这在创始人中本聪开始的时候并不知道，
 
-01:02:44,299 --> 01:02:47,299
+01:02:44,299 --> 01:02:49,859
 所以早期的比特币公钥使用的是未压缩的格式。
-lot of early on bit in any public keys
 
-1391
-01:02:47,299 --> 01:02:49,859
-use the uncompressed format and if you
-
-1392
 01:02:49,859 --> 01:02:51,210
 如果你想使用未压缩的格式，
-want to use number cut price for Matt
 
-1393
 01:02:51,210 --> 01:02:53,220
 那么它会以04开头，
-that'll start with over four zero four
 
-1394
 01:02:53,220 --> 01:02:57,029
 但是这个是02。
-sorry but this one zero two so there we
 
-1395
 01:02:57,029 --> 01:03:00,480
 所以这就是公钥，
-go that is the public key just in the X
 
-1396
 01:03:00,480 --> 01:03:06,720
 只需要X坐标和Y是偶数还是奇数，
-x coordinate and whether the Y is even
 
-1397
 01:03:06,720 --> 01:03:08,549
 编码为02或03。
-or odd encoded as a zero two or zero
 
-1398
 01:03:08,549 --> 01:03:13,799
 不需要把所有这些文本转换成十进制，
 
@@ -3360,316 +3236,192 @@ or odd encoded as a zero two or zero
 
 01:03:21,269 --> 01:03:23,819
 它们通常会被存储为十六进制格式。
-they're usually stored in hexadecimal
 
-1405
 01:03:23,819 --> 01:03:27,900
 所以这就是私钥，
-format so there we go that's private key
 
-1406
 01:03:27,900 --> 01:03:30,509
 长度为32字节，
-is 32 bytes and this public key should
 
-1407
 01:03:30,509 --> 01:03:35,000
 而这个公钥应该是33字节。
-be future by it's also quick tip if this
 
-1408
 01:03:35,000 --> 01:03:37,829
 如果这个公钥是一个较小的数字，
-public key it's quite a low number and
 
-1409
 01:03:37,829 --> 01:03:41,369
 当你把它转换成十六进制时，
-when you convert it into hexadecimal if
 
-1410
 01:03:41,369 --> 01:03:44,339
 如果它的长度不是32字节，
-it's not 32 pipes in length make sure to
 
-1411
 01:03:44,339 --> 01:03:46,079
 那么请确保在开始时用0来填充，
-pad it out at the start with the zeros
 
-1412
 01:03:46,079 --> 01:03:53,039
 以确保整个X值部分的公钥总共是32字节。
 
 01:03:53,039 --> 01:03:57,420
 这是一个快速提示，
-just a quick tip otherwise you'll end up
 
-1415
 01:03:57,420 --> 01:04:02,210
 否则你可能会在之后创建一个错误的地址。
-creating an incorrect address later on
 
-1416
 01:04:03,230 --> 01:04:07,140
 这就是基本的操作：
-so okay that's the basics done private
 
-1417
 01:04:07,140 --> 01:04:10,200
 私钥是一个随机数，
-key random number public key just
 
-1418
 01:04:10,200 --> 01:04:11,430
 公钥是两个密钥的乘法，
-develop two key of multiplication and
 
-1419
 01:04:11,430 --> 01:04:14,069
 然后以压缩格式存储Y值，
-store the Y value in a compressed format
 
-1420
 01:04:14,069 --> 01:04:15,329
 我们只需要知道它是偶数还是奇数。
-we just need to know with it if it's
 
-1421
 01:04:15,329 --> 01:04:17,970
 现在我们有了这个，
-even or odd now we've got that we just
 
-1422
 01:04:17,970 --> 01:04:20,180
 我们就可以通过两个哈希函数进行操作，
-put that through two hash functions
 
-1423
 01:04:20,180 --> 01:04:26,220
 因为现在你想要将这个哈希160给其他人。
 
 01:04:26,220 --> 01:04:28,380
 所以我们首先通过sha-256，
-if we just put it through sha-256 first
 
-1426
 01:04:28,380 --> 01:04:32,369
 然后通过ripemd 160，
-then wipe mt 160 and that gives you this
 
-1427
 01:04:32,369 --> 01:04:33,809
 这会给你这个摘要，这个结果。
-digest this result
 
-1428
 01:04:33,809 --> 01:04:35,819
 当你在比特币中进行哈希时，
-don't forget when you're hashing in
 
-1429
 01:04:35,819 --> 01:04:37,410
-别忘了首先将这个配置为二进制，
-Bitcoin to configure this to binary
+别忘了首先将这个转换为二进制，
 
-1430
 01:04:37,410 --> 01:04:38,789
 然后再放入哈希函数，
-first before you put into the hash
 
-1431
 01:04:38,789 --> 01:04:41,130
 并且得到一个二进制结果，
-function and a spirit of binary result
 
-1432
 01:04:41,130 --> 01:04:44,099
 将这个二进制结果放入下一个函数，
-put that binary result into the next one
 
-1433
 01:04:44,099 --> 01:04:46,950
 然后得到一个二进制结果，
-I'll spit up binary thank averted to
 
-1434
 01:04:46,950 --> 01:04:49,859
 然后将它转换为十六进制，
-taxes a hexadecimal and this is that
 
-1435
 01:04:49,859 --> 01:04:51,190
 这就会给你这个哈希160。
-gives you this hash one-sixth
 
-1436
 01:04:51,190 --> 01:04:56,020
 你可能会注意到这个结果，
-here you might notice that this result
 
-1437
 01:04:56,020 --> 01:05:01,710
 这个摘要比这些32字节的公钥要小一些。
 
 01:05:01,710 --> 01:05:05,920
 那是因为sha 256是256位的，
-that's because char 256 is 256 bits
 
-1440
 01:05:05,920 --> 01:05:10,599
 产生256位的结果，也就是32字节，
-produces 256 bit results which is 32
 
-1441
 01:05:10,599 --> 01:05:13,540
 但是ripemd 160产生的结果更小，
-bytes but right the MT 160 produces
 
-1442
 01:05:13,540 --> 01:05:17,770
 160位的摘要，
-smaller results 160 bit digests which is
 
-1443
 01:05:17,770 --> 01:05:20,890
 也就是20字节，所以这个比较小。
-20 bytes so that's quite a bit smaller
 
-1444
 01:05:20,890 --> 01:05:26,349
 好的，
-like so fine okay
 
-1445
 01:05:26,349 --> 01:05:27,490
 这就是我们给其他人的东西，
-so this is what we give way to other
 
-1446
 01:05:27,490 --> 01:05:30,250
 这就是被保护的公钥。
-people this is the protected public key
 
-1447
 01:05:30,250 --> 01:05:32,530
 但是现在我们要创建一个地址，
-if you will but now we want to create
 
-1448
 01:05:32,530 --> 01:05:34,540
 这是一个更漂亮的版本，
-the address which is like a prettier
 
-1449
 01:05:34,540 --> 01:05:35,710
 其中包含了一些错误检查。
-version with some error checking
 
-1450
 01:05:35,710 --> 01:05:39,490
 所以我们需要做的是将这个转换为base 58，
-involved so what we do we need some base
 
-1451
 01:05:39,490 --> 01:05:43,119
 但在我们做这个之前，
-58 this but before we do that we first
 
-1452
 01:05:43,119 --> 01:05:45,460
 我们首先在开始处放一个版本字节，
-of all put a version byte at the start
 
-1453
 01:05:45,460 --> 01:05:48,520
 对于大多数地址来说，这个是00，
-which for most addresses is 0 0 I'll
 
-1454
 01:05:48,520 --> 01:05:50,400
 我会在一会儿解释为什么要这么做。
-explain why we do that in just a moment
 
-1455
 01:05:50,400 --> 01:05:53,050
 然后像我之前说的，我们需要一个校验和，
-and then like I said earlier we need a
 
-1456
 01:05:53,050 --> 01:05:55,720
 所以我们就对所有这些进行哈希，
-checksum so we just hash all of this so
 
-1457
 01:05:55,720 --> 01:05:57,490
 也就是带有版本字节的公钥，
-the public key with a version by at the
 
-1458
 01:05:57,490 --> 01:06:00,369
 对所有这些进行哈希，这就是校验和，
-start hash at all here's the checksum
 
-1459
 01:06:00,369 --> 01:06:03,210
 对它进行两次哈希，就像在挖矿中一样，
-hash it twice you know like in mining
 
-1460
 01:06:03,210 --> 01:06:05,800
 然后我们取前四个字节，这就是校验和，
-then we take the first four bytes last
 
-1461
-01:06:05,800 --> 01:06:07,240
+01:06:05,800 --> 01:06:09,640
 这就足够我们确信这个哈希是正确的，
-to checksum that's all we need really to
 
-1462
-01:06:07,240 --> 01:06:09,640
-be sure enough that this hash is
-
-1463
 01:06:09,640 --> 01:06:11,550
 用于错误跟踪，
-correctly for the error tracking and
 
-1464
 01:06:11,550 --> 01:06:14,410
 然后我们将所有这些通过base 58进行处理。
-then we put all that then through base
 
-1465
 01:06:14,410 --> 01:06:18,190
-58 so public key well the hashed version
+公钥，以及其哈希版本，
 
-1466
 01:06:18,190 --> 01:06:20,170
-of it vision byte at the start check
+开始时有一个版本字节，结束时有一个校验和，
 
-1467
 01:06:20,170 --> 01:06:21,640
-them at the end stick it all through
+把这些都通过base58编码，
 
-1468
 01:06:21,640 --> 01:06:23,920
-base 58 and that would give us this
+就能得到这个地址。
 
-1469
-01:06:23,920 --> 01:06:28,450
-address the reason be append or prepend
+01:06:23,920 --> 01:06:31,270
+我们在开始处添加版本字节的原因是，
 
-1470
-01:06:28,450 --> 01:06:29,109
-sorry
-
-1471
-01:06:29,109 --> 01:06:31,270
-this version byte at the start is
-
-1472
 01:06:31,270 --> 01:06:37,349
+它会影响到经过base58编码后地址的首个字符。
 because it effects the leading character
 
 1473
@@ -3678,26 +3430,25 @@ of the address after weaving codes it in
 
 1474
 01:06:40,300 --> 01:06:44,730
+对于正常的地址，
 base 58 format so for normal addresses
 
 1475
-01:06:44,730 --> 01:06:46,780
-where we just want to send and receive
+01:06:44,730 --> 01:06:51,890
+我们只想以典型的方式发送和接收比特币，
 
-1476
-01:06:46,780 --> 01:06:51,890
-bitcoins in a typical way
-
-1477
 01:06:51,890 --> 01:06:53,840
+我们在开始处放一个零，
 we put zeros you at the start and that
 
 1478
 01:06:53,840 --> 01:06:55,310
+这就给我们一个1地址，
 gives us a one address so that means
 
 1479
 01:06:55,310 --> 01:06:56,540
+这意味着你只想以典型的方式发送和接收比特币。
 that you just want to send and receive
 
 1480
@@ -3706,74 +3457,85 @@ bitcoins in typical way so if by
 
 1481
 01:07:00,170 --> 01:07:02,510
+所以，通过改变开始处的这个版本字节，
 changing this version byte at the start
 
 1482
 01:07:02,510 --> 01:07:04,609
+它会改变地址的开始字符。
 it changes the starting character of the
 
 1483
 01:07:04,609 --> 01:07:09,230
+所以，00是用于典型的发送或接收地址，
 address so 0 0 is for typical sending or
 
 1484
 01:07:09,230 --> 01:07:11,330
+在主网络上。
 receiving addresses on the on the main
 
 1485
 01:07:11,330 --> 01:07:13,880
+但是，对于测试网络，
 net network but for test NAT so if
 
 1486
 01:07:13,880 --> 01:07:16,250
+如果你在一个测试网络上，
 you're on a test net network you put 6 F
 
 1487
 01:07:16,250 --> 01:07:18,550
+你在开始处放一个6F，
 at the start and that will change the
 
 1488
 01:07:18,550 --> 01:07:21,500
+这将改变开始字符。
 leading character so there are quite a
 
 1489
 01:07:21,500 --> 01:07:23,390
+所以，这些不同的版本字节有很多，
 few of these different version bytes of
 
 1490
 01:07:23,390 --> 01:07:24,940
+它们能给你不同的地址，
 the start to give you different
 
 1491
 01:07:24,940 --> 01:07:27,830
+但是在大多数情况下，
 addresses but for most cases you're just
 
 1492
 01:07:27,830 --> 01:07:32,290
+你只需要使用00，这就能给你一个1地址。
 gonna use 0 0 to give you a 1 address
 
 1493
-01:07:32,380 --> 01:07:35,240
-yes so I think I'll cover this a bit
+01:07:32,380 --> 01:07:39,740
+我想我会在锁定代码或脚本视频中更详细地讲解这个，
 
-1494
-01:07:35,240 --> 01:07:39,740
-more in the locking code or script video
-
-1495
 01:07:39,740 --> 01:07:42,430
+这个视频将在这个之后出现。
 which will be coming up after this one
 
 1496
 01:07:42,430 --> 01:07:44,990
+但是对于大多数地址，
 but for most addresses just one stick
 
 1497
 01:07:44,990 --> 01:07:48,560
+只需要在开始处放一个零就可以了。
 and zeros you at the start so there we
 
 1498
 01:07:48,560 --> 01:07:51,380
+所以这就是你如何通过这个过程创建你自己的一组密钥。
 go that's how you create you can create
 
 1499
@@ -3782,26 +3544,30 @@ your own set of keys just through this
 
 1500
 01:07:53,960 --> 01:07:57,170
+希望这都有些意义，
 process here hopefully you all made some
 
 1501
 01:07:57,170 --> 01:08:02,480
+或者解决了一些问题。
 sense or it's cleared up some issues so
 
 1502
 01:08:02,480 --> 01:08:05,740
+所以有任何关于这个的问题吗？
 there we go any questions about that
 
 1503
 01:08:08,010 --> 01:08:11,160
-okay okay
+好的。
 
-1504
 01:08:11,160 --> 01:08:12,690
+只是一个简单的问题，
 just a quick question you mentioned
 
 1505
 01:08:12,690 --> 01:08:15,210
+你提到了一些关于32字节的，
 something about 32 bytes riding or some
 
 1506
