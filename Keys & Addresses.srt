@@ -3420,325 +3420,195 @@ number of characters you have to choose
 01:06:23,920 --> 01:06:31,270
 我们在开始处添加版本字节的原因是，
 
-01:06:31,270 --> 01:06:37,349
+01:06:31,270 --> 01:06:40,300
 它会影响到经过base58编码后地址的首个字符。
-because it effects the leading character
 
-1473
-01:06:37,349 --> 01:06:40,300
-of the address after weaving codes it in
-
-1474
 01:06:40,300 --> 01:06:44,730
 对于正常的地址，
-base 58 format so for normal addresses
 
-1475
 01:06:44,730 --> 01:06:51,890
 我们只想以典型的方式发送和接收比特币，
 
 01:06:51,890 --> 01:06:53,840
 我们在开始处放一个零，
-we put zeros you at the start and that
 
-1478
 01:06:53,840 --> 01:06:55,310
 这就给我们一个1地址，
-gives us a one address so that means
 
-1479
-01:06:55,310 --> 01:06:56,540
+01:06:55,310 --> 01:07:00,170
 这意味着你只想以典型的方式发送和接收比特币。
-that you just want to send and receive
 
-1480
-01:06:56,540 --> 01:07:00,170
-bitcoins in typical way so if by
-
-1481
 01:07:00,170 --> 01:07:02,510
 所以，通过改变开始处的这个版本字节，
-changing this version byte at the start
 
-1482
 01:07:02,510 --> 01:07:04,609
 它会改变地址的开始字符。
-it changes the starting character of the
 
-1483
 01:07:04,609 --> 01:07:09,230
 所以，00是用于典型的发送或接收地址，
-address so 0 0 is for typical sending or
 
-1484
 01:07:09,230 --> 01:07:11,330
 在主网络上。
-receiving addresses on the on the main
 
-1485
 01:07:11,330 --> 01:07:13,880
 但是，对于测试网络，
-net network but for test NAT so if
 
-1486
 01:07:13,880 --> 01:07:16,250
 如果你在一个测试网络上，
-you're on a test net network you put 6 F
 
-1487
 01:07:16,250 --> 01:07:18,550
 你在开始处放一个6F，
-at the start and that will change the
 
-1488
 01:07:18,550 --> 01:07:21,500
 这将改变开始字符。
-leading character so there are quite a
 
-1489
 01:07:21,500 --> 01:07:23,390
 所以，这些不同的版本字节有很多，
-few of these different version bytes of
 
-1490
 01:07:23,390 --> 01:07:24,940
 它们能给你不同的地址，
-the start to give you different
 
-1491
 01:07:24,940 --> 01:07:27,830
 但是在大多数情况下，
-addresses but for most cases you're just
 
-1492
 01:07:27,830 --> 01:07:32,290
 你只需要使用00，这就能给你一个1地址。
-gonna use 0 0 to give you a 1 address
 
-1493
 01:07:32,380 --> 01:07:39,740
 我想我会在锁定代码或脚本视频中更详细地讲解这个，
 
 01:07:39,740 --> 01:07:42,430
 这个视频将在这个之后出现。
-which will be coming up after this one
 
-1496
 01:07:42,430 --> 01:07:44,990
 但是对于大多数地址，
-but for most addresses just one stick
 
-1497
 01:07:44,990 --> 01:07:48,560
 只需要在开始处放一个零就可以了。
-and zeros you at the start so there we
 
-1498
-01:07:48,560 --> 01:07:51,380
+01:07:48,560 --> 01:07:53,960
 所以这就是你如何通过这个过程创建你自己的一组密钥。
-go that's how you create you can create
 
-1499
-01:07:51,380 --> 01:07:53,960
-your own set of keys just through this
-
-1500
 01:07:53,960 --> 01:07:57,170
 希望这都有些意义，
-process here hopefully you all made some
 
-1501
 01:07:57,170 --> 01:08:02,480
 或者解决了一些问题。
-sense or it's cleared up some issues so
 
-1502
 01:08:02,480 --> 01:08:05,740
 所以有任何关于这个的问题吗？
-there we go any questions about that
 
-1503
 01:08:08,010 --> 01:08:11,160
 好的。
 
 01:08:11,160 --> 01:08:12,690
 只是一个简单的问题，
-just a quick question you mentioned
 
-1505
 01:08:12,690 --> 01:08:15,210
 你提到了一些关于32字节的，
-something about 32 bytes riding or some
 
-1506
 01:08:15,210 --> 01:08:22,560
-yes okay okay um I probably do need to
+我可能确实有提到，
 
-1507
-01:08:22,560 --> 01:08:25,560
-mention that but when you private keys
+01:08:22,560 --> 01:08:26,460
+当你有私钥和公钥时，
 
-1508
-01:08:25,560 --> 01:08:26,460
-and public keys
-
-1509
 01:08:26,460 --> 01:08:28,500
-well this x coordinate is always 32
+这个x坐标总是32字节，
 
-1510
 01:08:28,500 --> 01:08:31,020
-bytes and private keys or 32 bytes as
+私钥也是32字节。
 
-1511
 01:08:31,020 --> 01:08:33,839
-well and just a little tip that if you
+这里有一个小提示，
 
-1512
 01:08:33,839 --> 01:08:36,000
-when you do this lipstick you have
+当你做这个椭圆曲线乘法时，
 
-1513
 01:08:36,000 --> 01:08:37,410
-multiplication so you get a small number
+你会得到一个小的x值，
 
-1514
 01:08:37,410 --> 01:08:39,299
-for X and then you convert it to
+然后你将其转换为十六进制，
 
-1515
-01:08:39,299 --> 01:08:41,370
-hexadecimal then you might end up
+01:08:39,299 --> 01:08:44,399
+你可能会得到一个不是32字节长的十六进制数。
 
-1516
-01:08:41,370 --> 01:08:44,399
-getting a hexadecimal number that isn't
-
-1517
 01:08:44,399 --> 01:08:47,310
-32 bytes long if that's the case just be
+如果是这样，
 
-1518
 01:08:47,310 --> 01:08:50,819
-sure to pad it up and 0 to the start so
+只需确保在开始时用0填充，
 
-1519
 01:08:50,819 --> 01:08:53,549
-that the each X so the x coordinate is
+使每个x坐标长度正确，
 
-1520
 01:08:53,549 --> 01:08:56,520
-the right length because that's
+这很重要，
 
-1521
-01:08:56,520 --> 01:08:58,738
-important because if you missed out a
+01:08:56,520 --> 01:09:00,270
+因为如果你在这里漏掉一个字符，
 
-1522
-01:08:58,738 --> 01:09:00,270
-character here that when they should
-
-1523
 01:09:00,270 --> 01:09:01,859
-have been a zero there then this is
+那应该是一个0，
 
-1524
 01:09:01,859 --> 01:09:03,859
-going to hash out to a different value
+那么这个值将被哈希为一个不同的值，
 
-1525
 01:09:03,859 --> 01:09:06,299
-so you'll be sending bitcoins to the
+所以你将把比特币发送到错误的地方。
 
-1526
 01:09:06,299 --> 01:09:08,700
-wrong place so it's just I've made this
+我以前犯过这个错误，
 
-1527
 01:09:08,700 --> 01:09:13,319
-mistake before so I just wanted to bring
+所以我只是想提一下，
 
-1528
-01:09:13,319 --> 01:09:14,580
-it up to make sure that no one else
+01:09:13,319 --> 01:09:18,649
+确保没有人再犯同样的错误。
 
-1529
-01:09:14,580 --> 01:09:18,649
-makes the same mistake so there we go
+01:09:18,649 --> 01:09:27,170
+所以这就是如何创建你自己的地址和私钥等等。
 
-1530
-01:09:18,649 --> 01:09:23,270
-and that's how to create your own
-
-1531
-01:09:23,270 --> 01:09:27,170
-addresses and private keys and whatnot
-
-1532
 01:09:27,170 --> 01:09:35,370
-so that's that part and my to know here
+这就是那部分。
 
-1533
 01:09:35,370 --> 01:09:39,229
-we go so I've made a little script here
+我在这里写了一个脚本，
 
-1534
 01:09:39,229 --> 01:09:42,479
-it's written in Ruby and that will
+用Ruby编写，
 
-1535
 01:09:42,479 --> 01:09:45,359
-create a set of keys tries to go through
+它会创建一组密钥。
 
-1536
-01:09:45,359 --> 01:09:47,160
-an order it starts off by generating a
+01:09:45,359 --> 01:09:47,759
+它首先生成一个私钥，
 
-1537
-01:09:47,160 --> 01:09:47,759
-private key
-
-1538
 01:09:47,759 --> 01:09:50,520
-just getting a secure random number the
+只是获取一个安全的随机数，
 
-1539
 01:09:50,520 --> 01:09:52,170
-maximum is this value here which is n
+最大值是这个值，
 
-1540
 01:09:52,170 --> 01:09:54,120
-like I said earlier which is the number
+这是我之前说过的n，
 
-1541
 01:09:54,120 --> 01:09:56,100
-of points on the curve so if asked to
+也就是曲线上的点数。
 
-1542
 01:09:56,100 --> 01:09:59,040
-big I'll just raise an error so that
+如果它太大，我就会引发一个错误。
 
-1543
 01:09:59,040 --> 01:10:01,790
-generates a private key
+生成私钥后，
 
-1544
-01:10:01,790 --> 01:10:04,110
-after that he need to go from the
+01:10:01,790 --> 01:10:06,690
+我们需要从私钥转换为公钥，
 
-1545
-01:10:04,110 --> 01:10:06,690
-private to the public so we just use the
+01:10:06,690 --> 01:10:11,639
+所以我们就使用椭圆曲线做乘法。
 
-1546
-01:10:06,690 --> 01:10:09,480
-elliptic curve you do his ed up to give
-
-1547
-01:10:09,480 --> 01:10:11,639
-multiplication
-
-1548
 01:10:11,639 --> 01:10:14,310
 and then you that give you an x and y
 
