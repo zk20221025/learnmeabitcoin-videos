@@ -2907,186 +2907,164 @@ set of keys start with a private key so
 
 1269
 00:57:18,630 --> 00:57:21,580
+让我把这个移动过去，让它变大一点。
 let me just move this across make that
 
 1270
 00:57:21,580 --> 00:57:24,610
+首先，假设你正在进行一些编程工作，
 bit bigger so first of all let's see you
 
 1271
-00:57:24,610 --> 00:57:25,870
-doing some programming and you want to
+00:57:24,610 --> 00:57:27,370
+你想要创建你自己的静态生成的一组密钥，
 
-1272
-00:57:25,870 --> 00:57:27,370
-create your own statically generate your
-
-1273
 00:57:27,370 --> 00:57:29,710
+你首先开始生成一个私钥。
 own set of keys you first of all start
 
 1274
 00:57:29,710 --> 00:57:32,560
+如果你记得，
 by generating a private key and if you
 
 1275
 00:57:32,560 --> 00:57:33,880
+私钥只是一个随机数。
 remember a private key just a random
 
 1276
-00:57:33,880 --> 00:57:36,550
-number the most important thing we're
+00:57:33,880 --> 00:57:41,050
+生成这个随机数最重要的一点就是你需要使用一个安全的随机数源。
 
-1277
-00:57:36,550 --> 00:57:39,010
-generating this random number is that
-
-1278
-00:57:39,010 --> 00:57:41,050
-you use a secure source of randomness
-
-1279
 00:57:41,050 --> 00:57:43,620
+这是迄今为止最重要的一部分，
 this is the most important part by far
 
 1280
 00:57:43,620 --> 00:57:45,370
+确保它是安全的。
 make sure it's secure
 
 1281
-00:57:45,370 --> 00:57:48,190
-don't just use the standard random
+00:57:45,370 --> 00:57:50,590
+不要只是使用你的编程语言中的标准随机数生成器，
 
-1282
-00:57:48,190 --> 00:57:50,590
-number generators in your programming
-
-1283
 00:57:50,590 --> 00:57:52,270
+它们可能不够安全。
 language they're probably not secure
 
 1284
 00:57:52,270 --> 00:57:57,390
+对于这种情况，
 enough for this kind of stuff so good
 
 1285
 00:57:57,390 --> 00:57:59,740
+好的随机数源，据我所知，
 sources of randomness as far as I'm
 
 1286
 00:57:59,740 --> 00:58:02,790
+是使用Open SSL库，
 aware is using the open SSL library
 
 1287
-00:58:02,790 --> 00:58:04,930
-every programming language so that
+00:58:02,790 --> 00:58:08,290
+每种编程语言都应该能够使用它。
 
-1288
-00:58:04,930 --> 00:58:08,290
-should have access to it or sorry or if
-
-1289
 00:58:08,290 --> 00:58:10,840
+如果你在Linux上，
 you're on Linux use dev read bytes from
 
 1290
 00:58:10,840 --> 00:58:12,580
+使用dev从/dev/urandom读取字节，
 dev you random that should be random
 
 1291
 00:58:12,580 --> 00:58:14,520
+这应该对你来说足够随机。
 enough for you
 
 1292
-00:58:14,520 --> 00:58:17,440
-alternatively if you just have a Googler
+00:58:14,520 --> 00:58:19,210
+另外，如果你在你的编程语言中搜索，
 
-1293
-00:58:17,440 --> 00:58:19,210
-around for your programming language
+00:58:19,210 --> 00:58:24,010
+应该有一个库能够让你快速轻松地访问这两个东西。
 
-1294
-00:58:19,210 --> 00:58:21,450
-there should be a library that gives you
-
-1295
-00:58:21,450 --> 00:58:24,010
-quick and easy access to these two
-
-1296
 00:58:24,010 --> 00:58:27,700
+在Ruby中，
 things if they're available so in Ruby
 
 1297
 00:58:27,700 --> 00:58:31,540
+它被称为安全随机数，
 it's called secure random not sure it is
 
 1298
 00:58:31,540 --> 00:58:33,430
+不确定在其他语言中是什么，
 in other languages but just have a look
 
 1299
-00:58:33,430 --> 00:58:36,130
-around for the most secure source of
+00:58:33,430 --> 00:58:37,540
+但是可以去寻找一下你的编程语言中最安全的随机数源，
 
-1300
-00:58:36,130 --> 00:58:37,540
-randomness in your programming language
-
-1301
 00:58:37,540 --> 00:58:41,560
+这非常重要。
 it's very important so again okay so you
 
 1302
 00:58:41,560 --> 00:58:42,970
+再次强调，
 are secure a source of randomness you
 
 1303
 00:58:42,970 --> 00:58:46,030
+你需要一个安全的随机数源，
 need to generate a 256 bit number so
 
 1304
 00:58:46,030 --> 00:58:49,000
+你需要生成一个256位的数字，
 that's between one and a number that is
 
 1305
 00:58:49,000 --> 00:58:52,540
+也就是在1和2的256次方之间的一个数字，
 2 to the power of 256 which in decimal
 
 1306
 00:58:52,540 --> 00:58:59,349
+用十进制表示就是这个数。
 is this but to be precise it's actually
 
 1307
 00:58:59,349 --> 00:59:02,530
+但为了准确，
 the range of valid private keys is
 
 1308
 00:59:02,530 --> 00:59:04,810
+实际上有效的私钥范围略小于这个，
 slightly less than this and that's
 
 1309
-00:59:04,810 --> 00:59:06,460
-because of the limitations of the
+00:59:04,810 --> 00:59:08,200
+这是因为比特币中使用的特定曲线的限制。
 
-1310
-00:59:06,460 --> 00:59:08,200
-particular the particular curve used in
+00:59:08,200 --> 00:59:14,170
+这个曲线有一个叫做n的参数，
 
-1311
-00:59:08,200 --> 00:59:12,490
-Bitcoin in this cave it has a parameter
-
-1312
-00:59:12,490 --> 00:59:14,170
-called n which is just the number of
-
-1313
 00:59:14,170 --> 00:59:17,130
+这就是曲线上的点的数量，
 points on the curve and you cannot
 
 1314
 00:59:17,130 --> 00:59:19,710
+你的私钥不能超过这个。
 exceed this for your private key and
 
 1315
