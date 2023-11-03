@@ -3610,213 +3610,155 @@ number of characters you have to choose
 所以我们就使用椭圆曲线做乘法。
 
 01:10:11,639 --> 01:10:14,310
-and then you that give you an x and y
+这会给你一个x和y的值。
 
-1549
 01:10:14,310 --> 01:10:17,690
-value so in the old format it's just the
+在旧格式中，它只是x和y，
 
-1550
 01:10:17,690 --> 01:10:21,360
-x and y but a new format if want to
+但在新格式中，
 
-1551
 01:10:21,360 --> 01:10:22,619
-compress the public key
+如果你想压缩公钥，
 
-1552
 01:10:22,619 --> 01:10:25,349
-you just take whether Y is even or odd
+你只需要取y是否为偶数或奇数，
 
-1553
 01:10:25,349 --> 01:10:28,170
-and then / - no - or no three at the
+然后在开头添加02或03。
 
-1554
 01:10:28,170 --> 01:10:32,400
-start based on that after the public key
+在公钥之后，
 
-1555
 01:10:32,400 --> 01:10:33,840
-you only get the hash 160 it's quite
+你只能得到hash 160，
 
-1556
 01:10:33,840 --> 01:10:36,150
-simple just put it through two different
+这非常简单，
 
-1557
 01:10:36,150 --> 01:10:39,329
-hashing functions so sha 256 and then
+只需将其通过两个不同的哈希函数，
 
-1558
 01:10:39,329 --> 01:10:43,760
-wipe MD 160 and then to get the address
+即sha 256和ripe MD 160。
 
-1559
 01:10:43,760 --> 01:10:47,429
-you stick a prefix of the start create a
+要获取地址，你只需在开始处添加一个前缀，。
 
-1560
 01:10:47,429 --> 01:10:53,790
-checksum by hashing the hash 160 and
+通过哈希hash 160创建一个校验和，
 
-1561
 01:10:53,790 --> 01:10:55,349
-then the address is just all about
+然后地址就全部以base 58编码
 
-1562
 01:10:55,349 --> 01:10:58,710
-encoded in base 58 so if you have some
+如果你有一些实用函数，
 
-1563
 01:10:58,710 --> 01:11:00,659
-utility functions like the base 58 and
+比如base 58之类的，
 
-1564
 01:11:00,659 --> 01:11:04,380
-stuff and there we are so here's the
+那么我们就完成了。
 
-1565
 01:11:04,380 --> 01:11:07,530
-code you just run Ruby key generator
+这里是代码，你只需运行Ruby key generator，
 
-1566
-01:11:07,530 --> 01:11:09,060
-I'll put this code on the website or a
+01:11:07,530 --> 01:11:11,070
+我会把这个代码放在网站上或者在描述中添加一个链接，
 
-1567
-01:11:09,060 --> 01:11:11,070
-link in the description and this will
-
-1568
 01:11:11,070 --> 01:11:14,159
-give you a set of keys as you can see
+这会给你一组密钥。
 
-1569
 01:11:14,159 --> 01:11:16,139
-it's quite fast so even though we did
+你可以看到，
 
-1570
 01:11:16,139 --> 01:11:18,389
-all this you know crazy elliptic curve
+尽管我们做了所有这些疯狂的椭圆曲线乘法，
 
-1571
 01:11:18,389 --> 01:11:21,210
-multiplication when you run the code
+但当你运行代码时，
 
-1572
 01:11:21,210 --> 01:11:24,360
-it's pretty fast to give you you know
+它还是很快就能给你密钥。
 
-1573
 01:11:24,360 --> 01:11:32,750
-your psyches so just to prove to you um
+所以只是为了证明给你看，
 
-1574
 01:11:32,750 --> 01:11:37,619
-here's an address I can send some
+这是一个地址，
 
-1575
 01:11:37,619 --> 01:11:40,650
-bitcoins there's a debt this address may
+我可以向这个地址发送一些比特币，
 
-1576
 01:11:40,650 --> 01:11:42,810
-be our nest and the base description
+这个地址可能在描述中。
 
-1577
 01:11:42,810 --> 01:11:54,860
-sorry me not just for just to show up
+我只是为了展示一下，
 
-1578
 01:11:54,860 --> 01:11:59,300
-send a low fee send
+我会发送一个低费用的交易。
 
-1579
 01:12:01,230 --> 01:12:04,630
-okay so the paper has been sent so copy
+好的，所以支付已经发送，
 
-1580
 01:12:04,630 --> 01:12:13,870
-that I'm sorry maybe our browser send
+复制这个，对不起，
 
-1581
 01:12:13,870 --> 01:12:16,620
-the transaction look at the transaction
+可能是我们的浏览器发送了交易，看看交易，
 
-1582
 01:12:16,620 --> 01:12:18,130
-right there it is
+就在那里。
 
-1583
 01:12:18,130 --> 01:12:23,199
-so Wendy 9 that's the address I sent it
+所以Wendy 9就是我发送到的地址。
 
-1584
 01:12:23,199 --> 01:12:28,980
-to so like I said earlier remember how
+所以就像我之前说的，
 
-1585
 01:12:28,980 --> 01:12:31,480
-the electrum Wallace took care of my
+记住电子钱包是如何为我处理我的零钱的，
 
-1586
 01:12:31,480 --> 01:12:33,880
-change form for me and it sent it to a
+它把它发送到了一个不同的地址，
 
-1587
 01:12:33,880 --> 01:12:35,889
-different address like here so the
+比如这里。
 
-1588
 01:12:35,889 --> 01:12:42,699
-public here is protected okay a few
+所以，公钥在这里是受保护的。
 
-1589
 01:12:42,699 --> 01:12:47,290
-quick tips just before I go and this is
+在我结束之前，有几个快速提示。
 
-1590
 01:12:47,290 --> 01:12:51,460
-a very good graphical address generator
+这是一个非常好的图形地址生成器，
 
-1591
-01:12:51,460 --> 01:12:53,590
-that shows you all the steps you need to
+01:12:51,460 --> 01:12:56,380
+它向你展示了生成自己的地址需要做的所有步骤。
 
-1592
-01:12:53,590 --> 01:12:56,380
-do to generate your own addresses if you
-
-1593
 01:12:56,380 --> 01:13:00,730
-go on the Royal Fork blog Google that
+如果你去Royal Fork的博客，Google一下，
 
-1594
 01:13:00,730 --> 01:13:03,219
-cool and gone to the graphical address
+去使用图形地址生成器，
 
-1595
 01:13:03,219 --> 01:13:05,320
-general address generator it's very good
+它非常好。
 
-1596
 01:13:05,320 --> 01:13:07,090
-so if you're programming and you want to
+所以如果你正在编程，
 
-1597
 01:13:07,090 --> 01:13:08,230
-create your own set of keys and
+想要创建自己的密钥和地址，
 
-1598
 01:13:08,230 --> 01:13:11,020
-addresses this is very very helpful
+这非常有帮助。
 
-1599
 01:13:11,020 --> 01:13:14,100
-it's helped me a lot it's very good
+它帮助了我很多，非常好。
 
-1600
 01:13:14,100 --> 01:13:17,980
 secondly and preset about you've got all
 
