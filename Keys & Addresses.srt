@@ -2903,91 +2903,61 @@ number of characters you have to choose
 
 00:57:16,480 --> 00:57:18,630
 从私钥开始。
-set of keys start with a private key so
 
-1269
 00:57:18,630 --> 00:57:21,580
 让我把这个移动过去，让它变大一点。
-let me just move this across make that
 
-1270
 00:57:21,580 --> 00:57:24,610
 首先，假设你正在进行一些编程工作，
-bit bigger so first of all let's see you
 
-1271
 00:57:24,610 --> 00:57:27,370
 你想要创建你自己的静态生成的一组密钥，
 
 00:57:27,370 --> 00:57:29,710
 你首先开始生成一个私钥。
-own set of keys you first of all start
 
-1274
 00:57:29,710 --> 00:57:32,560
 如果你记得，
-by generating a private key and if you
 
-1275
 00:57:32,560 --> 00:57:33,880
 私钥只是一个随机数。
-remember a private key just a random
 
-1276
 00:57:33,880 --> 00:57:41,050
 生成这个随机数最重要的一点就是你需要使用一个安全的随机数源。
 
 00:57:41,050 --> 00:57:43,620
 这是迄今为止最重要的一部分，
-this is the most important part by far
 
-1280
 00:57:43,620 --> 00:57:45,370
 确保它是安全的。
-make sure it's secure
 
-1281
 00:57:45,370 --> 00:57:50,590
 不要只是使用你的编程语言中的标准随机数生成器，
 
 00:57:50,590 --> 00:57:52,270
 它们可能不够安全。
-language they're probably not secure
 
-1284
 00:57:52,270 --> 00:57:57,390
 对于这种情况，
-enough for this kind of stuff so good
 
-1285
 00:57:57,390 --> 00:57:59,740
 好的随机数源，据我所知，
-sources of randomness as far as I'm
 
-1286
 00:57:59,740 --> 00:58:02,790
 是使用Open SSL库，
-aware is using the open SSL library
 
-1287
 00:58:02,790 --> 00:58:08,290
 每种编程语言都应该能够使用它。
 
 00:58:08,290 --> 00:58:10,840
 如果你在Linux上，
-you're on Linux use dev read bytes from
 
-1290
 00:58:10,840 --> 00:58:12,580
 使用dev从/dev/urandom读取字节，
-dev you random that should be random
 
-1291
 00:58:12,580 --> 00:58:14,520
 这应该对你来说足够随机。
-enough for you
 
-1292
 00:58:14,520 --> 00:58:19,210
 另外，如果你在你的编程语言中搜索，
 
@@ -2996,62 +2966,40 @@ enough for you
 
 00:58:24,010 --> 00:58:27,700
 在Ruby中，
-things if they're available so in Ruby
 
-1297
 00:58:27,700 --> 00:58:31,540
 它被称为安全随机数，
-it's called secure random not sure it is
 
-1298
 00:58:31,540 --> 00:58:33,430
 不确定在其他语言中是什么，
-in other languages but just have a look
 
-1299
 00:58:33,430 --> 00:58:37,540
 但是可以去寻找一下你的编程语言中最安全的随机数源，
 
 00:58:37,540 --> 00:58:41,560
 这非常重要。
-it's very important so again okay so you
 
-1302
 00:58:41,560 --> 00:58:42,970
 再次强调，
-are secure a source of randomness you
 
-1303
 00:58:42,970 --> 00:58:46,030
 你需要一个安全的随机数源，
-need to generate a 256 bit number so
 
-1304
 00:58:46,030 --> 00:58:49,000
 你需要生成一个256位的数字，
-that's between one and a number that is
 
-1305
 00:58:49,000 --> 00:58:52,540
 也就是在1和2的256次方之间的一个数字，
-2 to the power of 256 which in decimal
 
-1306
 00:58:52,540 --> 00:58:59,349
 用十进制表示就是这个数。
-is this but to be precise it's actually
 
-1307
 00:58:59,349 --> 00:59:02,530
 但为了准确，
-the range of valid private keys is
 
-1308
 00:59:02,530 --> 00:59:04,810
 实际上有效的私钥范围略小于这个，
-slightly less than this and that's
 
-1309
 00:59:04,810 --> 00:59:08,200
 这是因为比特币中使用的特定曲线的限制。
 
@@ -3060,54 +3008,34 @@ slightly less than this and that's
 
 00:59:14,170 --> 00:59:17,130
 这就是曲线上的点的数量，
-points on the curve and you cannot
 
-1314
 00:59:17,130 --> 00:59:19,710
 你的私钥不能超过这个。
-exceed this for your private key and
 
-1315
 00:59:19,710 --> 00:59:23,349
 这实际上只比2的256次方小一点。
-it's only actually a little bit smaller
 
-1316
 00:59:23,349 --> 00:59:25,510
 它非常接近，
-than 2 to the power of 256 it's very
 
-1317
 00:59:25,510 --> 00:59:28,329
 但为了确保无误，
-close to it but just to be sure I don't
 
-1318
 00:59:28,329 --> 00:59:30,310
 我甚至没有看到这个数字在变化，
-even see this number changing but this
 
-1319
 00:59:30,310 --> 00:59:36,430
 但这是2的256次方。
-is 2 2 power of 56 but this is the N or
 
-1320
 00:59:36,430 --> 00:59:38,170
 这就是曲线上的点数N，
-the number of points on the curve so
 
-1321
 00:59:38,170 --> 00:59:40,000
 所以要确保它低于这个值。
-make sure it's below this and if you
 
-1322
 00:59:40,000 --> 00:59:42,040
 如果你在谷歌上搜索曲线的名称SECP 256 K1，
-google around the name of the curve SEC
 
-1323
 00:59:42,040 --> 00:59:45,130
 你可以找到N的参数。
 P 2 5 6 K 1 you can find the parameter
@@ -3474,194 +3402,228 @@ pad it out at the start with the zeros
 以确保整个X值部分的公钥总共是32字节。
 
 01:03:53,039 --> 01:03:57,420
+这是一个快速提示，
 just a quick tip otherwise you'll end up
 
 1415
 01:03:57,420 --> 01:04:02,210
+否则你可能会在之后创建一个错误的地址。
 creating an incorrect address later on
 
 1416
 01:04:03,230 --> 01:04:07,140
+这就是基本的操作：
 so okay that's the basics done private
 
 1417
 01:04:07,140 --> 01:04:10,200
+私钥是一个随机数，
 key random number public key just
 
 1418
 01:04:10,200 --> 01:04:11,430
+公钥是两个密钥的乘法，
 develop two key of multiplication and
 
 1419
 01:04:11,430 --> 01:04:14,069
+然后以压缩格式存储Y值，
 store the Y value in a compressed format
 
 1420
 01:04:14,069 --> 01:04:15,329
+我们只需要知道它是偶数还是奇数。
 we just need to know with it if it's
 
 1421
 01:04:15,329 --> 01:04:17,970
+现在我们有了这个，
 even or odd now we've got that we just
 
 1422
 01:04:17,970 --> 01:04:20,180
+我们就可以通过两个哈希函数进行操作，
 put that through two hash functions
 
 1423
-01:04:20,180 --> 01:04:23,609
-because now you want the Hat to hash 160
+01:04:20,180 --> 01:04:26,220
+因为现在你想要将这个哈希160给其他人。
 
-1424
-01:04:23,609 --> 01:04:26,220
-of this to give a way to other people so
-
-1425
 01:04:26,220 --> 01:04:28,380
+所以我们首先通过sha-256，
 if we just put it through sha-256 first
 
 1426
 01:04:28,380 --> 01:04:32,369
+然后通过ripemd 160，
 then wipe mt 160 and that gives you this
 
 1427
 01:04:32,369 --> 01:04:33,809
+这会给你这个摘要，这个结果。
 digest this result
 
 1428
 01:04:33,809 --> 01:04:35,819
+当你在比特币中进行哈希时，
 don't forget when you're hashing in
 
 1429
 01:04:35,819 --> 01:04:37,410
+别忘了首先将这个配置为二进制，
 Bitcoin to configure this to binary
 
 1430
 01:04:37,410 --> 01:04:38,789
+然后再放入哈希函数，
 first before you put into the hash
 
 1431
 01:04:38,789 --> 01:04:41,130
+并且得到一个二进制结果，
 function and a spirit of binary result
 
 1432
 01:04:41,130 --> 01:04:44,099
+将这个二进制结果放入下一个函数，
 put that binary result into the next one
 
 1433
 01:04:44,099 --> 01:04:46,950
+然后得到一个二进制结果，
 I'll spit up binary thank averted to
 
 1434
 01:04:46,950 --> 01:04:49,859
+然后将它转换为十六进制，
 taxes a hexadecimal and this is that
 
 1435
 01:04:49,859 --> 01:04:51,190
+这就会给你这个哈希160。
 gives you this hash one-sixth
 
 1436
 01:04:51,190 --> 01:04:56,020
+你可能会注意到这个结果，
 here you might notice that this result
 
 1437
-01:04:56,020 --> 01:04:58,710
-this digest is a bit smaller than these
+01:04:56,020 --> 01:05:01,710
+这个摘要比这些32字节的公钥要小一些。
 
-1438
-01:04:58,710 --> 01:05:01,710
-32 byte public keys
-
-1439
 01:05:01,710 --> 01:05:05,920
+那是因为sha 256是256位的，
 that's because char 256 is 256 bits
 
 1440
 01:05:05,920 --> 01:05:10,599
+产生256位的结果，也就是32字节，
 produces 256 bit results which is 32
 
 1441
 01:05:10,599 --> 01:05:13,540
+但是ripemd 160产生的结果更小，
 bytes but right the MT 160 produces
 
 1442
 01:05:13,540 --> 01:05:17,770
+160位的摘要，
 smaller results 160 bit digests which is
 
 1443
 01:05:17,770 --> 01:05:20,890
+也就是20字节，所以这个比较小。
 20 bytes so that's quite a bit smaller
 
 1444
 01:05:20,890 --> 01:05:26,349
+好的，
 like so fine okay
 
 1445
 01:05:26,349 --> 01:05:27,490
+这就是我们给其他人的东西，
 so this is what we give way to other
 
 1446
 01:05:27,490 --> 01:05:30,250
+这就是被保护的公钥。
 people this is the protected public key
 
 1447
 01:05:30,250 --> 01:05:32,530
+但是现在我们要创建一个地址，
 if you will but now we want to create
 
 1448
 01:05:32,530 --> 01:05:34,540
+这是一个更漂亮的版本，
 the address which is like a prettier
 
 1449
 01:05:34,540 --> 01:05:35,710
+其中包含了一些错误检查。
 version with some error checking
 
 1450
 01:05:35,710 --> 01:05:39,490
+所以我们需要做的是将这个转换为base 58，
 involved so what we do we need some base
 
 1451
 01:05:39,490 --> 01:05:43,119
+但在我们做这个之前，
 58 this but before we do that we first
 
 1452
 01:05:43,119 --> 01:05:45,460
+我们首先在开始处放一个版本字节，
 of all put a version byte at the start
 
 1453
 01:05:45,460 --> 01:05:48,520
+对于大多数地址来说，这个是00，
 which for most addresses is 0 0 I'll
 
 1454
 01:05:48,520 --> 01:05:50,400
+我会在一会儿解释为什么要这么做。
 explain why we do that in just a moment
 
 1455
 01:05:50,400 --> 01:05:53,050
+然后像我之前说的，我们需要一个校验和，
 and then like I said earlier we need a
 
 1456
 01:05:53,050 --> 01:05:55,720
+所以我们就对所有这些进行哈希，
 checksum so we just hash all of this so
 
 1457
 01:05:55,720 --> 01:05:57,490
+也就是带有版本字节的公钥，
 the public key with a version by at the
 
 1458
 01:05:57,490 --> 01:06:00,369
+对所有这些进行哈希，这就是校验和，
 start hash at all here's the checksum
 
 1459
 01:06:00,369 --> 01:06:03,210
+对它进行两次哈希，就像在挖矿中一样，
 hash it twice you know like in mining
 
 1460
 01:06:03,210 --> 01:06:05,800
+然后我们取前四个字节，这就是校验和，
 then we take the first four bytes last
 
 1461
 01:06:05,800 --> 01:06:07,240
+这就足够我们确信这个哈希是正确的，
 to checksum that's all we need really to
 
 1462
@@ -3670,10 +3632,12 @@ be sure enough that this hash is
 
 1463
 01:06:09,640 --> 01:06:11,550
+用于错误跟踪，
 correctly for the error tracking and
 
 1464
 01:06:11,550 --> 01:06:14,410
+然后我们将所有这些通过base 58进行处理。
 then we put all that then through base
 
 1465
