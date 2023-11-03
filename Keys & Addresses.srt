@@ -3069,154 +3069,152 @@ exceed this for your private key and
 
 1315
 00:59:19,710 --> 00:59:23,349
+这实际上只比2的256次方小一点。
 it's only actually a little bit smaller
 
 1316
 00:59:23,349 --> 00:59:25,510
+它非常接近，
 than 2 to the power of 256 it's very
 
 1317
 00:59:25,510 --> 00:59:28,329
+但为了确保无误，
 close to it but just to be sure I don't
 
 1318
 00:59:28,329 --> 00:59:30,310
+我甚至没有看到这个数字在变化，
 even see this number changing but this
 
 1319
 00:59:30,310 --> 00:59:36,430
+但这是2的256次方。
 is 2 2 power of 56 but this is the N or
 
 1320
 00:59:36,430 --> 00:59:38,170
+这就是曲线上的点数N，
 the number of points on the curve so
 
 1321
 00:59:38,170 --> 00:59:40,000
+所以要确保它低于这个值。
 make sure it's below this and if you
 
 1322
 00:59:40,000 --> 00:59:42,040
+如果你在谷歌上搜索曲线的名称SECP 256 K1，
 google around the name of the curve SEC
 
 1323
 00:59:42,040 --> 00:59:45,130
+你可以找到N的参数。
 P 2 5 6 K 1 you can find the parameter
 
 1324
 00:59:45,130 --> 00:59:50,050
+所以我们只是生成一个随机数，
 for n so there we are we just generate a
 
 1325
 00:59:50,050 --> 00:59:51,970
+我们可以证明它低于这个最大值。
 random number we can show us below this
 
 1326
 00:59:51,970 --> 00:59:54,940
+这就是私钥，
 maximum value here so that's the private
 
 1327
 00:59:54,940 --> 00:59:57,660
+只需要生成一个随机数。
 key done just generate a random number
 
 1328
 00:59:57,660 --> 01:00:00,490
+其次，我们现在想要创建公钥，
 secondly now we want to create the
 
 1329
 01:00:00,490 --> 01:00:02,859
+我们需要使用椭圆曲线，
 public key we need to use the elliptic
 
 1330
-01:00:02,859 --> 01:00:08,680
-curve this one and actually we do need
+01:00:02,859 --> 01:00:10,210
+实际上我们需要做椭圆曲线乘法，
 
-1331
-01:00:08,680 --> 01:00:10,210
-to do implicit elliptic curve
+01:00:10,210 --> 01:00:17,410
+但实际上在你的编程语言中可能有一个库可以让你访问，
 
-1332
-01:00:10,210 --> 01:00:12,970
-multiplication but actually in your
-
-1333
-01:00:12,970 --> 01:00:15,160
-programming language there probably is a
-
-1334
-01:00:15,160 --> 01:00:17,410
-library that gives you access to and if
-
-1335
 01:00:17,410 --> 01:00:20,020
+如果要给出东西，
 to give stuff so you can just include
 
 1336
 01:00:20,020 --> 01:00:21,790
+你就可以包含它并让它做一些椭圆曲线乘法。
 that in and just ask it to do some
 
 1337
-01:00:21,790 --> 01:00:24,339
-implicit multiplication so you draft a
+01:00:21,790 --> 01:00:25,599
+所以你在为自己编写代码时，
 
-1338
-01:00:24,339 --> 01:00:25,599
-code in this for yourself you can just
-
-1339
 01:00:25,599 --> 01:00:26,710
+可以找个库来帮你。
 get a librarian
 
 1340
-01:00:26,710 --> 01:00:29,619
-do it for you so what you do is just to
+01:00:26,710 --> 01:00:32,349
+你需要做的就是做椭圆曲线乘法，
 
-1341
-01:00:29,619 --> 01:00:32,349
-indicate multiplication multiply this
+01:00:32,349 --> 01:00:38,170
+将这个生成点或这个值和你的私钥进行乘法运算，
 
-1342
-01:00:32,349 --> 01:00:36,580
-generator point or this value and I'll
-
-1343
-01:00:36,580 --> 01:00:38,170
-bounce on the cave and the final resting
-
-1344
 01:00:38,170 --> 01:00:41,619
+最后的结果就是公钥。
 point will be this public key and the
 
 1345
 01:00:41,619 --> 01:00:44,410
+公钥是这个点的x和y值。
 public key is the ax and y value at this
 
 1346
 01:00:44,410 --> 01:00:50,080
+显然，这个公钥相当大，
 point obviously this public key is quite
 
 1347
 01:00:50,080 --> 01:00:53,200
+我们有两个256位的数字，
 large we've got to 256 bit numbers here
 
 1348
 01:00:53,200 --> 01:00:55,270
+这会占用很多空间。
 so that's gonna take up a lot of space
 
 1349
 01:00:55,270 --> 01:00:58,720
+在比特币中，
 and ID be in Bitcoin because the
 
 1350
 01:00:58,720 --> 01:01:01,330
+因为区块链是一个共享文件，
 blockchain is a shared file we don't be
 
 1351
 01:01:01,330 --> 01:01:02,650
+我们不希望占用太多空间。
 taking up too much space if we don't
 
 1352
 01:01:02,650 --> 01:01:04,450
+所以我们可以将这个数字缩小一点，
 have to so what we can do we can
 
 1353
@@ -3225,10 +3223,13 @@ actually shrink this number down a
 
 1354
 01:01:05,470 --> 01:01:08,550
+我们可以这样做，
+
 little bit and we can do that because
 
 1355
 01:01:08,550 --> 01:01:10,750
+因为椭圆曲线的一个便利特性是它沿着x轴对称。
 one of the handy properties are this
 
 1356
@@ -3237,22 +3238,27 @@ elliptic curve is that it's symmetrical
 
 1357
 01:01:13,030 --> 01:01:15,490
+所以这意味着，
 along the x-axis so what that means is
 
 1358
 01:01:15,490 --> 01:01:17,800
+如果你有一个x值，
 if you have an x value then it's only
 
 1359
 01:01:17,800 --> 01:01:20,020
+那么它的y值只有两个可能的值。
 the Y value it's only gonna be one of
 
 1360
 01:01:20,020 --> 01:01:23,020
+所以对于每个x值，
 two different values so for every x
 
 1361
 01:01:23,020 --> 01:01:26,440
+只有两个给定的y值。
 value there's only two given Y values so
 
 1362
