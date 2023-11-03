@@ -3263,118 +3263,127 @@ value there's only two given Y values so
 
 1362
 01:01:26,440 --> 01:01:29,040
+你可以考虑是Y或者-Y。
 you could think about being Y or minus y
 
 1363
 01:01:29,040 --> 01:01:35,320
+这个椭圆曲线的一个便利的性质是，
 and one of the handy properties of this
 
 1364
 01:01:35,320 --> 01:01:37,869
+如果这个Y值是偶数，
 elliptic curve is that if this Y value
 
 1365
 01:01:37,869 --> 01:01:40,750
+那么它就是曲线上的一个点，
 is even then it means it's it's one it's
 
 1366
 01:01:40,750 --> 01:01:42,369
+比如这个。
 one point on the curve say this one or
 
 1367
 01:01:42,369 --> 01:01:44,109
+如果它是奇数，
 if it's odd it means it's the other
 
 1368
 01:01:44,109 --> 01:01:47,410
+那就表示是曲线上的另一个点。
 point on the curve so I mean when we
 
 1369
 01:01:47,410 --> 01:01:50,619
+当我们想要存储这个公钥时，
 want to store this public key we don't
 
 1370
 01:01:50,619 --> 01:01:52,540
+我们不需要存储完整的Y值，
 have to store the full Y value all we
 
 1371
 01:01:52,540 --> 01:01:54,750
+我们只需要知道它是偶数还是奇数。
 need to know is whether it's even or odd
 
 1372
 01:01:54,750 --> 01:01:58,839
+这个Y值是偶数，
 so this Y value here is even so all we
 
 1373
 01:01:58,839 --> 01:02:00,609
+所以我们只需要知道这个公钥是偶数，
 need to know just always full public key
 
 1374
-01:02:00,609 --> 01:02:02,980
-is that it's even a name we can figure
+01:02:00,609 --> 01:02:05,020
+然后我们可以根据X值来推算出它是什么。
 
-1375
-01:02:02,980 --> 01:02:05,020
-out what it was from there based on the
 
-1376
 01:02:05,020 --> 01:02:09,040
+这就是X值，
 x value so this is the x value and then
 
 1377
-01:02:09,040 --> 01:02:12,310
-we can just put the whether the Y is
+01:02:09,040 --> 01:02:15,040
+然后我们可以把Y是偶数还是奇数放在前面。
 
-1378
-01:02:12,310 --> 01:02:15,040
-even or odd at the front obviously you
-
-1379
 01:02:15,040 --> 01:02:17,980
+显然，你不会把"偶数"或者"奇数"这个词放在前面，
 don't put the word even at the front or
 
 1380
 01:02:17,980 --> 01:02:20,020
+而是用两个代码来表示。
 odd there are two codes for that so if
 
 1381
 01:02:20,020 --> 01:02:22,540
+如果它是偶数，就用02表示，
 it's e if it's even but o2 like so or if
 
 1382
 01:02:22,540 --> 01:02:27,210
+如果是奇数，就用03表示。
 it's odd over 3 and early on in Bitcoin
 
 1383
 01:02:27,210 --> 01:02:30,099
+在比特币早期，
 public keys were actually stored using
 
 1384
 01:02:30,099 --> 01:02:32,140
+公钥实际上是用X和Y值一起存储的，
 both the x and y value and these are
 
 1385
 01:02:32,140 --> 01:02:34,510
+这些被称为未压缩的密钥。
 called uncompressed keys so this is a
 
 1386
 01:02:34,510 --> 01:02:36,070
+这是一个压缩的密钥，
 compressed key because you don't use the
 
 1387
 01:02:36,070 --> 01:02:38,160
+因为我们不需要使用完整的Y值，
 full y value because we don't need to
 
 1388
-01:02:38,160 --> 01:02:40,950
-but this wasn't known by satoshi at the
+01:02:38,160 --> 01:02:44,299
+但是这在创始人中本聪开始的时候并不知道，
 
-1389
-01:02:40,950 --> 01:02:44,299
-start that you could compress them so a
-
-1390
 01:02:44,299 --> 01:02:47,299
+所以早期的比特币公钥使用的是未压缩的格式。
 lot of early on bit in any public keys
 
 1391
@@ -3383,93 +3392,87 @@ use the uncompressed format and if you
 
 1392
 01:02:49,859 --> 01:02:51,210
+如果你想使用未压缩的格式，
 want to use number cut price for Matt
 
 1393
 01:02:51,210 --> 01:02:53,220
+那么它会以04开头，
 that'll start with over four zero four
 
 1394
 01:02:53,220 --> 01:02:57,029
+但是这个是02。
 sorry but this one zero two so there we
 
 1395
 01:02:57,029 --> 01:03:00,480
+所以这就是公钥，
 go that is the public key just in the X
 
 1396
 01:03:00,480 --> 01:03:06,720
+只需要X坐标和Y是偶数还是奇数，
 x coordinate and whether the Y is even
 
 1397
 01:03:06,720 --> 01:03:08,549
+编码为02或03。
 or odd encoded as a zero two or zero
 
 1398
-01:03:08,549 --> 01:03:12,089
-three don't need to convert all this tax
+01:03:08,549 --> 01:03:13,799
+不需要把所有这些文本转换成十进制，
 
-1399
-01:03:12,089 --> 01:03:13,799
-decimal i've been showing this in
+01:03:13,799 --> 01:03:16,950
+我只是用数字来说明这一切都只是数字。
 
-1400
-01:03:13,799 --> 01:03:15,240
-numbers just to illustrate that this is
+01:03:16,950 --> 01:03:21,269
+但是当你开始查看私钥和公钥或者传递它们时，
 
-1401
-01:03:15,240 --> 01:03:16,950
-all just numbers but when you come to
-
-1402
-01:03:16,950 --> 01:03:20,549
-look at private keys and public keys or
-
-1403
-01:03:20,549 --> 01:03:21,269
-pass them around
-
-1404
 01:03:21,269 --> 01:03:23,819
+它们通常会被存储为十六进制格式。
 they're usually stored in hexadecimal
 
 1405
 01:03:23,819 --> 01:03:27,900
+所以这就是私钥，
 format so there we go that's private key
 
 1406
 01:03:27,900 --> 01:03:30,509
+长度为32字节，
 is 32 bytes and this public key should
 
 1407
 01:03:30,509 --> 01:03:35,000
+而这个公钥应该是33字节。
 be future by it's also quick tip if this
 
 1408
 01:03:35,000 --> 01:03:37,829
+如果这个公钥是一个较小的数字，
 public key it's quite a low number and
 
 1409
 01:03:37,829 --> 01:03:41,369
+当你把它转换成十六进制时，
 when you convert it into hexadecimal if
 
 1410
 01:03:41,369 --> 01:03:44,339
+如果它的长度不是32字节，
 it's not 32 pipes in length make sure to
 
 1411
 01:03:44,339 --> 01:03:46,079
+那么请确保在开始时用0来填充，
 pad it out at the start with the zeros
 
 1412
-01:03:46,079 --> 01:03:49,319
-to make sure the whole xx value part of
+01:03:46,079 --> 01:03:53,039
+以确保整个X值部分的公钥总共是32字节。
 
-1413
-01:03:49,319 --> 01:03:53,039
-the public key is 32 bytes altogether so
-
-1414
 01:03:53,039 --> 01:03:57,420
 just a quick tip otherwise you'll end up
 
